@@ -8,6 +8,28 @@
 
 > The official landing site for Bits of Good 🚀
 
+## Tech stack breakdown
+
+The bits of good landing page is built on some modern tooling to keep everything nice and future-proof. Let's dive into what we're using.
+
+### Our frontend framework: SvelteJS
+
+Everything you see is built on [SvelteJS](https://svelte.dev), a component-based framework that magically disappears ✨ There are countless reasons we chose this framework, as it brings a host of benefits for decreasing bundle size and load times. However, we mainly chose it because of how easy the syntax is to understand! You can read more [here](https://dev.to/bholmesdev/why-sveltejs-may-be-the-best-framework-for-new-web-devs-205i) to learn why it's so awesome, or just [dive into the docs](https://svelte.dev/docs) to start experimenting yourself.
+
+#### Sapper
+
+Along with Svelte, we are using [Sapper](https://sapper.svelte.dev) to make wiring everything up a bit easier. Mainly, Sapper provides:
+
+- Automatic client-side routing out of the box. Basically, any component in the `src/routes` directory becomes its own page you can link to using a regular old `<a>` tag!
+- Preloading of information before loading the page. This makes it easy to fetch our website's text content and other resources before the initial page load.
+- Spinning up a server to serve all our pages, complete with server-side rendering!
+
+### Our site content: Contentful
+
+For basically every text field you see on the site, we're fetching it using [Contentful](https://www.contentful.com/). This is a [headless CMS](https://www.storyblok.com/tp/headless-cms-explained) that allows us to host all of our images, text, markdown, etc. in one place.
+
+This is a huge benefit for our designers, who can now just edit a textbox or upload an image to see it appear on the site!
+
 ## Install Dependencies
 
 ```sh
@@ -40,12 +62,17 @@ yarn test
 
 This will start the server and open Cypress. You can (and should!) add tests in `cypress/integration/spec.js` — consult the [Cypress docs](https://docs.cypress.io/guides/overview/why-cypress.html#In-a-nutshell) for more information.
 
-## Author
+## Contributors
 
-👤 **Ben &#34;CSS warrior&#34; Holmes**
+👤 **Ben &#34;Over-engineered&#34; Holmes**
 
 - Twitter: [@bholmesdev](https://twitter.com/bholmesdev)
 - Github: [@Holben888](https://github.com/Holben888)
+
+👤 **Rishov Sarkar**
+
+- Twitter: [@arkanemoose](https://twitter.com/arkanemoose)
+- Github: [@ArkaneMoose](https://github.com/arkanemoose)
 
 ## Show your support
 
