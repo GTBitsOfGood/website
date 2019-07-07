@@ -1,22 +1,41 @@
 <script>
-  import { SplitSection } from '../'
+  import { SplitSection, GetInvolvedBtn } from '../'
 </script>
 
 <style>
   .big-logo-container {
     position: relative;
   }
-  .big-logo-container svg {
+  h1 {
+    font-size: 5rem;
+  }
+  p {
+    font-size: 4.2rem;
+    line-height: 1.2em;
+    margin: 4.8rem 0;
+  }
+  p > strong {
+    display: block;
+  }
+  .text-container {
+    margin-left: 12rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+  }
+  .text-container > img {
     width: 100%;
-    height: auto;
+    max-width: 60rem;
   }
 </style>
 
 <SplitSection leftMargin={false}>
   <div class="big-logo-container" slot="left">
     <svg
-      width="665"
-      height="1300"
+      width="700"
+      height="1400"
       viewBox="0 0 665 1300"
       fill="none"
       xmlns="http://www.w3.org/2000/svg">
@@ -64,10 +83,13 @@
         </linearGradient>
       </defs>
     </svg>
-
+  </div>
+  <div class="text-container" slot="right">
+    <img src="images/bog-logo.png" alt="Bits of Good logo" />
+    <p>
+      Changing lives
+      <strong>one bit at a time</strong>
+    </p>
+    <GetInvolvedBtn large />
   </div>
 </SplitSection>
-
-<svelte:head>
-  <title>Bits of Good Homepage</title>
-</svelte:head>
