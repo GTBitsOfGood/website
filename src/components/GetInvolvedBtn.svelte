@@ -4,8 +4,8 @@
 
 <style>
   a {
-    background: var(--primary);
-    padding: 0.4em 1em;
+    background-color: var(--primary);
+    padding: 0.3em 1em;
     border-radius: 1rem;
     letter-spacing: 0;
     text-decoration: none;
@@ -13,6 +13,11 @@
     color: white;
     display: inline;
     text-align: center;
+    transition: box-shadow, background-color 0.3s;
+  }
+  a:hover {
+    box-shadow: var(--shadow);
+    background-color: var(--primary-yellow);
   }
   .large {
     font-size: 3.2rem;

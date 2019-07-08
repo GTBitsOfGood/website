@@ -11,7 +11,8 @@
   }
   p {
     font-size: 4.2rem;
-    line-height: 1.2em;
+    color: var(--text-color);
+    line-height: 1.3em;
     margin: 4.8rem 0;
   }
   p > strong {
@@ -23,7 +24,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    height: 100vh;
+    height: 80vh;
   }
   .text-container > img {
     width: 100%;
@@ -35,7 +36,7 @@
   <div class="big-logo-container" slot="left">
     <svg
       width="700"
-      height="1400"
+      height="1350"
       viewBox="0 0 665 1300"
       fill="none"
       xmlns="http://www.w3.org/2000/svg">
@@ -85,10 +86,10 @@
     </svg>
   </div>
   <div class="text-container" slot="right">
-    <img src="images/bog-logo.png" alt="Bits of Good logo" />
+    <img src="images/bog-logo.svg" alt="Bits of Good logo" />
     <p>
       Changing lives
-      <strong>one bit at a time</strong>
+      <strong>one bit at a time.</strong>
     </p>
     <GetInvolvedBtn large />
   </div>
