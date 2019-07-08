@@ -5,6 +5,12 @@
 </script>
 
 <style>
+  .parallax-container {
+    height: 95vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    perspective: 2px;
+  }
   main {
     position: relative;
     background-color: white;
@@ -14,7 +20,8 @@
 </style>
 
 <Nav {segment} />
-
-<main>
-  <slot />
-</main>
+<div class="parallax-container">
+  <main>
+    <slot />
+  </main>
+</div>
