@@ -5,7 +5,7 @@
 <style>
   a {
     background-color: var(--primary);
-    padding: 0.3em 1em;
+    padding: 0.6em 2.5em;
     border-radius: 1rem;
     letter-spacing: 0;
     text-decoration: none;
@@ -20,8 +20,8 @@
     background-color: var(--primary-yellow);
   }
   .large {
-    font-size: 3.2rem;
+    font-size: 2.4rem;
   }
 </style>
 
-<a class={large && 'large'} href="join">Get Involved</a>
+<a class={large ? 'large' : ''} href="join">Get Involved</a>
