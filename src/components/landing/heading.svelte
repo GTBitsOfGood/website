@@ -1,13 +1,16 @@
 <script>
-  import { SplitSection, GetInvolvedBtn } from '../'
+  import { SplitSection, GetInvolvedBtn, DottedAccent } from '../'
 </script>
 
 <style>
   .big-logo-container {
     position: relative;
   }
-  h1 {
-    font-size: 5rem;
+  .big-logo-container svg {
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    min-width: 50rem;
   }
   p {
     font-size: 4.2rem;
@@ -34,6 +37,7 @@
 
 <SplitSection leftMargin={false}>
   <div class="big-logo-container" slot="left">
+    <DottedAccent top="8rem" left="65%" width="m" color="red" />
     <svg
       width="700"
       height="1350"
@@ -86,6 +90,7 @@
     </svg>
   </div>
   <div class="text-container" slot="right">
+    <DottedAccent top="25vh" left="60%" width="l" height="m" />
     <img src="images/bog-logo.svg" alt="Bits of Good logo" />
     <p>
       Changing lives
