@@ -11,10 +11,11 @@
     overflow-x: hidden;
     overflow-y: scroll;
     perspective: 2px;
+    transform-style: preserve-3d;
+    background: linear-gradient(50deg, white, #faf6f2);
   }
   main {
     position: relative;
-    background-color: white;
     margin: 0 auto;
     box-sizing: border-box;
   }
