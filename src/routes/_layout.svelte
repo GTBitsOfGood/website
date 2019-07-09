@@ -6,7 +6,8 @@
 
 <style>
   .parallax-container {
-    height: 95vh;
+    height: calc(100vh - var(--nav-height));
+    width: 100%;
     overflow-x: hidden;
     overflow-y: scroll;
     perspective: 2px;
