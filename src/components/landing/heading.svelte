@@ -38,6 +38,7 @@
 <SplitSection leftMargin={false}>
   <div class="big-logo-container" slot="left">
     <DottedAccent top="8rem" left="65%" width="m" color="red" />
+    <DottedAccent top="65%" left="-30%" width="l" height="m" color="yellow" />
     <svg
       width="700"
       height="1350"
@@ -73,8 +74,8 @@
           x2="200.724"
           y2="999.304"
           gradientUnits="userSpaceOnUse">
-          <stop stop-color="#FF7574" />
-          <stop offset="1" stop-color="#FFC55A" />
+          <stop stop-color="var(--primary-red)" />
+          <stop offset="1" stop-color="var(--primary-yellow)" />
         </linearGradient>
         <linearGradient
           id="paint1_linear"
