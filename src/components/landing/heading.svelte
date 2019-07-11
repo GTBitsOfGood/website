@@ -12,12 +12,6 @@
     position: relative;
     overflow: hidden;
   }
-  .big-logo-container svg {
-    z-index: 1;
-    width: 100%;
-    height: auto;
-    min-width: 50rem;
-  }
   p {
     font-size: 4.2rem;
     color: var(--text-color);
