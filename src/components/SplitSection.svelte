@@ -22,11 +22,11 @@
 </style>
 
 <section>
+  <slot />
   <div class={leftMargin ? 'left-margin' : ''}>
     <slot name="left" />
   </div>
   <div class={rightMargin ? 'right-margin' : ''}>
     <slot name="right" />
   </div>
-  <slot />
 </section>

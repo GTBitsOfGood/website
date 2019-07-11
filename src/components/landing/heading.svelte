@@ -1,10 +1,16 @@
 <script>
   import { SplitSection, GetInvolvedBtn, DottedAccent } from '../'
+  import AnimatedLogo from './AnimatedLogo.svelte'
 </script>
 
 <style>
   .big-logo-container {
+    height: 78vw;
+    width: auto;
+    min-width: 50rem;
+    min-height: 90rem;
     position: relative;
+    overflow: hidden;
   }
   .big-logo-container svg {
     z-index: 1;
@@ -39,7 +45,7 @@
   <div class="big-logo-container" slot="left">
     <DottedAccent top="8rem" left="65%" width="m" color="red" />
     <DottedAccent top="65%" left="-30%" width="l" height="m" color="yellow" />
-    <svg
+    <!-- <svg
       width="700"
       height="1350"
       viewBox="0 0 665 1300"
@@ -88,7 +94,7 @@
           <stop offset="1" stop-color="#E3A564" />
         </linearGradient>
       </defs>
-    </svg>
+    </svg> -->
   </div>
   <div class="text-container" slot="right">
     <DottedAccent top="25vh" left="60%" width="l" height="m" />
@@ -99,4 +105,5 @@
     </p>
     <GetInvolvedBtn large />
   </div>
+  <AnimatedLogo />
 </SplitSection>

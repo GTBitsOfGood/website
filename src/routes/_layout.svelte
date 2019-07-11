@@ -10,7 +10,7 @@
     width: 100%;
     overflow-x: hidden;
     overflow-y: scroll;
-    perspective: 2px;
+    perspective: 10px;
     transform-style: preserve-3d;
     background: linear-gradient(50deg, white, #faf6f2);
   }
