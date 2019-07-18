@@ -24,6 +24,23 @@ html {
   font-size: 10px;
 }
 
+p {
+  font-size: 24px;
+  color: var(--text-color);
+}
+
+a,
+a:visited {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--primary-yellow);
+}
+
 button {
   background: var(--primary);
   padding: 1em 2em;
@@ -52,6 +69,10 @@ h6 {
   font-family: 'Visby CF';
   font-weight: 400;
   line-height: 1.2;
+}
+
+h2 {
+  font-size: 64px;
 }
 
 code {

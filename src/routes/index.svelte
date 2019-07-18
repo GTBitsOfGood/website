@@ -1,9 +1,9 @@
 <script>
-  import { Heading, ConnectingWith } from '../components/landing'
+  import { Heading, ConnectingSection } from '../components/landing'
 </script>
 
 <Heading />
-<ConnectingWith />
+<ConnectingSection />
 
 <svelte:head>
   <title>Bits of Good Homepage</title>
