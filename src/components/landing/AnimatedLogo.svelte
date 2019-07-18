@@ -67,5 +67,3 @@
     </linearGradient>
   </defs>
 </svg>
-
-<!-- <div class="gradient" /> -->
