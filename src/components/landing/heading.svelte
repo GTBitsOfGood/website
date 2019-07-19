@@ -12,13 +12,14 @@
     position: relative;
     overflow: hidden;
   }
-  p {
-    font-size: 4.2rem;
+  h2 {
+    font-size: 4rem;
+    font-family: inherit;
     color: var(--text-color);
     line-height: 1.3em;
     margin: 4.8rem 0;
   }
-  p > strong {
+  h2 > strong {
     display: block;
   }
   .text-container {
@@ -35,18 +36,18 @@
   }
 </style>
 
-<SplitSection leftMargin={false}>
+<SplitSection leftMargin={false} style="margin-bottom: -4rem;">
   <div class="big-logo-container" slot="left">
     <DottedAccent top="8rem" left="65%" width="m" color="red" />
     <DottedAccent top="65%" left="-10%" width="l" height="m" color="yellow" />
   </div>
-  <div class="text-container" slot="right">
+  <div class="text-container" role="banner" slot="right">
     <DottedAccent top="25vh" left="60%" width="l" height="m" />
     <img src="images/bog-logo.svg" alt="Bits of Good logo" />
-    <p>
+    <h2>
       Changing lives
       <strong>one bit at a time.</strong>
-    </p>
+    </h2>
     <GetInvolvedBtn large />
   </div>
   <AnimatedLogo />

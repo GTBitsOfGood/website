@@ -1,32 +1,33 @@
 <script>
   export let leftMargin = true
   export let rightMargin = true
+  export let style = ''
 </script>
 
 <style>
   section {
     display: flex;
     position: relative;
+    margin-bottom: 4rem;
   }
   section > * {
     flex: 1;
+    position: relative;
   }
   .left-margin {
     margin-left: 12rem;
-    position: relative;
   }
   .right-margin {
     margin-right: 12rem;
-    position: relative;
   }
 </style>
 
-<section>
+<section {style}>
   <slot />
-  <div class={leftMargin ? 'left-margin' : ''}>
+  <div class:left-margin={leftMargin}>
     <slot name="left" />
   </div>
-  <div class={rightMargin ? 'right-margin' : ''}>
+  <div class:right-margin={rightMargin}>
     <slot name="right" />
   </div>
 </section>
