@@ -1,10 +1,15 @@
 <script>
-  import { SplitSection, GetInvolvedBtn, DottedAccent } from '../'
+  import { GetInvolvedBtn, DottedAccent } from '../'
   import AnimatedLogo from './AnimatedLogo.svelte'
 </script>
 
 <style>
+  .banner {
+    display: flex;
+    margin-bottom: -4rem;
+  }
   .big-logo-container {
+    flex: 1;
     height: 78vw;
     width: auto;
     min-width: 50rem;
@@ -23,7 +28,8 @@
     display: block;
   }
   .text-container {
-    margin-left: 12rem;
+    flex: 1;
+    margin: 0 12rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -36,12 +42,13 @@
   }
 </style>
 
-<SplitSection leftMargin={false} style="margin-bottom: -4rem;">
-  <div class="big-logo-container" slot="left">
+<div class="banner" role="banner">
+  <AnimatedLogo />
+  <div class="big-logo-container">
     <DottedAccent top="8rem" left="65%" width="m" color="red" />
     <DottedAccent top="65%" left="-10%" width="l" height="m" color="yellow" />
   </div>
-  <div class="text-container" role="banner" slot="right">
+  <div class="text-container" role="banner">
     <DottedAccent top="25vh" left="60%" width="l" height="m" />
     <img src="images/bog-logo.svg" alt="Bits of Good logo" />
     <h2>
@@ -50,5 +57,4 @@
     </h2>
     <GetInvolvedBtn large />
   </div>
-  <AnimatedLogo />
-</SplitSection>
+</div>
