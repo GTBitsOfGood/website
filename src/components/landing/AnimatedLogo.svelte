@@ -58,12 +58,12 @@
     <linearGradient
       id="backing-gradient"
       x1="1439"
-      y1="3.96734e-06"
-      x2="851.5"
-      y2="953"
+      y1="-5.17919e-05"
+      x2="1280.5"
+      y2="1044"
       gradientUnits="userSpaceOnUse">
-      <stop stop-color="#FBF6F2" />
-      <stop offset="1" stop-color="white" />
+      <stop stop-color="var(--backing-pink-pronounced)" />
+      <stop offset="1" stop-color="var(--backing-pink)" />
     </linearGradient>
   </defs>
 </svg>

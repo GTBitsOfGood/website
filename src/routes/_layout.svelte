@@ -12,7 +12,7 @@
     overflow-y: scroll;
     perspective: 10px;
     transform-style: preserve-3d;
-    background: linear-gradient(50deg, white, #faf6f2);
+    background: var(--backing-pink);
   }
   main {
     position: relative;

@@ -6,7 +6,8 @@
 }
 
 :root {
-  --backing-pink: #fef2ea;
+  --backing-pink: #fffdfc;
+  --backing-pink-pronounced: #fbf6f2;
   --primary-red: #ff7574;
   --primary: #f38d6a;
   --primary-yellow: #ffc55a;
