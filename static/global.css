@@ -24,6 +24,24 @@ html {
   font-size: 10px;
 }
 
+p {
+  font-size: 24px;
+  color: var(--text-color);
+}
+
+a,
+a:visited {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+a:hover,
+a:active {
+  color: var(--primary-yellow);
+}
+
 button {
   background: var(--primary);
   padding: 1em 2em;
@@ -54,6 +72,19 @@ h6 {
   line-height: 1.2;
 }
 
+h2 {
+  font-size: 72px;
+}
+
+@media (max-width: 500px) {
+  h2 {
+    font-size: 48px;
+  }
+  p {
+    font-size: 20px;
+  }
+}
+
 code {
   font-family: menlo, inconsolata, monospace;
   font-size: calc(1em - 2px);
@@ -61,10 +92,4 @@ code {
   background-color: #f0f0f0;
   padding: 0.2em 0.4em;
   border-radius: 2px;
-}
-
-@media (min-width: 400px) {
-  body {
-    font-size: 16px;
-  }
 }

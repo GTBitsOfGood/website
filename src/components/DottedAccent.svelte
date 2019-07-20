@@ -28,7 +28,7 @@
     background-size: 3rem 3rem;
     position: absolute;
     opacity: 0.1;
-    transform: translateZ(-1.5px);
+    transform: translateZ(-2px);
   }
 </style>
 

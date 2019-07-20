@@ -10,6 +10,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    z-index: -1;
     background: linear-gradient(
       50deg,
       var(--primary-yellow),

@@ -1,10 +1,15 @@
 <script>
-  import { SplitSection, GetInvolvedBtn, DottedAccent } from '../'
+  import { GetInvolvedBtn, DottedAccent } from '../'
   import AnimatedLogo from './AnimatedLogo.svelte'
 </script>
 
 <style>
+  .banner {
+    display: flex;
+    margin-bottom: -10rem;
+  }
   .big-logo-container {
+    flex: 1;
     height: 78vw;
     width: auto;
     min-width: 50rem;
@@ -12,17 +17,19 @@
     position: relative;
     overflow: hidden;
   }
-  p {
-    font-size: 4.2rem;
+  h2 {
+    font-size: 4rem;
+    font-family: inherit;
     color: var(--text-color);
     line-height: 1.3em;
     margin: 4.8rem 0;
   }
-  p > strong {
+  h2 > strong {
     display: block;
   }
   .text-container {
-    margin-left: 12rem;
+    flex: 1;
+    margin: 0 12rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -35,19 +42,19 @@
   }
 </style>
 
-<SplitSection leftMargin={false}>
-  <div class="big-logo-container" slot="left">
+<div class="banner" role="banner">
+  <AnimatedLogo />
+  <div class="big-logo-container">
     <DottedAccent top="8rem" left="65%" width="m" color="red" />
     <DottedAccent top="65%" left="-10%" width="l" height="m" color="yellow" />
   </div>
-  <div class="text-container" slot="right">
+  <div class="text-container" role="banner">
     <DottedAccent top="25vh" left="60%" width="l" height="m" />
     <img src="images/bog-logo.svg" alt="Bits of Good logo" />
-    <p>
+    <h2>
       Changing lives
       <strong>one bit at a time.</strong>
-    </p>
+    </h2>
     <GetInvolvedBtn large />
   </div>
-  <AnimatedLogo />
-</SplitSection>
+</div>
