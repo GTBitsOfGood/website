@@ -25,7 +25,7 @@
 
 <InfoSplitSection>
   <div slot="left">
-    <h2>Connecting with ATL</h2>
+    <h2>Connecting with ATL</h2>
     <p>
       By building relationships with local nonprofits, we are redefining social
       good for students who want to make a meaningful impact with their

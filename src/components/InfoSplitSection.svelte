@@ -13,18 +13,23 @@
     height: 100vh;
     max-height: 100rem;
     margin-bottom: 4rem;
-    margin: 0 12rem;
+    margin: 0 auto;
+    padding: 0 6rem;
+    max-width: 130rem;
   }
   section.reverseWrap {
     flex-wrap: wrap-reverse;
   }
+  .left {
+    flex: 1;
+    margin-right: 6rem;
+  }
+  .right {
+    flex: 1.2;
+  }
   .left,
   .right {
-    flex: 1;
     min-width: 40rem;
-  }
-  .left {
-    margin-right: 6rem;
   }
 </style>
 
