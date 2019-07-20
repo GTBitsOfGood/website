@@ -21,6 +21,7 @@
     margin-top: 30%;
     width: 100%;
     transform: translateZ(-1px);
+    z-index: -1;
   }
 </style>
 

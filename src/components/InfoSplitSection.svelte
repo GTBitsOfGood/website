@@ -10,10 +10,9 @@
     display: flex;
     position: relative;
     flex-wrap: wrap;
-    height: 100vh;
-    max-height: 100rem;
-    margin-bottom: 4rem;
+    min-height: 80rem;
     margin: 0 auto;
+    margin-bottom: 10rem;
     padding: 0 6rem;
     max-width: 130rem;
   }

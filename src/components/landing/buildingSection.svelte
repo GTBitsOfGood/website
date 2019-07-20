@@ -13,7 +13,8 @@
     top: 0;
     width: 40%;
     height: auto;
-    transform: translateZ(-1px);
+    transform: translateZ(-2px);
+    z-index: -1;
   }
   .artwork-back {
     width: 100%;
