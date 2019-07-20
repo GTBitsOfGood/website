@@ -1,11 +1,8 @@
 <script>
-  import InfoSplitSection from '../InfoSplitSection.svelte'
+  import { InfoSplitSection, DottedAccent } from '../'
 </script>
 
 <style>
-  a {
-    font-size: 24px;
-  }
   .artwork {
     position: relative;
     max-width: 60rem;
@@ -31,6 +28,7 @@
       and mentorship at all levels, both from team members of diverse skillsets
       and from the close-knit, passionate club community.
     </p>
+    <DottedAccent top="10%" left="-5rem" width="m" height="l" />
   </div>
   <div class="artwork" slot="right">
     <img src="images/building-artwork-back.svg" alt="" class="artwork-back" />
