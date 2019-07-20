@@ -37,7 +37,8 @@ a:visited {
   transition: color 0.2s;
 }
 
-a:hover {
+a:hover,
+a:active {
   color: var(--primary-yellow);
 }
 
