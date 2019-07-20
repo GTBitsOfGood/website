@@ -19,10 +19,13 @@
   .artwork-back {
     width: 100%;
   }
+  .text-container {
+    position: relative;
+  }
 </style>
 
 <InfoSplitSection>
-  <div slot="left">
+  <div slot="left" class="text-container">
     <h2>Building powerful web apps</h2>
     <p>
       Our organization develops real-world applications and promotes learning
