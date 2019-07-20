@@ -8,6 +8,7 @@
   }
   .artwork {
     position: relative;
+    max-width: 60rem;
   }
   .artwork-front {
     position: absolute;
@@ -15,11 +16,11 @@
     top: 0;
     width: 50%;
     height: auto;
-    transform: translateZ(-1px);
   }
   .artwork-back {
     margin-top: 30%;
     width: 100%;
+    transform: translateZ(-1px);
   }
 </style>
 
