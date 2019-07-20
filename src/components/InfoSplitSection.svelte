@@ -1,10 +1,3 @@
-<script>
-  export let leftMargin = true
-  export let rightMargin = true
-  export let reverseWrap = true
-  export let style = ''
-</script>
-
 <style>
   section {
     display: flex;
@@ -15,9 +8,6 @@
     margin-bottom: 10rem;
     padding: 0 6rem;
     max-width: 130rem;
-  }
-  section.reverseWrap {
-    flex-wrap: wrap-reverse;
   }
   .left {
     flex: 1;
@@ -32,7 +22,7 @@
   }
 </style>
 
-<section {style} class:reverseWrap>
+<section>
   <slot />
   <div class="left">
     <slot name="left" />
