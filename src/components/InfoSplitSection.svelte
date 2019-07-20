@@ -5,7 +5,6 @@
     flex-wrap: wrap-reverse;
     min-height: 60rem;
     margin: 0 auto;
-    margin-bottom: 10rem;
     max-width: 130rem;
   }
   .left {

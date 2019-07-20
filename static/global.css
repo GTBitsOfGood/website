@@ -28,6 +28,9 @@ p {
   font-size: 24px;
   color: var(--text-color);
 }
+section {
+  margin-bottom: 10rem;
+}
 
 a,
 a:visited {
