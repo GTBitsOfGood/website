@@ -1,14 +1,29 @@
 <script>
-  import SplitSection from '../SplitSection.svelte'
+  import InfoSplitSection from '../InfoSplitSection.svelte'
 </script>
 
 <style>
   a {
     font-size: 24px;
   }
+  .artwork {
+    position: relative;
+  }
+  .artwork-front {
+    position: absolute;
+    right: 5%;
+    top: 0;
+    width: 50%;
+    height: auto;
+    transform: translateZ(-1px);
+  }
+  .artwork-back {
+    margin-top: 30%;
+    width: 100%;
+  }
 </style>
 
-<SplitSection>
+<InfoSplitSection>
   <div slot="left">
     <h2>Connecting with ATL</h2>
     <p>
@@ -18,4 +33,11 @@
     </p>
     <a href="about-us">More about our mission</a>
   </div>
-</SplitSection>
+  <div class="artwork" slot="right">
+    <img src="images/connecting-artwork-back.svg" alt="" class="artwork-back" />
+    <img
+      src="images/connecting-artwork-front.png"
+      alt="Person leaning over looking at network"
+      class="artwork-front" />
+  </div>
+</InfoSplitSection>

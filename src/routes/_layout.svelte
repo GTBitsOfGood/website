@@ -10,7 +10,7 @@
     width: 100%;
     overflow-x: hidden;
     overflow-y: scroll;
-    perspective: 10px;
+    perspective: 20px;
     transform-style: preserve-3d;
     background: var(--backing-pink);
   }
