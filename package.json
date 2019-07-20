@@ -3,6 +3,7 @@
   "description": "TODO",
   "version": "0.0.1",
   "scripts": {
+    "up": "npx sapper export && surge --project ./__sapper__/export --domain bog.surge.sh",
     "dev": "sapper dev",
     "build": "sapper build --legacy",
     "export": "sapper export --legacy",
