@@ -10,7 +10,7 @@
     display: flex;
     position: relative;
     flex-wrap: wrap;
-    min-height: 80rem;
+    min-height: 60rem;
     margin: 0 auto;
     margin-bottom: 10rem;
     padding: 0 6rem;
