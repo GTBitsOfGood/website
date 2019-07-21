@@ -2,20 +2,19 @@
   section {
     display: flex;
     position: relative;
+    justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap-reverse;
     min-height: 60rem;
     margin: 0 auto;
-    margin-bottom: 10rem;
     max-width: 130rem;
   }
   .left {
-    flex: 1;
-  }
-  .right {
-    flex: 1.2;
+    max-width: 50rem;
   }
   .left,
   .right {
+    flex: 1;
     width: 100%;
     flex-basis: 40rem;
     margin: 3rem;
