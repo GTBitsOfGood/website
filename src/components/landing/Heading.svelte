@@ -6,7 +6,7 @@
 <style>
   .banner {
     display: flex;
-    margin-bottom: -10rem;
+    margin-bottom: -15rem;
   }
   .big-logo-container {
     flex: 1;
