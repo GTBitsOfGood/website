@@ -1,6 +1,5 @@
 <script>
-  import SwooshGraphicFront from './SwooshGraphicFront.svelte'
-  import SwooshGraphicBack from './SwooshGraphicBack.svelte'
+  import SwooshGraphic from './SwooshGraphic.svelte'
 </script>
 
 <style>
@@ -24,7 +23,7 @@
   .quote-container {
     max-width: 120rem;
     width: 100%;
-    height: 50rem;
+    height: 60rem;
     margin: 0 auto 25rem auto;
     box-shadow: 0px 1rem 2rem rgba(0, 0, 0, 0.1);
     background: #fff9e1;
@@ -35,7 +34,6 @@
 <section>
   <div class="quote-container" />
   <div class="swoosh-container">
-    <SwooshGraphicBack />
-    <SwooshGraphicFront />
+    <SwooshGraphic />
   </div>
 </section>
