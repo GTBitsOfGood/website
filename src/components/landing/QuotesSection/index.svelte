@@ -1,5 +1,6 @@
 <script>
   import SwooshGraphic from './SwooshGraphic.svelte'
+  import DottedAccent from '../../DottedAccent.svelte'
 
   const quotes = [
     {
@@ -28,9 +29,11 @@
     align-items: flex-end;
     padding: 3rem;
     min-height: 100rem;
+    margin-bottom: 20rem;
   }
   .quote-container {
     display: flex;
+    position: relative;
     justify-content: space-between;
     align-items: center;
     padding: 0 8rem;
@@ -81,6 +84,7 @@
   }
 
   .text-container {
+    z-index: 1;
     width: 50%;
     padding-top: 6rem;
     padding-bottom: 8rem;
@@ -122,6 +126,14 @@
       on:click={() => (quoteIndex = nextQuoteIndex)}>
       <img src="/example-data/{next.pictureURL}" alt={next.author} />
     </button>
+    <DottedAccent
+      height="l"
+      width="xl"
+      color="#F1E8C7"
+      right="10%"
+      top="8rem"
+      opaque
+      parallax={false} />
   </div>
   <SwooshGraphic />
 </section>
