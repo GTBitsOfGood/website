@@ -14,25 +14,15 @@
     padding: 3rem;
     min-height: 100rem;
   }
-  .swoosh-container {
-    display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    justify-content: center;
-    align-items: flex-end;
-  }
   .quote-container {
     position: relative;
     display: flex;
     align-items: center;
-    padding: 10rem;
+    padding: 0 8rem;
     max-width: 120rem;
     width: 100%;
-    height: 60rem;
-    margin: 0 auto 25rem auto;
+    margin: 0 auto;
+    margin-bottom: 25rem;
     box-shadow: 0px 1rem 2rem rgba(0, 0, 0, 0.1);
     background: #fff9e1;
     border-radius: 3rem;
@@ -40,6 +30,8 @@
 
   .text-container {
     width: 50%;
+    padding-top: 6rem;
+    padding-bottom: 8rem;
   }
   .text-container::before {
     content: url('/icons/quote-symbol.svg');
@@ -61,12 +53,7 @@
     font-size: 24px;
   }
   figcaption::before {
-    /* quote dash SVG */
-    content: url('data:image/svg+xml,\
-    <svg width="46" height="30" viewBox="0 0 46 30" fill="none" xmlns="http://www.w3.org/2000/svg">\
-      <rect width="46" height="2" y="20" fill="#514B33"/>\
-    </svg>\
-    ');
+    content: url('/icons/quote-dash.svg');
     margin-right: 2rem;
   }
 </style>
@@ -78,7 +65,5 @@
       <figcaption>{quoteAuthor}</figcaption>
     </figure>
   </div>
-  <div class="swoosh-container">
-    <SwooshGraphic />
-  </div>
+  <SwooshGraphic />
 </section>
