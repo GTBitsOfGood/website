@@ -3,6 +3,7 @@
 
   let quote =
     'Bits of good is freaking amazing and I love it so much! The community especially.'
+  let quoteAuthor = 'James, hype man'
 </script>
 
 <style>
@@ -36,29 +37,46 @@
     background: #fff9e1;
     border-radius: 3rem;
   }
-  .quote-container::after {
-    content: '';
-    background-image: url('/icons/quote-symbol.svg');
-    background-size: 7rem 7rem;
-    background-repeat: no-repeat;
-    position: absolute;
-    top: 7rem;
-    left: 10rem;
-    right: 0;
-    bottom: 0;
-  }
 
-  p {
-    font-weight: 400;
-    font-size: 40px;
-    letter-spacing: 0.05em;
+  .text-container {
     width: 50%;
+  }
+  .text-container::before {
+    content: url('/icons/quote-symbol.svg');
+    display: block;
+    width: 7rem;
+    height: 7rem;
+  }
+  blockquote,
+  figcaption {
+    font-weight: 400;
+    letter-spacing: 0.05em;
+  }
+  blockquote {
+    font-size: 40px;
+    margin: 2.6rem 0;
+  }
+  figcaption {
+    text-align: right;
+    font-size: 24px;
+  }
+  figcaption::before {
+    /* quote dash SVG */
+    content: url('data:image/svg+xml,\
+    <svg width="46" height="30" viewBox="0 0 46 30" fill="none" xmlns="http://www.w3.org/2000/svg">\
+      <rect width="46" height="2" y="20" fill="#514B33"/>\
+    </svg>\
+    ');
+    margin-right: 2rem;
   }
 </style>
 
 <section>
   <div class="quote-container">
-    <p>{quote}</p>
+    <figure class="text-container">
+      <blockquote>{quote}</blockquote>
+      <figcaption>{quoteAuthor}</figcaption>
+    </figure>
   </div>
   <div class="swoosh-container">
     <SwooshGraphic />
