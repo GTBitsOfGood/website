@@ -1,9 +1,24 @@
 <script>
   import SwooshGraphic from './SwooshGraphic.svelte'
 
-  let quote =
-    'Bits of good is freaking amazing and I love it so much! The community especially.'
-  let quoteAuthor = 'James, hype man'
+  const quotes = [
+    {
+      author: 'James, hype man',
+      pictureURL: 'quote-img-1.jpg',
+      quote:
+        'Bits of Good is freaking amazing and I love it so much! The community especially.',
+    },
+    {
+      author: 'Huan, aesthetic master',
+      pictureURL: 'quote-img-2.jpg',
+      quote:
+        'This club is a home away from home. Met some amazing people here and am hyped for fall!',
+    },
+  ]
+  let quoteIndex = 0
+  $: curr = quotes[quoteIndex]
+  $: nextQuoteIndex = quoteIndex + 1 === quotes.length ? 0 : quoteIndex + 1
+  $: next = quotes[nextQuoteIndex]
 </script>
 
 <style>
@@ -15,8 +30,8 @@
     min-height: 100rem;
   }
   .quote-container {
-    position: relative;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 0 8rem;
     max-width: 120rem;
@@ -26,6 +41,43 @@
     box-shadow: 0px 1rem 2rem rgba(0, 0, 0, 0.1);
     background: #fff9e1;
     border-radius: 3rem;
+  }
+
+  img {
+    border-radius: 100%;
+  }
+  .quote-container > img {
+    z-index: 2;
+    width: 35rem;
+    height: 35rem;
+    box-shadow: 0px 1rem 2rem rgba(0, 0, 0, 0.4);
+  }
+  .next-quote-btn {
+    position: relative;
+    cursor: pointer;
+    margin-right: -20rem;
+    margin-left: -15rem;
+    z-index: 1;
+    background: none;
+    padding: 0;
+    height: 20rem;
+    width: 20rem;
+  }
+  .next-quote-btn::after {
+    content: url('/icons/arrow-right.svg');
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .next-quote-btn > img {
+    height: inherit;
+    width: inherit;
+    opacity: 0.2;
   }
 
   .text-container {
@@ -61,9 +113,15 @@
 <section>
   <div class="quote-container">
     <figure class="text-container">
-      <blockquote>{quote}</blockquote>
-      <figcaption>{quoteAuthor}</figcaption>
+      <blockquote>{curr.quote}</blockquote>
+      <figcaption>{curr.author}</figcaption>
     </figure>
+    <img src="/example-data/{curr.pictureURL}" alt={curr.author} />
+    <button
+      class="next-quote-btn"
+      on:click={() => (quoteIndex = nextQuoteIndex)}>
+      <img src="/example-data/{next.pictureURL}" alt={next.author} />
+    </button>
   </div>
   <SwooshGraphic />
 </section>

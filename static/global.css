@@ -32,6 +32,11 @@ section {
   margin-bottom: 10rem;
 }
 
+button {
+  background: none;
+  border: none;
+}
+
 a,
 a:visited {
   color: var(--primary);

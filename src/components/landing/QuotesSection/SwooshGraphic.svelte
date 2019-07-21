@@ -8,9 +8,6 @@
     z-index: -1;
     margin-right: -0.2rem;
   }
-  .front {
-    z-index: 0;
-  }
   .container {
     display: flex;
     position: absolute;
@@ -64,7 +61,6 @@
     </defs>
   </svg>
   <svg
-    class="front"
     width="712"
     height="1178"
     viewBox="0 0 712 1178"
