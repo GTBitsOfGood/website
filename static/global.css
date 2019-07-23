@@ -28,6 +28,14 @@ p {
   font-size: 26px;
   color: var(--text-color);
 }
+section {
+  margin-bottom: 10rem;
+}
+
+button {
+  background: none;
+  border: none;
+}
 
 a,
 a:visited {

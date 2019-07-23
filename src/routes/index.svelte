@@ -3,11 +3,13 @@
     Heading,
     ConnectingSection,
     BuildingSection,
+    QuotesSection,
   } from '../components/landing'
 </script>
 
 <Heading />
 <ConnectingSection />
+<QuotesSection />
 <BuildingSection />
 
 <svelte:head>
