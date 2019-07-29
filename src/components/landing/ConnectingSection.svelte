@@ -6,9 +6,6 @@
   a {
     font-size: 24px;
   }
-  p {
-    font-size: var(--info-body-font-size);
-  }
   .artwork {
     position: relative;
     max-width: 60rem;
