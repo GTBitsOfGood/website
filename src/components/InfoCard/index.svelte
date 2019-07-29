@@ -1,10 +1,14 @@
 <script>
+  import Container from './Container.svelte'
+
   export let imgSrc = ''
   export let imgAlt = ''
   export let header = ''
   export let body = ''
 
   export let label = ''
+  export let href = ''
+  export let linkText = 'Learn more'
 
   const labels = ['In Development', 'In Early Design', 'Near finish line']
   $: validLabel = labels.includes(label) ? label : ''
@@ -15,6 +19,7 @@
     background: white;
     box-shadow: var(--shadow);
     border-radius: 1rem;
+    position: relative;
     display: inline-block;
     max-width: 32rem;
     min-width: 27rem;
@@ -39,7 +44,7 @@
   }
 </style>
 
-<div class="container">
+<Container {href}>
   <div class="img-container">
     <img src={imgSrc} alt={imgAlt} />
   </div>
@@ -48,4 +53,4 @@
   {#if validLabel}
     <small>{validLabel}</small>
   {/if}
-</div>
+</Container>
