@@ -7,6 +7,9 @@
     position: relative;
     max-width: 60rem;
   }
+  p {
+    font-size: var(--info-body-font-size);
+  }
   .artwork-front {
     position: absolute;
     right: 20%;
