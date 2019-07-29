@@ -14,6 +14,9 @@
   --text-color: #514b33;
   --shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
   --nav-height: 6rem;
+  --info-body-font-size: 26px;
+  --body-font-size: 16px;
+  --content-max-width: 120rem;
 }
 
 * {
@@ -25,7 +28,7 @@ html {
 }
 
 p {
-  font-size: 26px;
+  font-size: var(--body-font-size);
   color: var(--text-color);
 }
 section {
@@ -69,11 +72,7 @@ body {
 }
 
 h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h2 {
   margin: 0 0 0.5rem 0;
   font-family: 'Visby CF';
   font-weight: 400;
@@ -82,6 +81,10 @@ h6 {
 
 h2 {
   font-size: 72px;
+}
+
+h3 {
+  font-size: 24px;
 }
 
 @media (max-width: 500px) {
