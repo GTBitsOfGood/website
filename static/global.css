@@ -34,6 +34,8 @@ p {
 }
 section {
   margin-bottom: 10rem;
+  max-width: var(--content-max-width);
+  margin: auto;
 }
 
 button {
@@ -74,7 +76,7 @@ body {
 
 h1,
 h2 {
-  margin: 0 0 0.5rem 0;
+  margin-bottom: 1rem;
   font-family: 'Visby CF';
   font-weight: 400;
   line-height: 1.2;
