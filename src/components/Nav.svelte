@@ -4,68 +4,57 @@
 
 <style>
   nav {
-    border-bottom: 1px solid rgba(255, 62, 0, 0.1);
-    font-weight: 300;
-    padding: 0 1em;
     height: var(--nav-height);
+    font-size: 18px;
+    background: var(--backing-pink-pronounced);
   }
 
   ul {
-    margin: 0;
-    padding: 0;
-  }
-
-  /* clearfix */
-  ul::after {
-    content: '';
-    display: block;
-    clear: both;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    max-width: 140rem;
+    margin: auto;
+    padding: 0 3rem;
   }
 
   li {
     display: block;
-    float: left;
+    margin-right: 8rem;
   }
 
-  .selected {
-    position: relative;
-    display: inline-block;
-  }
-
-  .selected::after {
-    position: absolute;
-    content: '';
-    width: calc(100% - 1em);
-    height: 2px;
-    background-color: rgb(255, 62, 0);
-    display: block;
-    bottom: -1px;
+  li:last-of-type {
+    margin-left: auto;
+    margin-right: 0;
   }
 
   a {
-    text-decoration: none;
-    padding: 1em 0.5em;
-    display: block;
+    color: var(--text-color);
+  }
+
+  a:hover,
+  a:active {
+    color: var(--primary);
+  }
+
+  .selected {
+    color: var(--primary);
   }
 </style>
 
 <nav>
   <ul>
     <li>
-      <a class={segment === undefined ? 'selected' : ''} href=".">Home</a>
+      <a class:selected={segment === undefined} href=".">Home</a>
     </li>
     <li>
-      <a class={segment === 'about-us' ? 'selected' : ''} href="about-us">
-        About Us
-      </a>
+      <a class:selected={segment === 'about-us'} href="about-us">About Us</a>
     </li>
     <li>
-      <a class={segment === 'projects' ? 'selected' : ''} href="projects">
-        Projects
-      </a>
+      <a class:selected={segment === 'projects'} href="projects">Projects</a>
     </li>
     <li>
-      <a class={segment === 'contact-us' ? 'selected' : ''} href="contact-us">
+      <a class:selected={segment === 'contact-us'} href="contact-us">
         Contact Us
       </a>
     </li>
