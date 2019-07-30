@@ -1,5 +1,5 @@
 <script>
-  import { InfoCard } from '../components'
+  import InfoCard from '../components/InfoCard/index.svelte'
   const exampleRoles = [
     {
       header: 'Developer',
@@ -27,19 +27,16 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    max-width: var(--content-max-width);
-    margin: auto;
   }
   h2 {
     width: 100%;
-    margin: 0 2rem;
-    font-size: 60px;
+    margin: 2rem;
   }
 </style>
 
 <section class="roles-section">
   <h2>Roles</h2>
-  {#each exampleRoles as { header, body, imgSrc, imgAlt }}
-    <InfoCard {header} {body} {imgSrc} {imgAlt} />
+  {#each exampleRoles as role}
+    <InfoCard {...role} />
   {/each}
 </section>
