@@ -2,7 +2,7 @@
   import GetInvolvedBtn from './GetInvolvedBtn.svelte'
   import MenuIcon from './MenuIcon.svelte'
 
-  let menuToggled = false
+  let mobileNavActivated = false
 
   export let segment
   export let scrolled = true
@@ -77,7 +77,7 @@
     background: none;
   }
 
-  @media (max-width: 45rem) {
+  @media (max-width: 48rem) {
     :root {
       --nav-height: 5rem;
     }
@@ -101,24 +101,17 @@
       opacity: 0;
       z-index: -1;
     }
-    ul.menuToggled {
+    ul.mobileNavActivated {
       height: 100vh;
       opacity: 1;
     }
     a {
-      font-size: 2rem;
-      margin: 1rem;
+      font-size: 3rem;
+      padding: 3rem;
     }
-    li,
-    li.align-right {
-      margin: 2rem;
-    }
-    li.align-right > a {
-      color: var(--text-color);
-    }
-    li.align-right > a:hover,
-    li.align-right > a:active {
-      color: var(--primary);
+    li {
+      margin: 0;
+      padding: 2rem;
     }
   }
 
@@ -128,7 +121,9 @@
 </style>
 
 <nav class:shadow={scrolled}>
-  <ul class:menuToggled on:click={() => (menuToggled = !menuToggled)}>
+  <ul
+    class:mobileNavActivated
+    on:click={() => (mobileNavActivated = !mobileNavActivated)}>
     <li>
       <a class:selected={segment === undefined} href=".">Home</a>
     </li>
@@ -138,9 +133,10 @@
     <li>
       <a class:selected={segment === 'projects'} href="projects">Projects</a>
     </li>
-    <li class="align-right">
-      <GetInvolvedBtn
-        hide={menuToggled || (!scrolled && segment === undefined)} />
+    <li class:align-right={!mobileNavActivated}>
+      {#if !mobileNavActivated}
+        <GetInvolvedBtn hide={!scrolled && segment === undefined} />
+      {/if}
       <a class:selected={segment === 'contact-us'} href="contact-us">
         Contact Us
       </a>
@@ -150,8 +146,8 @@
     <GetInvolvedBtn small />
     <button
       class="mobile-dropdown-toggle"
-      on:click={() => (menuToggled = !menuToggled)}>
-      <MenuIcon {menuToggled} />
+      on:click={() => (mobileNavActivated = !mobileNavActivated)}>
+      <MenuIcon menuToggled={mobileNavActivated} />
     </button>
   </div>
 </nav>
