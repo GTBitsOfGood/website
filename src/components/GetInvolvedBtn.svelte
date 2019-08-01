@@ -1,5 +1,6 @@
 <script>
   export let large = false
+  export let small = false
   export let hide = false
 </script>
 
@@ -25,9 +26,13 @@
     font-size: 2.4rem;
     padding: 0.6em 2.5em;
   }
+  .small {
+    font-size: 1.5rem;
+    padding: 0.3em 1em;
+  }
   .hide {
     opacity: 0;
   }
 </style>
 
-<a class:large class:hide href="join">Get Involved</a>
+<a class:large class:small class:hide href="join">Get Involved</a>
