@@ -11,13 +11,13 @@
 <style>
   nav {
     position: relative;
+    display: flex;
+    align-items: center;
     height: var(--nav-height);
     font-size: 18px;
     background: var(--backing-pink-pronounced);
     transition: box-shadow 0.2s;
     z-index: 1;
-    display: flex;
-    align-items: center;
   }
 
   .shadow {
@@ -59,8 +59,8 @@
     color: var(--primary);
   }
 
-  ul:not(.menu-toggled) > li.align-right > a:hover,
-  ul:not(.menu-toggled) > li.align-right > a:active {
+  li.align-right > a:hover,
+  li.align-right > a:active {
     color: var(--primary-yellow);
   }
 
@@ -72,7 +72,6 @@
   }
 
   .mobile-dropdown-toggle {
-    display: none;
     margin-left: auto;
     background: none;
   }
@@ -84,15 +83,12 @@
     .mobile-content {
       display: inherit;
     }
-    .mobile-dropdown-toggle {
-      display: initial;
-    }
     ul {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      height: 0;
+      height: 0; /* hide until mobile nav toggled */
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -123,7 +119,9 @@
 <nav class:shadow={scrolled}>
   <ul
     class:mobileNavActivated
-    on:click={() => (mobileNavActivated = !mobileNavActivated)}>
+    on:click={() => {
+      if (mobileNavActivated) mobileNavActivated = false
+    }}>
     <li>
       <a class:selected={segment === undefined} href=".">Home</a>
     </li>
