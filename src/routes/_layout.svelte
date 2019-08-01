@@ -2,6 +2,16 @@
   import Nav from '../components/Nav.svelte'
 
   export let segment
+
+  let scrolled = false
+
+  const onScroll = ({ target }) => {
+    if (target.scrollTop > 0) {
+      scrolled = true
+    } else {
+      scrolled = false
+    }
+  }
 </script>
 
 <style>
@@ -13,6 +23,7 @@
     perspective: 20px;
     transform-style: preserve-3d;
     background: var(--backing-pink);
+    z-index: 0;
   }
   main {
     position: relative;
@@ -21,8 +32,8 @@
   }
 </style>
 
-<Nav {segment} />
-<div class="parallax-container">
+<Nav {segment} {scrolled} />
+<div class="parallax-container" on:scroll={onScroll}>
   <main>
     <slot />
   </main>

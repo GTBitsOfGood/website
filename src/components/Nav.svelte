@@ -1,12 +1,21 @@
 <script>
   export let segment
+
+  export let scrolled = true
 </script>
 
 <style>
   nav {
+    position: relative;
     height: var(--nav-height);
     font-size: 18px;
     background: var(--backing-pink-pronounced);
+    transition: box-shadow 0.2s;
+    z-index: 1;
+  }
+
+  .shadow {
+    box-shadow: var(--shadow);
   }
 
   ul {
@@ -21,15 +30,17 @@
   li {
     display: block;
     margin-right: 8rem;
+    color: var(--text-color);
   }
 
   li:last-of-type {
     margin-left: auto;
     margin-right: 0;
+    color: var(--primary);
   }
 
   a {
-    color: var(--text-color);
+    color: inherit;
   }
 
   a:hover,
@@ -42,7 +53,7 @@
   }
 </style>
 
-<nav>
+<nav class:shadow={scrolled}>
   <ul>
     <li>
       <a class:selected={segment === undefined} href=".">Home</a>
