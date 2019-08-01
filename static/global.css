@@ -13,7 +13,10 @@
   --primary-yellow: #ffc55a;
   --text-color: #514b33;
   --shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  --shadow-hover: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
   --nav-height: 6rem;
+  --body-font-size: 16px;
+  --content-max-width: 120rem;
 }
 
 * {
@@ -25,11 +28,13 @@ html {
 }
 
 p {
-  font-size: 26px;
+  font-size: var(--body-font-size);
   color: var(--text-color);
 }
 section {
   margin-bottom: 10rem;
+  max-width: var(--content-max-width);
+  margin: auto;
 }
 
 button {
@@ -69,28 +74,19 @@ body {
 }
 
 h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0 0 0.5rem 0;
+h2 {
+  margin-bottom: 1rem;
   font-family: 'Visby CF';
   font-weight: 400;
   line-height: 1.2;
 }
 
 h2 {
-  font-size: 72px;
+  font-size: 60px;
 }
 
-@media (max-width: 500px) {
-  h2 {
-    font-size: 48px;
-  }
-  p {
-    font-size: 20px;
-  }
+h3 {
+  font-size: 24px;
 }
 
 code {
