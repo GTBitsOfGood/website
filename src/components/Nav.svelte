@@ -1,6 +1,7 @@
 <script>
-  export let segment
+  import GetInvolvedBtn from './GetInvolvedBtn.svelte'
 
+  export let segment
   export let scrolled = true
 </script>
 
@@ -29,7 +30,7 @@
 
   li {
     display: block;
-    margin-right: 8rem;
+    margin-right: 6rem;
     color: var(--text-color);
   }
 
@@ -43,9 +44,18 @@
     color: inherit;
   }
 
+  li:last-of-type > a {
+    margin-left: 4rem;
+  }
+
   a:hover,
   a:active {
     color: var(--primary);
+  }
+
+  li:last-of-type > a:hover,
+  li:last-of-type > a:active {
+    color: var(--primary-yellow);
   }
 
   .selected {
@@ -64,7 +74,9 @@
     <li>
       <a class:selected={segment === 'projects'} href="projects">Projects</a>
     </li>
+    <li />
     <li>
+      <GetInvolvedBtn hide={!scrolled && segment === undefined} />
       <a class:selected={segment === 'contact-us'} href="contact-us">
         Contact Us
       </a>
