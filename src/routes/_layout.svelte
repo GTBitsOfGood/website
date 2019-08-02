@@ -23,7 +23,6 @@
     perspective: 20px;
     transform-style: preserve-3d;
     background: var(--backing-pink);
-    z-index: 0;
   }
   main {
     position: relative;
