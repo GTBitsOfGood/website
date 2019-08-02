@@ -67,11 +67,6 @@
     color: var(--primary-yellow);
   }
 
-  /* li.align-right > a:hover,
-  li.align-right > a:active {
-    color: var(--primary-yellow);
-  } */
-
   .mobile-content {
     display: none;
     align-items: inherit;
