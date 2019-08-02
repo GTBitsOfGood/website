@@ -2,7 +2,7 @@
   import GetInvolvedBtn from './GetInvolvedBtn.svelte'
   import MenuIcon from './MenuIcon.svelte'
 
-  let mobileNavActivated = false
+  let mobileNavToggled = false
 
   export let segment
   export let scrolled = true
@@ -101,7 +101,7 @@
       z-index: -1;
     }
 
-    ul.mobileNavActivated {
+    ul.mobileNavToggled {
       height: 100vh;
       opacity: 1;
     }
@@ -137,9 +137,9 @@
 
 <nav class:shadow={scrolled}>
   <ul
-    class:mobileNavActivated
+    class:mobileNavToggled
     on:click={() => {
-      if (mobileNavActivated) mobileNavActivated = false
+      if (mobileNavToggled) mobileNavToggled = false
     }}>
     <li>
       <a class:selected={segment === undefined} href=".">Home</a>
@@ -166,8 +166,8 @@
     <GetInvolvedBtn small />
     <button
       class="mobile-dropdown-toggle"
-      on:click={() => (mobileNavActivated = !mobileNavActivated)}>
-      <MenuIcon menuToggled={mobileNavActivated} />
+      on:click={() => (mobileNavToggled = !mobileNavToggled)}>
+      <MenuIcon menuToggled={mobileNavToggled} />
     </button>
   </div>
 </nav>
