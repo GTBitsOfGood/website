@@ -40,18 +40,17 @@
     color: var(--text-color);
   }
 
-  li.align-right {
-    margin-left: auto;
+  li:last-of-type {
     margin-right: 0;
-    color: var(--primary);
+  }
+
+  li.get-involved-btn {
+    margin-left: auto;
+    margin-right: 4rem;
   }
 
   a {
     color: inherit;
-  }
-
-  li.align-right > a {
-    margin-left: 4rem;
   }
 
   a:hover,
@@ -59,10 +58,19 @@
     color: var(--primary);
   }
 
-  li.align-right > a:hover,
-  li.align-right > a:active {
+  a.contact-us {
+    color: var(--primary);
+  }
+
+  a.contact-us:hover,
+  a.contact-us:active {
     color: var(--primary-yellow);
   }
+
+  /* li.align-right > a:hover,
+  li.align-right > a:active {
+    color: var(--primary-yellow);
+  } */
 
   .mobile-content {
     display: none;
@@ -97,17 +105,33 @@
       opacity: 0;
       z-index: -1;
     }
+
     ul.mobileNavActivated {
       height: 100vh;
       opacity: 1;
     }
+
     a {
       font-size: 3rem;
       padding: 3rem;
     }
+
     li {
       margin: 0;
       padding: 2rem;
+    }
+
+    a.contact-us {
+      color: inherit;
+    }
+
+    a.contact-us:hover,
+    a.contact-us:active {
+      color: var(--primary);
+    }
+
+    li.get-involved-btn {
+      display: none;
     }
   }
 
@@ -131,11 +155,14 @@
     <li>
       <a class:selected={segment === 'projects'} href="projects">Projects</a>
     </li>
-    <li class:align-right={!mobileNavActivated}>
-      {#if !mobileNavActivated}
-        <GetInvolvedBtn hide={!scrolled && segment === undefined} />
-      {/if}
-      <a class:selected={segment === 'contact-us'} href="contact-us">
+    <li class="get-involved-btn">
+      <GetInvolvedBtn hide={!scrolled && segment === undefined} />
+    </li>
+    <li>
+      <a
+        class:selected={segment === 'contact-us'}
+        class="contact-us"
+        href="contact-us">
         Contact Us
       </a>
     </li>
