@@ -1,5 +1,6 @@
 <script>
   export let large = false
+  export let label = 'Get Involved'
 </script>
 
 <style>
@@ -24,4 +25,4 @@
   }
 </style>
 
-<a class={large ? 'large' : ''} href="join">Get Involved</a>
+<a class={large ? 'large' : ''} href="join">{label}</a>
