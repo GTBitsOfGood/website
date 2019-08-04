@@ -10,15 +10,11 @@
 </script>
 
 <script context="module">
-  import contentful from '../contentful'
+  import { getPage } from 'content-loader'
 
-  export async function preload(page, session) {
-    const entry = await contentful.getEntry('0cf4su0gjz7QBxbj2pnFE')
-
-    return {
-      content: entry.fields,
-    }
-  }
+  export const preload = async (page, session) => ({
+    content: await getPage('home'),
+  })
 </script>
 
 <Heading

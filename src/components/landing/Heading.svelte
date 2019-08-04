@@ -1,5 +1,5 @@
 <script>
-  import { toHtml } from '../../contentful'
+  import { toHtml } from 'content-loader'
   import { GetInvolvedBtn, DottedAccent } from '../'
   import AnimatedLogo from './AnimatedLogo.svelte'
 

@@ -1,7 +1,9 @@
 /* eslint-env node */
 
+import path from 'path'
 import resolve from 'rollup-plugin-node-resolve'
 import builtins from 'rollup-plugin-node-builtins'
+import alias from 'rollup-plugin-alias'
 import replace from 'rollup-plugin-replace'
 import commonjs from 'rollup-plugin-commonjs'
 import svelte from 'rollup-plugin-svelte'
@@ -18,6 +20,10 @@ const onwarn = (warning, onwarn) =>
   (warning.code === 'CIRCULAR_DEPENDENCY' &&
     /[/\\]@sapper[/\\]/.test(warning.message)) ||
   onwarn(warning)
+
+const aliases = alias({
+  'content-loader': path.resolve(__dirname, 'src', 'content-loader'),
+})
 
 export default {
   client: {
@@ -38,6 +44,7 @@ export default {
         browser: true,
       }),
       commonjs(),
+      aliases,
 
       legacy &&
         babel({
@@ -86,6 +93,7 @@ export default {
       }),
       resolve(),
       commonjs(),
+      aliases,
     ],
     external: Object.keys(pkg.dependencies).concat(
       require('module').builtinModules ||
@@ -105,6 +113,7 @@ export default {
         'process.env.NODE_ENV': JSON.stringify(mode),
       }),
       commonjs(),
+      aliases,
       !dev && terser(),
     ],
 
