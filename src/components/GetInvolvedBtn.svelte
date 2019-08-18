@@ -7,7 +7,7 @@
 <style>
   a {
     background-color: var(--primary);
-    padding: 0.6em 1.5em;
+    padding: 1rem 2rem;
     border-radius: 0.5em;
     letter-spacing: 0;
     text-decoration: none;
@@ -24,11 +24,11 @@
   }
   .large {
     font-size: 2.4rem;
-    padding: 0.6em 2.5em;
+    padding: 1.3rem 3.5rem;
   }
   .small {
     font-size: 1.5rem;
-    padding: 0.3em 1em;
+    padding: 0.4rem 1.2rem;
   }
   .hide {
     opacity: 0;
