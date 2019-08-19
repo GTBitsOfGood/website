@@ -1,10 +1,7 @@
 <script>
-  import { toHtml } from 'content-loader'
+  import content from '@contentful-entry/slogan'
   import { GetInvolvedBtn, DottedAccent } from '../'
   import AnimatedLogo from './AnimatedLogo.svelte'
-
-  export let tagline
-  export let callToAction
 </script>
 
 <style>
@@ -21,14 +18,14 @@
     position: relative;
     overflow: hidden;
   }
-  .text-container :global(h2) {
+  h2 {
     font-size: 4rem;
     font-family: inherit;
     color: var(--text-color);
     line-height: 1.3em;
     margin: 4.8rem 0;
   }
-  .text-container :global(h2 > strong) {
+  h2 > strong {
     display: block;
   }
   .text-container {
@@ -55,7 +52,10 @@
   <div class="text-container" role="banner">
     <DottedAccent top="25vh" left="60%" width="l" height="m" />
     <img src="images/bog-logo.svg" alt="Bits of Good logo" />
-    {@html toHtml(tagline)}
-    <GetInvolvedBtn label={callToAction} large />
+    <h2>
+      {content.line1}
+      <strong>{content.line2}</strong>
+    </h2>
+    <GetInvolvedBtn large />
   </div>
 </div>

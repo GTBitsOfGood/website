@@ -2,7 +2,6 @@
 
 import path from 'path'
 import resolve from 'rollup-plugin-node-resolve'
-import builtins from 'rollup-plugin-node-builtins'
 import alias from 'rollup-plugin-alias'
 import replace from 'rollup-plugin-replace'
 import commonjs from 'rollup-plugin-commonjs'
@@ -10,6 +9,7 @@ import svelte from 'rollup-plugin-svelte'
 import babel from 'rollup-plugin-babel'
 import { terser } from 'rollup-plugin-terser'
 import config from 'sapper/config/rollup.js'
+import contentLoader from './rollup-plugin-content-loader'
 import pkg from './package.json'
 
 const mode = process.env.NODE_ENV
@@ -21,9 +21,9 @@ const onwarn = (warning, onwarn) =>
     /[/\\]@sapper[/\\]/.test(warning.message)) ||
   onwarn(warning)
 
-const aliases = alias({
-  'content-loader': path.resolve(__dirname, 'src', 'content-loader'),
-})
+const aliases = {
+  'contentful-utils': path.resolve(__dirname, 'src', 'contentful-utils'),
+}
 
 export default {
   client: {
@@ -39,12 +39,12 @@ export default {
         hydratable: true,
         emitCss: true,
       }),
-      builtins(),
       resolve({
         browser: true,
       }),
       commonjs(),
-      aliases,
+      alias(aliases),
+      contentLoader(),
 
       legacy &&
         babel({
@@ -93,7 +93,8 @@ export default {
       }),
       resolve(),
       commonjs(),
-      aliases,
+      alias(aliases),
+      contentLoader(),
     ],
     external: Object.keys(pkg.dependencies).concat(
       require('module').builtinModules ||
@@ -113,7 +114,8 @@ export default {
         'process.env.NODE_ENV': JSON.stringify(mode),
       }),
       commonjs(),
-      aliases,
+      alias(aliases),
+      contentLoader(),
       !dev && terser(),
     ],
 

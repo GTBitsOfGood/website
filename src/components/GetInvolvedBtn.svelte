@@ -1,6 +1,7 @@
 <script>
+  import content from '@contentful-entry/cta'
+
   export let large = false
-  export let label = 'Get Involved'
 </script>
 
 <style>
@@ -25,4 +26,4 @@
   }
 </style>
 
-<a class={large ? 'large' : ''} href="join">{label}</a>
+<a class={large ? 'large' : ''} href="join">{content.text}</a>
