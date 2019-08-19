@@ -9,7 +9,7 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
  * @typedef {import('@contentful/rich-text-types').Document} Document
  * @typedef {import('@contentful/rich-text-html-renderer').Options} Options
  */
-const toHtml = (document, { renderMark = {}, ...options } = {}) => (
+export const toHtml = (document, { renderMark = {}, ...options } = {}) =>
   documentToHtmlString(document, {
     renderMark: {
       [MARKS.BOLD]: text => `<strong>${text}</strong>`,
@@ -18,6 +18,13 @@ const toHtml = (document, { renderMark = {}, ...options } = {}) => (
     },
     ...options,
   })
-)
 
-export { toHtml }
+export const toImg = (contentFields, imgKey) => {
+  const imgContent = contentFields[imgKey]
+  return !imgContent
+    ? ''
+    : {
+        src: imgContent.fields.file.url,
+        alt: imgContent.fields.title,
+      }
+}
