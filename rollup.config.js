@@ -24,6 +24,7 @@ const onwarn = (warning, onwarn) =>
 const aliases = {
   'contentful-utils': path.resolve(__dirname, 'src', 'contentful-utils'),
 }
+const resolveExtensions = ['.js', '.mjs', '.json', '.node', '.svelte']
 
 export default {
   client: {
@@ -41,6 +42,7 @@ export default {
       }),
       resolve({
         browser: true,
+        extensions: resolveExtensions,
       }),
       commonjs(),
       alias(aliases),
@@ -91,7 +93,7 @@ export default {
         generate: 'ssr',
         dev,
       }),
-      resolve(),
+      resolve({ extensions: resolveExtensions }),
       commonjs(),
       alias(aliases),
       contentLoader(),
@@ -108,7 +110,9 @@ export default {
     input: config.serviceworker.input(),
     output: config.serviceworker.output(),
     plugins: [
-      resolve(),
+      resolve({
+        extensions: resolveExtensions,
+      }),
       replace({
         'process.browser': true,
         'process.env.NODE_ENV': JSON.stringify(mode),
