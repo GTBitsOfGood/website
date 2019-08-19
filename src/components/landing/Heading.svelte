@@ -1,4 +1,5 @@
 <script>
+  import content from '@contentful-entry/slogan'
   import { GetInvolvedBtn, DottedAccent } from '../'
   import AnimatedLogo from './AnimatedLogo.svelte'
 </script>
@@ -52,8 +53,8 @@
     <DottedAccent top="25vh" left="60%" width="l" height="m" />
     <img src="images/bog-logo.svg" alt="Bits of Good logo" />
     <h2>
-      Changing lives
-      <strong>one bit at a time.</strong>
+      {content.line1}
+      <strong>{content.line2}</strong>
     </h2>
     <GetInvolvedBtn large />
   </div>

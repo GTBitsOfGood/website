@@ -1,4 +1,6 @@
 <script>
+  import content from '@contentful-entry/cta'
+
   export let large = false
   export let small = false
   export let hide = false
@@ -35,4 +37,4 @@
   }
 </style>
 
-<a class:large class:small class:hide href="join">Get Involved</a>
+<a class:large class:small class:hide href="join">{content.text}</a>
