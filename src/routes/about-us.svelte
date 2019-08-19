@@ -1,7 +1,11 @@
 <script>
-  import Roles from '../components/about-us/Roles.svelte'
-  import Header from '../components/about-us/Header.svelte'
+  import Roles from '../components/about-us/RolesSection'
+  import Header from '../components/about-us/Header'
+  import Mission from '../components/about-us/MissionSection'
+
+  const missionSectionId = 'mission-section'
 </script>
 
-<Header />
+<Header {missionSectionId} />
+<Mission id={missionSectionId} />
 <Roles />
