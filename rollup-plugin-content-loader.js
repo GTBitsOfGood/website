@@ -50,7 +50,6 @@ export default function contentLoader() {
         const [, contentType] = parts
         const entries = (await client.getEntries({
           'content_type': contentType,
-          limit: 1,
         })).items
         return `export default ${
           JSON.stringify(entries)
