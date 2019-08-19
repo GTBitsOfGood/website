@@ -1,5 +1,11 @@
 <script>
   import HeaderSwoosh from './HeaderSwoosh'
+  export let missionSectionId = ''
+
+  const scrollToMissionSection = () => {
+    const mission = document.getElementById(missionSectionId)
+    if (mission) mission.scrollIntoView({ behavior: 'smooth' })
+  }
 </script>
 
 <style>
@@ -22,7 +28,7 @@
     max-width: 90rem;
   }
   p,
-  h2 {
+  h1 {
     color: white;
   }
   p {
@@ -52,12 +58,12 @@
   <HeaderSwoosh />
   <div class="content-container">
     <div class="text-container">
-      <h2>About us</h2>
+      <h1>About us</h1>
       <p>
         The GT Bits of Good team connects our students with local nonprofits by
         building powerful web apps.
       </p>
-      <button>Read more</button>
+      <button on:click={scrollToMissionSection}>Read more</button>
     </div>
     <img
       src="/images/building-artwork-front.png"
