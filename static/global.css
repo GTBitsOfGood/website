@@ -71,16 +71,21 @@ body {
 }
 
 h1,
+h2,
+h3 {
+  font-family: 'Visby CF';
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+h1,
 h2 {
   margin-bottom: 1rem;
-  font-family: 'Visby CF';
-  font-weight: 400;
-  line-height: 1.2;
   font-size: 60px;
 }
 
 h3 {
-  font-size: 24px;
+  font-size: 48px;
 }
 
 code {
