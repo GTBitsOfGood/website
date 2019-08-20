@@ -1,11 +1,13 @@
 <script>
   import content from '@contentful-entries/missionSection'
   import { toHtml, toImg } from 'contentful-utils'
+
+  export let id = ''
+
   const missionCards = content.map(card => ({
     ...card.fields,
     img: toImg(card.fields, 'aboutUsImage'),
   }))
-  export let id = ''
 </script>
 
 <style>
@@ -15,7 +17,7 @@
   }
   section {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(38rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
     justify-items: center;
     column-gap: 10rem;
     row-gap: 5rem;
@@ -42,8 +44,12 @@
     text-align: center;
     color: var(--primary-yellow);
   }
+  img {
+    width: 20rem;
+  }
   .mission-card > :global(p) {
     margin: 0;
+    text-align: justify;
     font-size: 24px;
   }
 </style>
