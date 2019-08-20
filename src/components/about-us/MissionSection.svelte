@@ -1,13 +1,10 @@
 <script>
   import content from '@contentful-entries/missionSection'
-  import { toHtml, toImg } from 'contentful-utils'
+  import { toHtml, mapFields } from 'contentful-utils'
 
   export let id = ''
 
-  const missionCards = content.map(card => ({
-    ...card.fields,
-    img: toImg(card.fields, 'aboutUsImage'),
-  }))
+  const missionCards = mapFields(content, 'aboutUsImage')
 </script>
 
 <style>
@@ -47,7 +44,7 @@
   img {
     width: 20rem;
   }
-  .mission-card > :global(p) {
+  p {
     margin: 0;
     text-align: justify;
     font-size: 24px;
@@ -60,7 +57,9 @@
     <div class="mission-card">
       <img src={img.src} alt={img.alt} />
       <h3>{heading}</h3>
-      {@html toHtml(description)}
+      <p>
+        {@html toHtml(description)}
+      </p>
     </div>
   {/each}
 </section>

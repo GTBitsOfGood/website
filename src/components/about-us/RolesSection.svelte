@@ -1,29 +1,13 @@
 <script>
-  import InfoCard from '../InfoCard/index.svelte'
-  const exampleRoles = [
-    {
-      header: 'Developer',
-      body: 'Someone who writes good code!',
-      imgSrc: '',
-      imgAlt: '',
-    },
-    {
-      header: 'Designer',
-      body: 'Person who makes nice mockups!',
-      imgSrc: '',
-      imgAlt: '',
-    },
-    {
-      header: 'Product Manager',
-      body: 'Human who manages the products!',
-      imgSrc: '',
-      imgAlt: '',
-    },
-  ]
+  import InfoCard from '../InfoCard'
+  import content from '@contentful-entries/roleCard'
+  import { toHtml, mapFields } from 'contentful-utils'
+
+  const roleCards = mapFields(content, 'thumbnail')
 </script>
 
 <style>
-  .roles-section {
+  section {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -32,11 +16,16 @@
     width: 100%;
     margin: 2rem;
   }
+  .backing {
+    background: var(--backing-panel);
+  }
 </style>
 
-<section class="roles-section">
-  <h2>Roles</h2>
-  {#each exampleRoles as role}
-    <InfoCard {...role} />
-  {/each}
-</section>
+<div class="backing">
+  <section>
+    <h2>Roles</h2>
+    {#each roleCards as { heading, description, img }}
+      <InfoCard {heading} {img} descriptionHTML={toHtml(description)} />
+    {/each}
+  </section>
+</div>
