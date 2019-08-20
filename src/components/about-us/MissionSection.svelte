@@ -15,11 +15,21 @@
   }
   section {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(38rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(38rem, 1fr));
     justify-items: center;
     column-gap: 10rem;
     row-gap: 5rem;
     padding: 3rem;
+
+    display: -ms-grid;
+    -ms-grid-columns: minmax(38rem, 1fr) minmax(38rem, 1fr);
+  }
+
+  /* IE support */
+  @media (max-width: 50rem) {
+    section {
+      -ms-grid-columns: 1fr;
+    }
   }
 
   .mission-card {
