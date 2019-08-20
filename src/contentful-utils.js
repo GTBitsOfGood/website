@@ -1,4 +1,4 @@
-import { MARKS } from '@contentful/rich-text-types'
+import { MARKS, BLOCKS } from '@contentful/rich-text-types'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 
 /**
@@ -16,15 +16,31 @@ export const toHtml = (document, { renderMark = {}, ...options } = {}) =>
       [MARKS.ITALIC]: text => `<em>${text}</em>`,
       ...renderMark,
     },
+    renderNode: {
+      [BLOCKS.PARAGRAPH]: (node, next) => `<span>${next(node.content)}</span>`,
+    },
     ...options,
   })
 
 export const toImg = (contentFields, imgKey) => {
   const imgContent = contentFields[imgKey]
   return !imgContent
-    ? ''
+    ? {}
     : {
         src: imgContent.fields.file.url,
         alt: imgContent.fields.title,
       }
+}
+
+export const mapFields = (content, imgKey) => {
+  if (!imgKey) return content.map(item => item.fields)
+
+  const mapped = content.map(item => ({
+    ...item.fields,
+    img: toImg(item.fields, imgKey),
+  }))
+
+  return mapped.length && mapped[0].orderingIndex
+    ? mapped.sort((first, second) => first.orderingIndex - second.orderingIndex)
+    : mapped
 }

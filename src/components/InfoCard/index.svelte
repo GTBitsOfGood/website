@@ -1,10 +1,12 @@
 <script>
   import Container from './Container.svelte'
 
-  export let imgSrc = ''
-  export let imgAlt = ''
-  export let header = ''
-  export let body = ''
+  export let heading = ''
+  export let descriptionHTML = ''
+  export let img = {
+    src: '',
+    alt: '',
+  }
 
   export let label = ''
   export let href = ''
@@ -45,6 +47,9 @@
     padding: 0 2rem;
     margin: 1rem 0;
   }
+  h3 {
+    font-size: var(--small-header-size);
+  }
   p {
     margin-bottom: 2rem;
   }
@@ -60,10 +65,12 @@
 
 <Container {href}>
   <div class="img-container">
-    <img src={imgSrc} alt={imgAlt} />
+    <img src={img.src} alt={img.alt} />
   </div>
-  <h3>{header}</h3>
-  <p>{body}</p>
+  <h3>{heading}</h3>
+  <p>
+    {@html descriptionHTML}
+  </p>
   {#if validLabel}
     <small style={`background-color: ${validLabel.color}`}>
       {validLabel.label}

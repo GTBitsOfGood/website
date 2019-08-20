@@ -8,6 +8,7 @@
 :root {
   --backing-pink: #fffdfc;
   --backing-pink-pronounced: #fbf6f2;
+  --backing-panel: #fcf0eb;
   --primary-red: #ff7574;
   --primary: #f38d6a;
   --primary-yellow: #ffc55a;
@@ -16,6 +17,7 @@
   --shadow-hover: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
   --nav-height: 7rem;
   --body-font-size: 16px;
+  --small-header-size: 24px;
   --content-max-width: 120rem;
 }
 
