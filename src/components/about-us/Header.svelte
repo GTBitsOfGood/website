@@ -47,7 +47,7 @@
     box-shadow: var(--shadow-hover);
     transform: translateY(-5px);
   }
-  .content-container > img {
+  img {
     align-self: flex-end;
     height: 40rem;
     margin-right: 5rem;
