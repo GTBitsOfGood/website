@@ -74,7 +74,8 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-family: 'Visby CF';
   line-height: 1.2;
   font-weight: 400;
