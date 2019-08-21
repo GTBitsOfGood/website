@@ -3,6 +3,7 @@
   import Header from '../components/about-us/Header'
   import Mission from '../components/about-us/MissionSection'
   import Slogan from '../components/about-us/Slogan'
+  import Milestones from '../components/about-us/MilestonesSection'
 
   const missionSectionId = 'mission-section'
 </script>
@@ -11,3 +12,4 @@
 <Mission id={missionSectionId} />
 <Slogan />
 <Roles />
+<Milestones />
