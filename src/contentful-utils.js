@@ -33,12 +33,12 @@ export const toImg = (contentFields, imgKey) => {
 }
 
 export const mapFields = (content, imgKey) => {
-  if (!imgKey) return content.map(item => item.fields)
-
-  const mapped = content.map(item => ({
-    ...item.fields,
-    img: toImg(item.fields, imgKey),
-  }))
+  const mapped = imgKey
+    ? content.map(item => ({
+        ...item.fields,
+        img: toImg(item.fields, imgKey),
+      }))
+    : content.map(item => item.fields)
 
   return mapped.length && mapped[0].orderingIndex
     ? mapped.sort((first, second) => first.orderingIndex - second.orderingIndex)
