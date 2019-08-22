@@ -1,13 +1,21 @@
 <script>
   import content from '@contentful-entries/milestone'
   import FlagIcon from './MilestoneFlagIcon'
+  import ArrowIcon from '../ArrowIcon'
   import { toHtml, mapFields } from 'contentful-utils'
 
   const milestones = mapFields(content)
   let currentIndex = 0
+
+  $: next = currentIndex === milestones.length - 1 ? 0 : currentIndex + 1
+  $: prev = currentIndex === 0 ? milestones.length - 1 : currentIndex - 1
 </script>
 
 <style>
+  section {
+    padding: 2rem;
+    padding-bottom: 5rem;
+  }
   .scroll-container {
     --offset-index: 0;
     --milestone-width: 32rem;
@@ -18,7 +26,7 @@
     position: relative;
     left: calc(-1 * var(--milestone-width) * var(--offset-index));
     transition: left 0.3s;
-    padding: 2rem;
+    margin-top: 5rem;
   }
   .scroll-container::before {
     content: '';
@@ -41,6 +49,10 @@
     display: flex;
     justify-content: center;
   }
+  .milestone.selected,
+  .milestone.position-low.selected {
+    align-self: flex-start;
+  }
   .milestone.position-low {
     align-self: flex-end;
   }
@@ -53,11 +65,11 @@
     transition-property: box-shadow, transform;
     transition-duration: 0.3s;
   }
-  .milestone-content.selected {
+  .selected .milestone-content {
     width: 100%;
     box-shadow: var(--shadow-hover);
+    align-self: center;
     border-radius: 1rem;
-    z-index: 1;
     padding: 2rem;
     transform: scale(1.1);
   }
@@ -69,7 +81,8 @@
     text-align: center;
     color: white;
     display: flex;
-    flex-direction: column-reverse;
+    font-size: 20px;
+    flex-direction: column;
     align-items: center;
   }
   .time-banner {
@@ -88,11 +101,19 @@
   h4.red > :global(svg) {
     fill: var(--primary-red);
   }
+  .nav-container {
+    display: flex;
+    width: 32rem;
+    justify-content: space-between;
+  }
+  button :global(svg) {
+    width: 60px;
+    height: 60px;
+  }
 </style>
 
 <section>
   <h2>Milestones</h2>
-  <button on:click={() => currentIndex++}>Next</button>
   <div
     class="scroll-container"
     style="--offset-index: {currentIndex}; --milestone-count: {milestones.length};">
@@ -100,11 +121,12 @@
       <div
         class="milestone"
         class:position-low={index % 4 === 1}
-        class:position-high={index % 4 === 3}>
-        <div class="milestone-content" class:selected={currentIndex === index}>
+        class:position-high={index % 4 === 3}
+        class:selected={currentIndex === index}>
+        <div class="milestone-content">
           <h4 class:yellow={index % 4 === 0} class:red={index % 4 === 2}>
-            <span class="time-banner">{time}</span>
             <FlagIcon />
+            <span class="time-banner">{time}</span>
           </h4>
           <h3>{heading}</h3>
           {#if currentIndex === index}
@@ -115,5 +137,13 @@
         </div>
       </div>
     {/each}
+  </div>
+  <div class="nav-container">
+    <button on:click={() => (currentIndex = prev)}>
+      <ArrowIcon orientation="left" fill="var(--text-color)" />
+    </button>
+    <button on:click={() => (currentIndex = next)}>
+      <ArrowIcon fill="var(--text-color)" />
+    </button>
   </div>
 </section>
