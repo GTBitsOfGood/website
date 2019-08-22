@@ -52,6 +52,23 @@
     height: 40rem;
     margin-right: 5rem;
   }
+  @media (max-width: 900px) {
+    p {
+      font-size: 30px;
+    }
+  }
+  @media (max-width: 650px) {
+    .content-container {
+      margin-top: 0;
+      flex-direction: column;
+    }
+    p {
+      font-size: 24px;
+    }
+    img {
+      height: 30rem;
+    }
+  }
 </style>
 
 <section>
