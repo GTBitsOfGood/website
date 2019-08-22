@@ -43,7 +43,6 @@
   }
   p {
     margin: 0;
-    text-align: justify;
     font-size: 24px;
   }
 </style>
