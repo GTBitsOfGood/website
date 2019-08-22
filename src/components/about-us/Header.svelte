@@ -1,5 +1,8 @@
 <script>
+  import content from '@contentful-entry/aboutUsHeader'
+  import { toHtml } from 'contentful-utils'
   import HeaderSwoosh from './HeaderSwoosh'
+
   export let missionSectionId = ''
 
   const scrollToMissionSection = () => {
@@ -75,12 +78,11 @@
   <HeaderSwoosh />
   <div class="content-container">
     <div class="text-container">
-      <h1>About us</h1>
+      <h1>{content.heading}</h1>
       <p>
-        The GT Bits of Good team connects our students with local nonprofits by
-        building powerful web apps.
+        {@html toHtml(content.description)}
       </p>
-      <button on:click={scrollToMissionSection}>Read more</button>
+      <button on:click={scrollToMissionSection}>{content.cta}</button>
     </div>
     <img
       src="/images/building-artwork-front.png"
