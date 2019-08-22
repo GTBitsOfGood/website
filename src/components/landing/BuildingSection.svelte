@@ -13,8 +13,6 @@
     top: 0;
     width: 40%;
     height: auto;
-    transform: translateZ(-2px);
-    z-index: -1;
   }
   .artwork-back {
     width: 100%;
@@ -35,10 +33,10 @@
     <DottedAccent top="10%" left="-5rem" width="m" height="l" />
   </div>
   <div class="artwork" slot="right">
-    <img src="images/building-artwork-back.svg" alt="" class="artwork-back" />
     <img
       src="images/building-artwork-front.png"
       alt="Person leaning over looking at network"
       class="artwork-front" />
+    <img src="images/building-artwork-back.svg" alt="" class="artwork-back" />
   </div>
 </InfoSplitSection>

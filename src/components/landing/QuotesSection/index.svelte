@@ -132,8 +132,7 @@
       color="#F1E8C7"
       right="10%"
       top="8rem"
-      opaque
-      parallax={false} />
+      opaque />
   </div>
   <SwooshGraphic />
 </section>

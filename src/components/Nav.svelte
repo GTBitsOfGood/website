@@ -10,14 +10,17 @@
 
 <style>
   nav {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     display: flex;
     align-items: center;
     height: var(--nav-height);
     font-size: 18px;
     background: var(--backing-pink-pronounced);
     transition: box-shadow 0.2s;
-    z-index: 1;
+    z-index: 5;
   }
 
   .shadow {
