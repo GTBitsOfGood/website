@@ -1,4 +1,4 @@
-import { MARKS } from '@contentful/rich-text-types'
+import { MARKS, BLOCKS } from '@contentful/rich-text-types'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 
 /**
@@ -9,15 +9,38 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
  * @typedef {import('@contentful/rich-text-types').Document} Document
  * @typedef {import('@contentful/rich-text-html-renderer').Options} Options
  */
-const toHtml = (document, { renderMark = {}, ...options } = {}) => (
+export const toHtml = (document, { renderMark = {}, ...options } = {}) =>
   documentToHtmlString(document, {
     renderMark: {
       [MARKS.BOLD]: text => `<strong>${text}</strong>`,
       [MARKS.ITALIC]: text => `<em>${text}</em>`,
       ...renderMark,
     },
+    renderNode: {
+      [BLOCKS.PARAGRAPH]: (node, next) => `<span>${next(node.content)}</span>`,
+    },
     ...options,
   })
-)
 
-export { toHtml }
+export const toImg = (contentFields, imgKey) => {
+  const imgContent = contentFields[imgKey]
+  return !imgContent
+    ? {}
+    : {
+        src: imgContent.fields.file.url,
+        alt: imgContent.fields.title,
+      }
+}
+
+export const mapFields = (content, imgKey) => {
+  const mapped = imgKey
+    ? content.map(item => ({
+        ...item.fields,
+        img: toImg(item.fields, imgKey),
+      }))
+    : content.map(item => item.fields)
+
+  return mapped.length && mapped[0].orderingIndex
+    ? mapped.sort((first, second) => first.orderingIndex - second.orderingIndex)
+    : mapped
+}
