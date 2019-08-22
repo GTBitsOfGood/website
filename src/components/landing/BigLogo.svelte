@@ -1,11 +1,7 @@
-<script>
-
-</script>
-
 <style>
   svg {
     width: 100%;
-    min-width: 120rem;
+    /* min-width: 120rem; */
     height: auto;
     position: absolute;
     top: 0;
@@ -16,6 +12,12 @@
       var(--primary-yellow),
       var(--primary-red) 60%
     );
+  }
+
+  @media (max-width: 1100px) {
+    svg {
+      opacity: 0.6;
+    }
   }
 </style>
 
@@ -31,7 +33,7 @@
     id="logo-backing-img"
     width="900"
     height="890"
-    xlink:href="images/logo-sample-bg.jpg"
+    xlink:href="images/logo-placeholder-image.jpg"
     opacity="0.15" />
   <path
     d="M1439.5 0H0V974.736C114.556 944.305 317.769 828.929 394.016
