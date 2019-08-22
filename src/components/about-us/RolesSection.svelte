@@ -18,6 +18,7 @@
   }
   .backing {
     background: var(--backing-panel);
+    padding-bottom: 5rem;
   }
 </style>
 
