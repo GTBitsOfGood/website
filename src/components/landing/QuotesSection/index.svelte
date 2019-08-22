@@ -112,8 +112,8 @@
   }
   @media (max-width: 900px) {
     .quote-container {
-      padding-left: 2rem;
-      padding-right: 2rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
     .quote-container > img {
       position: absolute;
@@ -124,6 +124,11 @@
     }
     .quote-container :global(.dotted-accent) {
       display: none;
+    }
+  }
+  @media (max-width: 500px) {
+    blockquote {
+      font-size: 18px;
     }
   }
 </style>
