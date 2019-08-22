@@ -11,12 +11,12 @@
 
 <style>
   section {
-    padding: 2rem;
+    padding: 3rem;
     padding-bottom: 5rem;
   }
   .scroll-container {
     --offset-index: 0;
-    --milestone-width: 32rem;
+    --milestone-width: 30rem;
     display: flex;
     height: 50rem;
     max-height: calc(100vh - var(--nav-height));
@@ -99,14 +99,13 @@
   h4.red > :global(svg) {
     fill: var(--primary-red);
   }
-  .nav-container {
+  .heading-container {
     display: flex;
-    width: 32rem;
     justify-content: space-between;
   }
   button :global(svg) {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
   }
 </style>
 
@@ -122,10 +121,22 @@
         class:position-high={index % 4 === 3}
         class:selected={currentIndex === index}>
         <div class="milestone-content">
-          <h4 class:yellow={index % 4 === 0} class:red={index % 4 === 2}>
-            <FlagIcon />
-            <span class="time-banner">{time}</span>
-          </h4>
+          <div class="heading-container">
+            {#if currentIndex === index}
+              <button on:click={() => (currentIndex = prev)}>
+                <ArrowIcon orientation="left" fill="var(--text-color)" />
+              </button>
+            {/if}
+            <h4 class:yellow={index % 4 === 0} class:red={index % 4 === 2}>
+              <FlagIcon />
+              <span class="time-banner">{time}</span>
+            </h4>
+            {#if currentIndex === index}
+              <button on:click={() => (currentIndex = next)}>
+                <ArrowIcon fill="var(--text-color)" />
+              </button>
+            {/if}
+          </div>
           <h3>{heading}</h3>
           {#if currentIndex === index}
             <p>
@@ -135,13 +146,5 @@
         </div>
       </div>
     {/each}
-  </div>
-  <div class="nav-container">
-    <button on:click={() => (currentIndex = prev)}>
-      <ArrowIcon orientation="left" fill="var(--text-color)" />
-    </button>
-    <button on:click={() => (currentIndex = next)}>
-      <ArrowIcon fill="var(--text-color)" />
-    </button>
   </div>
 </section>
