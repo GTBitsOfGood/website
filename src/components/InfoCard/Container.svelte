@@ -1,5 +1,5 @@
 <script>
-  export let href = ''
+  export let link = ''
 </script>
 
 <style>
@@ -16,7 +16,7 @@
     max-width: 32rem;
     min-width: 27rem;
     flex: 1;
-    margin: 2rem;
+    margin: 3rem;
   }
 
   a {
@@ -48,8 +48,8 @@
   }
 </style>
 
-{#if href}
-  <a {href}>
+{#if link}
+  <a href={link}>
     <img class="arrow" src="/icons/arrow-right.svg" alt="" />
     <slot />
   </a>
