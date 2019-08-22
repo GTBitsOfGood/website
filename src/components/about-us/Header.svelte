@@ -1,6 +1,5 @@
 <script>
   import content from '@contentful-entry/aboutUsHeader'
-  import { toHtml } from 'contentful-utils'
   import HeaderSwoosh from './HeaderSwoosh'
 
   export let missionSectionId = ''
@@ -80,7 +79,7 @@
     <div class="text-container">
       <h1>{content.heading}</h1>
       <p>
-        {@html toHtml(content.description)}
+        {@html content.description}
       </p>
       <button on:click={scrollToMissionSection}>{content.cta}</button>
     </div>

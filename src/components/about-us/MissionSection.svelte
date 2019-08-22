@@ -1,10 +1,7 @@
 <script>
-  import content from '@contentful-entries/missionSection'
-  import { toHtml, mapFields } from 'contentful-utils'
+  import missionCards from '@contentful-entries/missionSection'
 
   export let id = ''
-
-  const missionCards = mapFields(content, 'aboutUsImage')
 </script>
 
 <style>
@@ -53,12 +50,12 @@
 
 <section {id}>
   <h2>Our Mission</h2>
-  {#each missionCards as { heading, description, img }}
+  {#each missionCards as { heading, description, aboutUsImage }}
     <div class="mission-card">
-      <img src={img.src} alt={img.alt} />
+      <img src={aboutUsImage.src} alt={aboutUsImage.alt} />
       <h3>{heading}</h3>
       <p>
-        {@html toHtml(description)}
+        {@html description}
       </p>
     </div>
   {/each}

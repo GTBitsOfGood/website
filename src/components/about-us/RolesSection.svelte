@@ -1,9 +1,6 @@
 <script>
   import InfoCard from '../InfoCard'
-  import content from '@contentful-entries/roleCard'
-  import { toHtml, mapFields } from 'contentful-utils'
-
-  const roleCards = mapFields(content, 'thumbnail')
+  import roleCards from '@contentful-entries/roleCard'
 </script>
 
 <style>
@@ -25,8 +22,8 @@
 <div class="backing">
   <section>
     <h2>Roles</h2>
-    {#each roleCards as { heading, description, img }}
-      <InfoCard {heading} {img} descriptionHTML={toHtml(description)} />
+    {#each roleCards as { heading, description, thumbnail }}
+      <InfoCard {heading} img={thumbnail} descriptionHTML={description} />
     {/each}
   </section>
 </div>
