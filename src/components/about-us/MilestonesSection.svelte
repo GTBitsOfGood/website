@@ -1,10 +1,8 @@
 <script>
-  import content from '@contentful-entries/milestone'
+  import milestones from '@contentful-entries/milestone'
   import FlagIcon from './MilestoneFlagIcon'
   import ArrowIcon from '../ArrowIcon'
-  import { toHtml, mapFields } from 'contentful-utils'
 
-  const milestones = mapFields(content)
   let currentIndex = 0
 
   $: next = currentIndex === milestones.length - 1 ? 0 : currentIndex + 1
@@ -131,7 +129,7 @@
           <h3>{heading}</h3>
           {#if currentIndex === index}
             <p>
-              {@html toHtml(description)}
+              {@html description}
             </p>
           {/if}
         </div>
