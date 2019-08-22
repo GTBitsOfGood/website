@@ -17,9 +17,9 @@
     position: relative;
     display: flex;
     align-items: flex-end;
-    padding: 3rem;
     min-height: 100rem;
     margin-bottom: 20rem;
+    padding: 2rem;
     max-width: 100%;
   }
   .quote-container {
@@ -112,8 +112,11 @@
   }
   @media (max-width: 900px) {
     .quote-container {
-      padding-left: 1rem;
-      padding-right: 1rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+    .text-container {
+      margin: 0;
     }
     .quote-container > img {
       position: absolute;
@@ -124,6 +127,10 @@
     }
     .quote-container :global(.dotted-accent) {
       display: none;
+    }
+    .next-quote-btn {
+      height: 5rem;
+      width: 5rem;
     }
   }
   @media (max-width: 500px) {
