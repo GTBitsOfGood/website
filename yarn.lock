@@ -660,15 +660,15 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@contentful/rich-text-html-renderer@^13.1.0":
-  version "13.1.0"
-  resolved "https://registry.yarnpkg.com/@contentful/rich-text-html-renderer/-/rich-text-html-renderer-13.1.0.tgz#dddc38df0d34bea3ef5f7821d6118b099120d8f8"
-  integrity sha512-4E6O7cYO+6v3fQrBM9Bu/X9QXfNmH/DZevypw+UOJZyUfbYDA9KsPdXKa04hjnc3fMlBW0Kss33wj9DsaCap2g==
+"@contentful/rich-text-html-renderer@^13.4.0":
+  version "13.4.0"
+  resolved "https://registry.yarnpkg.com/@contentful/rich-text-html-renderer/-/rich-text-html-renderer-13.4.0.tgz#03c08f4196a9eb9bae9af993b5644624fe256fa9"
+  integrity sha512-g5maEnoGlhMOA/FcF8UTE6V3BHDx8ygfjF5AZKEFcpi+cDL5SfCKvV9FkaasNashrttECy9ncjRsIHPlAmKONg==
   dependencies:
-    "@contentful/rich-text-types" "^13.1.0"
+    "@contentful/rich-text-types" "^13.4.0"
     escape-html "^1.0.3"
 
-"@contentful/rich-text-types@^13.1.0", "@contentful/rich-text-types@^13.4.0":
+"@contentful/rich-text-types@^13.4.0":
   version "13.4.0"
   resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-13.4.0.tgz#a59c311ebd1b801ee00edbc08663c8d78da26171"
   integrity sha512-YPdYqGmWiGAood7ri2BUXfPQKNthkQYV1rmQdaq4UAxWK5NLB5NXckaUYLbohqhHKtrq4tnfzVn+ePWID7Dzbg==
@@ -2040,13 +2040,6 @@ rimraf@2, rimraf@2.x.x:
   dependencies:
     glob "^7.1.3"
 
-rollup-plugin-alias@^1.5.2:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-alias/-/rollup-plugin-alias-1.5.2.tgz#f15a1cc8ee0debf74ab5c2bb68a944a66b568411"
-  integrity sha512-ODeZXhTxpD48sfcYLAFc1BGrsXKDj7o1CSNH3uYbdK3o0NxyMmaQPTNgW+ko+am92DLC8QSTe4kyxTuEkI5S5w==
-  dependencies:
-    slash "^3.0.0"
-
 rollup-plugin-babel@^4.0.2:
   version "4.3.3"
   resolved "https://registry.yarnpkg.com/rollup-plugin-babel/-/rollup-plugin-babel-4.3.3.tgz#7eb5ac16d9b5831c3fd5d97e8df77ba25c72a2aa"
@@ -2212,11 +2205,6 @@ sirv@^0.4.0:
   dependencies:
     "@polka/url" "^0.5.0"
     mime "^2.3.1"
-
-slash@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/slash/-/slash-3.0.0.tgz#6539be870c165adbd5240220dbe361f1bc4d4634"
-  integrity sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==
 
 source-map-support@~0.5.10:
   version "0.5.13"

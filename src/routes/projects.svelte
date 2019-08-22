@@ -1,9 +1,6 @@
 <script>
   import InfoCard from '../components/InfoCard/index.svelte'
-  import content from '@contentful-entries/project'
-  import { toHtml, mapFields } from 'contentful-utils'
-
-  const projects = mapFields(content, 'thumbnail')
+  import projects from '@contentful-entries/project'
 </script>
 
 <style>
@@ -19,12 +16,12 @@
 
 <section>
   <h2>Projects</h2>
-  {#each projects as { heading, description, developmentStatus, link, img }}
+  {#each projects as { heading, description, developmentStatus, link, thumbnail }}
     <InfoCard
       {heading}
       {link}
-      {img}
-      descriptionHTML={toHtml(description)}
+      img={thumbnail}
+      descriptionHTML={description}
       label={developmentStatus} />
   {/each}
 </section>

@@ -1,8 +1,6 @@
 /* eslint-env node */
 
-import path from 'path'
 import resolve from 'rollup-plugin-node-resolve'
-import alias from 'rollup-plugin-alias'
 import replace from 'rollup-plugin-replace'
 import commonjs from 'rollup-plugin-commonjs'
 import svelte from 'rollup-plugin-svelte'
@@ -21,9 +19,7 @@ const onwarn = (warning, onwarn) =>
     /[/\\]@sapper[/\\]/.test(warning.message)) ||
   onwarn(warning)
 
-const aliases = {
-  'contentful-utils': path.resolve(__dirname, 'src', 'contentful-utils'),
-}
+const resolveExtensions = ['.js', '.mjs', '.json', '.node', '.svelte']
 
 export default {
   client: {
@@ -41,9 +37,9 @@ export default {
       }),
       resolve({
         browser: true,
+        extensions: resolveExtensions,
       }),
       commonjs(),
-      alias(aliases),
       contentLoader(),
 
       legacy &&
@@ -91,9 +87,8 @@ export default {
         generate: 'ssr',
         dev,
       }),
-      resolve(),
+      resolve({ extensions: resolveExtensions }),
       commonjs(),
-      alias(aliases),
       contentLoader(),
     ],
     external: Object.keys(pkg.dependencies).concat(
@@ -108,13 +103,14 @@ export default {
     input: config.serviceworker.input(),
     output: config.serviceworker.output(),
     plugins: [
-      resolve(),
+      resolve({
+        extensions: resolveExtensions,
+      }),
       replace({
         'process.browser': true,
         'process.env.NODE_ENV': JSON.stringify(mode),
       }),
       commonjs(),
-      alias(aliases),
       contentLoader(),
       !dev && terser(),
     ],
