@@ -28,7 +28,7 @@
 </script>
 
 <style>
-  div {
+  .dotted-accent {
     --color: var(--primary);
     position: absolute;
     background: radial-gradient(var(--color) 25%, transparent 25%);
@@ -42,6 +42,7 @@
 </style>
 
 <div
+  class="dotted-accent"
   class:opaque
   style="height: {sizes[height]}; width: {sizes[width]}; top: {top}; right: {right};
   bottom: {bottom}; left: {left}; --color: {colorString}" />
