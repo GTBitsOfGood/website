@@ -1,10 +1,7 @@
 <script>
   import SwooshGraphic from './SwooshGraphic.svelte'
   import DottedAccent from '../../DottedAccent.svelte'
-  import content from '@contentful-entries/quote'
-  import { mapFields, toHtml } from 'contentful-utils'
-
-  const quotes = mapFields(content, 'authorImage')
+  import quotes from '@contentful-entries/quote'
 
   let quoteIndex = 0
   $: curr = quotes[quoteIndex]
@@ -28,7 +25,6 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 8rem;
-    padding-bottom: 4rem;
     max-width: 120rem;
     width: 100%;
     margin: 0 auto;
@@ -49,14 +45,15 @@
   }
   .next-quote-btn {
     position: absolute;
-    bottom: 2rem;
+    top: 2rem;
     right: 2rem;
     cursor: pointer;
     z-index: 1;
-    background: none;
+    background: #a09a7f;
     padding: 0;
     height: 10rem;
     width: 10rem;
+    border-radius: 100%;
   }
   .next-quote-btn::after {
     content: url('/icons/arrow-right.svg');
@@ -72,7 +69,7 @@
   .next-quote-btn > img {
     height: inherit;
     width: inherit;
-    opacity: 0.2;
+    opacity: 0.3;
   }
 
   .text-container {
@@ -112,8 +109,8 @@
   }
   @media (max-width: 900px) {
     .quote-container {
-      padding-left: 2rem;
-      padding-right: 2rem;
+      padding-left: 3rem;
+      padding-right: 3rem;
     }
     .text-container {
       margin: 0;
@@ -121,7 +118,7 @@
     .quote-container > img {
       position: absolute;
       top: 2rem;
-      right: 2rem;
+      right: 10rem;
       width: 10rem;
       height: 10rem;
     }
@@ -129,12 +126,13 @@
       display: none;
     }
     .next-quote-btn {
-      height: 5rem;
-      width: 5rem;
+      height: 7rem;
+      width: 7rem;
     }
   }
   @media (max-width: 500px) {
-    blockquote {
+    blockquote,
+    figcaption {
       font-size: 18px;
     }
   }
@@ -144,15 +142,15 @@
   <div class="quote-container">
     <figure class="text-container">
       <blockquote>
-        {@html toHtml(curr.quote)}
+        {@html curr.quote}
       </blockquote>
       <figcaption>{curr.author}</figcaption>
     </figure>
-    <img src={curr.img.src} alt={curr.img.alt} />
+    <img src={curr.authorImage.src} alt={curr.authorImage.alt} />
     <button
       class="next-quote-btn"
       on:click={() => (quoteIndex = nextQuoteIndex)}>
-      <img src={next.img.src} alt={next.img.alt} />
+      <img src={next.authorImage.src} alt={next.authorImage.alt} />
     </button>
     <DottedAccent
       height="l"
