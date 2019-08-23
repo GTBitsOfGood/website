@@ -5,8 +5,8 @@
 
   let scrolled = false
 
-  const onScroll = ({ target: { documentElement } }) => {
-    if (documentElement.scrollTop > 0) {
+  const onScroll = ({ target: { documentElement, body } }) => {
+    if (body.scrollTop > 0 || documentElement.scrollTop > 0) {
       scrolled = true
     } else {
       scrolled = false
