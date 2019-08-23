@@ -101,7 +101,7 @@
   }
   .heading-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
   button :global(svg) {
     width: 50px;
