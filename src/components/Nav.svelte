@@ -95,6 +95,7 @@
       left: 0;
       right: 0;
       height: 0; /* hide until mobile nav toggled */
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -160,7 +161,7 @@
       <a
         class:selected={segment === 'contact-us'}
         class="contact-us"
-        href="contact-us">
+        href="https://www.facebook.com/GTBitsOfGood">
         Contact Us
       </a>
     </li>
