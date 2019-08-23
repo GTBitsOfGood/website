@@ -13,6 +13,7 @@
     row-gap: 5rem;
     min-height: 70vh;
     align-items: center;
+    padding-bottom: 5rem;
   }
   p {
     position: relative;
@@ -45,12 +46,15 @@
   }
 
   @media (max-width: 1000px) {
+    img {
+      width: 15rem;
+    }
     p {
       font-size: 24px;
     }
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 700px) {
     section {
       grid-template-columns: 1fr;
       grid-template-rows: auto auto auto auto;
