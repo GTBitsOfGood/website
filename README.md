@@ -33,6 +33,10 @@ This is a huge benefit for our designers, who can now just edit a textbox or upl
 ## Install Dependencies
 
 ```sh
+npm install
+```
+
+```sh
 yarn install
 ```
 
