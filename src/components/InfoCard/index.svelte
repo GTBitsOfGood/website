@@ -66,7 +66,7 @@
       placeholder={'./example-data/bfa-lazy.jpg'} 
       src={img.src} 
       alt={img.alt} 
-      style="height:100%;width:auto;"
+      imgStyle="height:100%;width:auto;"
     />
   </div>
   <h3>{heading}</h3>
