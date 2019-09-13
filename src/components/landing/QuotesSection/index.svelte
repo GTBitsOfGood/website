@@ -1,21 +1,8 @@
 <script>
   import SwooshGraphic from './SwooshGraphic.svelte'
   import DottedAccent from '../../DottedAccent.svelte'
+  import quotes from '@contentful-entries/quote'
 
-  const quotes = [
-    {
-      author: 'James, hype man',
-      pictureURL: 'quote-img-1.jpg',
-      quote:
-        'Bits of Good is freaking amazing and I love it so much! The community especially.',
-    },
-    {
-      author: 'Huan, aesthetic master',
-      pictureURL: 'quote-img-2.jpg',
-      quote:
-        'This club is a home away from home. Met some amazing people here and am hyped for fall!',
-    },
-  ]
   let quoteIndex = 0
   $: curr = quotes[quoteIndex]
   $: nextQuoteIndex = quoteIndex + 1 === quotes.length ? 0 : quoteIndex + 1
@@ -27,9 +14,10 @@
     position: relative;
     display: flex;
     align-items: flex-end;
-    padding: 3rem;
     min-height: 100rem;
     margin-bottom: 20rem;
+    padding: 2rem;
+    max-width: 100%;
   }
   .quote-container {
     display: flex;
@@ -56,15 +44,16 @@
     box-shadow: 0px 1rem 2rem rgba(0, 0, 0, 0.4);
   }
   .next-quote-btn {
-    position: relative;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
     cursor: pointer;
-    margin-right: -20rem;
-    margin-left: -15rem;
     z-index: 1;
-    background: none;
+    background: #a09a7f;
     padding: 0;
-    height: 20rem;
-    width: 20rem;
+    height: 10rem;
+    width: 10rem;
+    border-radius: 100%;
   }
   .next-quote-btn::after {
     content: url('/icons/arrow-right.svg');
@@ -80,12 +69,12 @@
   .next-quote-btn > img {
     height: inherit;
     width: inherit;
-    opacity: 0.2;
+    opacity: 0.3;
   }
 
   .text-container {
     z-index: 1;
-    width: 50%;
+    flex: 1;
     padding-top: 6rem;
     padding-bottom: 8rem;
   }
@@ -101,7 +90,7 @@
     letter-spacing: 0.05em;
   }
   blockquote {
-    font-size: 40px;
+    font-size: 24px;
     margin: 2.6rem 0;
   }
   figcaption {
@@ -112,19 +101,56 @@
     content: url('/icons/quote-dash.svg');
     margin-right: 2rem;
   }
+  @media (max-width: 1100px) {
+    .quote-container > img {
+      width: 25rem;
+      height: 25rem;
+    }
+  }
+  @media (max-width: 900px) {
+    .quote-container {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+    .text-container {
+      margin: 0;
+    }
+    .quote-container > img {
+      position: absolute;
+      top: 2rem;
+      right: 10rem;
+      width: 10rem;
+      height: 10rem;
+    }
+    .quote-container :global(.dotted-accent) {
+      display: none;
+    }
+    .next-quote-btn {
+      height: 7rem;
+      width: 7rem;
+    }
+  }
+  @media (max-width: 500px) {
+    blockquote,
+    figcaption {
+      font-size: 18px;
+    }
+  }
 </style>
 
 <section>
   <div class="quote-container">
     <figure class="text-container">
-      <blockquote>{curr.quote}</blockquote>
+      <blockquote>
+        {@html curr.quote}
+      </blockquote>
       <figcaption>{curr.author}</figcaption>
     </figure>
-    <img src="/example-data/{curr.pictureURL}" alt={curr.author} />
+    <img src={curr.authorImage.src} alt={curr.authorImage.alt} />
     <button
       class="next-quote-btn"
       on:click={() => (quoteIndex = nextQuoteIndex)}>
-      <img src="/example-data/{next.pictureURL}" alt={next.author} />
+      <img src={next.authorImage.src} alt={next.authorImage.alt} />
     </button>
     <DottedAccent
       height="l"
@@ -132,8 +158,7 @@
       color="#F1E8C7"
       right="10%"
       top="8rem"
-      opaque
-      parallax={false} />
+      opaque />
   </div>
   <SwooshGraphic />
 </section>

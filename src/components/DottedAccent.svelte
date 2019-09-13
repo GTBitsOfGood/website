@@ -10,7 +10,6 @@
   export let color = 'orange'
 
   export let opaque = false
-  export let parallax = true
 
   const sizes = {
     s: '18rem',
@@ -29,7 +28,7 @@
 </script>
 
 <style>
-  div {
+  .dotted-accent {
     --color: var(--primary);
     position: absolute;
     background: radial-gradient(var(--color) 25%, transparent 25%);
@@ -37,16 +36,13 @@
     background-size: 3rem 3rem;
     opacity: 0.1;
   }
-  .parallax {
-    transform: translateZ(-2px);
-  }
   .opaque {
     opacity: 1;
   }
 </style>
 
 <div
-  class:parallax
+  class="dotted-accent"
   class:opaque
   style="height: {sizes[height]}; width: {sizes[width]}; top: {top}; right: {right};
   bottom: {bottom}; left: {left}; --color: {colorString}" />

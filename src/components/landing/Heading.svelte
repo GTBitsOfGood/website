@@ -1,7 +1,7 @@
 <script>
   import content from '@contentful-entry/slogan'
   import { GetInvolvedBtn, DottedAccent } from '../'
-  import AnimatedLogo from './AnimatedLogo.svelte'
+  import BigLogo from './BigLogo.svelte'
 </script>
 
 <style>
@@ -9,7 +9,7 @@
     display: flex;
     margin-bottom: -15rem;
   }
-  .big-logo-container {
+  .big-logo-accents {
     flex: 1;
     height: 78vw;
     width: auto;
@@ -19,7 +19,7 @@
     overflow: hidden;
   }
   h2 {
-    font-size: 4rem;
+    font-size: 40px;
     font-family: inherit;
     color: var(--text-color);
     line-height: 1.3em;
@@ -41,11 +41,25 @@
     width: 100%;
     max-width: 60rem;
   }
+
+  @media (max-width: 1100px) {
+    .big-logo-accents {
+      display: none;
+    }
+  }
+  @media (max-width: 600px) {
+    .text-container {
+      margin: 3rem;
+    }
+    h2 {
+      font-size: 30px;
+    }
+  }
 </style>
 
 <div class="banner" role="banner">
-  <AnimatedLogo />
-  <div class="big-logo-container">
+  <BigLogo />
+  <div class="big-logo-accents">
     <DottedAccent top="8rem" left="65%" width="m" color="red" />
     <DottedAccent top="65%" left="-10%" width="l" height="m" color="yellow" />
   </div>

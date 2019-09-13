@@ -7,7 +7,6 @@
   section {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
   }
   h2 {
     width: 100%;

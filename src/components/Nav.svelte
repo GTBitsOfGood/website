@@ -10,14 +10,17 @@
 
 <style>
   nav {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     display: flex;
     align-items: center;
     height: var(--nav-height);
     font-size: 18px;
     background: var(--backing-pink-pronounced);
     transition: box-shadow 0.2s;
-    z-index: 1;
+    z-index: 5;
   }
 
   .shadow {
@@ -92,6 +95,7 @@
       left: 0;
       right: 0;
       height: 0; /* hide until mobile nav toggled */
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -157,7 +161,7 @@
       <a
         class:selected={segment === 'contact-us'}
         class="contact-us"
-        href="contact-us">
+        href="https://www.facebook.com/GTBitsOfGood">
         Contact Us
       </a>
     </li>
