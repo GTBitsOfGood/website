@@ -16,11 +16,12 @@
 
 <section>
   <h2>Projects</h2>
-  {#each projects as { heading, description, developmentStatus, link, thumbnail }}
+  {#each projects as { heading, description, developmentStatus, link, thumbnail, placeholderThumbnail }}
     <InfoCard
       {heading}
       {link}
       img={thumbnail}
+      placeholderImg={placeholderThumbnail}
       descriptionHTML={description}
       label={developmentStatus} />
   {/each}

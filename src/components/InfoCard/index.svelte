@@ -8,6 +8,9 @@
     src: '',
     alt: '',
   }
+  export let placeholderImg = {
+    src: '',
+  }
 
   export let label = ''
   export let link = ''
@@ -62,10 +65,7 @@
 
 <Container {link}>
   <div class="img-container">
-    <LazyImg
-      placeholder={'./example-data/bfa-lazy.jpg'}
-      src={img.src}
-      alt={img.alt} />
+    <LazyImg placeholder={placeholderImg.src} src={img.src} alt={img.alt} />
   </div>
   <h3>{heading}</h3>
   <p>
