@@ -13,13 +13,13 @@
     row-gap: 5rem;
     min-height: 70vh;
     align-items: center;
+    padding: 3rem;
     padding-bottom: 5rem;
   }
   p {
     position: relative;
     white-space: pre-line;
     font-size: 34px;
-    margin: 3rem;
   }
   h1,
   a {
@@ -45,12 +45,6 @@
     transform: translateY(-10px);
   }
 
-  @media (max-width: 1250px) {
-    h1 {
-      margin-left: 40px
-    }
-  }
-
   @media (max-width: 1000px) {
     img {
       width: 15rem;
@@ -64,6 +58,9 @@
     section {
       grid-template-columns: 1fr;
       grid-template-rows: auto auto auto auto;
+    }
+    h1 {
+      font-size: 52px;
     }
   }
 </style>
