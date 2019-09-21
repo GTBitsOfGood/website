@@ -82,7 +82,7 @@
     background: none;
   }
 
-  @media (max-width: 48rem) {
+  @media (max-width: 750px) {
     :root {
       --nav-height: 5rem;
     }
@@ -155,7 +155,8 @@
       <a class:selected={segment === 'projects'} href="projects">Projects</a>
     </li>
     <li class="get-involved-btn">
-      <GetInvolvedBtn hide={!scrolled && segment === undefined} />
+      <GetInvolvedBtn
+        hide={(!scrolled && segment === undefined) || segment === 'join'} />
     </li>
     <li>
       <a
