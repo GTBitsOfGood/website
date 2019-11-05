@@ -2,7 +2,7 @@
   import content from '@contentful-entry/getInvolvedSection'
   import DottedAccent from '../components/DottedAccent'
   const formLink =
-    'https://forms.office.com/Pages/ResponsePage.aspx?id=u5ghSHuuJUuLem1_Mvqggz-M1H0_U3dBvpxXg720lXxURTQwMUFBTEdHT05TM05ZMFdQNUFTOFVGMS4u'
+    'https://bitsofgood.us16.list-manage.com/subscribe/post?u=45c4fe0ca061b2ce62e43e72f&amp;id=0901f33185'
 </script>
 
 <style>
@@ -59,6 +59,9 @@
       grid-template-columns: 1fr;
       grid-template-rows: auto auto auto auto;
       justify-items: center;
+    }
+    h1 {
+      font-size: 52px;
     }
   }
 </style>
