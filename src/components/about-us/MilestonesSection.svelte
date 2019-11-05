@@ -14,6 +14,11 @@
     padding: 3rem;
     padding-bottom: 5rem;
   }
+  .padding {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
   .scroll-container {
     --offset-index: 0;
     --milestone-width: 30rem;
@@ -109,42 +114,44 @@
   }
 </style>
 
-<section>
-  <h2>Milestones</h2>
-  <div
-    class="scroll-container"
-    style="--offset-index: {currentIndex}; --milestone-count: {milestones.length};">
-    {#each milestones as { heading, description, time }, index}
-      <div
-        class="milestone"
-        class:position-low={index % 4 === 1}
-        class:position-high={index % 4 === 3}
-        class:selected={currentIndex === index}>
-        <div class="milestone-content">
-          <div class="heading-container">
+<div class="padding">
+  <section>
+    <h2>Milestones</h2>
+    <div
+      class="scroll-container"
+      style="--offset-index: {currentIndex}; --milestone-count: {milestones.length};">
+      {#each milestones as { heading, description, time }, index}
+        <div
+          class="milestone"
+          class:position-low={index % 4 === 1}
+          class:position-high={index % 4 === 3}
+          class:selected={currentIndex === index}>
+          <div class="milestone-content">
+            <div class="heading-container">
+              {#if currentIndex === index}
+                <button on:click={() => (currentIndex = prev)}>
+                  <ArrowIcon orientation="left" fill="var(--text-color)" />
+                </button>
+              {/if}
+              <h4 class:yellow={index % 4 === 0} class:red={index % 4 === 2}>
+                <FlagIcon />
+                <span class="time-banner">{time}</span>
+              </h4>
+              {#if currentIndex === index}
+                <button on:click={() => (currentIndex = next)}>
+                  <ArrowIcon fill="var(--text-color)" />
+                </button>
+              {/if}
+            </div>
+            <h3>{heading}</h3>
             {#if currentIndex === index}
-              <button on:click={() => (currentIndex = prev)}>
-                <ArrowIcon orientation="left" fill="var(--text-color)" />
-              </button>
-            {/if}
-            <h4 class:yellow={index % 4 === 0} class:red={index % 4 === 2}>
-              <FlagIcon />
-              <span class="time-banner">{time}</span>
-            </h4>
-            {#if currentIndex === index}
-              <button on:click={() => (currentIndex = next)}>
-                <ArrowIcon fill="var(--text-color)" />
-              </button>
+              <p>
+                {@html description}
+              </p>
             {/if}
           </div>
-          <h3>{heading}</h3>
-          {#if currentIndex === index}
-            <p>
-              {@html description}
-            </p>
-          {/if}
         </div>
-      </div>
-    {/each}
-  </div>
-</section>
+      {/each}
+    </div>
+  </section>
+</div>

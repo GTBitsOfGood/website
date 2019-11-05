@@ -89,7 +89,7 @@
     font-weight: 400;
     letter-spacing: 0.05em;
   }
-  blockquote {
+  blockquote > :global(p) {
     font-size: 24px;
     margin: 2.6rem 0;
   }
@@ -131,7 +131,7 @@
     }
   }
   @media (max-width: 500px) {
-    blockquote,
+    blockquote > :global(p),
     figcaption {
       font-size: 18px;
     }

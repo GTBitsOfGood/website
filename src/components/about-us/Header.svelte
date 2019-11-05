@@ -29,12 +29,12 @@
     padding: 3rem;
     max-width: 90rem;
   }
-  p,
-  h1 {
+  .text-container {
     color: white;
   }
-  p {
+  .text-container > :global(p) {
     font-size: 40px;
+    color: white;
   }
   button {
     background: white;
@@ -55,7 +55,7 @@
     margin-right: 5rem;
   }
   @media (max-width: 900px) {
-    p {
+    .text-container > :global(p) {
       font-size: 30px;
     }
   }
@@ -64,7 +64,7 @@
       margin-top: 0;
       flex-direction: column;
     }
-    p {
+    .text-container > :global(p) {
       font-size: 24px;
     }
     img {
@@ -78,9 +78,7 @@
   <div class="content-container">
     <div class="text-container">
       <h1>{content.heading}</h1>
-      <p>
-        {@html content.description}
-      </p>
+      {@html content.description}
       <button on:click={scrollToMissionSection}>{content.cta}</button>
     </div>
     <img

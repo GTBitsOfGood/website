@@ -16,11 +16,9 @@
 
 <style>
   main {
-    position: relative;
     margin: 0 auto;
     margin-top: var(--nav-height, 7rem);
     box-sizing: border-box;
-    overflow-x: hidden;
   }
 </style>
 

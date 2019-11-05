@@ -8,25 +8,27 @@
 <style>
   section {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 30rem;
     grid-template-rows: auto 1fr 10rem;
-    row-gap: 5rem;
     min-height: 70vh;
     align-items: center;
+    padding: 0 3rem;
     padding-bottom: 5rem;
   }
-  p {
+  .content {
     position: relative;
+  }
+  .content > :global(p) {
     white-space: pre-line;
-    font-size: 34px;
-    margin: 3rem;
+    font-size: 28px;
   }
   h1,
   a {
     grid-column: 1 / -1;
   }
   img {
-    justify-self: center;
+    margin-left: 10rem;
+    width: 20rem;
   }
   a {
     justify-self: center;
@@ -48,25 +50,26 @@
   @media (max-width: 1000px) {
     img {
       width: 15rem;
+      margin: 0;
     }
-    p {
+    .content > :global(p) {
       font-size: 24px;
     }
-  }
-
-  @media (max-width: 700px) {
     section {
       grid-template-columns: 1fr;
       grid-template-rows: auto auto auto auto;
+      justify-items: center;
     }
   }
 </style>
 
 <section>
   <h1>{content.heading}</h1>
+  <div class="content">
+    {@html content.description}
+  </div>
   <img src={content.icon.src} alt={content.icon.alt} />
   <p>
-    {@html content.description}
     <DottedAccent right="0rem" bottom="5rem" color="orange" width="l" />
   </p>
   <a target="_blank" href={formLink}>{content.cta}</a>
