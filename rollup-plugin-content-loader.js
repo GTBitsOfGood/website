@@ -27,16 +27,16 @@ function mapEntry(entry, schema) {
     .filter(({ id }) => fields[id])
     .forEach(({ id, type, linkType }) => {
       switch (type) {
-      case 'RichText':
-        fields[id] = toHtml(fields[id])
-        break
-      case 'Link':
-        switch (linkType) {
-        case 'Asset':
-          fields[id] = toImg(fields[id])
+        case 'RichText':
+          fields[id] = toHtml(fields[id])
           break
-        }
-        break
+        case 'Link':
+          switch (linkType) {
+            case 'Asset':
+              fields[id] = toImg(fields[id])
+              break
+          }
+          break
       }
     })
 
@@ -51,7 +51,8 @@ function toHtml(document, { renderMark = {}, ...options } = {}) {
       ...renderMark,
     },
     renderNode: {
-      [BLOCKS.PARAGRAPH]: (node, next) => `<span>${next(node.content)}</span>`,
+      [BLOCKS.PARAGRAPH]: (node, next) =>
+        `<p>${next(node.content).replace(/\n/g, '<br/>')}</p>`,
     },
     ...options,
   })
@@ -71,57 +72,55 @@ export default function contentLoader() {
     resolveId(source) {
       const parts = source.split('/')
       switch (parts[0]) {
-      case ENTRY_PREFIX:
-      case ENTRIES_PREFIX:
-        return source
-      default:
-        return null
+        case ENTRY_PREFIX:
+        case ENTRIES_PREFIX:
+          return source
+        default:
+          return null
       }
     },
 
     async load(source) {
       const parts = source.split('/')
       switch (parts[0]) {
-      case ENTRY_PREFIX:
-      {
-        const [, contentType, key] = parts
-        const schemaPromise = client.getContentType(contentType)
-        const entriesPromise = client.getEntries({
-          'content_type': contentType,
-          'fields.key': key,
-          limit: 1,
-        })
-        const [schema, entries] = await Promise.all([
-          schemaPromise,
-          entriesPromise,
-        ])
+        case ENTRY_PREFIX: {
+          const [, contentType, key] = parts
+          const schemaPromise = client.getContentType(contentType)
+          const entriesPromise = client.getEntries({
+            content_type: contentType,
+            'fields.key': key,
+            limit: 1,
+          })
+          const [schema, entries] = await Promise.all([
+            schemaPromise,
+            entriesPromise,
+          ])
 
-        const item = mapEntry(entries.items[0], schema)
-        return `export default ${JSON.stringify(item)}`
-      }
-      case ENTRIES_PREFIX:
-      {
-        const [, contentType] = parts
-        const schemaPromise = client.getContentType(contentType)
-        const entriesPromise = client.getEntries({
-          'content_type': contentType,
-        })
-        const [schema, entries] = await Promise.all([
-          schemaPromise,
-          entriesPromise,
-        ])
-
-        let items = entries.items.map(entry => mapEntry(entry, schema))
-        if (items.length && typeof items[0].orderingIndex === 'number') {
-          items = items.sort((first, second) => (
-            first.orderingIndex - second.orderingIndex
-          ))
+          const item = mapEntry(entries.items[0], schema)
+          return `export default ${JSON.stringify(item)}`
         }
+        case ENTRIES_PREFIX: {
+          const [, contentType] = parts
+          const schemaPromise = client.getContentType(contentType)
+          const entriesPromise = client.getEntries({
+            content_type: contentType,
+          })
+          const [schema, entries] = await Promise.all([
+            schemaPromise,
+            entriesPromise,
+          ])
 
-        return `export default ${JSON.stringify(items)}`
-      }
-      default:
-        return null
+          let items = entries.items.map(entry => mapEntry(entry, schema))
+          if (items.length && typeof items[0].orderingIndex === 'number') {
+            items = items.sort(
+              (first, second) => first.orderingIndex - second.orderingIndex
+            )
+          }
+
+          return `export default ${JSON.stringify(items)}`
+        }
+        default:
+          return null
       }
     },
   }
