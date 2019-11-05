@@ -7,6 +7,7 @@
 
 <style>
   section {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 30rem;
     grid-template-rows: auto 1fr 10rem;
@@ -29,6 +30,7 @@
   img {
     margin-left: 10rem;
     width: 20rem;
+    margin-bottom: 5rem;
   }
   a {
     justify-self: center;
@@ -50,7 +52,7 @@
   @media (max-width: 1000px) {
     img {
       width: 15rem;
-      margin: 0;
+      margin-left: 0;
     }
     .content > :global(p) {
       font-size: 24px;
@@ -71,9 +73,7 @@
   <div class="content">
     {@html content.description}
   </div>
+  <DottedAccent right="0" bottom="30rem" color="orange" width="l" />
   <img src={content.icon.src} alt={content.icon.alt} />
-  <p>
-    <DottedAccent right="0rem" bottom="5rem" color="orange" width="l" />
-  </p>
   <a target="_blank" href={formLink}>{content.cta}</a>
 </section>
