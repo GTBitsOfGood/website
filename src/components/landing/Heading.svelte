@@ -8,8 +8,6 @@
   .banner {
     display: flex;
     margin-bottom: -15rem;
-    position: relative;
-    overflow: hidden;
   }
   .big-logo-accents {
     flex: 1;
@@ -32,12 +30,14 @@
   }
   .text-container {
     flex: 1;
-    margin: 0 12rem;
+    padding: 0 12rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     height: 80vh;
+    position: relative;
+    overflow: hidden;
   }
   .text-container > img {
     width: 100%;
@@ -51,7 +51,7 @@
   }
   @media (max-width: 600px) {
     .text-container {
-      margin: 3rem;
+      padding: 3rem;
     }
     h2 {
       font-size: 30px;
