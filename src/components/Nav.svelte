@@ -43,10 +43,6 @@
     color: var(--text-color);
   }
 
-  li:last-of-type {
-    margin-right: 0;
-  }
-
   li.get-involved-btn {
     margin-left: auto;
     margin-right: 4rem;
@@ -61,13 +57,8 @@
     color: var(--primary);
   }
 
-  a.contact-us {
+  .selected {
     color: var(--primary);
-  }
-
-  a.contact-us:hover,
-  a.contact-us:active {
-    color: var(--primary-yellow);
   }
 
   .mobile-content {
@@ -82,7 +73,7 @@
     background: none;
   }
 
-  @media (max-width: 750px) {
+  @media (max-width: 800px) {
     :root {
       --nav-height: 5rem;
     }
@@ -120,22 +111,9 @@
       padding: 2rem;
     }
 
-    a.contact-us {
-      color: inherit;
-    }
-
-    a.contact-us:hover,
-    a.contact-us:active {
-      color: var(--primary);
-    }
-
     li.get-involved-btn {
       display: none;
     }
-  }
-
-  .selected {
-    color: var(--primary);
   }
 </style>
 
@@ -149,22 +127,17 @@
       <a class:selected={segment === undefined} href=".">Home</a>
     </li>
     <li>
-      <a class:selected={segment === 'about-us'} href="about-us">About Us</a>
+      <a class:selected={segment === 'about'} href="about">About Us</a>
     </li>
     <li>
       <a class:selected={segment === 'projects'} href="projects">Projects</a>
     </li>
+    <li>
+      <a class:selected={segment === 'contact'} href="contact">Contact Us</a>
+    </li>
     <li class="get-involved-btn">
       <GetInvolvedBtn
         hide={(!scrolled && segment === undefined) || segment === 'join'} />
-    </li>
-    <li>
-      <a
-        class:selected={segment === 'contact-us'}
-        class="contact-us"
-        href="https://www.facebook.com/GTBitsOfGood">
-        Contact Us
-      </a>
     </li>
   </ul>
   <div class="mobile-content">
