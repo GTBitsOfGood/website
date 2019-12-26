@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     position: relative;
+    overflow: hidden;
   }
   svg {
     width: 100%;

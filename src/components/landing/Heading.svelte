@@ -8,6 +8,8 @@
   .banner {
     display: flex;
     margin-bottom: -15rem;
+    position: relative;
+    overflow: hidden;
   }
   .big-logo-accents {
     flex: 1;
@@ -63,7 +65,7 @@
     <DottedAccent top="8rem" left="65%" width="m" color="red" />
     <DottedAccent top="65%" left="-10%" width="l" height="m" color="yellow" />
   </div>
-  <div class="text-container" role="banner">
+  <div class="text-container">
     <DottedAccent top="25vh" left="60%" width="l" height="m" />
     <img src="images/bog-logo.svg" alt="Bits of Good logo" />
     <h2>

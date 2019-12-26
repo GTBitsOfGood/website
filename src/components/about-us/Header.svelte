@@ -17,6 +17,7 @@
     justify-content: center;
     max-width: 100%;
     height: 750px;
+    overflow: hidden;
   }
   .content-container {
     margin: 5rem auto;

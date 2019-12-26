@@ -14,9 +14,7 @@
     padding: 3rem;
     padding-bottom: 5rem;
   }
-  .padding {
-    display: flex;
-    justify-content: center;
+  .overflow-container {
     overflow: hidden;
   }
   .scroll-container {
@@ -114,7 +112,7 @@
   }
 </style>
 
-<div class="padding">
+<div class="overflow-container">
   <section>
     <h2>Milestones</h2>
     <div
