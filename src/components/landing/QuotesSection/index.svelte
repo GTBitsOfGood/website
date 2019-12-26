@@ -96,10 +96,16 @@
   figcaption {
     text-align: right;
     font-size: 24px;
+    margin-right: 2em;
   }
   figcaption::before {
     content: url('/icons/quote-dash.svg');
-    margin-right: 2rem;
+    margin-right: 4rem;
+  }
+  @media (max-width: 1400px) {
+    section {
+      overflow: hidden;
+    }
   }
   @media (max-width: 1100px) {
     .quote-container > img {
@@ -107,7 +113,7 @@
       height: 25rem;
     }
   }
-  @media (max-width: 900px) {
+  @media (max-width: 920px) {
     .quote-container {
       padding-left: 3rem;
       padding-right: 3rem;
@@ -134,6 +140,9 @@
     blockquote > :global(p),
     figcaption {
       font-size: 18px;
+    }
+    .quote-container {
+      margin-bottom: 18rem;
     }
   }
 </style>
