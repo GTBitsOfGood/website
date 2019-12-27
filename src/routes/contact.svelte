@@ -115,7 +115,7 @@
       </a>
     </p>
   </div>
-  <form method="POST" action="/contact-submitted" data-netlify="true">
+  <form method="POST" name="contact" data-netlify="true">
     <label for="name">Name</label>
     <input
       type="text"
