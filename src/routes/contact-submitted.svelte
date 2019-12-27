@@ -16,7 +16,7 @@
     max-width: var(--content-max-width);
   }
   img {
-    max-height: 500px;
+    width: 475px;
     margin-left: -5rem;
   }
   .text-container {
