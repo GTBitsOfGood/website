@@ -2,11 +2,11 @@
   .container {
     background: linear-gradient(var(--backing-pink-pronounced), white);
     width: 100%;
-    padding: 3rem;
   }
   section {
     display: flex;
     min-height: 100%;
+    padding: 3rem;
     align-items: center;
     max-width: var(--content-max-width);
   }
@@ -21,12 +21,13 @@
     font-weight: 400;
     color: #333;
     margin-left: 0.5rem;
+    font-size: 18px;
   }
   .subtext {
     font-size: 24px;
   }
   .newsletter-link {
-    margin-top: 3rem;
+    margin-top: 2rem;
     display: inline-block;
     border-radius: 1rem;
     font-weight: inherit;
