@@ -112,7 +112,7 @@
       </a>
     </p>
   </div>
-  <form method="POST" data-netlify="true">
+  <form method="POST" action="/contact-submitted" data-netlify="true">
     <label for="name">Name</label>
     <input type="text" id="name" placeholder="Johnny Dogooder" required />
     <label for="email">Email</label>
