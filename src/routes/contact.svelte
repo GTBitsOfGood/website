@@ -115,21 +115,31 @@
       </a>
     </p>
   </div>
-  <form method="POST" name="contact" data-netlify="true">
+  <form
+    method="POST"
+    name="contact"
+    data-netlify="true"
+    action="/contact-submitted">
     <label for="name">Name</label>
     <input
       type="text"
       id="name"
+      name="name"
       placeholder={content.namePlaceholder}
       required />
     <label for="email">Email</label>
     <input
       type="text"
       id="email"
+      name="email"
       placeholder={content.emailPlaceholder}
       required />
     <label for="message">Message</label>
-    <textarea id="message" placeholder={content.messagePlaceholder} required />
+    <textarea
+      id="message"
+      name="message"
+      placeholder={content.messagePlaceholder}
+      required />
     <button type="submit">{content.formSubmissionButton}</button>
   </form>
 </section>
