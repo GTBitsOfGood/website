@@ -32,7 +32,7 @@
     align-items: inherit;
     flex: 1;
     height: 100%;
-    max-width: 140rem;
+    max-width: var(--content-max-width);
     margin: auto;
     padding: 0 3rem;
   }
@@ -45,7 +45,7 @@
 
   li.get-involved-btn {
     margin-left: auto;
-    margin-right: 4rem;
+    margin-right: 0;
   }
 
   a {
