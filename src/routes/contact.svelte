@@ -141,5 +141,7 @@
       placeholder={content.messagePlaceholder}
       required />
     <button type="submit">{content.formSubmissionButton}</button>
+    <!--Ignore this element. Included so the /contact-submitted page is generated when crawling the website.-->
+    <a style="display: none" href="/contact-submitted">_</a>
   </form>
 </section>
