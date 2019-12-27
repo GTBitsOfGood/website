@@ -1,3 +1,8 @@
+<script>
+  import content from '@contentful-entry/contactUsSubmitted'
+  import { removeWrapperPTag } from '../contentHelpers'
+</script>
+
 <style>
   .container {
     background: linear-gradient(var(--backing-pink-pronounced), white);
@@ -60,18 +65,17 @@
 <div class="container">
   <section>
     <div class="text-container">
-      <h1>Thanks for reaching out!</h1>
-      <p class="subtext">We will get back to you very soon.</p>
-      <p>
-        For now, stay updated on everything BoG with our
-        <strong>newsletter!</strong>
+      <h1>{content.heading}</h1>
+      <p class="subtext">
+        {@html removeWrapperPTag(content.subHeading)}
       </p>
-      <a
-        class="newsletter-link"
-        href="https://bitsofgood.us16.list-manage.com/subscribe/post?u=45c4fe0ca061b2ce62e43e72f&amp;id=0901f33185">
-        Get the newsletter 🚀
+      <p>
+        {@html removeWrapperPTag(content.newsletterSubtext)}
+      </p>
+      <a class="newsletter-link" href={content.newsletterUrl}>
+        {content.newsletterCta}
       </a>
     </div>
-    <img src="images/person-flying-right.svg" alt="" />
+    <img src={content.artwork.src} alt={content.artwork.alt} />
   </section>
 </div>

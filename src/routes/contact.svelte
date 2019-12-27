@@ -1,3 +1,8 @@
+<script>
+  import content from '@contentful-entry/contactUs'
+  import { removeWrapperPTag } from '../contentHelpers'
+</script>
+
 <style>
   section {
     display: grid;
@@ -10,6 +15,14 @@
       'info-text form'
       'image form'
       'address form';
+  }
+
+  p {
+    font-weight: 400;
+    font-size: inherit;
+    margin: 0;
+    margin-bottom: 2rem;
+    color: #333;
   }
 
   h1 {
@@ -42,13 +55,6 @@
   }
   form {
     grid-area: form;
-  }
-  p {
-    font-weight: 400;
-    font-size: inherit;
-    margin: 0;
-    margin-bottom: 2rem;
-    color: #333;
   }
   label {
     display: block;
@@ -94,31 +100,36 @@
 </style>
 
 <section>
-  <img
-    src="images/people-swirl.svg"
-    alt="people looking at each other with laptops" />
-  <h1>Contact Us</h1>
+  <img src={content.artwork.src} alt={content.artwork.alt} />
+  <h1>{content.heading}</h1>
   <p class="info-text">
-    Want to learn more about Bits of Good? Send us a message or email us at
-    <a href="mailto:hello@bitsofgood.org">hello@bitsofgood.org</a>
+    {@html removeWrapperPTag(content.infoText)}
   </p>
   <div class="address">
-    <h2>Or find us in person!</h2>
+    <h2>{content.addressHeading}</h2>
     <p>
-      <a href="https://g.page/thegaragetechsquare?share" target="_blank">
-        The Garage at Tech Square
+      <a href={content.addressUrl}>
+        {content.addressLine1}
         <br />
-        848 Spring St NW, Atlanta, GA 30308
+        {content.addressLine2}
       </a>
     </p>
   </div>
   <form method="POST" action="/contact-submitted" data-netlify="true">
     <label for="name">Name</label>
-    <input type="text" id="name" placeholder="Johnny Dogooder" required />
+    <input
+      type="text"
+      id="name"
+      placeholder={content.namePlaceholder}
+      required />
     <label for="email">Email</label>
-    <input type="text" id="email" placeholder="hello@nonprofit.org" required />
-    <label for="Message">Message</label>
-    <textarea id="message" placeholder="I had a question about..." required />
-    <button type="submit">Message us!</button>
+    <input
+      type="text"
+      id="email"
+      placeholder={content.emailPlaceholder}
+      required />
+    <label for="message">Message</label>
+    <textarea id="message" placeholder={content.messagePlaceholder} required />
+    <button type="submit">{content.formSubmissionButton}</button>
   </form>
 </section>
