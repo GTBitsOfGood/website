@@ -120,6 +120,7 @@
     name="contact"
     data-netlify="true"
     action="/contact-submitted">
+    <input type="hidden" name="form-name" value="contact" />
     <label for="name">Name</label>
     <input
       type="text"
