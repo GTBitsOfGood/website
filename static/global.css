@@ -51,14 +51,15 @@ button {
 input,
 textarea {
   border: none;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 2px solid #eee;
   font-size: inherit;
   font-family: inherit;
 }
 
 input:focus,
 textarea:focus {
-  border-bottom: 1px solid var(--primary);
+  outline: none;
+  border-bottom: 2px solid var(--primary);
   transition: border 0.2s;
 }
 
