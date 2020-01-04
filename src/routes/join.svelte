@@ -23,19 +23,19 @@
   }
 
   div.jump-to-section-links button {
-    font-size: 18px;
+    font-size: 16px;
     padding: 15px 20px;
     margin: 15px;
+    color: #333;
+    border-radius: 10px;
   }
 
   div.jump-to-section-links button.students {
-    color: white;
-    background: var(--primary-red);
+    border: 3px solid var(--primary-red);
   }
 
   div.jump-to-section-links button.nonprofits {
-    color: #333;
-    background: var(--primary-yellow);
+    border: 3px solid var(--primary-yellow);
   }
 
   section.content-container {
