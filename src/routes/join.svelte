@@ -24,7 +24,7 @@
 
   div.jump-to-section-links button {
     font-size: 18px;
-    padding: 20px 30px;
+    padding: 15px 20px;
     margin: 15px;
   }
 
