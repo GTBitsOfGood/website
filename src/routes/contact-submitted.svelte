@@ -58,6 +58,7 @@
       transform: scaleX(-1);
       width: 250px;
       align-self: flex-end;
+      margin-top: 3rem;
     }
   }
 </style>
