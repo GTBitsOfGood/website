@@ -31,7 +31,7 @@
       good for students who want to make a meaningful impact with their
       technical background.
     </p>
-    <a href="about-us">More about our mission</a>
+    <a href="about">More about our mission</a>
   </div>
   <div class="artwork" slot="right">
     <img src="images/connecting-artwork-back.svg" alt="" class="artwork-back" />

@@ -48,6 +48,21 @@ button {
   font-weight: 700;
 }
 
+input,
+textarea {
+  border: none;
+  border-bottom: 2px solid #eee;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-bottom: 2px solid var(--primary);
+  transition: border 0.2s;
+}
+
 a,
 a:visited {
   color: var(--primary);
@@ -67,9 +82,14 @@ body {
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 14px;
   font-weight: 500;
-  letter-spacing: 0.03em;
   line-height: 1.5;
   color: #333;
+}
+
+body,
+input,
+textarea {
+  letter-spacing: 0.03em;
 }
 
 h1,
