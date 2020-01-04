@@ -27,7 +27,8 @@
 
   h1 {
     grid-area: 'heading';
-    margin-top: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 0;
   }
   h2 {
     font-size: 24px;
@@ -70,7 +71,11 @@
 
   textarea {
     resize: none;
-    min-height: 15em;
+    min-height: 5em;
+    transition: min-height 0.2s;
+  }
+  textarea:focus {
+    min-height: 10em;
   }
   button {
     font-size: inherit;
