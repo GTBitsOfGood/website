@@ -182,7 +182,7 @@
     </p>
     <h3>Open roles</h3>
     {#each openRoles as openRole}
-      <a class="open-role" href={openRole.applicationUrl}>
+      <a class="open-role" href={openRole.applicationUrl} target="_blank">
         <div class="role-name">
           <h4>{openRole.name}</h4>
           <img class="arrow-icon" src="/icons/arrow-right-dark.svg" alt="" />
