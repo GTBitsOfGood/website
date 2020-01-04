@@ -1,79 +1,205 @@
 <script>
-  import content from '@contentful-entry/getInvolvedSection'
-  import DottedAccent from '../components/DottedAccent'
-  const formLink =
-    'https://bitsofgood.us16.list-manage.com/subscribe/post?u=45c4fe0ca061b2ce62e43e72f&amp;id=0901f33185'
+  import Heading from '../components/join/Heading.svelte'
+  import Footer from '../components/join/Footer.svelte'
+
+  import openRoles from '@contentful-entries/openRole'
+  import content from '@contentful-entry/joinPage'
+  import { removeWrapperPTag } from '../contentHelpers'
+
+  const scrollToSection = sectionId => {
+    const section = document.getElementById(sectionId)
+    if (section) section.scrollIntoView({ behavior: 'smooth' })
+  }
 </script>
 
 <style>
-  section {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr 30rem;
-    grid-template-rows: auto 1fr 10rem;
-    min-height: 70vh;
-    align-items: center;
-    padding: 0 3rem;
-    padding-bottom: 5rem;
-  }
-  .content {
-    position: relative;
-  }
-  .content > :global(p) {
-    white-space: pre-line;
-    font-size: 28px;
-  }
-  h1,
-  a {
-    grid-column: 1 / -1;
-  }
-  img {
-    margin-left: 10rem;
-    width: 20rem;
-    margin-bottom: 5rem;
-  }
-  a {
-    justify-self: center;
-    background-color: var(--primary);
-    color: white;
-    padding: 2rem 3rem;
-    font-size: 24px;
-    font-weight: bold;
-    border-radius: 1rem;
-    text-align: center;
-    transition-property: background-color, transform;
-    transition-duration: 0.2s;
-  }
-  a:hover {
-    background-color: var(--primary-yellow);
-    transform: translateY(-10px);
+  :global(p) {
+    font-weight: 300;
   }
 
-  @media (max-width: 1000px) {
-    img {
-      width: 15rem;
-      margin-left: 0;
+  div.jump-to-section-links {
+    display: none;
+    margin-bottom: 60px;
+  }
+
+  div.jump-to-section-links button {
+    font-size: 16px;
+    padding: 15px 20px;
+    margin: 15px;
+    color: #333;
+    border-radius: 10px;
+  }
+
+  div.jump-to-section-links button.students {
+    border: 3px solid var(--primary-red);
+  }
+
+  div.jump-to-section-links button.nonprofits {
+    border: 3px solid var(--primary-yellow);
+  }
+
+  section.content-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  section.content-container :global(p) {
+    font-size: 18px;
+    margin: 40px 0;
+    line-height: 1.8em;
+  }
+
+  section.content {
+    margin: 30px;
+    flex: 1;
+    flex-basis: 350px;
+  }
+
+  section.content h2 {
+    font-size: 48px;
+    padding-bottom: 5px;
+    display: inline-block;
+  }
+
+  section.content h3 {
+    font-size: 32px;
+    margin-top: 70px;
+    margin-bottom: 15px;
+  }
+
+  section#students h2 {
+    border-bottom: 4px solid var(--primary-red);
+  }
+
+  section#nonprofits h2 {
+    border-bottom: 4px solid var(--primary-yellow);
+  }
+
+  section.content-container p.tagline {
+    font-weight: 500;
+    margin-top: 25px;
+  }
+
+  a.open-role,
+  a.open-role:hover {
+    color: #333;
+  }
+
+  a.open-role {
+    display: block;
+    margin: 40px 0;
+  }
+
+  a.open-role div.role-name {
+    display: flex;
+    align-items: center;
+  }
+
+  a.open-role h4 {
+    font-family: 'Interstate';
+    font-weight: bold;
+    font-size: 22px;
+    margin: 0;
+  }
+
+  a.open-role p {
+    margin: 8px 0;
+  }
+
+  a.open-role img.arrow-icon {
+    width: 30px;
+    height: auto;
+    margin-left: 10px;
+    transition: margin-left 0.2s;
+  }
+
+  a.open-role:hover img.arrow-icon {
+    margin-left: 15px;
+  }
+
+  a.nonprofit-cta {
+    display: inline-block;
+    margin-top: 30px;
+    font-size: 18px;
+    background: var(--primary-yellow);
+    padding: 15px 40px;
+    border-radius: 10px;
+    color: #333;
+    transition-property: box-shadow, transform;
+    transition-duration: 0.2s;
+  }
+  a.nonprofit-cta:hover {
+    color: #333;
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  @media (min-width: 960px) {
+    section#students {
+      margin-right: 60px;
     }
-    .content > :global(p) {
-      font-size: 24px;
+
+    section#nonprofits {
+      margin-left: 60px;
     }
-    section {
-      grid-template-columns: 1fr;
-      grid-template-rows: auto auto auto auto;
-      justify-items: center;
+  }
+
+  @media (max-width: 819px) {
+    div.jump-to-section-links {
+      display: flex;
+      justify-content: center;
     }
-    h1 {
-      font-size: 52px;
+    section.content h2 {
+      font-size: 42px;
+      display: table;
+      margin: auto;
+    }
+    p.tagline {
+      text-align: center;
+    }
+    a.nonprofit-cta {
+      display: table;
+      margin: auto;
     }
   }
 </style>
 
-<section>
-  <h1>{content.heading}</h1>
-  <div class="content">
-    {@html content.description}
-  </div>
-  <DottedAccent right="0" bottom="30rem" color="orange" width="l" />
-  <img src={content.icon.src} alt={content.icon.alt} />
-  <a target="_blank" href={formLink}>{content.cta}</a>
+<Heading />
+<div class="jump-to-section-links">
+  <button class="students" on:click={() => scrollToSection('students')}>
+    For Students
+  </button>
+  <button class="nonprofits" on:click={() => scrollToSection('nonprofits')}>
+    For Nonprofits
+  </button>
+</div>
+<section class="content-container">
+  <section class="content" id="students">
+    <h2>Students</h2>
+    <p class="tagline">
+      {@html removeWrapperPTag(content.studentTagline)}
+    </p>
+    <h3>Open roles</h3>
+    {#each openRoles as openRole}
+      <a class="open-role" href={openRole.applicationUrl} target="_blank">
+        <div class="role-name">
+          <h4>{openRole.name}</h4>
+          <img class="arrow-icon" src="/icons/arrow-right-dark.svg" alt="" />
+        </div>
+        <p>{openRole.description}</p>
+      </a>
+    {/each}
+  </section>
+  <section class="content" id="nonprofits">
+    <h2>Nonprofits</h2>
+    <p class="tagline">
+      {@html removeWrapperPTag(content.nonprofitTagline)}
+    </p>
+    {@html content.nonprofitSection}
+    <a class="nonprofit-cta" href={content.nonprofitCtaUrl}>
+      {content.nonprofitCta}
+    </a>
+  </section>
 </section>
+<Footer />
