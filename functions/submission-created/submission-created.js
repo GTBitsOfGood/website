@@ -5,7 +5,7 @@ require('dotenv').config()
 exports.handler = async event => {
   const { EMAIL_USERNAME, EMAIL_PASSWORD } = process.env
   try {
-    const { name, email, message } = JSON.parse(event.body).payload
+    const { name, email, message } = JSON.parse(event.body)
 
     const transporter = nodemailer.createTransport({
       service: 'Zoho',
