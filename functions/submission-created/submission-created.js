@@ -4,7 +4,7 @@ const nodemailer = require('nodemailer')
 exports.handler = async event => {
   const { EMAIL_ADDRESS, EMAIL_PASSWORD } = process.env
   try {
-    const { name, email, message } = JSON.parse(event.body).payload
+    const { name, email, message } = JSON.parse(event.body).payload.data
 
     const transporter = nodemailer.createTransport({
       service: 'Zoho',
@@ -22,9 +22,7 @@ exports.handler = async event => {
       from: 'hello@bitsofgood.org',
       to: 'hello@bitsofgood.org',
       subject: `Contact Us inquiry from ${name}!`,
-      text: `Forward a reply to ${email} \n\n ${JSON.stringify(
-        JSON.parse(event.body).payload
-      )}`,
+      text: `Forward a reply to ${email} \n\n ${message}`,
     })
     return {
       statusCode: 250,
