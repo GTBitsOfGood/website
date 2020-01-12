@@ -1,0 +1,19 @@
+{
+  "name": "submission-created",
+  "version": "1.0.0",
+  "description": "Netlify serverless function for email forwarding from Contact Us form",
+  "main": "submission-created.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "netlify",
+    "serverless",
+    "js"
+  ],
+  "author": "Netlify",
+  "license": "MIT",
+  "dependencies": {
+    "nodemailer": "^6.4.2"
+  }
+}
