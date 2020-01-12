@@ -1,7 +1,7 @@
 {
   "name": "submission-created",
   "version": "1.0.0",
-  "description": "netlify functions:create - template for submission-created event triggered function",
+  "description": "Netlify serverless function for email forwarding from Contact Us form",
   "main": "submission-created.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
