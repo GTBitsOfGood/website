@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer')
 
-// // details in https://css-tricks.com/using-netlify-forms-and-netlify-functions-to-build-an-email-sign-up-widget
+// // template inspired by https://css-tricks.com/using-netlify-forms-and-netlify-functions-to-build-an-email-sign-up-widget
 exports.handler = async event => {
   const { EMAIL_ADDRESS, EMAIL_PASSWORD } = process.env
   try {
