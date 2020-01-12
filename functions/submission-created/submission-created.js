@@ -21,7 +21,6 @@ exports.handler = async event => {
     const sendResult = await transporter.sendMail({
       from: 'hello@bitsofgood.org',
       to: 'hello@bitsofgood.org',
-      sender: `${name} <${email}>`,
       replyTo: `${email}`,
       subject: `Contact Us inquiry from ${name}!`,
       text: `${message}`,
