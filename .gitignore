@@ -1,6 +1,10 @@
 .DS_Store
-/node_modules/
+node_modules/
 /src/node_modules/@sapper/
 yarn-error.log
 /cypress/screenshots/
 /__sapper__/
+
+# For Netlify functions
+.netlify
+.env
