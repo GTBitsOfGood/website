@@ -3,7 +3,7 @@ require('dotenv').config()
 
 // // details in https://css-tricks.com/using-netlify-forms-and-netlify-functions-to-build-an-email-sign-up-widget
 exports.handler = async event => {
-  const { EMAIL_USERNAME, EMAIL_PASSWORD } = process.env
+  const { EMAIL_ADDRESS, EMAIL_PASSWORD } = process.env
   try {
     const { name, email, message } = JSON.parse(event.body)
 
@@ -14,13 +14,13 @@ exports.handler = async event => {
       secure: true,
       auth: {
         type: 'SSL',
-        user: EMAIL_USERNAME,
+        user: EMAIL_ADDRESS,
         pass: EMAIL_PASSWORD,
       },
     })
 
     const sendResult = await transporter.sendMail({
-      from: `"ContactUsForm" <hell@bitsofgood.org>`,
+      from: 'hello@bitsofgood.org',
       to: 'hello@bitsofgood.org',
       subject: `Contact Us inquiry from ${name}!`,
       text: `Forward a reply to ${email} \n\n ${message}`,
@@ -31,8 +31,8 @@ exports.handler = async event => {
     }
   } catch (error) {
     return {
-      statusCode: error.responseCode,
-      body: JSON.stringify(error.response),
+      statusCode: error.responseCode || 500,
+      body: error.response ? JSON.stringify(error.response) : '',
     }
   }
 }
