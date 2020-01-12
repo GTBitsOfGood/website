@@ -8,12 +8,14 @@
     "export": "sapper export --legacy",
     "start": "node __sapper__/build",
     "up": "sapper export && surge --project ./__sapper__/export --domain bog.surge.sh",
+    "postinstall": "netlify-lambda install",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test": "run-p --race dev cy:run"
   },
   "dependencies": {
     "compression": "^1.7.1",
+    "netlify-lambda": "^1.6.3",
     "polka": "^0.5.0",
     "sirv": "^0.4.0"
   },
