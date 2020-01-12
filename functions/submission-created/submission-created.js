@@ -1,5 +1,4 @@
 const nodemailer = require('nodemailer')
-require('dotenv').config()
 
 // // details in https://css-tricks.com/using-netlify-forms-and-netlify-functions-to-build-an-email-sign-up-widget
 exports.handler = async event => {
