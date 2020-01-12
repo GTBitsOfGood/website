@@ -22,7 +22,7 @@ exports.handler = async event => {
       from: 'hello@bitsofgood.org',
       to: 'hello@bitsofgood.org',
       replyTo: `${email}`,
-      subject: `Contact Us inquiry from ${name}!`,
+      subject: `Contact Us inquiry from ${name}`,
       text: `${message}`,
     })
     return {
