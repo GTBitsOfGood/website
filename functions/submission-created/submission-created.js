@@ -22,7 +22,9 @@ exports.handler = async event => {
       from: 'hello@bitsofgood.org',
       to: 'hello@bitsofgood.org',
       subject: `Contact Us inquiry from ${name}!`,
-      text: `Forward a reply to ${email} \n\n ${message}`,
+      text: `Forward a reply to ${email} \n\n ${JSON.stringify(
+        JSON.parse(event.body).payload
+      )}`,
     })
     return {
       statusCode: 250,
