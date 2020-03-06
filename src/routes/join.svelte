@@ -7,7 +7,6 @@
   import Role from '../components/join/Role.svelte'
 
   const activeCycle = recruitmentCycles.find(cycle => cycle.active)
-  console.log(activeCycle.futureRoles)
 
   const scrollToSection = sectionId => {
     const section = document.getElementById(sectionId)
