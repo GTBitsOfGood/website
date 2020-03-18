@@ -3,7 +3,9 @@
 @font-face {
   font-family: 'Visby CF';
   font-display: block;
-  src: url('fonts/VisbyCF-Bold.woff2') format('woff2');
+  font-weight: 700;
+  src: url('fonts/VisbyCF-Bold.woff2') format('woff2')
+    url('fonts/VisbyCF-Bold.woff') format('woff');
 }
 
 @font-face {
@@ -120,7 +122,7 @@ h2,
 h3 {
   font-family: 'Visby CF';
   line-height: 1.2;
-  font-weight: 400;
+  font-weight: 700;
 }
 
 h1,
