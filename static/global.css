@@ -2,7 +2,30 @@
 
 @font-face {
   font-family: 'Visby CF';
-  src: url('fonts/VisbyCF-Bold.woff2');
+  font-display: block;
+  src: url('fonts/VisbyCF-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: Open-Sans;
+  font-weight: 400;
+  font-display: block;
+  src: url('fonts/OpenSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: Open-Sans;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/OpenSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: Open-Sans;
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  src: url('fonts/OpenSans-Italic.ttf');
 }
 
 :root {
@@ -78,7 +101,7 @@ a:active {
 
 body {
   margin: 0;
-  font-family: interstate, Roboto, -apple-system, BlinkMacSystemFont, Segoe UI,
+  font-family: 'Open Sans', Roboto, -apple-system, BlinkMacSystemFont, Segoe UI,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -94,8 +117,7 @@ textarea {
 
 h1,
 h2,
-h3,
-h4 {
+h3 {
   font-family: 'Visby CF';
   line-height: 1.2;
   font-weight: 400;
@@ -109,6 +131,12 @@ h2 {
 
 h3 {
   font-size: 48px;
+}
+
+h4 {
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 22px;
 }
 
 code {
