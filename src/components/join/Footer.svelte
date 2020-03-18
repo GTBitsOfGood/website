@@ -25,7 +25,7 @@
   a.newsletter {
     margin: 15px 0;
     border-radius: 10px;
-    font-weight: 500;
+    font-weight: normal;
     letter-spacing: inherit;
     color: #333;
     font-size: 18px;

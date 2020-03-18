@@ -5,6 +5,7 @@
 <style>
   a,
   div {
+    font-weight: normal;
     position: relative;
     background: white;
     box-shadow: var(--shadow);
@@ -20,7 +21,6 @@
   }
 
   a {
-    font-weight: 500;
     transition: transform 0.2s, box-shadow 0.2s;
   }
   a :global(img) {
