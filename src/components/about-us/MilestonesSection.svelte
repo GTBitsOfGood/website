@@ -85,8 +85,10 @@
     font-size: 20px;
     flex-direction: column;
     align-items: center;
+    margin: 0;
   }
   .time-banner {
+    font-family: var(--header-font);
     padding: 0.5rem 1rem;
     background-color: var(--primary);
   }

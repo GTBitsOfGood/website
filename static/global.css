@@ -44,6 +44,7 @@
   --body-font-size: 16px;
   --small-header-size: 24px;
   --content-max-width: 120rem;
+  --header-font: 'Visby CF';
 }
 
 * {
@@ -120,7 +121,7 @@ textarea {
 h1,
 h2,
 h3 {
-  font-family: 'Visby CF';
+  font-family: var(--header-font);
   line-height: 1.2;
   font-weight: 700;
 }
