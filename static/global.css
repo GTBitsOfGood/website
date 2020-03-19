@@ -4,7 +4,7 @@
   font-family: 'Visby CF';
   font-display: block;
   font-weight: 700;
-  src: url('fonts/VisbyCF-Bold.woff2') format('woff2')
+  src: url('fonts/VisbyCF-Bold.woff2') format('woff2'),
     url('fonts/VisbyCF-Bold.woff') format('woff');
 }
 
@@ -19,7 +19,7 @@
   font-family: 'Open Sans';
   font-weight: 700;
   font-display: swap;
-  src: url('fonts/OpenSans-Regular.ttf');
+  src: url('fonts/OpenSans-Bold.ttf');
 }
 
 @font-face {
@@ -44,7 +44,8 @@
   --body-font-size: 16px;
   --small-header-size: 24px;
   --content-max-width: 120rem;
-  --header-font: 'Visby CF';
+  --header-font: 'Visby CF', Roboto, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 * {
@@ -107,7 +108,7 @@ body {
   font-family: 'Open Sans', Roboto, -apple-system, BlinkMacSystemFont, Segoe UI,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.5;
   color: #333;
 }
