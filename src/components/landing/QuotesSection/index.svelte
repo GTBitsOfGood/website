@@ -86,7 +86,6 @@
   }
   blockquote,
   figcaption {
-    font-weight: 400;
     letter-spacing: 0.05em;
   }
   blockquote > :global(p) {

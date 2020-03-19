@@ -15,10 +15,6 @@
 </script>
 
 <style>
-  :global(p) {
-    font-weight: 300;
-  }
-
   div.jump-to-section-links {
     display: none;
     margin-bottom: 60px;
@@ -79,7 +75,6 @@
   }
 
   section.content-container p.tagline {
-    font-weight: 500;
     margin-top: 25px;
   }
 

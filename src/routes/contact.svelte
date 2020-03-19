@@ -18,7 +18,6 @@
   }
 
   p {
-    font-weight: 400;
     font-size: inherit;
     margin: 0;
     margin-bottom: 2rem;
@@ -44,14 +43,13 @@
   .address {
     grid-area: address;
   }
-  .address a {
+  .address a,
+  .address a:hover {
     color: initial;
-    font-weight: initial;
+    font-weight: normal;
     transition: text-decoration 0.2s;
   }
   .address a:hover {
-    color: initial;
-    font-weight: initial;
     text-decoration: underline;
   }
   form {

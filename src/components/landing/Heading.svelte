@@ -20,6 +20,7 @@
   }
   h2 {
     font-size: 40px;
+    font-weight: normal;
     font-family: inherit;
     color: var(--text-color);
     line-height: 1.3em;

@@ -13,7 +13,7 @@
     border-radius: 0.5em;
     letter-spacing: 0;
     text-decoration: none;
-    font-weight: 700;
+    font-weight: bold;
     color: white;
     display: inline;
     text-align: center;

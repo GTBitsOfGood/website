@@ -17,9 +17,6 @@
   }
 
   div.container h4 {
-    font-family: 'Interstate';
-    font-weight: bold;
-    font-size: 22px;
     margin: 0;
   }
 
