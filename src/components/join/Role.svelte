@@ -1,8 +1,8 @@
 <script>
   export let learnMoreHash = ''
   export let applyLink = ''
-  export let title = ''
-  export let description = ''
+  export let name = ''
+  export let briefDescription = ''
 </script>
 
 <style>
@@ -26,6 +26,6 @@
 </style>
 
 <div class="container">
-  <h4>{title}</h4>
-  <p>{description}</p>
+  <h4>{name}</h4>
+  <p>{briefDescription}</p>
 </div>
