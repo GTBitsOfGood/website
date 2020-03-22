@@ -67,10 +67,10 @@
     <div class="text-container">
       <h1>{content.heading}</h1>
       <p class="subtext">
-        {@html removeWrapperPTag(content.subHeading)}
+        {@html content.subHeading.inlineHtml}
       </p>
       <p>
-        {@html removeWrapperPTag(content.newsletterSubtext)}
+        {@html content.newsletterSubtext.inlineHtml}
       </p>
       <a class="newsletter-link" href={content.newsletterUrl}>
         {content.newsletterCta}

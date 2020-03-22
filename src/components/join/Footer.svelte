@@ -98,7 +98,7 @@
       transform="rotate(23 33.9332 0.21582)"
       fill="#FFB55E" />
   </svg>
-  {@html content.footerText}
+  {@html content.footerText.html}
   <a class="newsletter" href={content.newsletterUrl}>{content.newsletterCta}</a>
 
   <img

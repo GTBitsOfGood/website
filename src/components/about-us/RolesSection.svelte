@@ -22,7 +22,10 @@
   <section>
     <h2>Roles</h2>
     {#each roleCards as { heading, description, thumbnail }}
-      <InfoCard {heading} img={thumbnail} descriptionHTML={description} />
+      <InfoCard
+        {heading}
+        img={thumbnail}
+        descriptionHTML={description.inlineHtml} />
     {/each}
   </section>
 </div>

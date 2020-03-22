@@ -150,7 +150,7 @@
   <div class="quote-container">
     <figure class="text-container">
       <blockquote>
-        {@html curr.quote}
+        {@html curr.quote.html}
       </blockquote>
       <figcaption>{curr.author}</figcaption>
     </figure>

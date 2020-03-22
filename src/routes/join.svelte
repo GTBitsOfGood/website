@@ -138,7 +138,7 @@
   <section class="content" id="students">
     <h2>Students</h2>
     <p class="tagline">
-      {@html removeWrapperPTag(activeCycle.tagline)}
+      {@html activeCycle.tagline.inlineHtml}
     </p>
     {#if activeCycle.openRoles}
       <h3>Open roles</h3>
@@ -156,9 +156,9 @@
   <section class="content" id="nonprofits">
     <h2>Nonprofits</h2>
     <p class="tagline">
-      {@html removeWrapperPTag(content.nonprofitTagline)}
+      {@html content.nonprofitTagline.inlineHtml}
     </p>
-    {@html content.nonprofitSection}
+    {@html content.nonprofitSection.html}
     <a class="nonprofit-cta" href={content.nonprofitCtaUrl}>
       {content.nonprofitCta}
     </a>

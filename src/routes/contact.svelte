@@ -106,7 +106,7 @@
   <img src={content.artwork.src} alt={content.artwork.alt} />
   <h1>{content.heading}</h1>
   <p class="info-text">
-    {@html removeWrapperPTag(content.infoText)}
+    {@html content.infoText.inlineHtml}
   </p>
   <div class="address">
     <h2>{content.addressHeading}</h2>

@@ -53,7 +53,7 @@
     <div class="mission-card">
       <img src={aboutUsImage.src} alt={aboutUsImage.alt} />
       <h3>{heading}</h3>
-      {@html description}
+      {@html description.html}
     </div>
   {/each}
 </section>

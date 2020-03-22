@@ -28,7 +28,10 @@ function mapEntry(entry, schema) {
     .forEach(({ id, type, linkType }) => {
       switch (type) {
         case 'RichText':
-          fields[id] = toHtml(fields[id])
+          fields[id] = {
+            html: toHtml(fields[id]),
+            inlineHtml: toInlineHtml(fields[id]),
+          }
           break
         case 'Link':
           switch (linkType) {
@@ -43,8 +46,8 @@ function mapEntry(entry, schema) {
   return fields
 }
 
-function toHtml(document, { renderMark = {}, ...options } = {}) {
-  return documentToHtmlString(document, {
+function getHtmlOptions({ renderMark = {}, renderNode = {}, ...options } = {}) {
+  return {
     renderMark: {
       [MARKS.BOLD]: text => `<strong>${text}</strong>`,
       [MARKS.ITALIC]: text => `<em>${text}</em>`,
@@ -53,9 +56,26 @@ function toHtml(document, { renderMark = {}, ...options } = {}) {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node, next) =>
         `<p>${next(node.content).replace(/\n/g, '<br/>')}</p>`,
+      ...renderNode,
     },
     ...options,
-  })
+  }
+}
+
+function toInlineHtml(document, options) {
+  return documentToHtmlString(
+    document,
+    getHtmlOptions({
+      renderNode: {
+        [BLOCKS.PARAGRAPH]: (node, next) =>
+          next(node.content).replace(/\n/g, '<br/>'),
+      },
+    })
+  )
+}
+
+function toHtml(document, options) {
+  return documentToHtmlString(document, getHtmlOptions())
 }
 
 function toImg(link) {

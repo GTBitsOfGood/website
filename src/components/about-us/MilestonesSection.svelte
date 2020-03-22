@@ -146,7 +146,7 @@
             <h3>{heading}</h3>
             {#if currentIndex === index}
               <p>
-                {@html description}
+                {@html description.inlineHtml}
               </p>
             {/if}
           </div>
