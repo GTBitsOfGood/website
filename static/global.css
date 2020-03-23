@@ -1,14 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap');
-
-@font-face {
-  font-family: 'Visby CF';
-  font-display: swap;
-  font-weight: bold;
-  src: url('fonts/VisbyCF-Bold.woff2') format('woff2'),
-    url('fonts/VisbyCF-Bold.ttf') format('truetype'),
-    url('fonts/VisbyCF-Bold.woff') format('woff');
-}
-
 :root {
   --backing-pink: #fffdfc;
   --backing-pink-pronounced: #fbf6f2;
@@ -23,8 +12,9 @@
   --body-font-size: 16px;
   --small-header-size: 24px;
   --content-max-width: 120rem;
-  --header-font: 'Visby CF', Roboto, -apple-system, BlinkMacSystemFont, Segoe UI,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  --header-font: 'Visby CF Bold', Roboto, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
   --body-font: 'Open Sans', Roboto, -apple-system, BlinkMacSystemFont, Segoe UI,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
