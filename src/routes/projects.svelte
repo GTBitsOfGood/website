@@ -25,3 +25,7 @@
       label={developmentStatus} />
   {/each}
 </section>
+
+<svelte:head>
+  <title>Our Projects</title>
+</svelte:head>

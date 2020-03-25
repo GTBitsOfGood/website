@@ -165,3 +165,7 @@
   </section>
 </section>
 <Footer />
+
+<svelte:head>
+  <title>Join Us</title>
+</svelte:head>
