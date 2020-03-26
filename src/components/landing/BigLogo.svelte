@@ -1,17 +1,38 @@
+<script>
+  import { fade } from 'svelte/transition'
+  import { backOut } from 'svelte/easing'
+
+  let useImageTwo = false
+
+  setInterval(() => {
+    useImageTwo = !useImageTwo
+  }, 5000)
+
+  let imageIndex = 0
+
+  const bounceIn = (node, { duration }) => {
+    return {
+      duration,
+      css: t => {
+        const eased = backOut(t)
+        return `
+          transform: scale(${eased * 0.4 + 0.6});
+          opacity: ${eased};
+          transform-origin: 25% 50%;
+        `
+      },
+    }
+  }
+</script>
+
 <style>
   svg {
     width: 100%;
-    /* min-width: 120rem; */
     height: auto;
     position: absolute;
     top: 0;
     left: 0;
     z-index: -1;
-    background: linear-gradient(
-      50deg,
-      var(--primary-yellow),
-      var(--primary-red) 60%
-    );
   }
 
   @media (max-width: 1100px) {
@@ -27,14 +48,42 @@
   viewBox="0 0 1440 1300"
   fill="none"
   xmlns="http://www.w3.org/2000/svg">
-
-  <image
-    image
-    id="logo-backing-img"
-    width="900"
-    height="890"
-    xlink:href="images/logo-placeholder-image.jpg"
-    opacity="0.15" />
+  {#if !useImageTwo}
+    <image
+      id="logo-backing-img-1"
+      in:bounceIn={{ duration: 800 }}
+      out:fade={{ duration: 800 }}
+      width="900"
+      height="890"
+      xlink:href="images/logo1_booties.jpg" />
+  {/if}
+  {#if useImageTwo}
+    <image
+      id="logo-backing-img-2"
+      in:bounceIn={{ duration: 800 }}
+      out:fade={{ duration: 800 }}
+      width="900"
+      height="890"
+      xlink:href="images/logo2_sunrise.jpg" />
+  {/if}
+  <rect
+    y="0.384155"
+    width="711.975"
+    height="1272.3"
+    fill="url(#paint0_linear)" />
+  <defs>
+    <linearGradient
+      id="paint0_linear"
+      x1="657.168"
+      y1="48.5534"
+      x2="55.7796"
+      y2="1208.1"
+      gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF2847" stop-opacity="0.7" />
+      <stop offset="0.541454" stop-color="#FE924E" />
+      <stop offset="1" stop-color="#FFBE4D" />
+    </linearGradient>
+  </defs>
   <path
     d="M1439.5 0H0V974.736C114.556 944.305 317.769 828.929 394.016
     743.402C470.485 657.625 524.624 538.013 524.624 408.871C524.624 335.96
