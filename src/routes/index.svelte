@@ -5,12 +5,15 @@
     BuildingSection,
     QuotesSection,
   } from '../components/landing'
+
+  let scrollY = 0
 </script>
 
+<svelte:window bind:scrollY />
 <Heading />
-<ConnectingSection />
+<ConnectingSection parallaxOffset={scrollY * 0.05 - 30} />
 <QuotesSection />
-<BuildingSection />
+<BuildingSection parallaxOffset={scrollY * 0.05 - 100} />
 
 <svelte:head>
   <title>Bits of Good</title>
