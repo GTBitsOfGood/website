@@ -39,6 +39,11 @@ async function mapEntry(entry, schema) {
               case 'Asset':
                 fields[id] = toImg(fields[id])
                 break
+              case 'Entry':
+                const contentType = fields[id].sys.contentType.sys.id
+                const schema = await client.getContentType(contentType)
+                fields[id] = await mapEntry(fields[id], schema)
+                break
             }
             break
           case 'Array':
