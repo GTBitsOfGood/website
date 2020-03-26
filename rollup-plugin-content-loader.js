@@ -17,15 +17,6 @@ const client = contentful.createClient({
   accessToken: 'k7DLuul6fLZfzDiJVGPp0IQTPzz84ihOSVHiA6KOvGk',
 })
 
-const getEntriesByContentType = async (contentType, singleEntry = false) => {
-  const schemaPromise = client.getContentType(contentType)
-  const entryPromise = singleEntry
-    ? client.getEntries({ content_type: contentType, limit: 1 })
-    : client.getEntries({ content_type: contentType })
-  const res = await Promise.all([entryPromise, schemaPromise])
-  return res
-}
-
 async function mapEntry(entry, schema) {
   if (!entry) {
     return null
@@ -35,7 +26,7 @@ async function mapEntry(entry, schema) {
   await Promise.all(
     schema.fields
       .filter(({ id }) => fields[id])
-      .map(async ({ id, type, linkType }) => {
+      .map(async ({ id, type, ...model }) => {
         switch (type) {
           case 'RichText':
             fields[id] = {
@@ -44,20 +35,27 @@ async function mapEntry(entry, schema) {
             }
             break
           case 'Link':
-            switch (linkType) {
+            switch (model.linkType) {
               case 'Asset':
                 fields[id] = toImg(fields[id])
                 break
             }
             break
           case 'Array':
-            fields[id] = await Promise.all(
-              fields[id].map(async entry => {
-                const contentType = entry.sys.contentType.sys.id
-                const schema = await client.getContentType(contentType)
-                return await mapEntry(entry, schema)
-              })
-            )
+            switch (model.items.linkType) {
+              case 'Asset':
+                fields[id] = fields[id].map(field => toImg(field))
+                break
+              case 'Entry':
+                fields[id] = await Promise.all(
+                  fields[id].map(async entry => {
+                    const contentType = entry.sys.contentType.sys.id
+                    const schema = await client.getContentType(contentType)
+                    return await mapEntry(entry, schema)
+                  })
+                )
+                break
+            }
             break
         }
       })
