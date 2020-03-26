@@ -76,6 +76,10 @@ function getHtmlOptions({ renderMark = {}, renderNode = {}, ...options } = {}) {
   }
 }
 
+function toHtml(document) {
+  return documentToHtmlString(document, getHtmlOptions())
+}
+
 function toInlineHtml(document) {
   return documentToHtmlString(
     document,
@@ -86,10 +90,6 @@ function toInlineHtml(document) {
       },
     })
   )
-}
-
-function toHtml(document) {
-  return documentToHtmlString(document, getHtmlOptions())
 }
 
 function toImg(link) {
