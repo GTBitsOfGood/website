@@ -1,5 +1,5 @@
 <script>
-  import content from '@contentful-entry/slogan'
+  import content from '@contentful-entry/homeHeader'
   import { GetInvolvedBtn, DottedAccent } from '../'
   import BigLogo from './BigLogo.svelte'
 </script>
@@ -61,17 +61,17 @@
 </style>
 
 <div class="banner" role="banner">
-  <BigLogo />
+  <BigLogo images={content.imageCarousel} />
   <div class="big-logo-accents">
     <DottedAccent top="8rem" left="65%" width="m" color="red" />
     <DottedAccent top="65%" left="-10%" width="l" height="m" color="yellow" />
   </div>
   <div class="text-container">
     <DottedAccent top="25vh" left="60%" width="l" height="m" />
-    <img src="images/bog-logo.svg" alt="Bits of Good logo" />
+    <img src={content.logo.src} alt={content.logo.alt} />
     <h2>
-      {content.line1}
-      <strong>{content.line2}</strong>
+      {content.slogan.line1}
+      <strong>{content.slogan.line2}</strong>
     </h2>
     <GetInvolvedBtn large />
   </div>

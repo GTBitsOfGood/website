@@ -2,13 +2,23 @@
   import { fade } from 'svelte/transition'
   import { backOut } from 'svelte/easing'
 
-  let useImageTwo = false
+  export let images = []
+
+  let alternateImage = false
+  let firstImageIndex = 0
+  let secondImageIndex = 1
+
+  const setFirstImage = () => {
+    firstImageIndex = (firstImageIndex + 2) % images.length
+  }
+
+  const setSecondImage = () => {
+    secondImageIndex = (secondImageIndex + 2) % images.length
+  }
 
   setInterval(() => {
-    useImageTwo = !useImageTwo
+    alternateImage = !alternateImage
   }, 5000)
-
-  let imageIndex = 0
 
   const bounceIn = (node, { duration }) => {
     return {
@@ -17,8 +27,8 @@
         const eased = backOut(t)
         return `
           transform: scale(${eased * 0.4 + 0.6});
-          opacity: ${eased};
           transform-origin: 25% 50%;
+          opacity: ${eased};
         `
       },
     }
@@ -48,23 +58,23 @@
   viewBox="0 0 1440 1300"
   fill="none"
   xmlns="http://www.w3.org/2000/svg">
-  {#if !useImageTwo}
+  {#if !alternateImage}
     <image
-      id="logo-backing-img-1"
       in:bounceIn={{ duration: 800 }}
-      out:fade={{ duration: 800 }}
+      out:fade={{ duration: 600 }}
+      on:outroend={setFirstImage}
       width="900"
       height="890"
-      xlink:href="images/logo1_booties.jpg" />
+      xlink:href={images[firstImageIndex].src} />
   {/if}
-  {#if useImageTwo}
+  {#if alternateImage}
     <image
-      id="logo-backing-img-2"
       in:bounceIn={{ duration: 800 }}
-      out:fade={{ duration: 800 }}
+      out:fade={{ duration: 600 }}
+      on:outroend={setSecondImage}
       width="900"
       height="890"
-      xlink:href="images/logo2_sunrise.jpg" />
+      xlink:href={images[secondImageIndex].src} />
   {/if}
   <rect
     y="0.384155"
@@ -102,11 +112,6 @@
     521.287 366.324Z"
     fill="#FEF2EA" />
   <defs>
-    <pattern patternContentUnits="objectBoundingBox" width="1" height="1">
-      <use
-        xlink:href="#logo-backing-img"
-        transform="translate(0 -0.00855773) scale(0.00164488 0.000951464)" />
-    </pattern>
     <linearGradient
       id="backing-gradient"
       x1="1439"
