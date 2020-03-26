@@ -1,9 +1,6 @@
 <script>
   import { InfoSplitSection, DottedAccent } from '../'
-  import missionContent from '@contentful-entries/missionSection'
-  const content = missionContent.find(
-    mission => mission.key === 'building-section'
-  )
+  import content from '@contentful-entry/missionSection/building-section'
 
   export let parallaxOffset = 0
 </script>
@@ -42,6 +39,6 @@
       alt={content.landingImage.alt}
       style={`--offset: ${parallaxOffset}px`}
       class="artwork-front" />
-    <img src="images/building-artwork-back.svg" alt="" class="artwork-back" />
+    <img src={content.landingImageBacking.src} alt="" class="artwork-back" />
   </div>
 </InfoSplitSection>

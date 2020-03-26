@@ -1,9 +1,6 @@
 <script>
   import InfoSplitSection from '../InfoSplitSection.svelte'
-  import missionContent from '@contentful-entries/missionSection'
-  const content = missionContent.find(
-    mission => mission.key === 'connecting-section'
-  )
+  import content from '@contentful-entry/missionSection/connecting-section'
   export let parallaxOffset = 0
 </script>
 
