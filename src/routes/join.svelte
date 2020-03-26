@@ -1,10 +1,12 @@
 <script>
   import Heading from '../components/join/Heading.svelte'
   import Footer from '../components/join/Footer.svelte'
-
-  import openRoles from '@contentful-entries/openRole'
+  import recruitmentCycles from '@contentful-entries/recruitmentCycle'
   import content from '@contentful-entry/joinPage'
   import { removeWrapperPTag } from '../contentHelpers'
+  import Role from '../components/join/Role.svelte'
+
+  const activeCycle = recruitmentCycles.find(cycle => cycle.active)
 
   const scrollToSection = sectionId => {
     const section = document.getElementById(sectionId)
@@ -13,10 +15,6 @@
 </script>
 
 <style>
-  :global(p) {
-    font-weight: 300;
-  }
-
   div.jump-to-section-links {
     display: none;
     margin-bottom: 60px;
@@ -77,45 +75,7 @@
   }
 
   section.content-container p.tagline {
-    font-weight: 500;
     margin-top: 25px;
-  }
-
-  a.open-role,
-  a.open-role:hover {
-    color: #333;
-  }
-
-  a.open-role {
-    display: block;
-    margin: 40px 0;
-  }
-
-  a.open-role div.role-name {
-    display: flex;
-    align-items: center;
-  }
-
-  a.open-role h4 {
-    font-family: 'Interstate';
-    font-weight: bold;
-    font-size: 22px;
-    margin: 0;
-  }
-
-  a.open-role p {
-    margin: 8px 0;
-  }
-
-  a.open-role img.arrow-icon {
-    width: 30px;
-    height: auto;
-    margin-left: 10px;
-    transition: margin-left 0.2s;
-  }
-
-  a.open-role:hover img.arrow-icon {
-    margin-left: 15px;
   }
 
   a.nonprofit-cta {
@@ -178,28 +138,34 @@
   <section class="content" id="students">
     <h2>Students</h2>
     <p class="tagline">
-      {@html removeWrapperPTag(content.studentTagline)}
+      {@html activeCycle.tagline.inlineHtml}
     </p>
-    <h3>Open roles</h3>
-    {#each openRoles as openRole}
-      <a class="open-role" href={openRole.applicationUrl} target="_blank">
-        <div class="role-name">
-          <h4>{openRole.name}</h4>
-          <img class="arrow-icon" src="/icons/arrow-right-dark.svg" alt="" />
-        </div>
-        <p>{openRole.description}</p>
-      </a>
-    {/each}
+    {#if activeCycle.openRoles}
+      <h3>Open roles</h3>
+      {#each activeCycle.openRoles as openRole}
+        <Role {...openRole.fields} />
+      {/each}
+    {/if}
+    {#if activeCycle.futureRoles}
+      <h3>Future roles</h3>
+      {#each activeCycle.futureRoles as futureRole}
+        <Role {...futureRole.fields} />
+      {/each}
+    {/if}
   </section>
   <section class="content" id="nonprofits">
     <h2>Nonprofits</h2>
     <p class="tagline">
-      {@html removeWrapperPTag(content.nonprofitTagline)}
+      {@html content.nonprofitTagline.inlineHtml}
     </p>
-    {@html content.nonprofitSection}
+    {@html content.nonprofitSection.html}
     <a class="nonprofit-cta" href={content.nonprofitCtaUrl}>
       {content.nonprofitCta}
     </a>
   </section>
 </section>
 <Footer />
+
+<svelte:head>
+  <title>Join Us</title>
+</svelte:head>

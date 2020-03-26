@@ -25,7 +25,7 @@
   a.newsletter {
     margin: 15px 0;
     border-radius: 10px;
-    font-weight: 500;
+    font-weight: normal;
     letter-spacing: inherit;
     color: #333;
     font-size: 18px;
@@ -98,7 +98,7 @@
       transform="rotate(23 33.9332 0.21582)"
       fill="#FFB55E" />
   </svg>
-  {@html content.footerText}
+  {@html content.footerText.html}
   <a class="newsletter" href={content.newsletterUrl}>{content.newsletterCta}</a>
 
   <img

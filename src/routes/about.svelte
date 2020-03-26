@@ -13,3 +13,7 @@
 <Slogan />
 <Roles />
 <Milestones />
+
+<svelte:head>
+  <title>About Us</title>
+</svelte:head>

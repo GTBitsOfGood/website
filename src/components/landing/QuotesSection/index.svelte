@@ -86,7 +86,6 @@
   }
   blockquote,
   figcaption {
-    font-weight: 400;
     letter-spacing: 0.05em;
   }
   blockquote > :global(p) {
@@ -151,7 +150,7 @@
   <div class="quote-container">
     <figure class="text-container">
       <blockquote>
-        {@html curr.quote}
+        {@html curr.quote.html}
       </blockquote>
       <figcaption>{curr.author}</figcaption>
     </figure>

@@ -42,10 +42,13 @@
     height: 100%;
     width: auto;
   }
+  h3 {
+    margin: 0;
+  }
+
   h3,
   .content {
     padding: 0 2rem;
-    margin: 0;
   }
   h3 {
     font-size: var(--small-header-size);
@@ -65,9 +68,9 @@
     <img src={img.src} alt={img.alt} />
   </div>
   <h3>{heading}</h3>
-  <div class="content">
+  <p class="content">
     {@html descriptionHTML}
-  </div>
+  </p>
   {#if validLabel}
     <small style={`background-color: ${validLabel.color}`}>
       {validLabel.label}

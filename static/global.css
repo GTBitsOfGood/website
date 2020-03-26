@@ -1,8 +1,12 @@
-@import url('https://use.typekit.net/mei6ncn.css');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap');
 
 @font-face {
   font-family: 'Visby CF';
-  src: url('fonts/VisbyCF-Bold.woff2');
+  font-display: swap;
+  font-weight: bold;
+  src: url('fonts/VisbyCF-Bold.woff2') format('woff2'),
+    url('fonts/VisbyCF-Bold.ttf') format('truetype'),
+    url('fonts/VisbyCF-Bold.woff') format('woff');
 }
 
 :root {
@@ -19,6 +23,10 @@
   --body-font-size: 16px;
   --small-header-size: 24px;
   --content-max-width: 120rem;
+  --header-font: 'Visby CF', Roboto, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  --body-font: 'Open Sans', Roboto, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 * {
@@ -44,8 +52,8 @@ button {
   border: none;
   cursor: pointer;
   letter-spacing: 0;
-  font-family: interstate;
-  font-weight: 700;
+  font-family: inherit;
+  font-weight: bold;
 }
 
 input,
@@ -78,10 +86,9 @@ a:active {
 
 body {
   margin: 0;
-  font-family: interstate, Roboto, -apple-system, BlinkMacSystemFont, Segoe UI,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: var(--body-font);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: normal;
   line-height: 1.5;
   color: #333;
 }
@@ -94,11 +101,10 @@ textarea {
 
 h1,
 h2,
-h3,
-h4 {
-  font-family: 'Visby CF';
+h3 {
+  font-family: var(--header-font);
   line-height: 1.2;
-  font-weight: 400;
+  font-weight: bold;
 }
 
 h1,
@@ -109,6 +115,12 @@ h2 {
 
 h3 {
   font-size: 48px;
+}
+
+h4 {
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 22px;
 }
 
 code {

@@ -21,7 +21,11 @@
       {heading}
       {link}
       img={thumbnail}
-      descriptionHTML={description}
+      descriptionHTML={description.inlineHtml}
       label={developmentStatus} />
   {/each}
 </section>
+
+<svelte:head>
+  <title>Our Projects</title>
+</svelte:head>

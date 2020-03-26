@@ -23,7 +23,6 @@
     flex: 1;
   }
   p {
-    font-weight: 400;
     color: #333;
     margin-left: 0.5rem;
     font-size: 18px;
@@ -35,8 +34,8 @@
     margin-top: 2rem;
     display: inline-block;
     border-radius: 1rem;
-    font-weight: inherit;
     letter-spacing: inherit;
+    font-weight: normal;
     color: #333;
     font-size: 18px;
     padding: 1rem 2rem;
@@ -68,10 +67,10 @@
     <div class="text-container">
       <h1>{content.heading}</h1>
       <p class="subtext">
-        {@html removeWrapperPTag(content.subHeading)}
+        {@html content.subHeading.inlineHtml}
       </p>
       <p>
-        {@html removeWrapperPTag(content.newsletterSubtext)}
+        {@html content.newsletterSubtext.inlineHtml}
       </p>
       <a class="newsletter-link" href={content.newsletterUrl}>
         {content.newsletterCta}
@@ -80,3 +79,7 @@
     <img src={content.artwork.src} alt={content.artwork.alt} />
   </section>
 </div>
+
+<svelte:head>
+  <title>Contact Us</title>
+</svelte:head>

@@ -18,7 +18,6 @@
   }
 
   p {
-    font-weight: 400;
     font-size: inherit;
     margin: 0;
     margin-bottom: 2rem;
@@ -44,14 +43,13 @@
   .address {
     grid-area: address;
   }
-  .address a {
+  .address a,
+  .address a:hover {
     color: initial;
-    font-weight: initial;
+    font-weight: normal;
     transition: text-decoration 0.2s;
   }
   .address a:hover {
-    color: initial;
-    font-weight: initial;
     text-decoration: underline;
   }
   form {
@@ -108,7 +106,7 @@
   <img src={content.artwork.src} alt={content.artwork.alt} />
   <h1>{content.heading}</h1>
   <p class="info-text">
-    {@html removeWrapperPTag(content.infoText)}
+    {@html content.infoText.inlineHtml}
   </p>
   <div class="address">
     <h2>{content.addressHeading}</h2>
@@ -151,3 +149,7 @@
     <a style="display: none" href="/contact-submitted">_</a>
   </form>
 </section>
+
+<svelte:head>
+  <title>Contact Us</title>
+</svelte:head>

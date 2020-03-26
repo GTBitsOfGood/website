@@ -79,7 +79,7 @@
   <div class="content-container">
     <div class="text-container">
       <h1>{content.heading}</h1>
-      {@html content.description}
+      {@html content.description.html}
       <button on:click={scrollToMissionSection}>{content.cta}</button>
     </div>
     <img

@@ -15,5 +15,5 @@
 <Footer />
 
 <svelte:head>
-  <title>Bits of Good Homepage</title>
+  <title>Bits of Good</title>
 </svelte:head>
