@@ -35,38 +35,29 @@ async function mapEntry(entry, schema) {
             }
             break
           case 'Link':
-            switch (model.linkType) {
-              case 'Asset':
-                fields[id] = toImg(fields[id])
-                break
-              case 'Entry':
-                const contentType = fields[id].sys.contentType.sys.id
-                const schema = await client.getContentType(contentType)
-                fields[id] = await mapEntry(fields[id], schema)
-                break
-            }
+            fields[id] = await mapLink(fields[id], model.linkType)
             break
           case 'Array':
-            switch (model.items.linkType) {
-              case 'Asset':
-                fields[id] = fields[id].map(field => toImg(field))
-                break
-              case 'Entry':
-                fields[id] = await Promise.all(
-                  fields[id].map(async entry => {
-                    const contentType = entry.sys.contentType.sys.id
-                    const schema = await client.getContentType(contentType)
-                    return await mapEntry(entry, schema)
-                  })
-                )
-                break
-            }
+            fields[id] = await Promise.all(
+              fields[id].map(item => mapLink(item, model.items.linkType))
+            )
             break
         }
       })
   )
 
   return fields
+}
+
+async function mapLink(link, linkType) {
+  switch (linkType) {
+    case 'Asset':
+      return toImg(link)
+    case 'Entry':
+      const contentType = link.sys.contentType.sys.id
+      const schema = await client.getContentType(contentType)
+      return await mapEntry(link, schema)
+  }
 }
 
 function getHtmlOptions({ renderMark = {}, renderNode = {}, ...options } = {}) {
@@ -85,7 +76,11 @@ function getHtmlOptions({ renderMark = {}, renderNode = {}, ...options } = {}) {
   }
 }
 
-function toInlineHtml(document, options) {
+function toHtml(document) {
+  return documentToHtmlString(document, getHtmlOptions())
+}
+
+function toInlineHtml(document) {
   return documentToHtmlString(
     document,
     getHtmlOptions({
@@ -95,10 +90,6 @@ function toInlineHtml(document, options) {
       },
     })
   )
-}
-
-function toHtml(document, options) {
-  return documentToHtmlString(document, getHtmlOptions())
 }
 
 function toImg(link) {
