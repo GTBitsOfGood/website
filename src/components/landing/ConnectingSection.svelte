@@ -1,6 +1,7 @@
 <script>
   import InfoSplitSection from '../InfoSplitSection.svelte'
   import content from '@contentful-entry/missionSection/connecting-section'
+
   export let parallaxOffset = 0
 </script>
 
