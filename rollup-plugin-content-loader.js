@@ -17,31 +17,49 @@ const client = contentful.createClient({
   accessToken: 'k7DLuul6fLZfzDiJVGPp0IQTPzz84ihOSVHiA6KOvGk',
 })
 
-function mapEntry(entry, schema) {
+async function mapEntry(entry, schema) {
   if (!entry) {
     return null
   }
   const { fields } = entry
 
-  schema.fields
-    .filter(({ id }) => fields[id])
-    .forEach(({ id, type, linkType }) => {
-      switch (type) {
-        case 'RichText':
-          fields[id] = {
-            html: toHtml(fields[id]),
-            inlineHtml: toInlineHtml(fields[id]),
-          }
-          break
-        case 'Link':
-          switch (linkType) {
-            case 'Asset':
-              fields[id] = toImg(fields[id])
-              break
-          }
-          break
-      }
-    })
+  await Promise.all(
+    schema.fields
+      .filter(({ id }) => fields[id])
+      .map(async ({ id, type, ...model }) => {
+        switch (type) {
+          case 'RichText':
+            fields[id] = {
+              html: toHtml(fields[id]),
+              inlineHtml: toInlineHtml(fields[id]),
+            }
+            break
+          case 'Link':
+            switch (model.linkType) {
+              case 'Asset':
+                fields[id] = toImg(fields[id])
+                break
+            }
+            break
+          case 'Array':
+            switch (model.items.linkType) {
+              case 'Asset':
+                fields[id] = fields[id].map(field => toImg(field))
+                break
+              case 'Entry':
+                fields[id] = await Promise.all(
+                  fields[id].map(async entry => {
+                    const contentType = entry.sys.contentType.sys.id
+                    const schema = await client.getContentType(contentType)
+                    return await mapEntry(entry, schema)
+                  })
+                )
+                break
+            }
+            break
+        }
+      })
+  )
 
   return fields
 }
@@ -104,11 +122,10 @@ export default function contentLoader() {
       const parts = source.split('/')
       switch (parts[0]) {
         case ENTRY_PREFIX: {
-          const [, contentType, key] = parts
+          const [, contentType] = parts
           const schemaPromise = client.getContentType(contentType)
           const entriesPromise = client.getEntries({
             content_type: contentType,
-            'fields.key': key,
             limit: 1,
           })
           const [schema, entries] = await Promise.all([
@@ -116,7 +133,7 @@ export default function contentLoader() {
             entriesPromise,
           ])
 
-          const item = mapEntry(entries.items[0], schema)
+          const item = await mapEntry(entries.items[0], schema)
           return `export default ${JSON.stringify(item)}`
         }
         case ENTRIES_PREFIX: {
@@ -130,7 +147,9 @@ export default function contentLoader() {
             entriesPromise,
           ])
 
-          let items = entries.items.map(entry => mapEntry(entry, schema))
+          let items = await Promise.all(
+            entries.items.map(entry => mapEntry(entry, schema))
+          )
           if (items.length && typeof items[0].orderingIndex === 'number') {
             items = items.sort(
               (first, second) => first.orderingIndex - second.orderingIndex
