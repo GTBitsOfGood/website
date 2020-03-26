@@ -11,9 +11,9 @@
 
 <svelte:window bind:scrollY />
 <Heading />
-<ConnectingSection parallaxOffset={scrollY * 0.08 - 60} />
+<ConnectingSection parallaxOffset={scrollY * -0.08 + 90} />
 <QuotesSection />
-<BuildingSection parallaxOffset={scrollY * 0.08 - 180} />
+<BuildingSection parallaxOffset={scrollY * -0.08 + 220} />
 
 <svelte:head>
   <title>Bits of Good</title>
