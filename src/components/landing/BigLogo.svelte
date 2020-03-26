@@ -53,6 +53,7 @@
   svg {
     width: 100%;
     height: auto;
+    margin-top: var(--nav-height);
     position: absolute;
     top: 0;
     left: 0;
@@ -61,7 +62,7 @@
 
   @media (max-width: 1100px) {
     svg {
-      opacity: 0.6;
+      opacity: 0.8;
     }
   }
 </style>

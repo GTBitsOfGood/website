@@ -37,6 +37,7 @@
     justify-content: center;
     align-items: flex-start;
     height: 80vh;
+    min-height: 700px;
     position: relative;
     overflow: hidden;
   }
@@ -49,10 +50,19 @@
     .big-logo-accents {
       display: none;
     }
+    .text-container {
+      margin-top: 50px;
+    }
+    .banner {
+      margin-bottom: 50px;
+    }
   }
   @media (max-width: 600px) {
     .text-container {
       padding: 3rem;
+    }
+    .banner {
+      margin-bottom: 0;
     }
     h2 {
       font-size: 30px;
