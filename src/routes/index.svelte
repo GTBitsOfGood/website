@@ -4,6 +4,7 @@
     ConnectingSection,
     BuildingSection,
     QuotesSection,
+    Footer,
   } from '../components/landing'
 </script>
 
@@ -11,6 +12,7 @@
 <ConnectingSection />
 <QuotesSection />
 <BuildingSection />
+<Footer />
 
 <svelte:head>
   <title>Bits of Good Homepage</title>
