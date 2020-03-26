@@ -1,24 +1,38 @@
 <script>
   import { fade } from 'svelte/transition'
   import { backOut } from 'svelte/easing'
+  import { onMount, onDestroy } from 'svelte'
 
   export let images = []
 
+  let mounted = false
   let alternateImage = false
   let firstImageIndex = 0
   let secondImageIndex = 1
+  let imageInterval = null
+
+  onMount(() => {
+    mounted = true
+    imageInterval = setInterval(() => {
+      alternateImage = !alternateImage
+    }, 4000)
+  })
 
   const setFirstImage = () => {
+    // must set both to prevent indices from getting out of sync on page sleep
     firstImageIndex = (firstImageIndex + 2) % images.length
+    secondImageIndex =
+      firstImageIndex === 0 ? images.length - 1 : firstImageIndex - 1
   }
 
   const setSecondImage = () => {
+    // must set both to prevent indices from getting out of sync on page sleep
     secondImageIndex = (secondImageIndex + 2) % images.length
+    firstImageIndex =
+      secondImageIndex === 0 ? images.length - 1 : secondImageIndex - 1
   }
 
-  setInterval(() => {
-    alternateImage = !alternateImage
-  }, 5000)
+  onDestroy(() => clearInterval(imageInterval))
 
   const bounceIn = (node, { duration }) => {
     return {
@@ -58,19 +72,19 @@
   viewBox="0 0 1440 1300"
   fill="none"
   xmlns="http://www.w3.org/2000/svg">
-  {#if !alternateImage}
+  {#if mounted && !alternateImage}
     <image
-      in:bounceIn={{ duration: 800 }}
-      out:fade={{ duration: 600 }}
+      in:bounceIn|local={{ duration: 800 }}
+      out:fade|local={{ duration: 600 }}
       on:outroend={setFirstImage}
       width="900"
       height="890"
       xlink:href={images[firstImageIndex].src} />
   {/if}
-  {#if alternateImage}
+  {#if mounted && alternateImage}
     <image
-      in:bounceIn={{ duration: 800 }}
-      out:fade={{ duration: 600 }}
+      in:bounceIn|local={{ duration: 800 }}
+      out:fade|local={{ duration: 600 }}
       on:outroend={setSecondImage}
       width="900"
       height="890"
@@ -79,11 +93,11 @@
   <rect
     y="0.384155"
     width="711.975"
-    height="1272.3"
-    fill="url(#paint0_linear)" />
+    height="1298"
+    fill="url(#gradient_background)" />
   <defs>
     <linearGradient
-      id="paint0_linear"
+      id="gradient_background"
       x1="657.168"
       y1="48.5534"
       x2="55.7796"
