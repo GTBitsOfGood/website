@@ -79,3 +79,7 @@
     <img src={content.artwork.src} alt={content.artwork.alt} />
   </section>
 </div>
+
+<svelte:head>
+  <title>Contact Us</title>
+</svelte:head>

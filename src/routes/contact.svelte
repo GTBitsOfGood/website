@@ -149,3 +149,7 @@
     <a style="display: none" href="/contact-submitted">_</a>
   </form>
 </section>
+
+<svelte:head>
+  <title>Contact Us</title>
+</svelte:head>
