@@ -1,22 +1,68 @@
+<script>
+  import { fade } from 'svelte/transition'
+  import { backOut } from 'svelte/easing'
+  import { onMount, onDestroy } from 'svelte'
+
+  export let images = []
+
+  let mounted = false
+  let alternateImage = false
+  let firstImageIndex = 0
+  let secondImageIndex = 1
+  let imageInterval = null
+
+  onMount(() => {
+    mounted = true
+    imageInterval = setInterval(() => {
+      alternateImage = !alternateImage
+    }, 4000)
+  })
+
+  const setFirstImage = () => {
+    // must set both to prevent indices from getting out of sync on page sleep
+    firstImageIndex = (firstImageIndex + 2) % images.length
+    secondImageIndex =
+      firstImageIndex === 0 ? images.length - 1 : firstImageIndex - 1
+  }
+
+  const setSecondImage = () => {
+    // must set both to prevent indices from getting out of sync on page sleep
+    secondImageIndex = (secondImageIndex + 2) % images.length
+    firstImageIndex =
+      secondImageIndex === 0 ? images.length - 1 : secondImageIndex - 1
+  }
+
+  onDestroy(() => clearInterval(imageInterval))
+
+  const bounceIn = (node, { duration }) => {
+    return {
+      duration,
+      css: t => {
+        const eased = backOut(t)
+        return `
+          transform: scale(${eased * 0.4 + 0.6});
+          transform-origin: 25% 50%;
+          opacity: ${eased};
+        `
+      },
+    }
+  }
+</script>
+
 <style>
   svg {
     width: 100%;
-    /* min-width: 120rem; */
     height: auto;
+    margin-top: var(--nav-height);
     position: absolute;
     top: 0;
     left: 0;
     z-index: -1;
-    background: linear-gradient(
-      50deg,
-      var(--primary-yellow),
-      var(--primary-red) 60%
-    );
   }
 
   @media (max-width: 1100px) {
     svg {
-      opacity: 0.6;
+      opacity: 0.8;
     }
   }
 </style>
@@ -27,14 +73,42 @@
   viewBox="0 0 1440 1300"
   fill="none"
   xmlns="http://www.w3.org/2000/svg">
-
-  <image
-    image
-    id="logo-backing-img"
-    width="900"
-    height="890"
-    xlink:href="images/logo-placeholder-image.jpg"
-    opacity="0.15" />
+  {#if mounted && !alternateImage}
+    <image
+      in:bounceIn|local={{ duration: 800 }}
+      out:fade|local={{ duration: 600 }}
+      on:outroend={setFirstImage}
+      width="900"
+      height="890"
+      xlink:href={images[firstImageIndex].src} />
+  {/if}
+  {#if mounted && alternateImage}
+    <image
+      in:bounceIn|local={{ duration: 800 }}
+      out:fade|local={{ duration: 600 }}
+      on:outroend={setSecondImage}
+      width="900"
+      height="890"
+      xlink:href={images[secondImageIndex].src} />
+  {/if}
+  <rect
+    y="0.384155"
+    width="711.975"
+    height="1298"
+    fill="url(#gradient_background)" />
+  <defs>
+    <linearGradient
+      id="gradient_background"
+      x1="657.168"
+      y1="48.5534"
+      x2="55.7796"
+      y2="1208.1"
+      gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF2847" stop-opacity="0.7" />
+      <stop offset="0.541454" stop-color="#FE924E" />
+      <stop offset="1" stop-color="#FFBE4D" />
+    </linearGradient>
+  </defs>
   <path
     d="M1439.5 0H0V974.736C114.556 944.305 317.769 828.929 394.016
     743.402C470.485 657.625 524.624 538.013 524.624 408.871C524.624 335.96
@@ -53,11 +127,6 @@
     521.287 366.324Z"
     fill="#FEF2EA" />
   <defs>
-    <pattern patternContentUnits="objectBoundingBox" width="1" height="1">
-      <use
-        xlink:href="#logo-backing-img"
-        transform="translate(0 -0.00855773) scale(0.00164488 0.000951464)" />
-    </pattern>
     <linearGradient
       id="backing-gradient"
       x1="1439"

@@ -127,10 +127,11 @@ export default function contentLoader() {
       const parts = source.split('/')
       switch (parts[0]) {
         case ENTRY_PREFIX: {
-          const [, contentType] = parts
+          const [, contentType, key] = parts
           const schemaPromise = client.getContentType(contentType)
           const entriesPromise = client.getEntries({
             content_type: contentType,
+            'fields.key': key,
             limit: 1,
           })
           const [schema, entries] = await Promise.all([
