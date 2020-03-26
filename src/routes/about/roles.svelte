@@ -8,3 +8,7 @@
 {#each departments as department, index}
   <Department rightAlign={index % 2 === 1} {...department} />
 {/each}
+
+<svelte:head>
+  <title>Our Roles</title>
+</svelte:head>
