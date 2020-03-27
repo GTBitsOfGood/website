@@ -3,7 +3,6 @@
   import Footer from '../components/join/Footer.svelte'
   import recruitmentCycles from '@contentful-entries/recruitmentCycle'
   import content from '@contentful-entry/joinPage'
-  import { removeWrapperPTag } from '../contentHelpers'
   import Role from '../components/join/Role.svelte'
 
   const activeCycle = recruitmentCycles.find(cycle => cycle.active)
@@ -143,13 +142,13 @@
     {#if activeCycle.openRoles}
       <h3>Open roles</h3>
       {#each activeCycle.openRoles as openRole}
-        <Role {...openRole.fields} />
+        <Role {...openRole} />
       {/each}
     {/if}
     {#if activeCycle.futureRoles}
       <h3>Future roles</h3>
       {#each activeCycle.futureRoles as futureRole}
-        <Role {...futureRole.fields} />
+        <Role {...futureRole} />
       {/each}
     {/if}
   </section>
