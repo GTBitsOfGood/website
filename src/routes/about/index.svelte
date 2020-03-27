@@ -14,6 +14,10 @@
 <Roles />
 <Milestones />
 
+<a href="/about/roles" style="display: none">
+  placeholder for new roles section
+</a>
+
 <svelte:head>
   <title>About Us</title>
 </svelte:head>
