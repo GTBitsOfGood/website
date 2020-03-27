@@ -8,13 +8,22 @@
   import departments from '@contentful-entries/roleDepartment'
   import headerContent from '@contentful-entry/rolesHeader'
   import Department from '../../components/about-us/roles/Department'
+  import { onMount } from 'svelte'
 
   export let selectedRole = ''
 
   const scrollToDepartment = id => {
     const section = document.getElementById(id)
-    if (section) section.scrollIntoView({ behavior: 'smooth' })
+    setTimeout(() => {
+      if (section) section.scrollIntoView({ behavior: 'smooth' })
+    }, 0)
   }
+
+  onMount(() => {
+    if (location.hash) {
+      scrollToDepartment(location.hash.slice(1))
+    }
+  })
 </script>
 
 <style>

@@ -74,7 +74,19 @@
   }
 
   section.content-container p.tagline {
-    margin-top: 25px;
+    margin-top: 0px;
+  }
+
+  section.content-container p.announcement {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    max-width: 400px;
+    padding: 10px;
+    border: 3px solid var(--primary-red);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    color: var(--primary-red);
   }
 
   a.nonprofit-cta {
@@ -114,9 +126,7 @@
       display: table;
       margin: auto;
     }
-    p.tagline {
-      text-align: center;
-    }
+
     a.nonprofit-cta {
       display: table;
       margin: auto;
@@ -136,13 +146,16 @@
 <section class="content-container">
   <section class="content" id="students">
     <h2>Students</h2>
+    <p class="announcement">
+      {@html activeCycle.announcement.inlineHtml}
+    </p>
     <p class="tagline">
       {@html activeCycle.tagline.inlineHtml}
     </p>
     {#if activeCycle.openRoles}
       <h3>Open roles</h3>
       {#each activeCycle.openRoles as openRole}
-        <Role {...openRole} />
+        <Role {...openRole} open={true} />
       {/each}
     {/if}
     {#if activeCycle.futureRoles}
