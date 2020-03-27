@@ -52,13 +52,11 @@
     text-align: center;
   }
   section.banner p {
-    font-family: var(--visby-body-font);
-    font-weight: normal;
+    font-family: var(--header-font);
     font-size: 26px;
   }
   section.role-links-container > p {
-    font-family: var(--visby-body-font);
-    font-weight: normal;
+    font-family: var(--header-font);
     font-size: 36px;
     text-align: center;
   }

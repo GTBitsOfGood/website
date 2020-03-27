@@ -1,3 +1,21 @@
+@font-face {
+  font-family: 'Visby CF';
+  font-display: swap;
+  font-weight: bold;
+  src: url('fonts/VisbyCF-Bold.woff2') format('woff2'),
+    url('fonts/VisbyCF-Bold.ttf') format('truetype'),
+    url('fonts/VisbyCF-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Visby CF';
+  font-display: swap;
+  font-weight: normal;
+  src: url('fonts/VisbyCF-Normal.woff2') format('woff2'),
+    url('fonts/VisbyCF-Normal.ttf') format('truetype'),
+    url('fonts/VisbyCF-Normal.woff') format('woff');
+}
+
 :root {
   --backing-pink: #fffdfc;
   --backing-pink-pronounced: #fbf6f2;
@@ -13,10 +31,8 @@
   --body-font-size: 16px;
   --small-header-size: 24px;
   --content-max-width: 120rem;
-  --header-font: 'Visby CF Bold', Roboto, -apple-system, BlinkMacSystemFont,
-    Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-    sans-serif;
-  --visby-body-font: 'Visby CF Medium', var(--header-font);
+  --header-font: 'Visby CF', Roboto, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   --body-font: 'Open Sans', Roboto, -apple-system, BlinkMacSystemFont, Segoe UI,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -95,8 +111,8 @@ h1,
 h2,
 h3 {
   font-family: var(--header-font);
+  font-weight: bold;
   line-height: 1.2;
-  font-weight: normal;
 }
 
 h1,

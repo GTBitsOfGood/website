@@ -15,7 +15,7 @@
     margin-bottom: 30px;
   }
   p.description {
-    font-family: var(--visby-body-font);
+    font-family: var(--header-font);
     font-size: 22px;
     color: #333;
   }
