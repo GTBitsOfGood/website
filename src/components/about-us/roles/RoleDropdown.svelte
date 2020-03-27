@@ -6,8 +6,7 @@
   export let description = ''
   export let applicationOpen = false
   export let applyLink = ''
-
-  let open = false
+  export let open = false
 </script>
 
 <style>

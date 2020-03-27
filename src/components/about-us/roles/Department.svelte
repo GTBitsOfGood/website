@@ -1,5 +1,6 @@
 <script>
   import RoleDropdown from './RoleDropdown.svelte'
+  import recruitmentCycles from '@contentful-entries/recruitmentCycle'
 
   export let name = ''
   export let description = ''
@@ -7,6 +8,20 @@
   export let image = ''
   export let roles = []
   export let rightAlign = false
+  export let selectedRole = ''
+
+  // check if role applications are open in the current recruitment cycle
+  const activeCycle = recruitmentCycles.find(cycle => cycle.active)
+
+  if (activeCycle && activeCycle.openRoles && activeCycle.openRoles.length) {
+    roles = roles.map(role => {
+      const applicationOpen = activeCycle.openRoles.find(
+        openRole =>
+          openRole.name === role.name && openRole.learnMoreHash === hash
+      )
+      return { ...role, applicationOpen }
+    })
+  }
 </script>
 
 <style>
@@ -112,7 +127,7 @@
         {@html description.inlineHtml}
       </p>
       {#each roles as role}
-        <RoleDropdown {...role} />
+        <RoleDropdown {...role} open={selectedRole === role.name} />
       {/each}
     </div>
   </div>

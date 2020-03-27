@@ -1,7 +1,15 @@
+<script context="module">
+  export const preload = async ({ query }) => ({
+    selectedRole: query.role,
+  })
+</script>
+
 <script>
   import departments from '@contentful-entries/roleDepartment'
   import headerContent from '@contentful-entry/rolesHeader'
   import Department from '../../components/about-us/roles/Department'
+
+  export let selectedRole = ''
 
   const scrollToDepartment = id => {
     const section = document.getElementById(id)
@@ -160,9 +168,7 @@
     <p>We offer 5 unique roles</p>
     <div class="dept-links">
       {#each departments as { image, name, hash }}
-        <button
-          on:click={() => scrollToDepartment(hash)}
-          href={'/about/roles#' + hash}>
+        <button on:click={() => scrollToDepartment(hash)}>
           <img src={image.src} alt={image.alt} />
           <p>{name}</p>
         </button>
@@ -171,7 +177,7 @@
   </section>
 </div>
 {#each departments as department, index}
-  <Department rightAlign={index % 2 === 1} {...department} />
+  <Department rightAlign={index % 2 === 1} {...department} {selectedRole} />
 {/each}
 
 <svelte:head>
