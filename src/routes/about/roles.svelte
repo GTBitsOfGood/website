@@ -2,6 +2,11 @@
   import departments from '@contentful-entries/roleDepartment'
   import headerContent from '@contentful-entry/rolesHeader'
   import Department from '../../components/about-us/roles/Department'
+
+  const scrollToDepartment = id => {
+    const section = document.getElementById(id)
+    if (section) section.scrollIntoView({ behavior: 'smooth' })
+  }
 </script>
 
 <style>
@@ -71,16 +76,16 @@
     justify-content: center;
     align-items: flex-end;
   }
-  .role-links a {
+  .role-links button {
     margin: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  .role-links a > img {
+  .role-links button > img {
     height: 200px;
   }
-  .role-links a > p {
+  .role-links button > p {
     font-family: var(--header-font);
     font-weight: normal;
     font-size: 26px;
@@ -155,10 +160,12 @@
     <p>We offer 5 unique roles</p>
     <div class="role-links">
       {#each departments as { image, name, hash }}
-        <a href={'/about/roles#' + hash}>
+        <button
+          on:click={() => scrollToDepartment(hash)}
+          href={'/about/roles#' + hash}>
           <img src={image.src} alt={image.alt} />
           <p>{name}</p>
-        </a>
+        </button>
       {/each}
     </div>
   </section>
