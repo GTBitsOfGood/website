@@ -11,7 +11,7 @@
   export let selectedRole = ''
 
   // check if role applications are open in the current recruitment cycle
-  const activeCycle = recruitmentCycles.find(cycle => cycle.active)
+  const activeCycle = recruitmentCycles.find(cycle => !cycle.active)
 
   if (activeCycle && activeCycle.openRoles && activeCycle.openRoles.length) {
     roles = roles.map(role => {

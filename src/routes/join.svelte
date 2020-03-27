@@ -5,7 +5,7 @@
   import content from '@contentful-entry/joinPage'
   import Role from '../components/join/Role.svelte'
 
-  const activeCycle = recruitmentCycles.find(cycle => cycle.active)
+  const activeCycle = recruitmentCycles.find(cycle => !cycle.active)
 
   const scrollToSection = sectionId => {
     const section = document.getElementById(sectionId)
@@ -142,7 +142,7 @@
     {#if activeCycle.openRoles}
       <h3>Open roles</h3>
       {#each activeCycle.openRoles as openRole}
-        <Role {...openRole} />
+        <Role {...openRole} open={true} />
       {/each}
     {/if}
     {#if activeCycle.futureRoles}
