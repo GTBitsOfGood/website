@@ -80,13 +80,15 @@
   section.content-container p.announcement {
     margin-top: 20px;
     margin-bottom: 20px;
-    max-width: 400px;
+    width: 340px;
     padding: 10px;
     border: 3px solid var(--primary-red);
     border-radius: 10px;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
     color: var(--primary-red);
+    margin-left: 0;
+    margin-right: 0;
   }
 
   a.nonprofit-cta {
@@ -114,6 +116,7 @@
     section#nonprofits {
       margin-left: 60px;
     }
+
   }
 
   @media (max-width: 819px) {
@@ -125,6 +128,15 @@
       font-size: 42px;
       display: table;
       margin: auto;
+    }
+
+    section.content-container p.announcement {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    p.tagline {
+      text-align: center;
     }
 
     a.nonprofit-cta {
