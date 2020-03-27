@@ -1,5 +1,5 @@
 <script>
-  import DownArrowIcon from 'svelte-icons/io/IoIosArrowDown'
+  import RightArrowIcon from 'svelte-icons/io/IoIosArrowForward'
   import { fly } from 'svelte/transition'
 
   export let name = ''
@@ -11,32 +11,45 @@
 </script>
 
 <style>
-  div.dropdown-banner {
+  .icon {
+    transition: transform 0.2s;
+    margin-right: 20px;
+    padding-top: 5px;
+  }
+  .icon :global(svg) {
+    height: 24px;
+    width: auto;
+  }
+  .open {
+    transform: rotate(0.25turn);
+  }
+
+  .dropdown-banner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   }
 
-  div.dropdown-banner button {
+  .dropdown-banner button {
     padding: 10px 0;
     flex: 1;
     text-align: left;
+    display: flex;
+    align-items: center;
   }
 
-  div.dropdown-banner button :global(svg),
-  div.dropdown-banner button h3 {
+  .dropdown-banner button .icon,
+  .dropdown-banner button h3 {
     vertical-align: middle;
     display: inline-block;
   }
 
-  div.dropdown-banner button :global(svg) {
-    height: 24px;
-    width: auto;
-    margin-right: 20px;
+  .description {
+    margin-bottom: 50px;
   }
 
-  div.description :global(p) {
+  .description :global(p) {
     color: #333;
   }
 
@@ -50,13 +63,21 @@
     font-family: var(--header-font);
     font-weight: normal;
     color: #333;
+    transition-property: background-color, color;
+    transition-duration: 0.2s;
+  }
+  a.apply-link:hover {
+    background-color: var(--primary-red);
+    color: white;
   }
 </style>
 
 <section>
   <div class="dropdown-banner">
     <button on:click={() => (open = !open)}>
-      <DownArrowIcon />
+      <div class="icon" class:open>
+        <RightArrowIcon />
+      </div>
       <h3>{name}</h3>
     </button>
     {#if !applicationOpen}
