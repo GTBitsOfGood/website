@@ -16,6 +16,7 @@
   --header-font: 'Visby CF Bold', Roboto, -apple-system, BlinkMacSystemFont,
     Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
     sans-serif;
+  --visby-body-font: 'Visby CF Medium', var(--header-font);
   --body-font: 'Open Sans', Roboto, -apple-system, BlinkMacSystemFont, Segoe UI,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -95,7 +96,7 @@ h2,
 h3 {
   font-family: var(--header-font);
   line-height: 1.2;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 h1,

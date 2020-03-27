@@ -15,7 +15,7 @@
     margin-bottom: 30px;
   }
   p.description {
-    font-family: 'Visby CF Medium';
+    font-family: var(--visby-body-font);
     font-size: 22px;
     color: #333;
   }
@@ -99,7 +99,7 @@
   }
 </style>
 
-<section class:rightAlign>
+<section class:rightAlign id={hash}>
   <div class="inner">
     <div class="image-container">
       <img src={image.src} alt={image.alt} />
