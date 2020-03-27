@@ -80,7 +80,7 @@
       </div>
       <h3>{name}</h3>
     </button>
-    {#if !applicationOpen}
+    {#if applicationOpen}
       <a class="apply-link" href={applyLink}>Apply Now</a>
     {/if}
 
