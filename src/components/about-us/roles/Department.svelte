@@ -28,6 +28,11 @@
     display: flex;
     justify-content: center;
   }
+  @media (max-width: 1100px) {
+    section {
+      flex-direction: column;
+    }
+  }
   section.rightAlign div.image-container {
     margin-left: 100px;
     margin-right: 0;
