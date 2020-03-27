@@ -60,32 +60,32 @@
     font-family: var(--header-font);
     font-size: 26px;
   }
-  section.role-links-container > p {
+  section.dept-links-container > p {
     font-family: var(--header-font);
     font-size: 36px;
     text-align: center;
   }
-  section.role-links-container {
+  section.dept-links-container {
     background: white;
     padding: 30px;
     max-width: var(--content-max-width);
   }
-  .role-links {
+  .dept-links {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-end;
   }
-  .role-links button {
+  .dept-links button {
     margin: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  .role-links button > img {
+  .dept-links button > img {
     height: 200px;
   }
-  .role-links button > p {
+  .dept-links button > p {
     font-family: var(--header-font);
     font-weight: normal;
     font-size: 26px;
@@ -119,16 +119,16 @@
     .heading {
       padding: 0;
     }
-    section.role-links-container > p {
+    section.dept-links-container > p {
       font-size: 22px;
     }
-    .role-links a {
+    .dept-links button {
       margin: 20px;
     }
-    .role-links a > img {
+    .dept-links button > img {
       height: 100px;
     }
-    .role-links a > p {
+    .dept-links button > p {
       font-size: 18px;
     }
   }
@@ -156,9 +156,9 @@
       src={headerContent.mobileBannerImages[1].src}
       alt={headerContent.mobileBannerImages[1].alt} />
   </section>
-  <section class="role-links-container">
+  <section class="dept-links-container">
     <p>We offer 5 unique roles</p>
-    <div class="role-links">
+    <div class="dept-links">
       {#each departments as { image, name, hash }}
         <button
           on:click={() => scrollToDepartment(hash)}
