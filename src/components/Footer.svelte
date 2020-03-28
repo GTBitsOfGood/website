@@ -1,9 +1,10 @@
 <script>
   import content from '@contentful-entry/footer'
 
-  const linkColumns = Object.keys(content).reduce((columns, contentKey) => {
-    const regexp = /([A-Za-z]*)Column([0-9]*)/g
-    const columnKey = regexp.exec(contentKey) // ex. matches Contentful key "linksColumn1"
+  const regexp = /([A-Za-z]*)Column([0-9]*)/g // ex. matches Contentful key "linksColumn1"
+  let linkColumns = Array(3)
+  Object.keys(content).forEach(contentKey => {
+    const columnKey = regexp.exec(contentKey)
     if (columnKey) {
       const [_, key, index] = columnKey
       columns[index - 1] = {
@@ -11,8 +12,7 @@
         [key]: content[contentKey],
       }
     }
-    return columns
-  }, [])
+  })
 </script>
 
 <style>
