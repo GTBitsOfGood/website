@@ -1,6 +1,8 @@
 <script>
   import content from '@contentful-entry/contactUs'
-  import { removeWrapperPTag } from '../contentHelpers'
+  import methods from '@contentful-entries/contactMethod'
+  import Method from '../components/contact/Method.svelte'
+
 </script>
 
 <style>
@@ -12,7 +14,7 @@
     gap: 3rem 5rem;
     grid-template-areas:
       'heading heading'
-      'info-text form'
+      'methods form'
       'image form'
       'address form';
   }
@@ -32,12 +34,15 @@
   h2 {
     font-size: 24px;
   }
-  .info-text {
-    grid-area: info-text;
+  .methods {
+    grid-area: methods;
+  }
+  .methods h2 {
+    margin-top: 0;
   }
   img {
     grid-area: image;
-    justify-self: center;
+    justify-self: left;
     max-width: 450px;
   }
   .address {
@@ -89,25 +94,29 @@
     transform: translateY(-5px);
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 820px) {
     section {
       grid-template-columns: 1fr;
       grid-template-areas:
         'image'
         'heading'
-        'info-text'
+        'methods'
         'form'
         'address';
     }
+    
   }
 </style>
 
 <section>
   <img src={content.artwork.src} alt={content.artwork.alt} />
   <h1>{content.heading}</h1>
-  <p class="info-text">
-    {@html content.infoText.inlineHtml}
-  </p>
+  <div class="methods">
+    <h2>{content.subheading}</h2>
+    {#each methods as {text}}
+      <Method {text} />
+    {/each}
+  </div>
   <div class="address">
     <h2>{content.addressHeading}</h2>
     <p>
@@ -119,6 +128,7 @@
     </p>
   </div>
   <form
+    id="form"
     method="POST"
     name="contact"
     data-netlify="true"
