@@ -115,13 +115,17 @@
       margin-bottom: 25px;
     }
 
+    ul.last {
+      margin-right: 0;
+    }
+
     .right {
       justify-content: flex-start;
       flex-basis: 20rem;
     }
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 620px) {
     footer {
       padding: 30px 3rem;
     }
@@ -131,11 +135,17 @@
     }
 
     p {
-      font-size: 20px;
+      font-size: 26px;
     }
 
-    ul {
+    ul, ul.last {
+      margin-left: auto;
+      margin-right: auto;
       margin-bottom: 25px;
+    }
+
+    li {
+      text-align: center;
     }
 
     .right {
@@ -157,8 +167,8 @@
     </div>
 
     <div class="right">
-      {#each content.columns as column}
-        <ul>
+      {#each content.columns as column, i}
+        <ul class:last="{i === content.columns.length - 1}">
           {#each column.links as link}
             <li class:bold_link={link.boldLink}>
               {#if link.url}
