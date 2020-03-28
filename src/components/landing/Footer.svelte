@@ -93,6 +93,7 @@
 
   .footer-img {
     margin: 8px 0;
+    cursor: pointer;
   }
 
   @media (max-width: 1024px) {
@@ -175,8 +176,10 @@
   <hr class="divider">
 
   <div class="footer-bottom">
-    {#each content.images as image}
-      <img src={image.src} alt={image.alt} class="footer-img">
+    {#each content.images as img}
+      <a href={img.link}>
+        <img src={img.image.src} alt={img.image.alt} class="footer-img">
+      </a>
     {/each}
   </div>
 </footer>
