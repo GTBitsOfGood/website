@@ -80,8 +80,8 @@
     <DottedAccent top="25vh" left="60%" width="l" height="m" />
     <img src={content.logo.src} alt={content.logo.alt} />
     <h2>
-      {content.slogan.line1}
-      <strong>{content.slogan.line2}</strong>
+      {content.sloganLine1}
+      <strong>{content.sloganLine2}</strong>
     </h2>
     <GetInvolvedBtn large />
   </div>
