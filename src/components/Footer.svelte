@@ -156,7 +156,7 @@
 
 </style>
 
-<footer>
+<footer id="footer">
   
   <section>
     <div class="left">
