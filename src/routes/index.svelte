@@ -3,7 +3,7 @@
     Heading,
     ConnectingSection,
     BuildingSection,
-    QuotesSection,
+    QuotesSection
   } from '../components/landing'
 
   let scrollY = 0
