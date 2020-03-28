@@ -1,5 +1,5 @@
 <script>
-  import content from '@contentful-entry/cta'
+  import content from '@contentful-entry/homeHeader'
 
   export let large = false
   export let small = false
@@ -37,4 +37,6 @@
   }
 </style>
 
-<a class:large class:small class:hide href="join">{content.text}</a>
+<a class:large class:small class:hide href={content.cta.url}>
+  {content.cta.text}
+</a>
