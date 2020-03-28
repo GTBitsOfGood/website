@@ -106,7 +106,6 @@
     }
 
     img {
-      max-width: 450px;
       justify-self: center;
     }
 
@@ -115,6 +114,7 @@
     }
 
     h1 {
+      margin-top: 0px;
       text-align: center;
     }
 
