@@ -124,6 +124,7 @@ export default function contentLoader() {
             content_type: contentType,
             'fields.key': key,
             limit: 1,
+            include: 10,
           })
           const [schema, entries] = await Promise.all([
             schemaPromise,
@@ -138,6 +139,7 @@ export default function contentLoader() {
           const schemaPromise = client.getContentType(contentType)
           const entriesPromise = client.getEntries({
             content_type: contentType,
+            include: 10,
           })
           const [schema, entries] = await Promise.all([
             schemaPromise,

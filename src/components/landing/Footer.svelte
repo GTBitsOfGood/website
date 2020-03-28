@@ -1,3 +1,7 @@
+<script>
+  import content from '@contentful-entry/footer'
+</script>
+
 <style>
   
   footer {
@@ -36,6 +40,16 @@
     display: block;
     font-size: 18px;
     margin-bottom: 2rem;
+  }
+
+  a {
+    color: inherit;
+    font-weight: inherit;
+  }
+
+  a:hover,
+  a:active {
+    text-decoration: underline;
   }
 
   .footer-bottom {
@@ -135,43 +149,34 @@
   
   <section>
     <div class="left">
-      <h3>Have a problem? We're here to help.</h3>
-      <p class="footer_cta">Let's talk</p>
+      <h3>{content.heading}</h3>
+      <p class="footer_cta">
+        <a href="/contact">{content.cta}</a>
+      </p>
     </div>
 
     <div class="right">
-      <ul>
-        <li class="bold_link">General</li>
-        <li>Our Work</li>
-        <li>About Us</li>
-        <li>Open Roles</li>
-      </ul>
-
-      <ul>
-        <li class="bold_link">Get Involved</li>
-        <li>Students</li>
-        <li>Non-profits</li>
-        <li>Contact Us</li>
-      </ul>
-      <ul>
-        <li class="bold_link">Social Media</li>
-        <li>Facebook</li>
-        <li>Instagram</li>
-        <li>Github</li>
-      </ul>
+      {#each content.columns as column}
+        <ul>
+          {#each column.links as link}
+            <li class:bold_link={link.boldLink}>
+              {#if link.url}
+                <a href={link.url}>{link.text}</a>
+              {:else}
+                {link.text}
+              {/if}
+            </li>
+          {/each}
+        </ul>
+      {/each}
     </div>
   </section>
 
   <hr class="divider">
 
   <div class="footer-bottom">
-  <img 
-    src="images/h4i-logo.svg"
-    class="footer-img"
-    >
-  <img 
-    src="images/bog-logo-footer.svg"
-    class="footer-img"
-    >
+    {#each content.images as image}
+      <img src={image.src} alt={image.alt} class="footer-img">
+    {/each}
   </div>
 </footer>
