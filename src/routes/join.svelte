@@ -3,7 +3,6 @@
   import Footer from '../components/join/Footer.svelte'
   import recruitmentCycles from '@contentful-entries/recruitmentCycle'
   import content from '@contentful-entry/joinPage'
-  import { removeWrapperPTag } from '../contentHelpers'
   import Role from '../components/join/Role.svelte'
 
   const activeCycle = recruitmentCycles.find(cycle => cycle.active)
@@ -75,7 +74,21 @@
   }
 
   section.content-container p.tagline {
-    margin-top: 25px;
+    margin-top: 0px;
+  }
+
+  section.content-container p.announcement {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 340px;
+    padding: 10px;
+    border: 3px solid var(--primary-red);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 16px;
+    color: var(--primary-red);
+    margin-left: 0;
+    margin-right: 0;
   }
 
   a.nonprofit-cta {
@@ -103,6 +116,7 @@
     section#nonprofits {
       margin-left: 60px;
     }
+
   }
 
   @media (max-width: 819px) {
@@ -115,9 +129,16 @@
       display: table;
       margin: auto;
     }
+
+    section.content-container p.announcement {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     p.tagline {
       text-align: center;
     }
+
     a.nonprofit-cta {
       display: table;
       margin: auto;
@@ -137,19 +158,22 @@
 <section class="content-container">
   <section class="content" id="students">
     <h2>Students</h2>
+    <p class="announcement">
+      {@html activeCycle.announcement.inlineHtml}
+    </p>
     <p class="tagline">
       {@html activeCycle.tagline.inlineHtml}
     </p>
     {#if activeCycle.openRoles}
       <h3>Open roles</h3>
       {#each activeCycle.openRoles as openRole}
-        <Role {...openRole.fields} />
+        <Role {...openRole} open={true} />
       {/each}
     {/if}
     {#if activeCycle.futureRoles}
       <h3>Future roles</h3>
       {#each activeCycle.futureRoles as futureRole}
-        <Role {...futureRole.fields} />
+        <Role {...futureRole} />
       {/each}
     {/if}
   </section>

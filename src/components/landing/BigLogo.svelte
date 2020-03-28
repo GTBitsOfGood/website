@@ -6,31 +6,15 @@
   export let images = []
 
   let mounted = false
-  let alternateImage = false
-  let firstImageIndex = 0
-  let secondImageIndex = 1
+  let imageIndex = 0
   let imageInterval = null
 
   onMount(() => {
     mounted = true
     imageInterval = setInterval(() => {
-      alternateImage = !alternateImage
+      imageIndex = (imageIndex + 1) % images.length
     }, 4000)
   })
-
-  const setFirstImage = () => {
-    // must set both to prevent indices from getting out of sync on page sleep
-    firstImageIndex = (firstImageIndex + 2) % images.length
-    secondImageIndex =
-      firstImageIndex === 0 ? images.length - 1 : firstImageIndex - 1
-  }
-
-  const setSecondImage = () => {
-    // must set both to prevent indices from getting out of sync on page sleep
-    secondImageIndex = (secondImageIndex + 2) % images.length
-    firstImageIndex =
-      secondImageIndex === 0 ? images.length - 1 : secondImageIndex - 1
-  }
 
   onDestroy(() => clearInterval(imageInterval))
 
@@ -73,24 +57,15 @@
   viewBox="0 0 1440 1300"
   fill="none"
   xmlns="http://www.w3.org/2000/svg">
-  {#if mounted && !alternateImage}
+  <!-- key the image on its index to trigger in/out animations properly -->
+  {#each mounted ? [images[imageIndex].src] : [] as imageSrc (imageIndex)}
     <image
       in:bounceIn|local={{ duration: 800 }}
       out:fade|local={{ duration: 600 }}
-      on:outroend={setFirstImage}
       width="900"
       height="890"
-      xlink:href={images[firstImageIndex].src} />
-  {/if}
-  {#if mounted && alternateImage}
-    <image
-      in:bounceIn|local={{ duration: 800 }}
-      out:fade|local={{ duration: 600 }}
-      on:outroend={setSecondImage}
-      width="900"
-      height="890"
-      xlink:href={images[secondImageIndex].src} />
-  {/if}
+      xlink:href={imageSrc} />
+  {/each}
   <rect
     y="0.384155"
     width="711.975"

@@ -9,10 +9,20 @@
     url('fonts/VisbyCF-Bold.woff') format('woff');
 }
 
+@font-face {
+  font-family: 'Visby CF';
+  font-display: swap;
+  font-weight: normal;
+  src: url('fonts/VisbyCF-Normal.woff2') format('woff2'),
+    url('fonts/VisbyCF-Normal.ttf') format('truetype'),
+    url('fonts/VisbyCF-Normal.woff') format('woff');
+}
+
 :root {
   --backing-pink: #fffdfc;
   --backing-pink-pronounced: #fbf6f2;
   --backing-panel: #fcf0eb;
+  --yellow-backing: #fff3db;
   --primary-red: #ff7574;
   --primary: #f38d6a;
   --primary-yellow: #ffc55a;
@@ -103,8 +113,8 @@ h1,
 h2,
 h3 {
   font-family: var(--header-font);
-  line-height: 1.2;
   font-weight: bold;
+  line-height: 1.2;
 }
 
 h1,
