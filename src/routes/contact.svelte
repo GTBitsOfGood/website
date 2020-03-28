@@ -11,7 +11,7 @@
     font-size: 18px;
     padding: 3rem;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem 5rem;
+    gap: 3rem 3rem;
     grid-template-areas:
       'heading heading'
       'methods form'
@@ -43,7 +43,7 @@
   img {
     grid-area: image;
     justify-self: left;
-    max-width: 450px;
+    max-width: 350px;
   }
   .address {
     grid-area: address;
@@ -104,7 +104,23 @@
         'form'
         'address';
     }
-    
+
+    img {
+      max-width: 450px;
+      justify-self: center;
+    }
+
+    .methods {
+      justify-self: center;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .methods h2 {
+      text-align: center;
+    }
   }
 </style>
 
