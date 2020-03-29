@@ -39,7 +39,7 @@
     margin-bottom: 50px;
   }
   section.rightAlign {
-    background: var(--yellow-backing);
+    background: var(--section-color-yellow);
   }
   .inner {
     display: flex;
@@ -100,7 +100,7 @@
       margin-right: 0;
       display: flex;
       justify-content: center;
-      background: var(--yellow-backing);
+      background: var(--section-color-yellow);
     }
     .content-container {
       padding: 20px;
