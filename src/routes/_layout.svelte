@@ -27,6 +27,6 @@
 <main>
   <slot />
 </main>
-<Footer />
+<Footer noTopMargin={segment === 'join'} />
 
 <svelte:window on:scroll={onScroll} />
