@@ -87,6 +87,7 @@
   }
 
   section.content .announcement-container p.announcement {
+    text-align: center;
     margin: 0;
     padding: 10px 20px;
     border: 3px solid var(--primary-red);
@@ -130,7 +131,9 @@
     section.content h2 {
       font-size: 42px;
       display: table;
-      margin: auto;
+      margin-top: 0;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     section.content .announcement-container {
