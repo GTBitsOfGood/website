@@ -1,18 +1,15 @@
 <script>
   import content from '@contentful-entry/footer'
 
-  const regexp = /([A-Za-z]*)Column([0-9]*)/g // ex. matches Contentful key "linksColumn1"
-  let linkColumns = Array(3)
-  Object.keys(content).forEach(contentKey => {
-    const columnKey = regexp.exec(contentKey)
-    if (columnKey) {
-      const [_, key, index] = columnKey
-      columns[index - 1] = {
-        ...columns[index - 1],
-        [key]: content[contentKey],
-      }
-    }
-  })
+  const columns = Object.keys(content)
+    .map(key => /^linksColumn([0-9]+)$/.exec(key))
+    .filter(match => match)
+    .map(([_, columnNum]) => columnNum)
+    .sort((x, y) => parseInt(x) - parseInt(y))
+    .map(columnNum => ({
+      title: content[`titleColumn${columnNum}`],
+      links: content[`linksColumn${columnNum}`],
+    }))
 </script>
 
 <style>
@@ -127,7 +124,7 @@
     </div>
 
     <div class="link-container">
-      {#each linkColumns as column}
+      {#each columns as column}
         <ul>
           <h3 class="column-header">{column.title}</h3>
           {#each column.links as link}
