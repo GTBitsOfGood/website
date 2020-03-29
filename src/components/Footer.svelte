@@ -17,7 +17,6 @@
     max-width: 100vw;
     padding: 50px 30px;
     background-color: #fafafc;
-    margin-top: 50px;
   }
 
   section {
