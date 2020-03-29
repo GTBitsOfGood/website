@@ -58,6 +58,7 @@
     color: black;
   }
   a.btn-hollow:hover {
+    box-shadow: inset 0px 0px 0px 2px var(--primary-red), var(--shadow-hover);
     background-color: var(--primary-red);
     color: white;
   }
