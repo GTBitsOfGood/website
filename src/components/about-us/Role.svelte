@@ -7,7 +7,13 @@
 
 <style>
 
-    div.container {
+    a {
+        text-decoration: unset;
+        font-weight: unset;
+        outline: none;
+    }
+
+    .container {
         margin: 40px;
         display: flex;
         flex-direction: column;
@@ -17,9 +23,11 @@
     .cutoff {
         height: 200px;
         overflow: hidden;
+        transition-property: transform;
+        transition-duration: 0.2s;
     }
     img {
-        height: 400px;
+        height: 200%;
     }
 
     h3 {
@@ -34,12 +42,7 @@
         margin-bottom: 30px;
     }
 
-    a {
-        margin-top: auto;
-        display: block;
-    }
-
-    button {
+    .learnMore {
         border-radius: 12px;
         font-weight: normal;
         letter-spacing: inherit;
@@ -48,27 +51,28 @@
         font-size: 18px;
         padding: 8px 80px;
         border: 2px solid #333;
-        transition-property: transform, background-color, color, box-shadow;
+        transition-property: background-color, color;
         transition-duration: 0.2s;
-        
+        margin-top: auto;
+        display: block;
     }
-    button:hover {
-        transform: translateY(-10px);
+
+    .container:hover .cutoff {
+        transform: scale(1.2) translateY(-15px);
+    }
+
+    .container:hover .learnMore {
         background-color: #333;
         color: white;
-        box-shadow: var(--shadow-hover);
     }
+
 </style>
 
-<div class='container'>
+<a href='/about/roles#{hash}' class='container'>
     <div class='cutoff'>
         <img src={image.src} alt={image.alt} />
     </div>
     <h3>{name}</h3>
     <p>{@html briefDescription.inlineHtml}</p>
-    <a href='/about/roles#{hash}'>
-        <button>
-            Learn More
-        </button>
-    </a>
-</div>
+    <div class='learnMore'>Learn More</div>
+</a>
