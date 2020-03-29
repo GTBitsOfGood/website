@@ -56,6 +56,7 @@
   section.content h2 {
     font-size: 48px;
     padding-bottom: 5px;
+    margin-bottom: 30px;
     display: inline-block;
   }
 
@@ -73,22 +74,26 @@
     border-bottom: 4px solid var(--primary-yellow);
   }
 
-  section.content-container p.tagline {
+  section.content p.tagline {
     margin-top: 0px;
   }
 
-  section.content-container p.announcement {
-    margin-top: 20px;
+  section.content .announcement-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
     margin-bottom: 20px;
-    width: 340px;
-    padding: 10px;
+  }
+
+  section.content .announcement-container p.announcement {
+    text-align: center;
+    margin: 0;
+    padding: 10px 20px;
     border: 3px solid var(--primary-red);
     border-radius: 10px;
-    text-align: center;
     font-size: 16px;
     color: var(--primary-red);
-    margin-left: 0;
-    margin-right: 0;
   }
 
   a.nonprofit-cta {
@@ -116,7 +121,6 @@
     section#nonprofits {
       margin-left: 60px;
     }
-
   }
 
   @media (max-width: 819px) {
@@ -127,12 +131,13 @@
     section.content h2 {
       font-size: 42px;
       display: table;
-      margin: auto;
-    }
-
-    section.content-container p.announcement {
+      margin-top: 0;
       margin-left: auto;
       margin-right: auto;
+    }
+
+    section.content .announcement-container {
+      align-items: center;
     }
 
     p.tagline {
@@ -158,9 +163,11 @@
 <section class="content-container">
   <section class="content" id="students">
     <h2>Students</h2>
-    <p class="announcement">
-      {@html activeCycle.announcement.inlineHtml}
-    </p>
+    <div class="announcement-container">
+      <p class="announcement">
+        {@html activeCycle.announcement.inlineHtml}
+      </p>
+    </div>
     <p class="tagline">
       {@html activeCycle.tagline.inlineHtml}
     </p>
