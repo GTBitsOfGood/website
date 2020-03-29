@@ -9,6 +9,9 @@
 
     div.container {
         margin: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .cutoff {
@@ -21,17 +24,22 @@
 
     h3 {
         margin-top: 20px;
-        margin-bottom: 30px;
+        margin-bottom: 0px;
         text-align: center;
         font-size: 40px;
     }
 
     p {
         max-width: 300px;
+        margin-bottom: 30px;
+    }
+
+    a {
+        margin-top: auto;
+        display: block;
     }
 
     button {
-        margin: 30px auto 0 auto;
         border-radius: 12px;
         font-weight: normal;
         letter-spacing: inherit;
@@ -42,7 +50,7 @@
         border: 2px solid #333;
         transition-property: transform, background-color, color, box-shadow;
         transition-duration: 0.2s;
-        display: block;
+        
     }
     button:hover {
         transform: translateY(-10px);
@@ -64,7 +72,3 @@
         </button>
     </a>
 </div>
-
-
-
-

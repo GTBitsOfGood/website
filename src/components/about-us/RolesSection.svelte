@@ -16,6 +16,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: stretch;
   }
 
   h2, h3 {
