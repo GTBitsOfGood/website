@@ -1,78 +1,80 @@
 <script>
-    export let name = ''
-    export let briefDescription = ''
-    export let image
-    export let hash = ''
+  export let name = ''
+  export let briefDescription = ''
+  export let image
+  export let hash = ''
 </script>
 
 <style>
+  a.container {
+    font-weight: unset;
+    margin: 40px;
+    margin-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    a {
-        text-decoration: unset;
-        font-weight: unset;
-        outline: none;
-    }
+  .cutoff {
+    height: 200px;
+    overflow: hidden;
+    transition: transform 0.2s;
+    transform-origin: bottom;
+  }
 
-    .container {
-        margin: 40px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  img {
+    height: 200%;
+  }
 
-    .cutoff {
-        height: 200px;
-        overflow: hidden;
-        transition-property: transform;
-        transition-duration: 0.2s;
-    }
-    img {
-        height: 200%;
-    }
+  h3 {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    text-align: center;
+    font-size: 40px;
+  }
 
-    h3 {
-        margin-top: 20px;
-        margin-bottom: 0px;
-        text-align: center;
-        font-size: 40px;
-    }
+  h3,
+  a.container:hover h3 {
+    color: #333;
+  }
 
-    p {
-        max-width: 300px;
-        margin-bottom: 30px;
-    }
+  p {
+    max-width: 300px;
+    margin-bottom: 30px;
+  }
 
-    .learnMore {
-        border-radius: 12px;
-        font-weight: normal;
-        letter-spacing: inherit;
-        text-align: center;
-        color: #333;
-        font-size: 18px;
-        padding: 8px 80px;
-        border: 2px solid #333;
-        transition-property: background-color, color;
-        transition-duration: 0.2s;
-        margin-top: auto;
-        display: block;
-    }
+  .learn-more {
+    border-radius: 12px;
+    font-weight: normal;
+    letter-spacing: inherit;
+    text-align: center;
+    color: #333;
+    font-size: 18px;
+    padding: 8px 80px;
+    border: 2px solid #333;
+    transition-property: background-color, color;
+    transition-duration: 0.2s;
+    margin-top: auto;
+    display: block;
+  }
 
-    .container:hover .cutoff {
-        transform: scale(1.2) translateY(-15px);
-    }
+  a.container:hover .cutoff {
+    transform: scale(1.2);
+  }
 
-    .container:hover .learnMore {
-        background-color: #333;
-        color: white;
-    }
-
+  a.container:hover .learn-more {
+    background-color: #333;
+    color: white;
+  }
 </style>
 
-<a href='/about/roles#{hash}' class='container'>
-    <div class='cutoff'>
-        <img src={image.src} alt={image.alt} />
-    </div>
-    <h3>{name}</h3>
-    <p>{@html briefDescription.inlineHtml}</p>
-    <div class='learnMore'>Learn More</div>
+<a href="/about/roles#{hash}" class="container">
+  <div class="cutoff">
+    <img src={image.src} alt={image.alt} />
+  </div>
+  <h3>{name}</h3>
+  <p>
+    {@html briefDescription.inlineHtml}
+  </p>
+  <div class="learn-more">Learn More</div>
 </a>
