@@ -57,7 +57,7 @@
         <img src={image.src} alt={image.alt} />
     </div>
     <h3>{name}</h3>
-    <p>{@html briefDescription.html}</p>
+    <p>{@html briefDescription.inlineHtml}</p>
     <a href='/about/roles#{hash}'>
         <button>
             Learn More
