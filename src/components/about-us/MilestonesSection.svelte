@@ -20,7 +20,7 @@
   }
   .overflow-container {
     overflow: hidden;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
   }
   .colored-backing {
     background: var(--section-color-pink);
