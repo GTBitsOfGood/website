@@ -1,6 +1,8 @@
 <script>
   import content from '@contentful-entry/footer'
 
+  export let noTopMargin = false
+
   const columns = Object.keys(content)
     .map(key => /^linksColumn([0-9]+)$/.exec(key))
     .filter(match => match)
@@ -14,9 +16,14 @@
 
 <style>
   footer {
+    margin-top: 75px;
     max-width: 100vw;
     padding: 50px 30px;
     background-color: #fafafc;
+  }
+
+  footer.noTopMargin {
+    margin-top: 0;
   }
 
   section {
@@ -112,7 +119,7 @@
   }
 </style>
 
-<footer id="footer">
+<footer id="footer" class:noTopMargin>
 
   <section>
     <div class="cta-container">
