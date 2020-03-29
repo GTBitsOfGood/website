@@ -16,6 +16,7 @@
 
 <style>
   footer {
+    margin-top: 75px;
     max-width: 100vw;
     padding: 50px 30px;
     margin-top: 75px;

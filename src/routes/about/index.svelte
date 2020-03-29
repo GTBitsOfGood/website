@@ -11,8 +11,8 @@
 <Header {missionSectionId} />
 <Mission id={missionSectionId} />
 <Slogan />
-<Roles />
 <Milestones />
+<Roles />
 
 <a href="/about/roles" style="display: none">
   placeholder for new roles section

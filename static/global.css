@@ -21,8 +21,8 @@
 :root {
   --backing-pink: #fffdfc;
   --backing-pink-pronounced: #fbf6f2;
-  --backing-panel: #fcf0eb;
-  --yellow-backing: #fff3db;
+  --section-color-pink: #fcf0eb;
+  --section-color-yellow: #fff3db;
   --primary-red: #ff7574;
   --primary: #f38d6a;
   --primary-yellow: #ffc55a;

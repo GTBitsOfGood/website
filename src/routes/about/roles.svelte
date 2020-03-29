@@ -32,7 +32,7 @@
     margin-bottom: 10px;
   }
   .heading {
-    background: var(--yellow-backing);
+    background: var(--section-color-yellow);
     padding-bottom: 100px;
   }
 

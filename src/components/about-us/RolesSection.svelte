@@ -1,31 +1,44 @@
 <script>
-  import InfoCard from '../InfoCard'
-  import roleCards from '@contentful-entries/roleCard'
+  import roleDepartments from '@contentful-entries/roleDepartment'
+  import Role from './Role.svelte'
 </script>
 
 <style>
-  section {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  h2 {
-    width: 100%;
-    margin: 2rem;
-  }
   .backing {
     background: var(--backing-panel);
     padding-bottom: 5rem;
+    overflow: hidden;
+  }
+
+  section {
+    margin-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+  }
+
+  h2, h3 {
+    text-align: center;
+  }
+
+  h3 {
+    margin: 30px auto 20px auto;
+    padding: 0px 20px;
+    line-height: 1.6em;
+    max-width: 950px;
+    font-size: 25px;
+    font-weight: normal;
   }
 </style>
 
 <div class="backing">
+  <h2>Roles</h2>
+  <h3>Bits of Good is home to engineers and artists. We believe in empowering the non-profits and democratizing technology for social good.</h3>
   <section>
-    <h2>Roles</h2>
-    {#each roleCards as { heading, description, thumbnail }}
-      <InfoCard
-        {heading}
-        img={thumbnail}
-        descriptionHTML={description.inlineHtml} />
+    {#each roleDepartments as roleDepartment}
+      <Role {...roleDepartment}/>
     {/each}
   </section>
 </div>

@@ -10,12 +10,20 @@
 </script>
 
 <style>
+  h2 {
+    margin-bottom: 80px;
+    text-align: center;
+  }
   section {
     padding: 3rem;
     padding-bottom: 5rem;
   }
   .overflow-container {
     overflow: hidden;
+    margin-bottom: 50px;
+  }
+  .colored-backing {
+    background: var(--section-color-pink);
   }
   .scroll-container {
     --offset-index: 0;
@@ -31,7 +39,6 @@
   }
   .scroll-container::before {
     content: '';
-    z-index: -1;
     position: absolute;
     left: calc(var(--milestone-width) / 2);
     top: 10%;
@@ -46,9 +53,9 @@
     min-width: var(--milestone-width);
     max-width: 100%;
     align-self: center;
-
     display: flex;
     justify-content: center;
+    z-index: 1;
   }
   .milestone.selected,
   .milestone.position-low.selected {
@@ -61,12 +68,13 @@
     align-self: flex-start;
   }
   .milestone-content {
-    background-color: var(--backing-pink);
+    background-color: var(--section-color-pink);
     width: 50%;
-    transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform, background-color;
     transition-duration: 0.3s;
   }
   .selected .milestone-content {
+    background-color: var(--backing-pink);
     width: 100%;
     box-shadow: var(--shadow-hover);
     align-self: center;
@@ -114,7 +122,7 @@
   }
 </style>
 
-<div class="overflow-container">
+<div class="overflow-container colored-backing">
   <section>
     <h2>Milestones</h2>
     <div
