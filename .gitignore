@@ -8,3 +8,6 @@ yarn-error.log
 # For Netlify functions
 .netlify
 .env
+
+# We use yarn
+package-lock.json
