@@ -24,7 +24,7 @@ So, when creating new sections on the site, **check the `:root` ruleset in `glob
 ### Mobile considerations
 
 Most of our website needs to adjust for mobile layouts. Some recommendations:
-1. Use the breakpoint `max-width: 600px` when writing media queries that target mobile devices.
+1. Use the breakpoint `max-width: 600px` when writing media queries that target mobile devices. Use your best judgment on whether to use a different breakpoint or multiple breakpoints.
 2. Any content on mobile **should have a gutter / margin of 20px** on either side. In other words, text blocks and headers should have `20px` of breathing room. On desktop, this value is either `30px` or a custom value depending on the context.
 2. No need to handle font-resizing if you're using default values. Check for any `@media` queries already specified in `global.css`.
 
