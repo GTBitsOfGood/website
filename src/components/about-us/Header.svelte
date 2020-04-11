@@ -28,19 +28,20 @@
   }
   .text-container {
     padding: 3rem;
-    max-width: 90rem;
+    max-width: 80rem;
   }
   .text-container {
     color: white;
   }
   .text-container > :global(p) {
-    font-size: 40px;
+    font-size: var(--header-3-desktop);
     color: white;
   }
   button {
     background: white;
     padding: 1.5rem 3rem;
-    font-size: 24px;
+    margin: 1rem 0;
+    font-size: var(--body-xl);
     color: var(--primary-red);
     border-radius: 1rem;
     transition-property: box-shadow, transform;
@@ -55,21 +56,16 @@
     height: 40rem;
     margin-right: 5rem;
   }
-  @media (max-width: 900px) {
-    .text-container > :global(p) {
-      font-size: 30px;
-    }
-  }
-  @media (max-width: 650px) {
+  @media (max-width: 800px) {
     .content-container {
       margin-top: 0;
       flex-direction: column;
     }
     .text-container > :global(p) {
-      font-size: 24px;
+      font-size: var(--body-xl);
     }
     img {
-      height: 30rem;
+      height: 35rem;
     }
   }
 </style>

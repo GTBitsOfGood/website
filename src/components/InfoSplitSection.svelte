@@ -20,21 +20,15 @@
     margin: 3rem;
   }
   section :global(p) {
-    font-size: 26px;
+    font-size: var(--body-xl);
   }
-  section :global(h2) {
-    font-size: 72px;
-  }
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     .left,
     .right {
       margin: 2rem;
     }
     section :global(p) {
-      font-size: 20px;
-    }
-    section :global(h2) {
-      font-size: 48px;
+      font-size: var(--body-large);
     }
   }
 </style>

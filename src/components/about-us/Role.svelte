@@ -49,7 +49,7 @@
     letter-spacing: inherit;
     text-align: center;
     color: #333;
-    font-size: 18px;
+    font-size: var(--body-large);
     padding: 8px 80px;
     border: 2px solid #333;
     transition-property: background-color, color;

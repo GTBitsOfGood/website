@@ -18,7 +18,7 @@
     position: relative;
     overflow: hidden;
   }
-  h2 {
+  h1 {
     font-size: 40px;
     font-weight: normal;
     font-family: inherit;
@@ -26,7 +26,7 @@
     line-height: 1.3em;
     margin: 4.8rem 0;
   }
-  h2 > strong {
+  h1 > strong {
     display: block;
   }
   .text-container {
@@ -79,10 +79,10 @@
   <div class="text-container">
     <DottedAccent top="25vh" left="60%" width="l" height="m" />
     <img src={content.logo.src} alt={content.logo.alt} />
-    <h2>
+    <h1>
       {content.slogan.line1}
       <strong>{content.slogan.line2}</strong>
-    </h2>
+    </h1>
     <GetInvolvedBtn large />
   </div>
 </div>
