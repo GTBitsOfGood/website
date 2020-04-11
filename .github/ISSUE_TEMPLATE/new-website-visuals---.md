@@ -9,6 +9,8 @@ assignees: ''
 
 **Note:** If you're a new contributor to this repository, refer to CONTRIBUTING.md before tackling this issue!
 
+Describe the purpose of this enhancement in 1-2 sentences
+
 ## Action items
 - list out the steps to make this issue a reality. use `code blocks` to explain specifics.
 
