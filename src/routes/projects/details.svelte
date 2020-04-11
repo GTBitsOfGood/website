@@ -11,3 +11,7 @@
 </script>
 
 <Header {name} {briefDescription} {mockupImage} {detailsColor} />
+
+<svelte:head>
+  <title>{name}</title>
+</svelte:head>

@@ -2,16 +2,20 @@
   export let name = ''
   export let briefDescription = ''
   export let mockupImage = {}
-  export let detailsColor = '#4380FF'
+  export let detailsColor = ''
 </script>
 
 <style>
   section {
-    /* background-color: rgb(67, 128, 255); */
-    background-color: #4380ff;
-    display: flex;
-    height: 600px;
     max-width: 100%;
+  }
+  .container {
+    display: flex;
+    min-height: 600px;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: auto;
+    width: 100%;
   }
   h1 {
     font-size: 64px;
@@ -25,41 +29,47 @@
 
   .description-container {
     align-self: center;
-    display: flex;
-    flex-direction: column;
-    /* width: 50%; */
     margin: 1em;
+    margin-bottom: 3em;
+    max-width: 500px;
+    margin-left: 2em;
   }
   img {
-    width: 550px;
+    max-width: 600px;
+    width: 100%;
   }
 
   .img-container {
     display: flex;
     align-self: flex-end;
   }
-  @media (max-width: 600px) {
-    section {
+  @media (max-width: 900px) {
+    .container {
       flex-direction: column;
+    }
+    h1 {
+      font-size: 48px;
     }
     .description-container {
       justify-content: flex-start;
-      margin: 1em;
+      padding: 1em;
+      margin: 0;
+      font-size: var(--body-font-size);
     }
     .img-container {
-      background-color: #4380ff;
       align-self: center;
     }
   }
 </style>
 
-<section stlye="background-color:{detailsColor}">
-  <div class="description-container">
-    <h1>{name}</h1>
-    <p>{briefDescription}</p>
+<section style="background-color: {detailsColor}">
+  <div class="container">
+    <div class="description-container">
+      <h1>{name}</h1>
+      <p>{briefDescription}</p>
+    </div>
+    <div class="img-container">
+      <img src={mockupImage.src} alt={mockupImage.alt} />
+    </div>
   </div>
-  <div class="img-container">
-    <img src={mockupImage.src} alt={mockupImage.alt} />
-  </div>
-
 </section>
