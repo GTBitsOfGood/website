@@ -1,7 +1,6 @@
 <script>
   import InfoCard from '../../components/InfoCard/index.svelte'
   import projects from '@contentful-entries/project'
-  import Details from './details.svelte'
 </script>
 
 <style>
@@ -25,7 +24,6 @@
       descriptionHTML={description.inlineHtml}
       label={developmentStatus} />
   {/each}
-  <Details />
 </section>
 
 <svelte:head>
