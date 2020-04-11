@@ -1,5 +1,5 @@
 <script>
-  import InfoCard from '../components/InfoCard/index.svelte'
+  import InfoCard from '../../components/InfoCard/index.svelte'
   import projects from '@contentful-entries/project'
 </script>
 
