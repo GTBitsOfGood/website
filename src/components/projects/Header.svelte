@@ -32,7 +32,7 @@
     margin: 1em;
     margin-bottom: 3em;
     max-width: 500px;
-    margin-left: 2em;
+    padding-left: 2em;
   }
   img {
     max-width: 600px;
