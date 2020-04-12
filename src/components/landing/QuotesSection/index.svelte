@@ -89,12 +89,12 @@
     letter-spacing: 0.05em;
   }
   blockquote > :global(p) {
-    font-size: 24px;
+    font-size: var(--body-xl);
     margin: 2.6rem 0;
   }
   figcaption {
     text-align: right;
-    font-size: 24px;
+    font-size: var(--body-xl);
     margin-right: 2em;
   }
   figcaption::before {
@@ -135,10 +135,13 @@
       width: 7rem;
     }
   }
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     blockquote > :global(p),
     figcaption {
-      font-size: 18px;
+      font-size: var(--body);
+    }
+    blockquote {
+      margin: 0;
     }
     .quote-container {
       margin-bottom: 18rem;

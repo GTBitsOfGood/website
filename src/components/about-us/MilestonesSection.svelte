@@ -83,14 +83,14 @@
     transform: scale(1.1);
   }
   h3 {
-    font-size: var(--small-header-size);
+    font-size: var(--body-xl);
     text-align: center;
   }
   h4 {
     text-align: center;
     color: white;
     display: flex;
-    font-size: 20px;
+    font-size: var(--body-large);
     flex-direction: column;
     align-items: center;
     margin: 0;

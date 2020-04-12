@@ -51,7 +51,7 @@
     padding: 0 2rem;
   }
   h3 {
-    font-size: var(--small-header-size);
+    font-size: var(--body-xl);
   }
   small {
     font-size: 14px;

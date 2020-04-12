@@ -18,12 +18,10 @@
     width: 100%;
   }
   h1 {
-    font-size: 64px;
-    font-family: 'Visby CF', sans-serif;
     color: white;
   }
   p {
-    font-size: 24px;
+    font-size: var(--body-xl);
     color: white;
   }
 
@@ -47,14 +45,10 @@
     .container {
       flex-direction: column;
     }
-    h1 {
-      font-size: 48px;
-    }
     .description-container {
       justify-content: flex-start;
       padding: 1em;
       margin: 0;
-      font-size: var(--body-font-size);
     }
     .img-container {
       align-self: center;

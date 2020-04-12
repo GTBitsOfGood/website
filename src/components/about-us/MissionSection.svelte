@@ -41,9 +41,9 @@
   img {
     width: 20rem;
   }
-  .mission-card > :global(p) {
+  .mission-card p {
     margin: 0;
-    font-size: 24px;
+    font-size: var(--body-xl);
   }
 </style>
 
@@ -53,7 +53,9 @@
     <div class="mission-card">
       <img src={aboutUsImage.src} alt={aboutUsImage.alt} />
       <h3>{heading}</h3>
-      {@html description.html}
+      <p>
+      {@html description.inlineHtml}
+      </p>
     </div>
   {/each}
 </section>
