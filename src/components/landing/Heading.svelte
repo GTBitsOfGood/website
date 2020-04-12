@@ -18,17 +18,29 @@
     position: relative;
     overflow: hidden;
   }
+
   h1 {
+    margin: 0;
+    width: 100%;
+    max-width: 60rem;
+  }
+  h1 > img {
+    width: 100%;
+  }
+
+  h2 {
     font-size: 40px;
     font-weight: normal;
     font-family: inherit;
     color: var(--text-color);
     line-height: 1.3em;
-    margin: 4.8rem 0;
+    margin-top: 3.5rem;
+    margin-bottom: 4.8rem;
   }
-  h1 > strong {
+  h2 > strong {
     display: block;
   }
+
   .text-container {
     flex: 1;
     padding: 0 12rem;
@@ -40,10 +52,6 @@
     min-height: 700px;
     position: relative;
     overflow: hidden;
-  }
-  .text-container > img {
-    width: 100%;
-    max-width: 60rem;
   }
 
   @media (max-width: 1100px) {
@@ -78,11 +86,13 @@
   </div>
   <div class="text-container">
     <DottedAccent top="25vh" left="60%" width="l" height="m" />
-    <img src={content.logo.src} alt={content.logo.alt} />
     <h1>
+      <img src={content.logo.src} alt={content.logo.alt} />
+      </h1>
+    <h2>
       {content.slogan.line1}
       <strong>{content.slogan.line2}</strong>
-    </h1>
+    </h2>
     <GetInvolvedBtn large />
   </div>
 </div>
