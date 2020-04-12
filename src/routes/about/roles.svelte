@@ -1,16 +1,12 @@
-<script context="module">
-  export const preload = async ({ query }) => ({
-    selectedRole: query.role,
-  })
-</script>
-
 <script>
   import departments from '@contentful-entries/roleDepartment'
   import headerContent from '@contentful-entry/rolesHeader'
   import Department from '../../components/about-us/roles/Department'
+  import { stores } from '@sapper/app'
   import { onMount } from 'svelte'
 
-  export let selectedRole = ''
+  const { page } = stores()
+  $: selectedRole = $page.query.role
 
   const scrollToDepartment = id => {
     const section = document.getElementById(id)
