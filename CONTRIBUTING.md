@@ -13,7 +13,7 @@ A vast majority of project work relies on HTML and CSS, rather than super-fancy 
 
 **Fundamentals tutorial:** [Just click through the "Basics" section](https://svelte.dev/tutorial/basics)
 
-**Understanding Sapper**: [Read "Introduction" and "Sapper app structure"](https://sapper.svelte.dev/docs)
+**Understanding Sapper:** [Read "Introduction" and "Sapper app structure"](https://sapper.svelte.dev/docs)
 
 ## CSS standards
 
@@ -29,6 +29,7 @@ Most of our website needs to adjust for mobile layouts. Some recommendations:
 2. No need to handle font-resizing if you're using default values. Check for any `@media` queries already specified in `global.css`.
 
 ### When variables don't quite fit
+
 If you're referencing design guidelines where sizing or margins don't quite match up to our defaults, choose the closest match possible (for example, using a font size of `24px` instead of `26px`). If the closest match still doesn't feel right, do one of the following:
 1. If you're a Bits of Good member, consult a designer through our slack channel **#gt-org-website**
 2. If you're not a member, add a note on the issue for us to review
