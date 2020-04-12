@@ -7,7 +7,7 @@ Please note we have a code of conduct, please follow it in all your interactions
 
 ## Using the Svelte framework
 
-A vast majority of project work relies on HTML and CSS, rather than super-fancy JavaScript. So, you shouldn't need much Svelte knowledge to get up and running! Here are the resources we recommend reading before getting started.
+A vast majority of project work relies on HTML and CSS, rather than super-fancy JavaScript. So, you shouldn't need much Svelte knowledge to get up and running. Here are the resources we recommend reading before getting started:
 
 **Basics on using CSS in Svelte:** [Read this CSS tricks article](https://css-tricks.com/what-i-like-about-writing-styles-with-svelte/)
 
@@ -33,6 +33,28 @@ If you're referencing design guidelines where sizing or margins don't quite matc
 1. If you're a Bits of Good member, consult a designer through our slack channel **#gt-org-website**
 2. If you're not a member, add a note on the issue for us to review
 3. If you don't find consultation necessary, use a custom value that does not already exist as a CSS variable
+
+## Git conventions
+
+Since this project uses Git version control, we have several conventions to keep branches and commits standard across contributors.
+
+### Branches
+
+When creating a branch, remember that one branch = one pull request. So, your branches should **always build off of master** and **always correspond to a single issue**.
+
+When naming the branch, always use the following format:
+```
+[your_name]/[issue_number]/[brief_description]
+```
+For example, if I (Ben) am resolving issue #57 on creating a new Footer element, a good branch name would be **ben/57/new-footer**.
+
+Note that the description should be extremely short, at around 5 words or less.
+
+### Commits
+
+Your commits should ideally be bite-sized snapshots of file changes while you're working. When writing a commit, you should always make sure to:
+1. Use an active voice to describe the purpose of a commit (ex. using "add" instead of "added")
+2. Limit commits to around 50-75 characters. If you're using a GUI like VS Code, you should see a character count while you're writing.
 
 ## Pull Request Process
 
