@@ -23,17 +23,16 @@
   p {
     margin-top: 1.5em;
   }
-  .quote-container {
+  .quotes-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     max-width: 90%;
   }
-  .quote {
+  .quote-container {
     max-width: 90%;
     display: flex;
-    font-family: var(--header-font);
     /* justify-content: flex-end; */
     /* align-items: center; */
   }
@@ -66,6 +65,19 @@
     margin: 1em;
   }
 
+  .group-wrapper p {
+    font-size: var(--body-large);
+    margin-left: 30px;
+    max-width: 300px;
+  }
+
+  .quote {
+    font-weight: 700;
+    font-family: var(--header-font);
+    color: black;
+  }
+
+
   @media (max-width: 600px) {
     p {
       font-size: 14px;
@@ -82,14 +94,14 @@
     <h1>Reflection 💬</h1>
     <p>{@html reflection.inlineHtml}</p>
     <div class="quote-wrapper">
-      <div class="quote-container">
+      <div class="quotes-container">
         {#each quotes as quote}
-          <div class="quote">
+          <div class="quote-container">
             <div class="img-container">
               <img src={quote.image.src} alt={quote.image.alt} />
             </div>
-            <p>
-              <strong>"{@html quote.body.inlineHtml}"</strong>
+            <p class='quote'>
+              {@html quote.body.inlineHtml}"
             </p>
           </div>
         {/each}
@@ -97,8 +109,8 @@
     </div>
     <div class="group-wrapper">
       <img src={groupPhoto.src} alt={groupPhoto.alt} />
-      <p>
-        <strong>"{groupPhoto.alt}"</strong>
+      <p class='quote large'>
+        "{groupPhoto.alt}"
       </p>
     </div>
   </div>
