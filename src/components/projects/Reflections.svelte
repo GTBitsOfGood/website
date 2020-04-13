@@ -33,6 +33,7 @@
   .quote {
     max-width: 90%;
     display: flex;
+    font-family: var(--header-font);
     /* justify-content: flex-end; */
     /* align-items: center; */
   }
@@ -79,7 +80,7 @@
   <div class="container">
     <h2>Our Team</h2>
     <h1>Reflection 💬</h1>
-    <p>{reflection.inlineHtml}</p>
+    <p>{@html reflection.inlineHtml}</p>
     <div class="quote-wrapper">
       <div class="quote-container">
         {#each quotes as quote}
@@ -88,7 +89,7 @@
               <img src={quote.image.src} alt={quote.image.alt} />
             </div>
             <p>
-              <strong>"{quote.body.inlineHtml}"</strong>
+              <strong>"{@html quote.body.inlineHtml}"</strong>
             </p>
           </div>
         {/each}
