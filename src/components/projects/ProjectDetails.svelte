@@ -38,9 +38,7 @@
     max-width: 100%;
   }
   @media (max-width: 600px) {
-    h2 {
-      font-size: 22.5px;
-    }
+    
     p {
       font-size: inherit;
     }
