@@ -31,7 +31,7 @@
     justify-content: center;
     max-height: 350px;
     width: 100%;
-    margin: auto;
+    margin: 20px auto;
   }
   img {
     height: auto;
