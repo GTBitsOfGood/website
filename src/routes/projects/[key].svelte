@@ -14,7 +14,27 @@
 </script>
 
 <script>
+  import Header from '../../components/projects/Header'
+  import ProjectDetails from '../../components/projects/ProjectDetails'
   export let content
+  // content = JSON.stringify(content, undefined, 4)
 </script>
 
-<pre>{JSON.stringify(content, undefined, 4)}</pre>
+<style>
+  :global(.project-container) {
+    display: flex;
+    justify-content: center;
+    max-width: 80%;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    margin-top: 3em;
+  }
+</style>
+
+<Header {content} />
+<div class="project-container">
+  <ProjectDetails {content} />
+</div>
+
+<!-- <pre>{JSON.stringify(content, undefined, 4)}</pre> -->

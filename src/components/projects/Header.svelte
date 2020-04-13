@@ -1,8 +1,9 @@
 <script>
-  export let name = ''
-  export let briefDescription = ''
-  export let mockupImage = {}
-  export let detailsColor = ''
+  export let content
+  let name = content.name
+  let briefDescription = content.briefDescription
+  let mockupScreenshots = content.mockupScreenshots
+  let themeColor = content.themeColor
 </script>
 
 <style>
@@ -56,14 +57,14 @@
   }
 </style>
 
-<section style="background-color: {detailsColor}">
+<section style="background-color: {themeColor}">
   <div class="container">
     <div class="description-container">
       <h1>{name}</h1>
       <p>{briefDescription}</p>
     </div>
     <div class="img-container">
-      <img src={mockupImage.src} alt={mockupImage.alt} />
+      <img src={mockupScreenshots.src} alt={mockupScreenshots.alt} />
     </div>
   </div>
 </section>
