@@ -39,10 +39,14 @@
   }
   @media (max-width: 600px) {
     h2 {
-      font-size: 18px;
+      font-size: 22.5px;
     }
     p {
       font-size: inherit;
+    }
+
+    h3 {
+      font-size: var(--header-3-mobile);
     }
   }
 </style>
