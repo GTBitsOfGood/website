@@ -15,7 +15,6 @@
 
 <script>
   import Header from '../../components/projects/Header'
-  import KeyFeatures from '../../components/projects/KeyFeatures'
   import Reflections from '../../components/projects/Reflections'
   export let content
   // content = JSON.stringify(content, undefined, 4)
@@ -34,7 +33,6 @@
 
 <Header {content} />
 <div class="project-container">
-  <KeyFeatures {content} />
   <Reflections {content} />
 </div>
 
