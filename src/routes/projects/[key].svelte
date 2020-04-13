@@ -15,7 +15,8 @@
 
 <script>
   import Header from '../../components/projects/Header'
-  import ProjectDetails from '../../components/projects/ProjectDetails'
+  import KeyFeatures from '../../components/projects/KeyFeatures'
+  import Reflections from '../../components/projects/Reflections'
   export let content
   // content = JSON.stringify(content, undefined, 4)
 </script>
@@ -28,13 +29,13 @@
     flex-direction: column;
     align-items: center;
     margin: auto;
-    margin-top: 3em;
   }
 </style>
 
 <Header {content} />
 <div class="project-container">
-  <ProjectDetails {content} />
+  <KeyFeatures {content} />
+  <Reflections {content} />
 </div>
 
 <!-- <pre>{JSON.stringify(content, undefined, 4)}</pre> -->

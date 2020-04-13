@@ -6,6 +6,7 @@
 
 <style>
   .container {
+    margin-top: 5em;
     display: flex;
     max-width: 1400px;
     width: 100%;
@@ -49,7 +50,7 @@
 
 {#if keyFeatures.length > 0}
   <div class="container">
-    <h2>Our solution</h2>
+    <h2>Our Solution</h2>
     <h1>Key Features</h1>
     {#each keyFeatures as feature}
       <h3>{feature.header}</h3>
