@@ -1,6 +1,6 @@
 <script>
   import dummyData from '../../projectDummyData'
-  import Header from '../../components/projects/Header.svelte'
+  import Header from '../../components/projects/details/Header.svelte'
   const {
     name,
     briefDescription,
