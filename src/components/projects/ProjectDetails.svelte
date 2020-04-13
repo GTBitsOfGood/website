@@ -64,7 +64,7 @@
     {/each}
   </div>
 {/if}
-{#if userFlow.header !== undefined}
+{#if typeof userFlow !== undefined && typeof userFlow.header !== undefined}
   <div class="container">
     <h3>{userFlow.header}</h3>
     <p>{userFlow.body.inlineHtml}</p>
