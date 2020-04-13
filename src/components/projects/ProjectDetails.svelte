@@ -57,7 +57,7 @@
     <h1>Key Features</h1>
     {#each keyFeatures as feature}
       <h3>{feature.header}</h3>
-      <p>{feature.body.inlineHtml}</p>
+      <p>{@html feature.body.inlineHtml}</p>
       <div class="img-container">
         <img src={feature.image.src} alt={feature.image.alt} />
       </div>
@@ -67,7 +67,7 @@
 {#if typeof userFlow !== undefined && typeof userFlow.header !== undefined}
   <div class="container">
     <h3>{userFlow.header}</h3>
-    <p>{userFlow.body.inlineHtml}</p>
+    <p>{@html userFlow.body.inlineHtml}</p>
     <div class="img-container">
       <img src={userFlow.image.src} alt={userFlow.image.alt} />
     </div>
