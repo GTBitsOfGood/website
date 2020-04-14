@@ -1,9 +1,11 @@
 <script>
-  import Header from '../../components/projects/index/Header.svelte'
-  import ProjectSection from '../../components/projects/index/ProjectSection.svelte'
+  import PageHeader from '../../components/PageHeader'
+  import ProjectSection from '../../components/projects/index/ProjectSection'
+
+  import headerContent from '@contentful-entry/projectLanding'
 </script>
 
-<Header />
+<PageHeader {...headerContent} />
 <ProjectSection />
 
 <svelte:head>

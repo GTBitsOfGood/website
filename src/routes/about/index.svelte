@@ -1,22 +1,18 @@
 <script>
   import Roles from '../../components/about-us/RolesSection'
-  import Header from '../../components/about-us/Header'
+  import PageHeader from '../../components/PageHeader'
   import Mission from '../../components/about-us/MissionSection'
   import Slogan from '../../components/about-us/Slogan'
   import Milestones from '../../components/about-us/MilestonesSection'
 
-  const missionSectionId = 'mission-section'
+  import headerContent from '@contentful-entry/aboutUsHeader'
 </script>
 
-<Header {missionSectionId} />
-<Mission id={missionSectionId} />
+<PageHeader ctaScrollToId="mission-section" {...headerContent} />
+<Mission id="mission-section" />
 <Slogan />
 <Milestones />
 <Roles />
-
-<a href="/about/roles" style="display: none">
-  placeholder for new roles section
-</a>
 
 <svelte:head>
   <title>About Us</title>
