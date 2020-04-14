@@ -1,9 +1,10 @@
 <script>
-  export let clientGoals = content.clientGoals
-  export let endUserGoals = content.endUserGoals
-  export let kpiList = content.kpiList
-  export let productTechnology = content.productTechnology
-  export let productDesign = content.productDesign
+  export let clientGoals
+  export let endUserGoals
+  export let kpiList
+  export let productTechnology
+  export let productDesign
+  export let themeColor
 </script>
 
 <style>
