@@ -115,19 +115,27 @@
     <p>
       {@html description.inlineHtml}
     </p>
-    <div class="link-container">
-      <a href={aboutFigmaLink}>
-        <img src="/icons/figma.svg" alt="" />
-        <span>Mockups</span>
-      </a>
-      <a href={aboutGithubLink}>
-        <img src="/icons/github.svg" alt="" />
-        <span>Code repo</span>
-      </a>
-      <a href={aboutLiveSiteLink}>
-        <img src="/icons/link.svg" alt="" />
-        <span>Live site</span>
-      </a>
-    </div>
+    {#if aboutFigmaLink || aboutGithubLink || aboutLiveSiteLink}
+      <div class="link-container">
+        {#if aboutFigmaLink}
+          <a href={aboutFigmaLink}>
+            <img src="/icons/figma.svg" alt="" />
+            <span>Mockups</span>
+          </a>
+        {/if}
+        {#if aboutGithubLink}
+          <a href={aboutGithubLink}>
+            <img src="/icons/github.svg" alt="" />
+            <span>Code repo</span>
+          </a>
+        {/if}
+        {#if aboutLiveSiteLink}
+          <a href={aboutLiveSiteLink}>
+            <img src="/icons/link.svg" alt="" />
+            <span>Live site</span>
+          </a>
+        {/if}
+      </div>
+    {/if}
   </div>
 </section>
