@@ -1,0 +1,61 @@
+<script>
+  export let clientGoals = content.clientGoals
+  export let endUserGoals = content.endUserGoals
+  export let kpiList = content.kpiList
+  export let productTechnology = content.productTechnology
+  export let productDesign = content.productDesign
+</script>
+
+<style>
+  .kpi-container {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  h5 {
+    font-size: 48px;
+    color: #3960fb;
+    font-style: normal;
+    margin: 0;
+    font-family: var(--header-font);
+  }
+
+  .kpi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 200px;
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    .kpi-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>
+
+<section>
+  <h2>Our Process</h2>
+  <h3>Product Scope</h3>
+  <h4>Client Goals 🥅</h4>
+  <p>{clientGoals.inlineHtml}</p>
+  <h4>End-User Goals ⚽</h4>
+  <p>{endUserGoals.inlineHtml}</p>
+  <h4>KPI 📈</h4>
+  <div class="kpi-container">
+    {#if kpiList.length}
+      {#each kpiList as kpi}
+        <div class="kpi">
+          <h5>{kpi.header}</h5>
+          <p>{kpi.body.inlineHtml}</p>
+        </div>
+      {/each}
+    {/if}
+  </div>
+  <h4>Technology 💻</h4>
+  <p>{productTechnology.inlineHtml}</p>
+  <h4>Design 🖊</h4>
+  <p>{productDesign.inlineHtml}</p>
+</section>
