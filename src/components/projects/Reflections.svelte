@@ -8,14 +8,17 @@
   h3 {
     margin-top: 5px;
   }
+  p {
+    font-size: var(--body-large);
+  }
   p.description {
-    margin-bottom: 40px;
+    margin-bottom: 60px;
   }
 
   .quote-container {
     margin: auto;
-    margin-bottom: 30px;
-    max-width: 90%;
+    margin-bottom: 40px;
+    max-width: 800px;
     display: flex;
     align-items: center;
   }
@@ -28,23 +31,21 @@
   }
 
   .group-wrapper {
-    max-width: 90%;
+    max-width: 800px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     margin: auto;
+    padding-top: 40px;
     align-items: center;
-    margin-top: 30px;
   }
 
   .group-wrapper img {
-    max-height: 250px;
-    max-width: 100%;
+    height: 250px;
     margin-right: 30px;
   }
 
   .group-wrapper p {
-    font-size: var(--body-large);
-    max-width: 300px;
+    max-width: 325px;
   }
 
   .quote {
@@ -73,7 +74,7 @@
     <div class="quote-container">
       <img src={quote.image.src} alt={quote.image.alt} />
       <p class="quote">
-        {@html quote.body.inlineHtml}
+        {@html `"${quote.body.inlineHtml}"`}
       </p>
     </div>
   {/each}
