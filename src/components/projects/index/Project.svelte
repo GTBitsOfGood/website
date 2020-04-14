@@ -1,23 +1,32 @@
 <script>
-  export let heading = ''
-  export let description = ''
-  export let image = ''
+  export let name = ''
+  export let briefDescription = ''
+  export let image = {}
   export let link = ''
 </script>
 
 <style>
   a.container {
-    width: 350px;
+    width: 340px;
     font-weight: unset;
-    margin: 25px;
-    margin-bottom: 80px;
     display: flex;
     flex-direction: column;
   }
 
+  .img-container {
+    width: 340px;
+    height: 243px;
+    overflow: hidden;
+  }
+
+  a.container:hover img {
+    transform: scale(1.2);
+  }
+
   img {
-    width: 350px;
-    height: 250px;
+    width: inherit;
+    height: inherit;
+    transition: transform 0.2s;
   }
 
   h3 {
@@ -60,10 +69,12 @@
 </style>
 
 <a href={link} class="container">
-  <img src={image.src} alt={image.alt} />
-  <h3>{heading}</h3>
+  <div class="img-container">
+    <img src={image.src} alt={image.alt} />
+  </div>
+  <h3>{name}</h3>
   <p>
-    {@html description}
+    {@html briefDescription}
   </p>
   <div class="learn-more">Read More</div>
 </a>
