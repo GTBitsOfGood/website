@@ -34,7 +34,7 @@
 </style>
 
 <section>
-  <h2>Our solution</h2>
+  <h2>Our Solution</h2>
   <h3>Key Features</h3>
   {#each keyFeatures as feature}
     <h4>{feature.header}</h4>
@@ -46,7 +46,7 @@
     </div>
   {/each}
   {#if userFlow != null}
-    <h4>User flow 🌊</h4>
+    <h4>User Flow 🌊</h4>
     <p>
       {@html userFlow.body.inlineHtml}
     </p>

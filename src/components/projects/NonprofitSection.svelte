@@ -1,12 +1,10 @@
 <script>
-    export let name
-    export let nonprofitDescription
-    export let thumbnail
-
+  export let nonprofitLink = {}
+  export let nonprofitDescription = {}
+  export let thumbnail = {}
 </script>
 
 <style>
-
   section {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -19,7 +17,6 @@
 
   h2 {
     margin: 0;
-    font-size: 30px;
     font-weight: normal;
     grid-area: preheading;
   }
@@ -36,42 +33,43 @@
 
   img {
     width: 400px;
-    height: 285px;
     grid-area: thumbnail;
     justify-self: right;
     align-self: center;
   }
 
   @media (max-width: 1000px) {
-
-    h2, h3, img {
-        justify-self: center;
+    h2,
+    h3,
+    img {
+      justify-self: center;
     }
 
     img {
-        margin-top: 20px;
+      margin-top: 20px;
     }
-      
+
     section {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            'preheading'
-            'heading'
-            'thumbnail'
-            'description';
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'preheading'
+        'heading'
+        'thumbnail'
+        'description';
     }
 
     p {
-        margin-top: 20px;
-        font-size: initial;
+      margin-top: 20px;
+      font-size: initial;
     }
-
   }
 </style>
 
 <section>
-    <img src={thumbnail.src} alt={thumbnail.alt} />
-    <h2>Our client</h2>
-    <h3>{name}</h3>
-    <p>{@html nonprofitDescription.inlineHtml}</p>
+  <img src={thumbnail.src} alt={thumbnail.alt} />
+  <h2>Our Client</h2>
+  <h3>{nonprofitLink.text}</h3>
+  <p>
+    {@html nonprofitDescription.inlineHtml}
+  </p>
 </section>
