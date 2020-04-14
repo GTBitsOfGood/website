@@ -64,6 +64,8 @@
   }
   .projects-container :global(h2) {
     font-weight: normal;
+    margin: 0;
+    margin-bottom: 10px;
     font-size: 30px;
   }
   @media (max-width: 600px) {
@@ -92,7 +94,6 @@
         style="width: {(scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100}%" />
     {/if}
   </div>
-  <ProductScope {...content} />
   <AboutProject {...content} />
   <NonprofitSection {...content} />
   <VideoPlayer {...content} />
