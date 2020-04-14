@@ -34,6 +34,7 @@
   --primary: #f38d6a;
   --primary-yellow: #ffc55a;
   --text-color: #514b33;
+  --black: #333;
 
   /* font sizing */
   --header-1-desktop: 64px;
@@ -47,10 +48,14 @@
   --body-xl: 24px;
 
   /* font families */
-  --header-font: 'Visby CF', Roboto, -apple-system, BlinkMacSystemFont, Segoe UI,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  --body-font: 'Open Sans', Roboto, -apple-system, BlinkMacSystemFont, Segoe UI,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  --header-font: 'Visby CF', Roboto, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+  --body-font: 'Open Sans', Roboto, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
 
   /* box shadows */
   --shadow-hover: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
@@ -86,8 +91,9 @@ h4 {
   font-size: var(--body-xl);
 }
 
-@media(max-width: 600px) {
-  h1, h2 {
+@media (max-width: 600px) {
+  h1,
+  h2 {
     font-size: var(--header-1-mobile);
   }
   h3 {

@@ -163,11 +163,13 @@
 <section class="content-container">
   <section class="content" id="students">
     <h2>Students</h2>
-    <div class="announcement-container">
-      <p class="announcement">
-        {@html activeCycle.announcement.inlineHtml}
-      </p>
-    </div>
+    {#if activeCycle.announcement}
+      <div class="announcement-container">
+          <p class="announcement">
+            {@html activeCycle.announcement.inlineHtml}
+          </p>
+      </div>
+    {/if}
     <p class="tagline">
       {@html activeCycle.tagline.inlineHtml}
     </p>
