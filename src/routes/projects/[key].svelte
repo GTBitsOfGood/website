@@ -94,7 +94,7 @@
 
 <svelte:window bind:scrollY />
 
-<Header {content} />
+<Header {...content} />
 <div class="projects-container">
   <div class="progress-bar-container">
     {#if mounted}

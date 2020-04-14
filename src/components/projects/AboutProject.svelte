@@ -1,13 +1,7 @@
 <script>
   export let themeColor = '#333'
-  export let mockupScreenshots = {
-    src: '',
-    alt: '',
-  }
-  export let description = {
-    inlineHtml: '',
-    html: '',
-  }
+  export let aboutScreenshot = {}
+  export let description = {}
   export let aboutFigmaLink = ''
   export let aboutGithubLink = ''
   export let aboutLiveSiteLink = ''
@@ -109,7 +103,7 @@
 <section style="--theme-color: {themeColor}">
   <h2>About Project</h2>
   <div class="image-container">
-    <img src={mockupScreenshots.src} alt={mockupScreenshots.alt} />
+    <img src={aboutScreenshot.src} alt={aboutScreenshot.alt} />
   </div>
   <div class="content-container">
     <p>

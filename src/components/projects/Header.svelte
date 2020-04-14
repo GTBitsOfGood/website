@@ -1,9 +1,8 @@
 <script>
-  export let content
-  let name = content.name
-  let briefDescription = content.briefDescription
-  let mockupScreenshots = content.mockupScreenshots
-  let themeColor = content.themeColor
+  export let name = ''
+  export let briefDescription = {}
+  export let headerScreenshot = {}
+  export let themeColor = ''
 </script>
 
 <style>
@@ -64,7 +63,7 @@
       <p>{briefDescription}</p>
     </div>
     <div class="img-container">
-      <img src={mockupScreenshots.src} alt={mockupScreenshots.alt} />
+      <img src={headerScreenshot.src} alt={headerScreenshot.alt} />
     </div>
   </div>
 </section>
