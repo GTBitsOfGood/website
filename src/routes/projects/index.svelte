@@ -1,29 +1,51 @@
 <script>
-  import InfoCard from '../../components/InfoCard/index.svelte'
-  import projects from '@contentful-entries/project'
+  import PageHeader from '../../components/PageHeader'
+  import Project from '../../components/projects/index/Project'
+
+  import content from '@contentful-entry/projectLanding'
 </script>
 
 <style>
   section {
-    display: flex;
-    flex-wrap: wrap;
+    padding: 30px;
   }
-  h2 {
+
+  .projects-container {
     width: 100%;
-    margin: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 340px);
+    column-gap: 60px;
+    row-gap: 100px;
+    justify-content: start;
+    align-items: stretch;
+  }
+
+  @media (max-width: 800px) {
+    section {
+      padding: 20px;
+    }
+    .projects-container {
+      justify-content: center;
+    }
+
+    h2 {
+      text-align: center;
+    }
   }
 </style>
 
+<PageHeader {...content} />
 <section>
-  <h2>Projects</h2>
-  {#each projects as { heading, description, developmentStatus, link, thumbnail }}
-    <InfoCard
-      {heading}
-      {link}
-      img={thumbnail}
-      descriptionHTML={description.inlineHtml}
-      label={developmentStatus} />
-  {/each}
+  <h2>Current Projects</h2>
+  <div class="projects-container">
+    {#each content.projects as { name, briefDescription, key, thumbnail }}
+      <Project
+        {name}
+        link={'/projects/' + key}
+        image={thumbnail}
+        {briefDescription} />
+    {/each}
+  </div>
 </section>
 
 <svelte:head>
