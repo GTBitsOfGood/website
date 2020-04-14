@@ -38,18 +38,14 @@
   <h3>Key Features</h3>
   {#each keyFeatures as feature}
     <h4>{feature.header}</h4>
-    <p>
-      {@html feature.body.inlineHtml}
-    </p>
+    {@html feature.body.html}
     <div class="img-container">
       <img src={feature.image.src} alt={feature.image.alt} />
     </div>
   {/each}
   {#if userFlow != null}
     <h4>User flow 🌊</h4>
-    <p>
-      {@html userFlow.body.inlineHtml}
-    </p>
+    {@html userFlow.body.html}
     <div class="img-container">
       <img src={userFlow.image.src} alt={userFlow.image.alt} />
     </div>

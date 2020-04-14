@@ -40,22 +40,22 @@
   <h2>Our Process</h2>
   <h3>Product Scope</h3>
   <h4>Client Goals 🥅</h4>
-  <p>{clientGoals.inlineHtml}</p>
+  {@html clientGoals.html}
   <h4>End-User Goals ⚽</h4>
-  <p>{endUserGoals.inlineHtml}</p>
-  <h4>KPI 📈</h4>
+  {@html endUserGoals.html}
   {#if kpiList.length}
+    <h4>KPI 📈</h4>
     <div class="kpi-container">
       {#each kpiList as kpi}
         <div class="kpi">
           <h5>{kpi.header}</h5>
-          <p>{kpi.body.inlineHtml}</p>
+          {@html kpi.body.html}
         </div>
       {/each}
     </div>
   {/if}
   <h4>Technology 💻</h4>
-  <p>{productTechnology.inlineHtml}</p>
+  {@html productTechnology.html}
   <h4>Design 🖊</h4>
-  <p>{productDesign.inlineHtml}</p>
+  {@html productDesign.html}
 </section>
