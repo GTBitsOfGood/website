@@ -66,3 +66,7 @@
   <KeyFeatures {...content} />
   <Reflections {...content} />
 </div>
+
+<svelte:head>
+  <title>{content.name}</title>
+</svelte:head>
