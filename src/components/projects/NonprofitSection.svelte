@@ -10,6 +10,7 @@
   section {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    column-gap: 40px;
     grid-template-areas:
       'preheading thumbnail'
       'heading thumbnail'
@@ -18,8 +19,6 @@
   }
 
   h2 {
-    margin: 0;
-    font-weight: normal;
     grid-area: preheading;
   }
 
@@ -50,21 +49,15 @@
   }
 
   img {
-    width: 400px;
+    height: 300px;
     grid-area: thumbnail;
-    justify-self: right;
-    align-self: center;
+    justify-self: end;
   }
 
   @media (max-width: 1000px) {
-    h2,
-    h3,
-    img {
-      justify-self: center;
-    }
-
     img {
       margin-top: 20px;
+      justify-self: start;
     }
 
     section {
