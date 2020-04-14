@@ -44,16 +44,16 @@
   <h4>End-User Goals ⚽</h4>
   <p>{endUserGoals.inlineHtml}</p>
   <h4>KPI 📈</h4>
-  <div class="kpi-container">
-    {#if kpiList.length}
+  {#if kpiList.length}
+    <div class="kpi-container">
       {#each kpiList as kpi}
         <div class="kpi">
           <h5>{kpi.header}</h5>
           <p>{kpi.body.inlineHtml}</p>
         </div>
       {/each}
-    {/if}
-  </div>
+    </div>
+  {/if}
   <h4>Technology 💻</h4>
   <p>{productTechnology.inlineHtml}</p>
   <h4>Design 🖊</h4>

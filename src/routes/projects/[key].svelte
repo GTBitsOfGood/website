@@ -57,11 +57,8 @@
 
 <Header {content} />
 <div class="projects-container">
-<<<<<<< HEAD
   <ProductScope {...content} />
-=======
   <AboutProject {...content} />
->>>>>>> c95d131c403b1b16ac5d8fe944377e134641853a
   <KeyFeatures {...content} />
   <Reflections {...content} />
 </div>
