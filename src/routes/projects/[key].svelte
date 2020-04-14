@@ -14,7 +14,18 @@
 </script>
 
 <script>
+  import Header from '../../components/projects/Header'
+  import Reflections from '../../components/projects/Reflections'
   export let content
 </script>
 
-<pre>{JSON.stringify(content, undefined, 4)}</pre>
+<style>
+  .projects-container {
+    --content-max-width: 800px;
+  }
+</style>
+
+<Header {content} />
+<div class="projects-container">
+  <Reflections {...content} />
+</div>
