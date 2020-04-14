@@ -14,7 +14,7 @@
     display: flex;
     min-height: 600px;
     justify-content: space-between;
-    max-width: 1400px;
+    max-width: var(--content-max-width);
     margin: auto;
     width: 100%;
   }
