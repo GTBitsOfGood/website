@@ -46,7 +46,7 @@
     </div>
   {/each}
   {#if userFlow != null}
-    <h4>User flow 🌊</h4>
+    <h4>User Flow 🌊</h4>
     <p>
       {@html userFlow.body.inlineHtml}
     </p>

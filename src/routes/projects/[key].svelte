@@ -17,6 +17,7 @@
   import Header from '../../components/projects/Header'
   import KeyFeatures from '../../components/projects/KeyFeatures'
   import Reflections from '../../components/projects/Reflections'
+  import ProductScope from '../../components/projects/ProductScope'
   import AboutProject from '../../components/projects/AboutProject'
   import { onMount } from 'svelte'
   export let content
@@ -88,6 +89,7 @@
         style={`width: ${(scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100}%`} />
     {/if}
   </div>
+  <ProductScope {...content} />
   <AboutProject {...content} />
   <KeyFeatures {...content} />
   <Reflections {...content} />
