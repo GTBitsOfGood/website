@@ -37,7 +37,7 @@
   }
 </style>
 
-<section style={`--theme-color: ${themeColor}`}>
+<section style="--theme-color: {themeColor}">
   <h2>Our Process</h2>
   <h3>Product Scope</h3>
   <h4>Client Goals 🥅</h4>
