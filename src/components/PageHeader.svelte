@@ -9,8 +9,6 @@
     const element = document.getElementById(ctaScrollToId)
     if (element) element.scrollIntoView({ behavior: 'smooth' })
   }
-
-  console.log(description.inlineHtml)
 </script>
 
 <style>
