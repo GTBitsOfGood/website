@@ -12,6 +12,13 @@
     margin-bottom: 60px;
   }
 
+  .quote-container .img-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 40px;
+  }
+
   .quote-container {
     margin: auto;
     margin-bottom: 60px;
@@ -22,12 +29,16 @@
   .quote-container p {
     margin: 0;
   }
-  .quote-container img {
+
+  .quote-author {
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  img {
     flex: 1;
     border-radius: 100%;
-  }
-  img {
-    margin-right: 40px;
+    margin-bottom: 0.8rem;
   }
 
   .group-wrapper {
@@ -49,7 +60,6 @@
   }
 
   .quote {
-    font-weight: bold;
     font-family: var(--header-font);
     color: #333;
   }
@@ -73,7 +83,10 @@
   </p>
   {#each quotes as quote}
     <div class="quote-container">
-      <img height="60" width="60" src={quote.image.src} alt={quote.image.alt} />
+      <div class="img-container">
+        <img height="60" width="60" src={quote.image.src} alt={quote.image.alt} />
+        <span class="quote-author">{quote.header}</span>
+      </div>
       <p class="quote">
         {@html `"${quote.body.inlineHtml}"`}
       </p>
