@@ -42,7 +42,7 @@
         title="YouTube player"
         width="700"
         height="450"
-        src="https://www.youtube.com/embed/dQi2hlCKjs8"
+        src={videoUrl}
         frameborder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope;
         picture-in-picture"
