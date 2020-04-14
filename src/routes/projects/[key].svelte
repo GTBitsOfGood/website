@@ -15,10 +15,11 @@
 
 <script>
   import Header from '../../components/projects/Header'
+  import AboutProject from '../../components/projects/AboutProject'
+  import VideoPlayer from '../../components/projects/VideoPlayer'
   import KeyFeatures from '../../components/projects/KeyFeatures'
   import Reflections from '../../components/projects/Reflections'
   import ProductScope from '../../components/projects/ProductScope'
-  import AboutProject from '../../components/projects/AboutProject'
   import { onMount } from 'svelte'
   export let content
 
@@ -92,6 +93,11 @@
   </div>
   <ProductScope {...content} />
   <AboutProject {...content} />
+  <VideoPlayer {...content} />
   <KeyFeatures {...content} />
   <Reflections {...content} />
 </div>
+
+<svelte:head>
+  <title>{content.name}</title>
+</svelte:head>
