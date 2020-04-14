@@ -10,11 +10,13 @@
   }
 
   .quote-container .img-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
     margin-right: 40px;
     text-align: center;
+  }
+
+  .img-container p {
+    color: var(--black);
+    font-size: var(--body);
   }
 
   .img-container img {
@@ -92,14 +94,14 @@
           width="80"
           src={quote.image.src}
           alt={quote.image.alt} />
-        <span class="quote-author">{quote.header}</span>
+        <p class="quote-author">{quote.header}</p>
       </div>
       <p class="quote">
         {@html `"${quote.body.inlineHtml}"`}
       </p>
     </div>
   {/each}
-  {#if groupPhoto}
+  {#if groupPhoto.src}
     <div class="group-wrapper">
       <img height="250" src={groupPhoto.src} alt={groupPhoto.alt} />
       <p class="quote large">"{groupPhoto.alt}"</p>
