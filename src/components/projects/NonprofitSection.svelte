@@ -1,4 +1,6 @@
 <script>
+  import ArrowRight from 'svelte-icons/io/IoIosArrowRoundForward'
+
   export let nonprofitLink = {}
   export let nonprofitDescription = {}
   export let thumbnail = {}
@@ -24,6 +26,22 @@
   h3 {
     margin: 10px 0 0 0;
     grid-area: heading;
+    display: flex;
+  }
+
+  h3 a,
+  h3 a:visited {
+    color: var(--black);
+    margin-right: 20px;
+  }
+
+  h3 :global(svg) {
+    width: 1em;
+    transition: transform 0.2s;
+  }
+
+  h3:hover :global(svg) {
+    transform: translateX(10px);
   }
 
   p {
@@ -68,7 +86,10 @@
 <section>
   <img src={thumbnail.src} alt={thumbnail.alt} />
   <h2>Our Client</h2>
-  <h3>{nonprofitLink.text}</h3>
+  <h3>
+    <a href={nonprofitLink.url}>{nonprofitLink.text}</a>
+    <ArrowRight />
+  </h3>
   <p>
     {@html nonprofitDescription.inlineHtml}
   </p>
