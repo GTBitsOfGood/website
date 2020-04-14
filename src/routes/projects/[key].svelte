@@ -15,20 +15,46 @@
 
 <script>
   import Header from '../../components/projects/Header'
-  import ProjectDetails from '../../components/projects/ProjectDetails'
+  import KeyFeatures from '../../components/projects/KeyFeatures'
   import Reflections from '../../components/projects/Reflections'
   export let content
-  // content = JSON.stringify(content, undefined, 4)
 </script>
 
 <style>
   .projects-container {
+    padding: 30px;
     --content-max-width: 800px;
+  }
+  .projects-container :global(section) {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+  .projects-container :global(h4) {
+    margin-top: 40px;
+    margin-bottom: 0;
+    font-family: var(--header-font);
+    font-size: var(--header-3-desktop);
+  }
+  .projects-container :global(h2) {
+    font-weight: normal;
+    font-size: 30px;
+  }
+  @media (max-width: 600px) {
+    .projects-container {
+      padding: 20px;
+    }
+    .projects-container :global(h2) {
+      font-size: 18px;
+    }
+    .projects-container :global(h4) {
+      margin-top: 20px;
+      font-size: var(--body-xl);
+    }
   }
 </style>
 
 <Header {content} />
 <div class="projects-container">
+  <KeyFeatures {...content} />
   <Reflections {...content} />
-  <ProjectDetails {content} />
 </div>
