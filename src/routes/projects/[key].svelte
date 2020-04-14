@@ -15,18 +15,20 @@
 
 <script>
   import Header from '../../components/projects/Header'
+  import AboutProject from '../../components/projects/AboutProject'
+  import VideoPlayer from '../../components/projects/VideoPlayer'
   import KeyFeatures from '../../components/projects/KeyFeatures'
   import Reflections from '../../components/projects/Reflections'
-  import AboutProject from '../../components/projects/AboutProject'
   export let content
 </script>
 
 <style>
   .projects-container {
-    padding: 30px;
     --content-max-width: 1000px;
   }
   .projects-container :global(section) {
+    padding-left: 30px;
+    padding-right: 30px;
     margin-top: 80px;
     margin-bottom: 80px;
   }
@@ -41,8 +43,9 @@
     font-size: 30px;
   }
   @media (max-width: 600px) {
-    .projects-container {
-      padding: 20px;
+    .projects-container :global(section) {
+      padding-left: 20px;
+      padding-right: 20px;
     }
     .projects-container :global(h2) {
       font-size: 18px;
@@ -57,6 +60,7 @@
 <Header {content} />
 <div class="projects-container">
   <AboutProject {...content} />
+  <VideoPlayer {...content} />
   <KeyFeatures {...content} />
   <Reflections {...content} />
 </div>
