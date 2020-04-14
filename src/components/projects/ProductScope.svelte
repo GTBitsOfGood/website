@@ -1,10 +1,10 @@
 <script>
   export let clientGoals
   export let endUserGoals
-  export let kpiList
-  export let productTechnology
-  export let productDesign
-  export let themeColor
+  export let kpiList = []
+  export let productTechnology = ''
+  export let productDesign = ''
+  export let themeColor = ''
 </script>
 
 <style>
@@ -55,8 +55,12 @@
       {/each}
     </div>
   {/if}
-  <h4>Technology 💻</h4>
-  {@html productTechnology.html}
-  <h4>Design 🖊</h4>
-  {@html productDesign.html}
+  {#if productTechnology}
+    <h4>Technology 💻</h4>
+    {@html productTechnology.html}
+  {/if}
+  {#if productDesign}
+    <h4>Design 🖊</h4>
+    {@html productDesign.html}
+  {/if}
 </section>

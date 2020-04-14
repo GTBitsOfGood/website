@@ -1,7 +1,7 @@
 <script>
-  export let reflection
-  export let quotes
-  export let groupPhoto
+  export let reflection = ''
+  export let quotes = []
+  export let groupPhoto = {}
 </script>
 
 <style>
