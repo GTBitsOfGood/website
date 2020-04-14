@@ -45,13 +45,13 @@
 
   p {
     grid-area: description;
-    font-size: var(--body-large);
   }
 
   img {
     height: 300px;
     grid-area: thumbnail;
     justify-self: end;
+    margin-bottom: 20px;
   }
 
   @media (max-width: 1000px) {
@@ -67,11 +67,6 @@
         'heading'
         'thumbnail'
         'description';
-    }
-
-    p {
-      margin-top: 20px;
-      font-size: initial;
     }
   }
 </style>

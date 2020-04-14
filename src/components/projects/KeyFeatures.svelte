@@ -4,13 +4,6 @@
 </script>
 
 <style>
-  h3 {
-    margin: 0;
-    margin-bottom: 20px;
-  }
-  p {
-    font-size: var(--body-large);
-  }
   .img-container {
     display: flex;
     justify-content: center;
@@ -21,15 +14,6 @@
   img {
     height: auto;
     max-width: 100%;
-  }
-  @media (max-width: 600px) {
-    p {
-      font-size: inherit;
-    }
-
-    h4 {
-      font-size: var(--header-3-mobile);
-    }
   }
 </style>
 

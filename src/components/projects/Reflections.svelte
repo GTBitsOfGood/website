@@ -8,9 +8,6 @@
   h3 {
     margin-top: 5px;
   }
-  p {
-    font-size: var(--body-large);
-  }
   p.description {
     margin-bottom: 60px;
   }
@@ -55,9 +52,6 @@
   }
 
   @media (max-width: 600px) {
-    p {
-      font-size: var(--body);
-    }
     .group-wrapper p {
       display: none;
     }
