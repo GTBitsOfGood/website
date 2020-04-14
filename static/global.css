@@ -48,10 +48,14 @@
   --body-xl: 24px;
 
   /* font families */
-  --header-font: 'Visby CF', Roboto, -apple-system, BlinkMacSystemFont, Segoe UI,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  --body-font: 'Open Sans', Roboto, -apple-system, BlinkMacSystemFont, Segoe UI,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  --header-font: 'Visby CF', Roboto, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+  --body-font: 'Open Sans', Roboto, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
 
   /* box shadows */
   --shadow-hover: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
