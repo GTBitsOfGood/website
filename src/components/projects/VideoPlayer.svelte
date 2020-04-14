@@ -34,18 +34,20 @@
   }
 </style>
 
-<div class="container" style="background: {themeColor}">
-  <section>
-    <img class="left" src="/images/geometric-pattern.svg" alt="" />
-    <iframe
-      title="YouTube player"
-      width="700"
-      height="450"
-      src="https://www.youtube.com/embed/dQi2hlCKjs8"
-      frameborder="0"
-      allow="accelerometer; autoplay; encrypted-media; gyroscope;
-      picture-in-picture"
-      allowfullscreen />
-    <img class="right" src="/images/geometric-pattern.svg" alt="" />
-  </section>
-</div>
+{#if videoUrl}
+  <div class="container" style="background: {themeColor}">
+    <section>
+      <img class="left" src="/images/geometric-pattern.svg" alt="" />
+      <iframe
+        title="YouTube player"
+        width="700"
+        height="450"
+        src="https://www.youtube.com/embed/dQi2hlCKjs8"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope;
+        picture-in-picture"
+        allowfullscreen />
+      <img class="right" src="/images/geometric-pattern.svg" alt="" />
+    </section>
+  </div>
+{/if}
