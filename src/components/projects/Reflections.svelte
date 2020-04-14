@@ -14,14 +14,17 @@
 
   .quote-container {
     margin: auto;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     max-width: 800px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+  }
+  .quote-container p {
+    margin: 0;
   }
   .quote-container img {
     flex: 1;
-    min-width: 50px;
+    border-radius: 100%;
   }
   img {
     margin-right: 40px;
@@ -70,7 +73,7 @@
   </p>
   {#each quotes as quote}
     <div class="quote-container">
-      <img src={quote.image.src} alt={quote.image.alt} />
+      <img height="60" width="60" src={quote.image.src} alt={quote.image.alt} />
       <p class="quote">
         {@html `"${quote.body.inlineHtml}"`}
       </p>
