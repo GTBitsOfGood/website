@@ -16,25 +16,19 @@
 <script>
   import Header from '../../components/projects/Header'
   import ProjectDetails from '../../components/projects/ProjectDetails'
+  import Reflections from '../../components/projects/Reflections'
   export let content
   // content = JSON.stringify(content, undefined, 4)
 </script>
 
 <style>
-  :global(.project-container) {
-    display: flex;
-    justify-content: center;
-    max-width: 80%;
-    flex-direction: column;
-    align-items: center;
-    margin: auto;
-    margin-top: 3em;
+  .projects-container {
+    --content-max-width: 800px;
   }
 </style>
 
 <Header {content} />
-<div class="project-container">
+<div class="projects-container">
+  <Reflections {...content} />
   <ProjectDetails {content} />
 </div>
-
-<!-- <pre>{JSON.stringify(content, undefined, 4)}</pre> -->
