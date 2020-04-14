@@ -112,19 +112,19 @@
     {#if aboutFigmaLink || aboutGithubLink || aboutLiveSiteLink}
       <div class="link-container">
         {#if aboutFigmaLink}
-          <a href={aboutFigmaLink}>
+          <a target="_blank" href={aboutFigmaLink}>
             <img src="/icons/figma.svg" alt="" />
             <span>Mockups</span>
           </a>
         {/if}
         {#if aboutGithubLink}
-          <a href={aboutGithubLink}>
+          <a target="_blank" href={aboutGithubLink}>
             <img src="/icons/github.svg" alt="" />
             <span>Code repo</span>
           </a>
         {/if}
         {#if aboutLiveSiteLink}
-          <a href={aboutLiveSiteLink}>
+          <a target="_blank" href={aboutLiveSiteLink}>
             <img src="/icons/link.svg" alt="" />
             <span>Live site</span>
           </a>
