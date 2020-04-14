@@ -18,13 +18,14 @@
   import KeyFeatures from '../../components/projects/KeyFeatures'
   import Reflections from '../../components/projects/Reflections'
   import ProductScope from '../../components/projects/ProductScope'
+  import AboutProject from '../../components/projects/AboutProject'
   export let content
 </script>
 
 <style>
   .projects-container {
     padding: 30px;
-    --content-max-width: 800px;
+    --content-max-width: 1000px;
   }
   .projects-container :global(section) {
     margin-top: 80px;
@@ -56,7 +57,11 @@
 
 <Header {content} />
 <div class="projects-container">
+<<<<<<< HEAD
   <ProductScope {...content} />
+=======
+  <AboutProject {...content} />
+>>>>>>> c95d131c403b1b16ac5d8fe944377e134641853a
   <KeyFeatures {...content} />
   <Reflections {...content} />
 </div>
