@@ -17,6 +17,7 @@
   import Header from '../../components/projects/Header'
   import KeyFeatures from '../../components/projects/KeyFeatures'
   import Reflections from '../../components/projects/Reflections'
+  import ProductScope from '../../components/projects/ProductScope'
   import AboutProject from '../../components/projects/AboutProject'
   export let content
 </script>
@@ -56,6 +57,7 @@
 
 <Header {content} />
 <div class="projects-container">
+  <ProductScope {...content} />
   <AboutProject {...content} />
   <KeyFeatures {...content} />
   <Reflections {...content} />
