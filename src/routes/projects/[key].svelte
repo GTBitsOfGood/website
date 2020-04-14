@@ -14,7 +14,7 @@
 </script>
 
 <script>
-  import Header from '../../components/projects/Header'
+  import Header from '../../components/projects/details/Header'
   import NonprofitSection from '../../components/projects/NonprofitSection'
   import AboutProject from '../../components/projects/AboutProject'
   import VideoPlayer from '../../components/projects/VideoPlayer'
