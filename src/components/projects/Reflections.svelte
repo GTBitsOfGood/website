@@ -5,9 +5,6 @@
 </script>
 
 <style>
-  h3 {
-    margin-top: 5px;
-  }
   p.description {
     margin-bottom: 60px;
   }
@@ -17,6 +14,12 @@
     flex-direction: column;
     align-items: flex-end;
     margin-right: 40px;
+    text-align: center;
+  }
+
+  .img-container img {
+    border-radius: 100%;
+    margin-bottom: 15px;
   }
 
   .quote-container {
@@ -37,7 +40,6 @@
 
   img {
     flex: 1;
-    border-radius: 100%;
     margin-bottom: 0.8rem;
   }
 
@@ -56,6 +58,7 @@
   }
 
   .group-wrapper p {
+    font-weight: bold;
     max-width: 325px;
   }
 
@@ -84,7 +87,11 @@
   {#each quotes as quote}
     <div class="quote-container">
       <div class="img-container">
-        <img height="60" width="60" src={quote.image.src} alt={quote.image.alt} />
+        <img
+          height="80"
+          width="80"
+          src={quote.image.src}
+          alt={quote.image.alt} />
         <span class="quote-author">{quote.header}</span>
       </div>
       <p class="quote">
