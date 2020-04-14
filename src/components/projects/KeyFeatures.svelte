@@ -34,7 +34,7 @@
 </style>
 
 <section>
-  <h2>Our solution</h2>
+  <h2>Our Solution</h2>
   <h3>Key Features</h3>
   {#each keyFeatures as feature}
     <h4>{feature.header}</h4>
