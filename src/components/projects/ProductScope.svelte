@@ -13,8 +13,8 @@
   }
 
   h5 {
-    font-size: 48px;
-    color: #3960fb;
+    font-size: var(--header-2-desktop);
+    color: var(--theme-color);
     font-style: normal;
     margin: 0;
     font-family: var(--header-font);
@@ -36,7 +36,7 @@
   }
 </style>
 
-<section>
+<section style={`--theme-color: ${themeColor}`}>
   <h2>Our Process</h2>
   <h3>Product Scope</h3>
   <h4>Client Goals 🥅</h4>
