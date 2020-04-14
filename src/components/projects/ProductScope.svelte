@@ -1,16 +1,18 @@
 <script>
   export let clientGoals
   export let endUserGoals
-  export let kpiList
-  export let productTechnology
-  export let productDesign
-  export let themeColor
+  export let kpiList = []
+  export let productTechnology = ''
+  export let productDesign = ''
+  export let themeColor = ''
 </script>
 
 <style>
   .kpi-container {
     display: flex;
     justify-content: space-around;
+    margin-top: 40px;
+    margin-bottom: 60px;
   }
 
   h5 {
@@ -44,7 +46,7 @@
   {@html clientGoals.html}
   <h4>End-User Goals ⚽</h4>
   {@html endUserGoals.html}
-  {#if kpiList.length}
+  {#if kpiList && kpiList.length}
     <h4>KPI 📈</h4>
     <div class="kpi-container">
       {#each kpiList as kpi}
@@ -55,8 +57,12 @@
       {/each}
     </div>
   {/if}
-  <h4>Technology 💻</h4>
-  {@html productTechnology.html}
-  <h4>Design 🖊</h4>
-  {@html productDesign.html}
+  {#if productTechnology}
+    <h4>Technology 💻</h4>
+    {@html productTechnology.html}
+  {/if}
+  {#if productDesign}
+    <h4>Design 🖊</h4>
+    {@html productDesign.html}
+  {/if}
 </section>

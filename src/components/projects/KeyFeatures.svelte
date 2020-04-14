@@ -4,31 +4,20 @@
 </script>
 
 <style>
-  h3 {
-    margin: 0;
-    margin-bottom: 20px;
-  }
   p {
-    font-size: var(--body-large);
-  }
-  .img-container {
-    display: flex;
-    justify-content: center;
-    max-height: 350px;
-    width: 100%;
-    margin: 60px auto;
+    margin-bottom: 30px;
   }
   img {
-    height: auto;
+    display: block;
+    height: 500px;
+    margin: auto;
     max-width: 100%;
   }
-  @media (max-width: 600px) {
-    p {
-      font-size: inherit;
-    }
 
-    h4 {
-      font-size: var(--header-3-mobile);
+  @media (max-width: 1000px) {
+    img {
+      width: 100%;
+      height: auto;
     }
   }
 </style>
@@ -41,9 +30,7 @@
     <p>
       {@html feature.body.inlineHtml}
     </p>
-    <div class="img-container">
-      <img src={feature.image.src} alt={feature.image.alt} />
-    </div>
+    <img height="500" src={feature.image.src} alt={feature.image.alt} />
   {/each}
   {#if userFlow != null}
     <h4>User Flow 🌊</h4>

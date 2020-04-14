@@ -45,19 +45,21 @@
 
   p {
     grid-area: description;
-    font-size: var(--body-large);
   }
 
   img {
     height: 300px;
     grid-area: thumbnail;
     justify-self: end;
+    margin-bottom: 20px;
   }
 
   @media (max-width: 1000px) {
     img {
       margin-top: 20px;
       justify-self: start;
+      width: 100%;
+      height: auto;
     }
 
     section {
@@ -68,19 +70,14 @@
         'thumbnail'
         'description';
     }
-
-    p {
-      margin-top: 20px;
-      font-size: initial;
-    }
   }
 </style>
 
 <section>
-  <img src={thumbnail.src} alt={thumbnail.alt} />
+  <img height="300" src={thumbnail.src} alt={thumbnail.alt} />
   <h2>Our Client</h2>
   <h3>
-    <a href={nonprofitLink.url}>{nonprofitLink.text}</a>
+    <a target="_blank" href={nonprofitLink.url}>{nonprofitLink.text}</a>
     <ArrowRight />
   </h3>
   <p>
