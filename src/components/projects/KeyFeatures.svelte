@@ -48,7 +48,7 @@
   {#if userFlow != null}
     <h4>User flow 🌊</h4>
     <p>
-      {@html userFlow.body.html}
+      {@html userFlow.body.inlineHtml}
     </p>
     <div class="img-container">
       <img src={userFlow.image.src} alt={userFlow.image.alt} />
