@@ -11,6 +11,8 @@
   .kpi-container {
     display: flex;
     justify-content: space-around;
+    margin-top: 40px;
+    margin-bottom: 60px;
   }
 
   h5 {

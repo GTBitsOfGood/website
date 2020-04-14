@@ -54,10 +54,10 @@
     padding-left: 30px;
     padding-right: 30px;
     margin-top: 80px;
-    margin-bottom: 80px;
+    margin-bottom: 120px;
   }
   .projects-container :global(h4) {
-    margin-top: 40px;
+    margin-top: 60px;
     margin-bottom: 0;
     font-family: var(--header-font);
     font-size: var(--header-3-desktop);
@@ -67,6 +67,12 @@
     margin: 0;
     margin-bottom: 10px;
     font-size: 30px;
+  }
+  .projects-container :global(h3) {
+    margin-top: 10px;
+  }
+  .projects-container :global(p) {
+    font-size: var(--body-large);
   }
   @media (max-width: 600px) {
     .projects-container :global(section) {
@@ -79,6 +85,9 @@
     .projects-container :global(h4) {
       margin-top: 20px;
       font-size: var(--body-xl);
+    }
+    .projects-container :global(p) {
+      font-size: var(--body);
     }
   }
 </style>
