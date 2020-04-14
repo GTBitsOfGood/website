@@ -21,11 +21,33 @@
   import KeyFeatures from '../../components/projects/KeyFeatures'
   import Reflections from '../../components/projects/Reflections'
   import ProductScope from '../../components/projects/ProductScope'
+  import { onMount } from 'svelte'
   export let content
+
+  let mounted = false
+  onMount(() => (mounted = true))
+
+  let scrollY = 0
 </script>
 
 <style>
+  .progress-bar-container {
+    background: #eee;
+    top: var(--nav-height);
+    position: sticky;
+    z-index: 9;
+    overflow: hidden;
+  }
+  .progress-bar {
+    background: linear-gradient(
+      90deg,
+      var(--primary-red),
+      var(--primary-yellow)
+    );
+    height: 10px;
+  }
   .projects-container {
+    position: relative;
     --content-max-width: 1000px;
   }
   .projects-container :global(section) {
@@ -59,8 +81,18 @@
   }
 </style>
 
+<svelte:window bind:scrollY />
+
 <Header {content} />
 <div class="projects-container">
+  <div class="progress-bar-container">
+    {#if mounted}
+      <div
+        class="progress-bar"
+        style="width: {(scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100}%" />
+    {/if}
+  </div>
+  <ProductScope {...content} />
   <AboutProject {...content} />
   <NonprofitSection {...content} />
   <VideoPlayer {...content} />
