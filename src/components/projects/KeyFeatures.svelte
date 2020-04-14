@@ -4,16 +4,21 @@
 </script>
 
 <style>
-  .img-container {
-    display: flex;
-    justify-content: center;
-    max-height: 350px;
-    width: 100%;
-    margin: 60px auto;
+  p {
+    margin-bottom: 30px;
   }
   img {
-    height: auto;
+    display: block;
+    height: 500px;
+    margin: auto;
     max-width: 100%;
+  }
+
+  @media (max-width: 1000px) {
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 </style>
 
@@ -25,9 +30,7 @@
     <p>
       {@html feature.body.inlineHtml}
     </p>
-    <div class="img-container">
-      <img src={feature.image.src} alt={feature.image.alt} />
-    </div>
+    <img height="500" src={feature.image.src} alt={feature.image.alt} />
   {/each}
   {#if userFlow != null}
     <h4>User Flow 🌊</h4>
