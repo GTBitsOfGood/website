@@ -77,7 +77,7 @@
   <img height="300" src={thumbnail.src} alt={thumbnail.alt} />
   <h2>Our Client</h2>
   <h3>
-    <a href={nonprofitLink.url}>{nonprofitLink.text}</a>
+    <a target="_blank" href={nonprofitLink.url}>{nonprofitLink.text}</a>
     <ArrowRight />
   </h3>
   <p>
