@@ -27,7 +27,7 @@
     right: 0;
     bottom: -65px;
   }
-  @media (max-width: 700px) {
+  @media (max-width: 600px) {
     iframe {
       height: 300px;
     }
