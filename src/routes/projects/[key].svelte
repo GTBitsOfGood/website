@@ -34,6 +34,7 @@
     top: var(--nav-height);
     position: sticky;
     z-index: 9;
+    overflow: hidden;
   }
   .progress-bar {
     background: linear-gradient(
@@ -86,7 +87,7 @@
     {#if mounted}
       <div
         class="progress-bar"
-        style={`width: ${(scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100}%`} />
+        style="width: {(scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100}%" />
     {/if}
   </div>
   <ProductScope {...content} />
