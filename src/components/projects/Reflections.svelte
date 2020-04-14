@@ -55,6 +55,10 @@
     .group-wrapper p {
       display: none;
     }
+    .group-wrapper img {
+      width: 100%;
+      height: auto;
+    }
   }
 </style>
 
@@ -74,7 +78,7 @@
   {/each}
   {#if groupPhoto}
     <div class="group-wrapper">
-      <img src={groupPhoto.src} alt={groupPhoto.alt} />
+      <img height="250" src={groupPhoto.src} alt={groupPhoto.alt} />
       <p class="quote large">"{groupPhoto.alt}"</p>
     </div>
   {/if}

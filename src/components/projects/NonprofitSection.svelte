@@ -58,6 +58,8 @@
     img {
       margin-top: 20px;
       justify-self: start;
+      width: 100%;
+      height: auto;
     }
 
     section {
@@ -72,7 +74,7 @@
 </style>
 
 <section>
-  <img src={thumbnail.src} alt={thumbnail.alt} />
+  <img height="300" src={thumbnail.src} alt={thumbnail.alt} />
   <h2>Our Client</h2>
   <h3>
     <a href={nonprofitLink.url}>{nonprofitLink.text}</a>
