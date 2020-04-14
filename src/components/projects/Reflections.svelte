@@ -40,7 +40,7 @@
   }
 
   .group-wrapper img {
-    height: 250px;
+    height: 350px;
     margin-right: 30px;
   }
 
@@ -54,7 +54,7 @@
     color: #333;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 800px) {
     .group-wrapper p {
       display: none;
     }
