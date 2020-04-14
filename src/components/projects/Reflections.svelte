@@ -5,19 +5,11 @@
 </script>
 
 <style>
-  h2 {
-    margin: 0;
-    font-size: 30px;
-    font-weight: normal;
-  }
   h3 {
     margin-top: 5px;
   }
   p.description {
     margin-bottom: 40px;
-  }
-  section {
-    padding: 30px;
   }
 
   .quote-container {
@@ -62,9 +54,6 @@
   }
 
   @media (max-width: 600px) {
-    section {
-      padding: 20px;
-    }
     p {
       font-size: var(--body);
     }
