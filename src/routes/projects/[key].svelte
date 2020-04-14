@@ -15,6 +15,7 @@
 
 <script>
   import Header from '../../components/projects/Header'
+  import NonprofitSection from '../../components/projects/NonprofitSection'
   import KeyFeatures from '../../components/projects/KeyFeatures'
   import Reflections from '../../components/projects/Reflections'
   import AboutProject from '../../components/projects/AboutProject'
@@ -57,6 +58,7 @@
 <Header {content} />
 <div class="projects-container">
   <AboutProject {...content} />
+  <NonprofitSection {...content} />
   <KeyFeatures {...content} />
   <Reflections {...content} />
 </div>
