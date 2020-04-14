@@ -15,6 +15,7 @@
 
 <script>
   import Header from '../../components/projects/Header'
+  import NonprofitSection from '../../components/projects/NonprofitSection'
   import AboutProject from '../../components/projects/AboutProject'
   import VideoPlayer from '../../components/projects/VideoPlayer'
   import KeyFeatures from '../../components/projects/KeyFeatures'
@@ -63,6 +64,8 @@
   }
   .projects-container :global(h2) {
     font-weight: normal;
+    margin: 0;
+    margin-bottom: 10px;
     font-size: 30px;
   }
   @media (max-width: 600px) {
@@ -91,9 +94,10 @@
         style="width: {(scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100}%" />
     {/if}
   </div>
-  <ProductScope {...content} />
   <AboutProject {...content} />
+  <NonprofitSection {...content} />
   <VideoPlayer {...content} />
+  <ProductScope {...content} />
   <KeyFeatures {...content} />
   <Reflections {...content} />
 </div>
