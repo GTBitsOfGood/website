@@ -46,7 +46,7 @@
   {@html clientGoals.html}
   <h4>End-User Goals ⚽</h4>
   {@html endUserGoals.html}
-  {#if kpiList.length}
+  {#if kpiList && kpiList.length}
     <h4>KPI 📈</h4>
     <div class="kpi-container">
       {#each kpiList as kpi}
