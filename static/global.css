@@ -34,6 +34,7 @@
   --primary: #f38d6a;
   --primary-yellow: #ffc55a;
   --text-color: #514b33;
+  --black: #333;
 
   /* font sizing */
   --header-1-desktop: 64px;
@@ -86,8 +87,9 @@ h4 {
   font-size: var(--body-xl);
 }
 
-@media(max-width: 600px) {
-  h1, h2 {
+@media (max-width: 600px) {
+  h1,
+  h2 {
     font-size: var(--header-1-mobile);
   }
   h3 {

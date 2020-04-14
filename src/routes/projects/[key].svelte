@@ -17,13 +17,14 @@
   import Header from '../../components/projects/Header'
   import KeyFeatures from '../../components/projects/KeyFeatures'
   import Reflections from '../../components/projects/Reflections'
+  import AboutProject from '../../components/projects/AboutProject'
   export let content
 </script>
 
 <style>
   .projects-container {
     padding: 30px;
-    --content-max-width: 800px;
+    --content-max-width: 1000px;
   }
   .projects-container :global(section) {
     margin-top: 80px;
@@ -55,6 +56,7 @@
 
 <Header {content} />
 <div class="projects-container">
+  <AboutProject {...content} />
   <KeyFeatures {...content} />
   <Reflections {...content} />
 </div>
