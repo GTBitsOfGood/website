@@ -19,6 +19,7 @@
   import VideoPlayer from '../../components/projects/VideoPlayer'
   import KeyFeatures from '../../components/projects/KeyFeatures'
   import Reflections from '../../components/projects/Reflections'
+  import ProductScope from '../../components/projects/ProductScope'
   export let content
 </script>
 
@@ -59,6 +60,7 @@
 
 <Header {content} />
 <div class="projects-container">
+  <ProductScope {...content} />
   <AboutProject {...content} />
   <VideoPlayer {...content} />
   <KeyFeatures {...content} />
