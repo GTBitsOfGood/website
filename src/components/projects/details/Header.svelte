@@ -33,6 +33,7 @@
     padding-left: 2em;
   }
   img {
+    align-self: flex-end;
     max-width: 600px;
     width: 100%;
   }
