@@ -26,6 +26,7 @@
     margin: 10px 0 0 0;
     grid-area: heading;
     display: flex;
+    align-items: center;
   }
 
   h3 a,
@@ -36,6 +37,7 @@
 
   h3 :global(svg) {
     width: 1em;
+    height: 1em;
     transition: transform 0.2s;
   }
 
