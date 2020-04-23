@@ -1,6 +1,7 @@
 import * as contentful from 'contentful'
 import { MARKS, BLOCKS } from '@contentful/rich-text-types'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
+import * as dotenv from 'dotenv'
 
 // Rollup plugin that allows importing of Contentful entries.
 // To get a specific entry:
@@ -11,10 +12,13 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 const ENTRY_PREFIX = '@contentful-entry'
 const ENTRIES_PREFIX = '@contentful-entries'
 
+if (process.env.NODE_ENV === 'development') dotenv.config()
+
+
 /** The Contentful client object. */
 const client = contentful.createClient({
-  space: 'zifivti966xh',
-  accessToken: 'k7DLuul6fLZfzDiJVGPp0IQTPzz84ihOSVHiA6KOvGk',
+  space: process.env.CONTENTFUL_SPACE_ID,
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 })
 
 async function mapEntry(entry, schema) {
