@@ -76,6 +76,11 @@ This will start the server and open Cypress. You can (and should!) add tests in 
 - Twitter: [@arkanemoose](https://twitter.com/arkanemoose)
 - Github: [@ArkaneMoose](https://github.com/arkanemoose)
 
+👤 **Max Karpawich**
+
+- Website: [karpawich.me](https://karpawich.me)
+- Github: [@karpawich](https://github.com/karpawich)
+
 ## Show your support
 
 Give a ⭐️ if this project helped you!
