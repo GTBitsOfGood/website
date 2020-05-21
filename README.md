@@ -38,6 +38,8 @@ yarn install
 
 ## Start up the site
 
+_**Note:** In order for the build script to run successfully, you'll need some environment variables to retrieve our text and image content from Contentful. An example can be found in the example.env file. Contact the repo maintainers listed at the top of [Contributors](#contributors) about these in order to get up-and-running!_
+
 If you're working in development, run the following to build + run the site with live reloading goodness:
 
 ```sh
@@ -73,6 +75,11 @@ This will start the server and open Cypress. You can (and should!) add tests in 
 
 - Twitter: [@arkanemoose](https://twitter.com/arkanemoose)
 - Github: [@ArkaneMoose](https://github.com/arkanemoose)
+
+👤 **Max Karpawich**
+
+- Website: [karpawich.me](https://karpawich.me)
+- Github: [@karpawich](https://github.com/karpawich)
 
 ## Show your support
 
