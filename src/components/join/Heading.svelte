@@ -100,7 +100,7 @@
 <section>
   <hgroup>
     <h1>Join Us!</h1>
-    <h2>Spring 2020</h2>
+    <h2>Fall 2020</h2>
   </hgroup>
 
   <img
