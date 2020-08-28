@@ -1,2 +1,8 @@
 [build]
 functions = "./functions"
+
+[[redirects]]
+  from = "/year-in-review"
+  to = "https://2020-year-in-review.bitsofgood.org"
+  status = 301
+  force = true
