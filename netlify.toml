@@ -6,3 +6,9 @@ functions = "./functions"
   to = "https://2020-year-in-review.bitsofgood.org"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/bootcamp"
+  to = "https://www.notion.so/gtbitsofgood/Bootcamp-b1fe164df73e42d3b9c2ab0755e4ca49"
+  status = 301
+  force = true
