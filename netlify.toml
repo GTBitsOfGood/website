@@ -12,6 +12,12 @@ functions = "./functions"
   to = "https://www.notion.so/gtbitsofgood/Bootcamp-b1fe164df73e42d3b9c2ab0755e4ca49"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/scheduler"
+  to = "https://gtbitsofgood.github.io/gt-scheduler/"
+  status = 301
+  force = true
   
   [[redirects]]
   from = "/blog"
