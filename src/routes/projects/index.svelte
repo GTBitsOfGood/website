@@ -3,6 +3,12 @@
   import Project from '../../components/projects/index/Project'
 
   import content from '@contentful-entry/projectLanding'
+
+  // Temporary: Hide old projects from roster
+  const currSemester = content.currentSemester;
+  const projects = content.projects.filter(({ semester }) => {
+    return currSemester === semester;
+  });
 </script>
 
 <style>
@@ -38,7 +44,7 @@
 <section>
   <h2>Current Projects</h2>
   <div class="projects-container">
-    {#each content.projects as { name, briefDescription, key, thumbnail }}
+    {#each projects as { name, briefDescription, key, thumbnail }}
       <Project
         {name}
         link={'/projects/' + key}
