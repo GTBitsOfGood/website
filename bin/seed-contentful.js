@@ -76,7 +76,7 @@ inquirer
       accessToken;
 
     console.log("Writing config file...");
-    const configFiles = [`.env.development`, `.env.production`].map((file) =>
+    const configFiles = [`.env`].map((file) =>
       path.join(__dirname, "..", file)
     );
 
