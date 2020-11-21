@@ -36,6 +36,13 @@ This is a huge benefit for our designers, who can now just edit a textbox or upl
 yarn install
 ```
 
+## Set up Contentful content model
+This project comes with a Contentful setup command `yarn setup`.
+
+This command will ask you for a space ID, and access tokens for the Contentful Management and Delivery API and then import the needed content model into the space you define and write a config file (`./.contentful.json`).
+
+`yarn setup` automates that for you but if you want to do it yourself rename `.contentful.json.sample` to `.contentful.json` and add your configuration in this file.
+
 ## Start up the site
 
 _**Note:** In order for the build script to run successfully, you'll need some environment variables to retrieve our text and image content from Contentful. An example can be found in the example.env file. Contact the repo maintainers listed at the top of [Contributors](#contributors) about these in order to get up-and-running!_
