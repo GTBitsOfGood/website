@@ -19,7 +19,7 @@ console.log(`
   The ${chalk.green("Content Management API Token")}
     will be used to import and write data to your space.
   The ${chalk.green("Content Delivery API Token")}
-    will be used to ship published production-ready content in your Gatsby app.
+    will be used to ship published production-ready content in this project.
   The ${chalk.green("Content Preview API Token")}
     will be used to show not published data in your development environment.
   Ready? Let's do it! 🎉
@@ -83,7 +83,7 @@ inquirer
     const fileContents =
       [
         `# All environment variables will be sourced`,
-        `# and made available to gatsby-config.js, gatsby-node.js, etc.`,
+        `# and made available to rollup-plugin, etc.`,
         `# Do NOT commit this file to source control`,
         `CONTENTFUL_SPACE_ID='${spaceId}'`,
         `CONTENTFUL_ACCESS_TOKEN='${accessToken}'`,
