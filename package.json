@@ -9,6 +9,7 @@
     "start": "node __sapper__/build",
     "up": "sapper export && surge --project ./__sapper__/export --domain bog.surge.sh",
     "postinstall": "netlify-lambda install",
+    "setup": "node ./bin/setup.js",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test": "run-p --race dev cy:run"
@@ -29,6 +30,7 @@
     "@contentful/rich-text-html-renderer": "^13.4.0",
     "@contentful/rich-text-types": "^13.4.0",
     "contentful": "^7.8.2",
+    "contentful-import": "^7.9.22",
     "dotenv": "^8.2.0",
     "npm-run-all": "^4.1.5",
     "rollup": "^1.0.0",
