@@ -37,7 +37,7 @@ yarn install
 ```
 
 ## Set up Contentful content model
-This project comes with a Contentful setup command `yarn setup`.
+This project comes with a Contentful seed-contentful command `yarn seed-contentful`.
 
 This command will ask you for a space ID, and access tokens for the Contentful Management and Delivery API and then import the needed content model into the space you define and write a config file (`./.contentful.json`).
 
