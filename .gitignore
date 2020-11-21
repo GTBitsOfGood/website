@@ -12,3 +12,6 @@ yarn-error.log
 
 # We use yarn
 package-lock.json
+
+# contentful seed
+.contentful.json

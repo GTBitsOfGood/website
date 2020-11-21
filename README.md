@@ -37,11 +37,11 @@ yarn install
 ```
 
 ## Set up Contentful content model
+For outside contributor or someone not having Bits of Good `Contentful API Key` you can follow this tutorial to copy Contentful content model into your account.
+
 This project comes with a Contentful seed-contentful command `yarn seed-contentful`.
 
 This command will ask you for a space ID, and access tokens for the Contentful Management and Delivery API and then import the needed content model into the space you define and write a config file (`./.contentful.json`).
-
-`yarn setup` automates that for you but if you want to do it yourself rename `.contentful.json.sample` to `.contentful.json` and add your configuration in this file.
 
 ## Start up the site
 
