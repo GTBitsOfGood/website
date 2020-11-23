@@ -42,11 +42,9 @@ For external contributors or contributors that don't have access to Bits of Good
 
 Script Usage: `yarn seed-contentful`
 
-This command will ask you for a space ID, and access tokens for the Contentful Management and Delivery API. It will import the data export into your Contentful space.
+This command will ask you for a space ID, and access tokens for the Contentful Management and Delivery API. It will import the data export into your Contentful space and create a local `.env` with environment variables to retrieve data from Contentful.
 
 ## Start up the site
-
-_**Note:** In order for the build script to run successfully, you'll need some environment variables to retrieve our text and image content from Contentful. An example can be found in the example.env file. Contact the repo maintainers listed at the top of [Contributors](#contributors) about these in order to get up-and-running!_
 
 If you're working in development, run the following to build + run the site with live reloading goodness:
 
