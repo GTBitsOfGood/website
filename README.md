@@ -36,6 +36,14 @@ This is a huge benefit for our designers, who can now just edit a textbox or upl
 yarn install
 ```
 
+## Set up Contentful content model
+
+For external contributors or contributors that don't have access to Bits of Good's Contentful API key, you can run the `seed-contentful` script to seed a [data export](./contentful/export.json) into your own Contentful account
+
+Script Usage: `yarn seed-contentful`
+
+This command will ask you for a space ID, and access tokens for the Contentful Management and Delivery API. It will import the data export into your Contentful space.
+
 ## Start up the site
 
 _**Note:** In order for the build script to run successfully, you'll need some environment variables to retrieve our text and image content from Contentful. An example can be found in the example.env file. Contact the repo maintainers listed at the top of [Contributors](#contributors) about these in order to get up-and-running!_
