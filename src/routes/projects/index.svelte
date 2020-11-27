@@ -4,11 +4,16 @@
 
   import content from '@contentful-entry/projectLanding'
 
-  // Temporary: Hide old projects from roster
-  const currSemester = content.currentSemester;
-  const projects = content.projects.filter(({ semester }) => {
-    return currSemester === semester;
-  });
+  const currSemester = content.currentSemester
+  const currProjects = []
+  const pastProjects = []
+  for (const project of content.projects) {
+    if (project.semester === currSemester) {
+      currProjects.push(project)
+    } else {
+      pastProjects.push(project)
+    }
+  }
 </script>
 
 <style>
@@ -24,6 +29,10 @@
     row-gap: 100px;
     justify-content: start;
     align-items: stretch;
+  }
+
+  .projects-container + h2 {
+    margin-top: 1.2em;
   }
 
   @media (max-width: 800px) {
@@ -44,7 +53,17 @@
 <section>
   <h2>Current Projects</h2>
   <div class="projects-container">
-    {#each projects as { name, briefDescription, key, thumbnail }}
+    {#each currProjects as { name, briefDescription, key, thumbnail }}
+      <Project
+        {name}
+        link={'/projects/' + key}
+        image={thumbnail}
+        {briefDescription} />
+    {/each}
+  </div>
+  <h2>Past Projects</h2>
+  <div class="projects-container">
+    {#each pastProjects as { name, briefDescription, key, thumbnail }}
       <Project
         {name}
         link={'/projects/' + key}
