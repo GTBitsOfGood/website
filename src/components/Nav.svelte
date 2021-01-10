@@ -133,6 +133,14 @@
       <a class:selected={segment === 'projects'} href="projects">Projects</a>
     </li>
     <li>
+      <a
+        target="_blank"
+        rel="noreferrer noopener"
+        href="https://medium.com/bits-of-good">
+        Blog
+      </a>
+    </li>
+    <li>
       <a class:selected={segment === 'contact'} href="contact">Contact Us</a>
     </li>
     <li class="get-involved-btn">
