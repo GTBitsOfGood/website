@@ -15,7 +15,7 @@ functions = "./functions"
 
 [[redirects]]
   from = "/scheduler"
-  to = "https://gtbitsofgood.github.io/gt-scheduler/"
+  to = "https://gt-scheduler.org"
   status = 301
   force = true
   
