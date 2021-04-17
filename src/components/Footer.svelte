@@ -76,10 +76,16 @@
     display: flex;
     flex-flow: row wrap-reverse;
     margin: 0 auto;
-    padding-top: 20px;
+    padding-top: 10px;
     max-width: var(--content-max-width);
+    align-items: center;
     justify-content: space-between;
     border-top: 2px solid #727474;
+  }
+
+  .footer-container {
+    display: flex;
+    align-items: center;
   }
 
   .footer-bottom img {
@@ -117,6 +123,11 @@
     p {
       font-size: 26px;
     }
+
+    .footer-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 </style>
 
@@ -150,10 +161,17 @@
         src={content.hack4impactLink.image.src}
         alt={content.hack4impactLink.image.alt} />
     </a>
-    <a href={content.bitsOfGoodHomeLink.url}>
-      <img
-        src={content.bitsOfGoodHomeLink.image.src}
-        alt={content.bitsOfGoodHomeLink.image.alt} />
-    </a>
+    <div class="footer-container">
+      <a href="https://www.netlify.com">
+        <img
+          src="https://www.netlify.com/img/global/badges/netlify-dark.svg"
+          alt="Deploys by Netlify" />
+      </a>
+      <a href={content.bitsOfGoodHomeLink.url}>
+        <img
+          src={content.bitsOfGoodHomeLink.image.src}
+          alt={content.bitsOfGoodHomeLink.image.alt} />
+      </a>
+    </div>
   </div>
 </footer>
