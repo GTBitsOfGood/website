@@ -39,9 +39,13 @@
   }
 
   li {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin-right: 6rem;
     color: var(--text-color);
+    border-color: var(--text-color);
+    height: 100%;
   }
 
   li.get-involved-btn {
@@ -54,12 +58,10 @@
   }
 
   a:hover,
-  a:active {
-    color: var(--primary);
-  }
-
+  a:active,
   .selected {
     color: var(--primary);
+    border-color: var(--primary);
   }
 
   .mobile-content {
@@ -76,6 +78,40 @@
 
   .submenu {
     position: absolute;
+    margin-left: -2rem;
+    min-width: 125px;
+  }
+
+  .submenu>ul {
+    background: var(--backing-pink-pronounced);
+    padding: 1.5rem 2rem;
+  }
+
+  .submenu>ul>li {
+    margin: 0;
+  }
+
+  .has-sub {
+    display: flex;
+    align-items: center;
+  }
+
+  .has-sub:after {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border: 2.5px solid;
+    border-right: 0;
+    border-bottom: 0;
+    margin-left: 10px;
+    transform: rotate(-135deg);
+    transition: border-color .2s cubic-bezier(.47,.42,0,.99),transform .65s cubic-bezier(.47,.42,0,.99);
+  }
+
+  .has-sub.selected:after {
+    border-color: var(--primary);
+    transform: rotate(45deg);
   }
 
   @media (max-width: 800px) {
@@ -123,6 +159,10 @@
     .submenu {
       position: absolute;
     }
+
+    .submenu>ul {
+      padding: 1rem 0;
+    }
   }
 </style>
 
@@ -136,13 +176,13 @@
       <a class:selected={segment === undefined} href=".">Home</a>
     </li>
     <NavDropdown>
-      <span slot="label">
+      <span slot="label" let:hovering={aboutHover}>
         <li>
-          <a class:selected={segment === 'about'} href="about">About Us</a>
+          <a class:selected={segment === 'about' || aboutHover} href="about" class="has-sub">About Us</a>
         </li>
       </span>
       <span slot="submenu">
-        <div class="submenu">
+        <div class="submenu" class:shadow={scrolled}>
           <ul>
             <li>
               <a href="about/roles">Roles</a>
