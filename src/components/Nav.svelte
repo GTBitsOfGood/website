@@ -1,6 +1,7 @@
 <script>
   import GetInvolvedBtn from './GetInvolvedBtn.svelte'
   import MenuIcon from './MenuIcon.svelte'
+  import NavDropdown from './NavDropdown.svelte'
 
   let mobileNavToggled = false
 
@@ -73,6 +74,10 @@
     background: none;
   }
 
+  .submenu {
+    position: absolute;
+  }
+
   @media (max-width: 800px) {
     :root {
       --nav-height: 5rem;
@@ -114,6 +119,10 @@
     li.get-involved-btn {
       display: none;
     }
+
+    .submenu {
+      position: absolute;
+    }
   }
 </style>
 
@@ -126,9 +135,22 @@
     <li>
       <a class:selected={segment === undefined} href=".">Home</a>
     </li>
-    <li>
-      <a class:selected={segment === 'about'} href="about">About Us</a>
-    </li>
+    <NavDropdown>
+      <span slot="label">
+        <li>
+          <a class:selected={segment === 'about'} href="about">About Us</a>
+        </li>
+      </span>
+      <span slot="submenu">
+        <div class="submenu">
+          <ul>
+            <li>
+              <a href="about/roles">Roles</a>
+            </li>
+          </ul>
+        </div>
+      </span>
+    </NavDropdown>
     <li>
       <a class:selected={segment === 'projects'} href="projects">Projects</a>
     </li>

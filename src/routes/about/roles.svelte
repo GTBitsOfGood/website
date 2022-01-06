@@ -170,7 +170,7 @@
       alt={headerContent.mobileBannerImages[1].alt} />
   </section>
   <section class="dept-links-container">
-    <p>We offer 5 unique roles</p>
+    <p>We offer {departments.length} unique roles</p>
     <div class="dept-links">
       {#each departments as { image, name, hash }}
         <button on:click={() => scrollToDepartment(hash)}>
