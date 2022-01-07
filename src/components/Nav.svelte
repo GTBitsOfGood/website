@@ -4,11 +4,10 @@
   import MenuIcon from './MenuIcon.svelte'
   import NavDropdown from './NavDropdown.svelte'
 
-  let mobileNavToggled = false
-
   export let segment
-  let currentPath
   export let scrolled = true
+  let mobileNavToggled = false
+  let currentPath
 
   const { page } = stores();
 
@@ -16,10 +15,6 @@
     currentPath = path
     mobileNavToggled = false
   })
-
-  function checkMobile(e) {
-    if (window.innerWidth <= 800) e.preventDefault()
-  }
 </script>
 
 <style>
@@ -89,45 +84,9 @@
     background: none;
   }
 
-  .submenu {
-    position: absolute;
-    margin-left: -2rem;
-    min-width: 125px;
-  }
-
-  .submenu>ul {
-    background: var(--backing-pink-pronounced);
-    padding: 1.5rem 2rem;
-  }
-
-  .submenu>ul>li {
+  .submenu>li {
     margin: 0;
-  }
-
-  .has-sub {
-    display: flex;
-    align-items: center;
-  }
-
-  .has-sub:after {
-    content: '';
-    display: inline-block;
-    width: 5px;
-    height: 5px;
-    border: 2.5px solid;
-    border-right: 0;
-    border-bottom: 0;
-    margin-left: 10px;
-    transform: rotate(-135deg);
-    transition: border-color .2s cubic-bezier(.47,.42,0,.99),transform .65s cubic-bezier(.47,.42,0,.99);
-  }
-
-  .has-sub.selected:after {
-    border-color: var(--primary);
-  }
-
-  .has-sub.dropped:after {
-    transform: rotate(45deg);
+    padding: 1rem
   }
 
   .mobile-wrapper {
@@ -190,25 +149,8 @@
       display: none;
     }
 
-    .submenu {
-      position: static;
-      margin-left: 0;
-      min-width: none;
-      border-bottom: 2px solid var(--backing-pink-pronounced);
-      padding: 0 4rem;
-    }
-
-    .submenu>ul {
-      position: static;
-      opacity: 1;
-      overflow: auto;
-      padding: 1.5rem 2rem;
-      height: auto;
-      background: inherit;
-    }
-
-    .submenu>ul>li,
-    .submenu>ul>li>a {
+    .submenu>li,
+    .submenu>li>a {
       border: 0;
       font-size: 2rem;
       padding: .5rem;
@@ -228,33 +170,16 @@
       <li>
         <a class:selected={currentPath === '/about/roles'} href="about/roles">Roles</a>
       </li>
-      <!-- 
-        In case we ever need a dropdown
-      <NavDropdown>
-        <span slot="label" let:hovering={aboutHover} let:expanded={aboutExpanded}>
+        <!-- In case we ever need a dropdown -->
+      <!-- <NavDropdown href="about" mobile={mobileNavToggled} shadow={scrolled}>
+        <span slot="label">About Us</span>
+        <span slot="submenu" class="submenu">
           <li>
-            <a 
-              class:selected={segment === 'about'} 
-              class:dropped={mobileNavToggled ? aboutExpanded : aboutHover} 
-              class="has-sub" 
-              href="about"
-              on:click={checkMobile}
-            >
-              About Us
-            </a>
+            <a href="about" class:selected={currentPath === '/about'}>About Us</a>
           </li>
-        </span>
-        <span slot="submenu">
-          <div class="submenu" class:shadow={scrolled}>
-            <ul>
-              <li>
-                <a href="about" class:selected={currentPath === '/about'}>About Us</a>
-              </li>
-              <li>
-                <a href="about/roles" class:selected={currentPath === '/about/roles'}>Roles</a>
-              </li>
-            </ul>
-          </div>
+          <li>
+            <a href="about/roles" class:selected={currentPath === '/about/roles'}>Roles</a>
+          </li>
         </span>
       </NavDropdown> -->
       <li>
