@@ -1,5 +1,6 @@
 <script>
-  import content from '@contentful-entry/joinPage'
+  import content from '@contentful-entry/joinPage';
+  export let currentTerm;
 </script>
 
 <style>
@@ -100,7 +101,7 @@
 <section>
   <hgroup>
     <h1>Join Us!</h1>
-    <h2>Spring 2022</h2>
+    <h2>{currentTerm || 'Spring 2021'}</h2>
   </hgroup>
 
   <img

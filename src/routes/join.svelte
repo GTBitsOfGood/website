@@ -151,7 +151,7 @@
   }
 </style>
 
-<Heading />
+<Heading currentTerm={activeCycle.term} />
 <div class="jump-to-section-links">
   <button class="students" on:click={() => scrollToSection('students')}>
     For Students
