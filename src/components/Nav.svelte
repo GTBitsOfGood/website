@@ -1,4 +1,5 @@
 <script>
+  import { stores } from '@sapper/app';
   import GetInvolvedBtn from './GetInvolvedBtn.svelte'
   import MenuIcon from './MenuIcon.svelte'
   import NavDropdown from './NavDropdown.svelte'
@@ -6,7 +7,19 @@
   let mobileNavToggled = false
 
   export let segment
+  let currentPath
   export let scrolled = true
+
+  const { page } = stores();
+
+  page.subscribe(({ path, params, query }) => {
+    currentPath = path
+    mobileNavToggled = false
+  })
+
+  function checkMobile(e) {
+    if (window.innerWidth <= 800) e.preventDefault()
+  }
 </script>
 
 <style>
@@ -111,7 +124,17 @@
 
   .has-sub.selected:after {
     border-color: var(--primary);
+  }
+
+  .has-sub.dropped:after {
     transform: rotate(45deg);
+  }
+
+  .mobile-wrapper {
+    display: inherit;
+    align-items: inherit;
+    flex: 1;
+    height: 100%;
   }
 
   @media (max-width: 800px) {
@@ -123,33 +146,44 @@
     }
     ul {
       position: fixed;
-      top: 0;
+      top: var(--nav-height);
       left: 0;
       right: 0;
       height: 0; /* hide until mobile nav toggled */
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
       background: var(--backing-pink);
       transition: height 0.3s, opacity 0.4s;
       opacity: 0;
       z-index: -1;
+      padding: 0;
+    }
+
+    .mobile-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      overflow-y: auto;
+      width: 100%;
+      padding: 6rem;
     }
 
     ul.mobileNavToggled {
-      height: 100vh;
+      height: calc(100vh - var(--nav-height));
       opacity: 1;
     }
 
     a {
       font-size: 3rem;
       padding: 3rem;
+      justify-content: space-between;
     }
 
     li {
+      width: 100%;
       margin: 0;
       padding: 2rem;
+      height: auto;
+      border-bottom: 2px solid var(--backing-pink-pronounced);
     }
 
     li.get-involved-btn {
@@ -157,58 +191,83 @@
     }
 
     .submenu {
-      position: absolute;
+      position: static;
+      margin-left: 0;
+      min-width: none;
+      border-bottom: 2px solid var(--backing-pink-pronounced);
+      padding: 0 4rem;
     }
 
     .submenu>ul {
-      padding: 1rem 0;
+      position: static;
+      opacity: 1;
+      overflow: auto;
+      padding: 1.5rem 2rem;
+      height: auto;
+      background: inherit;
+    }
+
+    .submenu>ul>li,
+    .submenu>ul>li>a {
+      border: 0;
+      font-size: 2rem;
+      padding: .5rem;
     }
   }
 </style>
 
 <nav class:shadow={scrolled}>
-  <ul
-    class:mobileNavToggled
-    on:click={() => {
-      if (mobileNavToggled) mobileNavToggled = false
-    }}>
-    <li>
-      <a class:selected={segment === undefined} href=".">Home</a>
-    </li>
-    <NavDropdown>
-      <span slot="label" let:hovering={aboutHover}>
-        <li>
-          <a class:selected={segment === 'about' || aboutHover} href="about" class="has-sub">About Us</a>
-        </li>
-      </span>
-      <span slot="submenu">
-        <div class="submenu" class:shadow={scrolled}>
-          <ul>
-            <li>
-              <a href="about/roles">Roles</a>
-            </li>
-          </ul>
-        </div>
-      </span>
-    </NavDropdown>
-    <li>
-      <a class:selected={segment === 'projects'} href="projects">Projects</a>
-    </li>
-    <li>
-      <a
-        target="_blank"
-        rel="noreferrer noopener"
-        href="https://medium.com/bits-of-good">
-        Blog
-      </a>
-    </li>
-    <li>
-      <a class:selected={segment === 'contact'} href="contact">Contact Us</a>
-    </li>
-    <li class="get-involved-btn">
-      <GetInvolvedBtn
-        hide={(!scrolled && segment === undefined) || segment === 'join'} />
-    </li>
+  <ul class:mobileNavToggled>
+    <div class="mobile-wrapper">
+      <li>
+        <a class:selected={segment === undefined || currentPath === '/'} href=".">Home</a>
+      </li>
+      <NavDropdown>
+        <span slot="label" let:hovering={aboutHover} let:expanded={aboutExpanded}>
+          <li>
+            <a 
+              class:selected={segment === 'about'} 
+              class:dropped={mobileNavToggled ? aboutExpanded : aboutHover} 
+              class="has-sub" 
+              href="about"
+              on:click={checkMobile}
+            >
+              About Us
+            </a>
+          </li>
+        </span>
+        <span slot="submenu">
+          <div class="submenu" class:shadow={scrolled}>
+            <ul>
+              <li>
+                <a href="about" class:selected={currentPath === '/about'}>About Us</a>
+              </li>
+              <li>
+                <a href="about/roles" class:selected={currentPath === '/about/roles'}>Roles</a>
+              </li>
+            </ul>
+          </div>
+        </span>
+      </NavDropdown>
+      <li>
+        <a class:selected={segment === 'projects'} href="projects">Projects</a>
+      </li>
+      <li>
+        <a
+          target="_blank"
+          rel="noreferrer noopener"
+          href="https://medium.com/bits-of-good">
+          Blog
+        </a>
+      </li>
+      <li>
+        <a class:selected={segment === 'contact'} href="contact">Contact Us</a>
+      </li>
+      <li class="get-involved-btn">
+        <GetInvolvedBtn
+          hide={(!scrolled && segment === undefined) || segment === 'join'} />
+      </li>
+    </div>
   </ul>
   <div class="mobile-content">
     <GetInvolvedBtn small />
