@@ -222,6 +222,14 @@
       <li>
         <a class:selected={segment === undefined || currentPath === '/'} href=".">Home</a>
       </li>
+      <li>
+        <a class:selected={currentPath === '/about'} href="about">About Us</a>
+      </li>
+      <li>
+        <a class:selected={currentPath === '/about/roles'} href="about/roles">Roles</a>
+      </li>
+      <!-- 
+        In case we ever need a dropdown
       <NavDropdown>
         <span slot="label" let:hovering={aboutHover} let:expanded={aboutExpanded}>
           <li>
@@ -248,7 +256,7 @@
             </ul>
           </div>
         </span>
-      </NavDropdown>
+      </NavDropdown> -->
       <li>
         <a class:selected={segment === 'projects'} href="projects">Projects</a>
       </li>
