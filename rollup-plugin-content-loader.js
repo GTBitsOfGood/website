@@ -58,6 +58,7 @@ async function mapLink(link, linkType) {
     case 'Asset':
       return toImg(link)
     case 'Entry':
+      if (link.sys.contentType === undefined) return null
       const contentType = link.sys.contentType.sys.id
       const schema = await client.getContentType(contentType)
       return await mapEntry(link, schema)
@@ -149,7 +150,10 @@ export default function contentLoader() {
             schemaPromise,
             entriesPromise,
           ])
-
+          if (schema.name === 'Recruitment Cycle') {
+            console.log(schema)
+            console.log(entries)
+          }
           let items = await Promise.all(
             entries.items.map(entry => mapEntry(entry, schema))
           )
