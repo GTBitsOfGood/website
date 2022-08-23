@@ -1,21 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap');
 
 @font-face {
-  font-family: 'Visby CF';
+  font-family: 'HK Grotesk';
   font-display: swap;
   font-weight: bold;
-  src: url('fonts/VisbyCF-Bold.woff2') format('woff2'),
-    url('fonts/VisbyCF-Bold.ttf') format('truetype'),
-    url('fonts/VisbyCF-Bold.woff') format('woff');
+  src: url('fonts/HKGrotesk-Bold.woff2') format('woff2'),
+    url('fonts/HKGrotesk-Bold.ttf') format('truetype'),
+    url('fonts/HKGrotesk-Bold.woff') format('woff');
 }
 
 @font-face {
-  font-family: 'Visby CF';
+  font-family: 'HK Grotesk';
   font-display: swap;
   font-weight: normal;
-  src: url('fonts/VisbyCF-Normal.woff2') format('woff2'),
-    url('fonts/VisbyCF-Normal.ttf') format('truetype'),
-    url('fonts/VisbyCF-Normal.woff') format('woff');
+  src: url('fonts/HKGrotesk-Regular.woff2') format('woff2'),
+    url('fonts/HKGrotesk-Regular.ttf') format('truetype'),
+    url('fonts/HKGrotesk-Regular.woff') format('woff');
 }
 
 :root {
@@ -48,7 +48,7 @@
   --body-xl: 24px;
 
   /* font families */
-  --header-font: 'Visby CF', Roboto, -apple-system, BlinkMacSystemFont,
+  --header-font: 'HK Grotesk', Roboto, -apple-system, BlinkMacSystemFont,
     'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans',
     'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
