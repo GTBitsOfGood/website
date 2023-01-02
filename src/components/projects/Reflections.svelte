@@ -5,9 +5,6 @@
 </script>
 
 <style>
-  p.description {
-    margin-bottom: 60px;
-  }
 
   .quote-container .img-container {
     margin-right: 40px;
@@ -81,30 +78,29 @@
 </style>
 
 <section>
-  <h2>Our Team</h2>
-  <h3>Reflection 💬</h3>
-  <p class="description">
-    {@html reflection.inlineHtml}
-  </p>
-  {#each quotes as quote}
-    <div class="quote-container">
-      <div class="img-container">
-        <img
-          height="80"
-          width="80"
-          src={quote.image.src}
-          alt={quote.image.alt} />
-        <p class="quote-author">{quote.header}</p>
+  {#if quotes.length > 0}
+    <h2>Our Team</h2>
+    <h3>Reflection 💬</h3>
+    {#each quotes as quote}
+      <div class="quote-container">
+        <div class="img-container">
+          <img
+            height="80"
+            width="80"
+            src={quote.image.src}
+            alt={quote.image.alt} />
+          <p class="quote-author">{quote.header}</p>
+        </div>
+        <p class="quote">
+          {@html `"${quote.body.inlineHtml}"`}
+        </p>
       </div>
-      <p class="quote">
-        {@html `"${quote.body.inlineHtml}"`}
-      </p>
-    </div>
-  {/each}
-  {#if groupPhoto.src}
-    <div class="group-wrapper">
-      <img height="250" src={groupPhoto.src} alt={groupPhoto.alt} />
-      <p class="quote large">"{groupPhoto.alt}"</p>
-    </div>
+    {/each}
+    {#if groupPhoto.src}
+      <div class="group-wrapper">
+        <img height="250" src={groupPhoto.src} alt={groupPhoto.alt} />
+        <p class="quote large">"{groupPhoto.alt}"</p>
+      </div>
+    {/if}
   {/if}
 </section>
