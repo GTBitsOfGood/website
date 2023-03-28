@@ -189,7 +189,7 @@
         <a
           target="_blank"
           rel="noreferrer noopener"
-          href="https://medium.com/bits-of-good">
+          href="https://bitsofgood.substack.com/">
           Blog
         </a>
       </li>

@@ -21,6 +21,6 @@ functions = "./functions"
   
   [[redirects]]
   from = "/blog"
-  to = "https://medium.com/bits-of-good"
+  to = "https://bitsofgood.substack.com/"
   status = 301
   force = true
