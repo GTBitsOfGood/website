@@ -150,10 +150,6 @@ export default function contentLoader() {
             schemaPromise,
             entriesPromise,
           ])
-          if (schema.name === 'Recruitment Cycle') {
-            console.log(schema)
-            console.log(entries)
-          }
           let items = await Promise.all(
             entries.items.map(entry => mapEntry(entry, schema))
           )
