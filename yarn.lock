@@ -5547,10 +5547,10 @@ svelte-icons@^2.1.0:
   resolved "https://registry.yarnpkg.com/svelte-icons/-/svelte-icons-2.1.0.tgz#6f2ec72f1d5c8b2de1a4b8a822c95bcb2f701aca"
   integrity sha512-rHPQjweEc9fGSnvM0/4gA3pDHwyZyYsC5KhttCZRhSMJfLttJST5Uq0B16Czhw+HQ+HbSOk8kLigMlPs7gZtfg==
 
-svelte@^3.0.0:
-  version "3.6.10"
-  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.6.10.tgz#054f944a8c161b16748d7f2e00a383252cd14725"
-  integrity sha512-2N9kIbDal5z/aZloaRCOQ9dlCtuCE08NZITDlSdG7fOl4kFrE2qnXCq+lSFtI15ABWCXPc17cX5vJvdOgUsKqw==
+svelte@^3.49.0:
+  version "3.49.0"
+  resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.49.0.tgz#5baee3c672306de1070c3b7888fc2204e36a4029"
+  integrity sha512-+lmjic1pApJWDfPCpUUTc1m8azDqYCG1JN9YEngrx/hUyIcFJo6VZhj0A1Ai0wqoHcEIuQy+e9tk+4uDgdtsFA==
 
 symbol-observable@^1.1.0:
   version "1.2.0"
