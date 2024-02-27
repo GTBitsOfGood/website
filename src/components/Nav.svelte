@@ -1,5 +1,5 @@
 <script>
-  import { stores } from '@sapper/app'
+  import { stores } from '@sapper/app';
   import GetInvolvedBtn from './GetInvolvedBtn.svelte'
   import MenuIcon from './MenuIcon.svelte'
   import NavDropdown from './NavDropdown.svelte'
@@ -9,84 +9,13 @@
   let mobileNavToggled = false
   let currentPath
 
-  const { page } = stores()
+  const { page } = stores();
 
   page.subscribe(({ path, params, query }) => {
     currentPath = path
     mobileNavToggled = false
   })
 </script>
-
-<nav class:shadow={scrolled}>
-  <ul class:mobileNavToggled>
-    <div class="mobile-wrapper">
-      <li>
-        <a
-          class:selected={segment === undefined || currentPath === '/'}
-          href=".">Home</a
-        >
-      </li>
-      <li>
-        <a class:selected={currentPath === '/about'} href="about">About Us</a>
-      </li>
-      <li>
-        <a class:selected={currentPath === '/about/roles'} href="about/roles"
-          >Roles</a
-        >
-      </li>
-      <!-- In case we ever need a dropdown -->
-      <!-- <NavDropdown href="about" mobile={mobileNavToggled} shadow={scrolled}>
-        <span slot="label">About Us</span>
-        <span slot="submenu" class="submenu">
-          <li>
-            <a href="about" class:selected={currentPath === '/about'}>About Us</a>
-          </li>
-          <li>
-            <a href="about/roles" class:selected={currentPath === '/about/roles'}>Roles</a>
-          </li>
-        </span>
-      </NavDropdown> -->
-      <li>
-        <a class:selected={segment === 'projects'} href="projects">Projects</a>
-      </li>
-      <li>
-        <a
-          target="_blank"
-          rel="noreferrer noopener"
-          href="https://bitsofgood.substack.com/"
-        >
-          Blog
-        </a>
-      </li>
-      <li>
-        <a class:selected={segment === 'contact'} href="contact">Contact Us</a>
-      </li>
-      <li>
-        <a
-          target="_blank"
-          rel="noreferrer noopener"
-          href="https://donorbox.org/bits-of-good"
-        >
-          Donate
-        </a>
-      </li>
-      <li class="get-involved-btn">
-        <GetInvolvedBtn
-          hide={(!scrolled && segment === undefined) || segment === 'join'}
-        />
-      </li>
-    </div>
-  </ul>
-  <div class="mobile-content">
-    <GetInvolvedBtn small />
-    <button
-      class="mobile-dropdown-toggle"
-      on:click={() => (mobileNavToggled = !mobileNavToggled)}
-    >
-      <MenuIcon menuToggled={mobileNavToggled} />
-    </button>
-  </div>
-</nav>
 
 <style>
   nav {
@@ -155,9 +84,9 @@
     background: none;
   }
 
-  .submenu > li {
+  .submenu>li {
     margin: 0;
-    padding: 1rem;
+    padding: 1rem
   }
 
   .mobile-wrapper {
@@ -182,9 +111,7 @@
       height: 0; /* hide until mobile nav toggled */
       overflow: hidden;
       background: var(--backing-pink);
-      transition:
-        height 0.3s,
-        opacity 0.4s;
+      transition: height 0.3s, opacity 0.4s;
       opacity: 0;
       z-index: -1;
       padding: 0;
@@ -222,11 +149,65 @@
       display: none;
     }
 
-    .submenu > li,
-    .submenu > li > a {
+    .submenu>li,
+    .submenu>li>a {
       border: 0;
       font-size: 2rem;
-      padding: 0.5rem;
+      padding: .5rem;
     }
   }
 </style>
+
+<nav class:shadow={scrolled}>
+  <ul class:mobileNavToggled>
+    <div class="mobile-wrapper">
+      <li>
+        <a class:selected={segment === undefined || currentPath === '/'} href=".">Home</a>
+      </li>
+      <li>
+        <a class:selected={currentPath === '/about'} href="about">About Us</a>
+      </li>
+      <li>
+        <a class:selected={currentPath === '/about/roles'} href="about/roles">Roles</a>
+      </li>
+        <!-- In case we ever need a dropdown -->
+      <!-- <NavDropdown href="about" mobile={mobileNavToggled} shadow={scrolled}>
+        <span slot="label">About Us</span>
+        <span slot="submenu" class="submenu">
+          <li>
+            <a href="about" class:selected={currentPath === '/about'}>About Us</a>
+          </li>
+          <li>
+            <a href="about/roles" class:selected={currentPath === '/about/roles'}>Roles</a>
+          </li>
+        </span>
+      </NavDropdown> -->
+      <li>
+        <a class:selected={segment === 'projects'} href="projects">Projects</a>
+      </li>
+      <li>
+        <a
+          target="_blank"
+          rel="noreferrer noopener"
+          href="https://bitsofgood.substack.com/">
+          Blog
+        </a>
+      </li>
+      <li>
+        <a class:selected={segment === 'contact'} href="contact">Contact Us</a>
+      </li>
+      <li class="get-involved-btn">
+        <GetInvolvedBtn
+          hide={(!scrolled && segment === undefined) || segment === 'join'} />
+      </li>
+    </div>
+  </ul>
+  <div class="mobile-content">
+    <GetInvolvedBtn small />
+    <button
+      class="mobile-dropdown-toggle"
+      on:click={() => (mobileNavToggled = !mobileNavToggled)}>
+      <MenuIcon menuToggled={mobileNavToggled} />
+    </button>
+  </div>
+</nav>
