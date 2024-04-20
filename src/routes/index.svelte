@@ -3,7 +3,8 @@
     Heading,
     ConnectingSection,
     BuildingSection,
-    QuotesSection
+    QuotesSection,
+    Bitbo,
   } from '../components/landing'
 
   let scrollY = 0
@@ -14,6 +15,7 @@
 <ConnectingSection parallaxOffset={scrollY * -0.08 + 90} />
 <QuotesSection />
 <BuildingSection parallaxOffset={scrollY * -0.08 + 220} />
+<Bitbo />
 
 <svelte:head>
   <title>Bits of Good</title>
