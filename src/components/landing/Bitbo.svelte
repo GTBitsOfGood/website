@@ -100,8 +100,8 @@
     bottom: 0;
     translate: -8rem 8rem;
 
-    width: 7rem;
-    height: 7rem;
+    width: 7.5rem;
+    height: 7.5rem;
     rotate: 45deg;
 
     transition: translate 0.2s;
@@ -112,6 +112,10 @@
   }
 
   #bitbo.visible {
+    translate: -1.5rem 1.5rem;
+  }
+
+  #bitbo.visible:hover {
     translate: -1rem 1rem;
   }
 
@@ -154,5 +158,22 @@
     cursor: pointer;
 
     filter: drop-shadow(0 0 2px rgb(0 0 0 / 0.4));
+  }
+
+  @media (max-width: 600px) {
+    #bitbo.visible {
+      translate: -1rem 1rem;
+    }
+
+    #game-container {
+      padding: 0rem;
+    }
+
+    #game {
+      height: 100%;
+      width: 100%;
+      aspect-ratio: unset;
+      border-radius: 0;
+    }
   }
 </style>
