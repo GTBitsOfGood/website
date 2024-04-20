@@ -127,8 +127,8 @@
 
     padding: 2rem;
 
-    width: 100svw;
-    height: 100svh;
+    width: 100lvw;
+    height: 100lvh;
 
     display: flex;
     justify-content: center;
