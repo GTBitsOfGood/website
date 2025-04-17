@@ -7,6 +7,13 @@ functions = "./functions"
   status = 301
   force = true
 
+[[plugins]]
+   package = "netlify-plugin-scheduled-functions"
+
+[plugins.inputs]
+  # Run the debounce-scheduler every 10 minutes
+  functions = [{ name = "debounce-scheduler", schedule = "*/10 * * * *" }]
+
 [[redirects]]
   from = "/bootcamp"
   to = "https://www.notion.so/gtbitsofgood/Bootcamp-b1fe164df73e42d3b9c2ab0755e4ca49"
