@@ -1,0 +1,14 @@
+{
+  "name": "contentful-webhook",
+  "version": "1.0.0",
+  "main": "contentful-webhook.js",
+  "license": "MIT",
+  "keywords": [
+    "netlify",
+    "serverless",
+    "js"
+  ],
+  "dependencies": {
+    "@upstash/redis": "^1.34.8"
+  }
+}
