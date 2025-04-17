@@ -1,8 +1,16 @@
 <script>
   import content from '@contentful-entry/aboutUsHeader'
   import HeaderSwoosh from './HeaderSwoosh'
+  import { onMount } from 'svelte';
 
   export let missionSectionId = ''
+
+  onMount(() => {
+    const img = document.querySelector('section img');
+    if (!img || !img.src) {
+      console.log('Header: Missing building-artwork-front.png image');
+    }
+  });
 
   const scrollToMissionSection = () => {
     const mission = document.getElementById(missionSectionId)

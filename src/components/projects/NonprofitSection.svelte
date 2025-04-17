@@ -75,8 +75,10 @@
   }
 </style>
 
-<section>
-  <img height="300" src={thumbnail.src} alt={thumbnail.alt} />
+  <section>
+    {#if thumbnail && thumbnail.src}
+      <img height="300" src={thumbnail.src} alt={thumbnail.alt} />
+    {/if}
   <h2>Our Client</h2>
   <h3>
     <a target="_blank" href={nonprofitLink.url}>{nonprofitLink.text}</a>

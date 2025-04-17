@@ -4,6 +4,10 @@
   import { onMount, onDestroy } from 'svelte'
 
   export let images = []
+  
+  $: if (!images || images.length === 0) {
+    console.log('BigLogo: Missing images array or empty images array');
+  }
 
   let mounted = false
   let imageIndex = 0
@@ -13,6 +17,9 @@
     mounted = true
     imageInterval = setInterval(() => {
       imageIndex = (imageIndex + 1) % images.length
+      if (!(images[imageIndex] && images[imageIndex].src)) {
+        console.log(`BigLogo: Missing image source at index ${imageIndex}`);
+      }
     }, 4000)
   })
 

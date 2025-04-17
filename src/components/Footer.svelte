@@ -3,6 +3,14 @@
 
   export let noTopMargin = false
 
+  $: if (!(content.hack4impactLink && content.hack4impactLink.image && content.hack4impactLink.image.src)) {
+    console.log('Footer: Missing hack4impactLink image or its src');
+  }
+  
+  $: if (!(content.bitsOfGoodHomeLink && content.bitsOfGoodHomeLink.image && content.bitsOfGoodHomeLink.image.src)) {
+    console.log('Footer: Missing bitsOfGoodHomeLink image or its src');
+  }
+
   const columns = Object.keys(content)
     .map(key => /^linksColumn([0-9]+)$/.exec(key))
     .filter(match => match)
@@ -156,22 +164,26 @@
   </section>
 
   <div class="footer-bottom">
-    <a href={content.hack4impactLink.url}>
-      <img
-        src={content.hack4impactLink.image.src}
-        alt={content.hack4impactLink.image.alt} />
-    </a>
+    {#if content.hack4impactLink.image && content.hack4impactLink.image.src}
+      <a href={content.hack4impactLink.url}>
+        <img
+          src={content.hack4impactLink.image.src}
+          alt={content.hack4impactLink.image.alt} />
+      </a>
+    {/if}
     <div class="footer-container">
       <a href="https://www.netlify.com">
         <img
           src="https://www.netlify.com/img/global/badges/netlify-dark.svg"
           alt="Deploys by Netlify" />
       </a>
-      <a href={content.bitsOfGoodHomeLink.url}>
-        <img
-          src={content.bitsOfGoodHomeLink.image.src}
-          alt={content.bitsOfGoodHomeLink.image.alt} />
-      </a>
+      {#if content.bitsOfGoodHomeLink.image && content.bitsOfGoodHomeLink.image.src}
+        <a href={content.bitsOfGoodHomeLink.url}>
+          <img
+            src={content.bitsOfGoodHomeLink.image.src}
+            alt={content.bitsOfGoodHomeLink.image.alt} />
+        </a>
+      {/if}
     </div>
   </div>
 </footer>

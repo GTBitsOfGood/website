@@ -3,6 +3,10 @@
   export let briefDescription = ''
   export let image
   export let hash = ''
+  
+  $: if (!(image && image.src)) {
+    console.log(`Role '${name}': Missing image or image.src`);
+  }
 </script>
 
 <style>
@@ -69,12 +73,16 @@
 </style>
 
 <a href="/about/roles#{hash}" class="container">
-  <div class="cutoff">
-    <img src={image.src} alt={image.alt} />
-  </div>
+  {#if image && image.src}
+    <div class="cutoff">
+      <img src={image.src} alt={image.alt} />
+    </div>
+  {/if}
   <h3>{name}</h3>
-  <p>
-    {@html briefDescription.inlineHtml}
-  </p>
+  {#if briefDescription && briefDescription.inlineHtml}
+    <p>
+      {@html briefDescription.inlineHtml}
+    </p>
+  {/if}
   <div class="learn-more">Learn More</div>
 </a>

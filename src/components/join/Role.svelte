@@ -4,6 +4,10 @@
   export let name = ''
   export let briefDescription = ''
   export let open = false
+  
+  $: if (!open) {
+    console.log(`Join Role '${name}': not open`);
+  }
 </script>
 
 <style>

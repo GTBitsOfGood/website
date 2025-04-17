@@ -6,6 +6,8 @@
   import Milestones from '../../components/about-us/MilestonesSection'
 
   import headerContent from '@contentful-entry/aboutUsHeader'
+
+  console.log(headerContent)
 </script>
 
 <PageHeader ctaScrollToId="mission-section" {...headerContent} />

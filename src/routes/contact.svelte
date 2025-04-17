@@ -103,7 +103,9 @@
 </style>
 
 <section>
-  <img src={content.artwork.src} alt={content.artwork.alt} />
+  {#if content.artwork && content.artwork.src}
+    <img src={content.artwork.src} alt={content.artwork.alt} />
+  {/if}
   <h1>{content.heading}</h1>
   <p class="info-text">
     {@html content.infoText.inlineHtml}

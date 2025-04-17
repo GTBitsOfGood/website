@@ -103,7 +103,9 @@
 <section style="--theme-color: {themeColor}">
   <h2>About Project</h2>
   <div class="image-container">
-    <img src={aboutScreenshot.src} alt={aboutScreenshot.alt} />
+    {#if aboutScreenshot && aboutScreenshot.src}
+      <img src={aboutScreenshot.src} alt={aboutScreenshot.alt} />
+    {/if}
   </div>
   <div class="content-container">
     <p>

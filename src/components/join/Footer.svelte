@@ -1,6 +1,14 @@
 <script>
   import content from '@contentful-entry/joinPage'
   import { removeWrapperPTag } from '../../contentHelpers'
+  
+  $: if (!(content.headingImageLeft && content.headingImageLeft.src)) {
+    console.log('Join Footer: Missing headingImageLeft or its src');
+  }
+  
+  $: if (!(content.headingImageRight && content.headingImageRight.src)) {
+    console.log('Join Footer: Missing headingImageRight or its src');
+  }
 </script>
 
 <style>
@@ -101,14 +109,18 @@
   {@html content.footerText.html}
   <a class="newsletter" href={content.newsletterUrl}>{content.newsletterCta}</a>
 
-  <img
-    class="backing-image-left"
-    src={content.headingImageLeft.src}
-    alt={content.headingImageLeft.alt} />
-  <img
-    class="backing-image-right"
-    src={content.headingImageRight.src}
-    alt={content.headingImageRight.alt} />
+  {#if content.headingImageLeft && content.headingImageLeft.src}
+    <img
+      class="backing-image-left"
+      src={content.headingImageLeft.src}
+      alt={content.headingImageLeft.alt} />
+  {/if}
+  {#if content.headingImageRight && content.headingImageRight.src}
+    <img
+      class="backing-image-right"
+      src={content.headingImageRight.src}
+      alt={content.headingImageRight.alt} />
+  {/if}
 </section>
 
 <svg

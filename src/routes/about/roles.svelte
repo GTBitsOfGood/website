@@ -20,6 +20,8 @@
       scrollToDepartment(location.hash.slice(1))
     }
   })
+
+  console.log(headerContent)
 </script>
 
 <style>
@@ -152,29 +154,39 @@
     <h1>{headerContent.title}</h1>
     <p>{headerContent.tagline}</p>
 
-    <img
-      class="desktop left"
-      src={headerContent.desktopBannerImages[0].src}
-      alt={headerContent.desktopBannerImages[0].alt} />
-    <img
-      class="mobile left"
-      src={headerContent.mobileBannerImages[0].src}
-      alt={headerContent.mobileBannerImages[0].alt} />
-    <img
-      class="desktop right"
-      src={headerContent.desktopBannerImages[1].src}
-      alt={headerContent.desktopBannerImages[1].alt} />
-    <img
-      class="mobile right"
-      src={headerContent.mobileBannerImages[1].src}
-      alt={headerContent.mobileBannerImages[1].alt} />
+    {#if headerContent.desktopBannerImages && headerContent.desktopBannerImages.length > 0 && headerContent.desktopBannerImages[0].src}
+      <img
+        class="desktop left"
+        src={headerContent.desktopBannerImages[0].src}
+        alt={headerContent.desktopBannerImages[0].alt} />
+    {/if}
+    {#if headerContent.mobileBannerImages && headerContent.mobileBannerImages.length > 0 && headerContent.mobileBannerImages[0].src}
+      <img
+        class="mobile left"
+        src={headerContent.mobileBannerImages[0].src}
+        alt={headerContent.mobileBannerImages[0].alt} />
+    {/if}
+    {#if headerContent.desktopBannerImages && headerContent.desktopBannerImages.length > 1 && headerContent.desktopBannerImages[1].src}
+      <img
+        class="desktop right"
+        src={headerContent.desktopBannerImages[1].src}
+        alt={headerContent.desktopBannerImages[1].alt} />
+    {/if}
+    {#if headerContent.mobileBannerImages && headerContent.mobileBannerImages.length > 1 && headerContent.mobileBannerImages[1].src}
+      <img
+        class="mobile right"
+        src={headerContent.mobileBannerImages[1].src}
+        alt={headerContent.mobileBannerImages[1].alt} />
+    {/if}
   </section>
   <section class="dept-links-container">
     <p>We offer {departments.length} unique roles</p>
     <div class="dept-links">
       {#each departments as { image, name, hash }}
         <button on:click={() => scrollToDepartment(hash)}>
-          <img src={image.src} alt={image.alt} />
+          {#if image && image.src}
+            <img src={image.src} alt={image.alt} />
+          {/if}
           <p>{name}</p>
         </button>
       {/each}

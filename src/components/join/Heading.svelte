@@ -1,6 +1,14 @@
 <script>
   import content from '@contentful-entry/joinPage';
   export let currentTerm;
+  
+  $: if (!(content.headingImageLeft && content.headingImageLeft.src)) {
+    console.log('Join Heading: Missing headingImageLeft or its src');
+  }
+  
+  $: if (!(content.headingImageRight && content.headingImageRight.src)) {
+    console.log('Join Heading: Missing headingImageRight or its src');
+  }
 </script>
 
 <style>
@@ -104,14 +112,18 @@
     <h2>{currentTerm || 'Spring 2021'}</h2>
   </hgroup>
 
-  <img
-    class="backing-image-left"
-    src={content.headingImageLeft.src}
-    alt={content.headingImageLeft.alt} />
-  <img
-    class="backing-image-right"
-    src={content.headingImageRight.src}
-    alt={content.headingImageRight.alt} />
+  {#if content.headingImageLeft && content.headingImageLeft.src}
+    <img
+      class="backing-image-left"
+      src={content.headingImageLeft.src}
+      alt={content.headingImageLeft.alt} />
+  {/if}
+  {#if content.headingImageRight && content.headingImageRight.src}
+    <img
+      class="backing-image-right"
+      src={content.headingImageRight.src}
+      alt={content.headingImageRight.alt} />
+  {/if}
 
   <svg
     class="mobile-vectors left"
