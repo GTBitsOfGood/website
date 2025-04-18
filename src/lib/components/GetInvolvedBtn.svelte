@@ -37,4 +37,4 @@
   }
 </style>
 
-<a class:large class:small class:hide href="join">{content.text}</a>
+<a class:large class:small class:hide href="/join">{content.text}</a>
