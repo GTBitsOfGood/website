@@ -4,6 +4,7 @@
   import recruitmentCycles from '@contentful-entries/recruitmentCycle'
   import content from '@contentful-entry/joinPage'
   import Role from '../components/join/Role.svelte'
+  import Timeline from '../components/join/Timeline.svelte'
 
   const activeCycle = recruitmentCycles.find(cycle => cycle.active)
 
@@ -152,6 +153,11 @@
 </style>
 
 <Heading currentTerm={activeCycle.term} />
+
+{#if activeCycle.timeline}
+  <Timeline timelineImage={activeCycle.timeline} />
+{/if}
+
 <div class="jump-to-section-links">
   <button class="students" on:click={() => scrollToSection('students')}>
     For Students

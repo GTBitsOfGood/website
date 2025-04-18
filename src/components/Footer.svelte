@@ -11,6 +11,34 @@
     console.log('Footer: Missing bitsOfGoodHomeLink image or its src');
   }
 
+  $: if (!(content.ctaHeader)) {
+    console.log('Footer: Missing ctaHeader');
+  }
+
+  $: if (!(content.cta && content.cta.url)) {
+    console.log('Footer: Missing cta url');
+  }
+
+  $: if (!(content.cta && content.cta.text)) {
+    console.log('Footer: Missing cta text');
+  }
+
+  $: if (!(content.hack4impactLink && content.hack4impactLink.url)) {
+    console.log('Footer: Missing hack4impactLink url');
+  }
+
+  $: if (!(content.hack4impactLink && content.hack4impactLink.image && content.hack4impactLink.image.alt)) {
+    console.log('Footer: Missing hack4impactLink image alt text');
+  }
+
+  $: if (!(content.bitsOfGoodHomeLink && content.bitsOfGoodHomeLink.url)) {
+    console.log('Footer: Missing bitsOfGoodHomeLink url');
+  }
+
+  $: if (!(content.bitsOfGoodHomeLink && content.bitsOfGoodHomeLink.image && content.bitsOfGoodHomeLink.image.alt)) {
+    console.log('Footer: Missing bitsOfGoodHomeLink image alt text');
+  }
+
   const columns = Object.keys(content)
     .map(key => /^linksColumn([0-9]+)$/.exec(key))
     .filter(match => match)
@@ -143,28 +171,38 @@
 
   <section>
     <div class="cta-container">
-      <h3>{content.ctaHeader}</h3>
-      <p class="footer-cta">
-        <a href={content.cta.url}>{content.cta.text}</a>
-      </p>
+      {#if content.ctaHeader}
+        <h3>{content.ctaHeader}</h3>
+      {/if}
+      {#if content.cta && content.cta.url && content.cta.text}
+        <p class="footer-cta">
+          <a href={content.cta.url}>{content.cta.text}</a>
+        </p>
+      {/if}
     </div>
 
     <div class="link-container">
       {#each columns as column}
         <ul>
-          <h3 class="column-header">{column.title}</h3>
-          {#each column.links as link}
-            <li>
-              <a href={link.url}>{link.text}</a>
-            </li>
-          {/each}
+          {#if column.title}
+            <h3 class="column-header">{column.title}</h3>
+          {/if}
+          {#if column.links && Array.isArray(column.links)}
+            {#each column.links as link}
+              {#if link && link.url && link.text}
+                <li>
+                  <a href={link.url}>{link.text}</a>
+                </li>
+              {/if}
+            {/each}
+          {/if}
         </ul>
       {/each}
     </div>
   </section>
 
   <div class="footer-bottom">
-    {#if content.hack4impactLink.image && content.hack4impactLink.image.src}
+    {#if content.hack4impactLink && content.hack4impactLink.url && content.hack4impactLink.image && content.hack4impactLink.image.src && content.hack4impactLink.image.alt}
       <a href={content.hack4impactLink.url}>
         <img
           src={content.hack4impactLink.image.src}
@@ -177,7 +215,7 @@
           src="https://www.netlify.com/img/global/badges/netlify-dark.svg"
           alt="Deploys by Netlify" />
       </a>
-      {#if content.bitsOfGoodHomeLink.image && content.bitsOfGoodHomeLink.image.src}
+      {#if content.bitsOfGoodHomeLink && content.bitsOfGoodHomeLink.url && content.bitsOfGoodHomeLink.image && content.bitsOfGoodHomeLink.image.src && content.bitsOfGoodHomeLink.image.alt}
         <a href={content.bitsOfGoodHomeLink.url}>
           <img
             src={content.bitsOfGoodHomeLink.image.src}

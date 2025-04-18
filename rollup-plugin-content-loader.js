@@ -1,6 +1,7 @@
 import * as contentful from 'contentful'
 import { MARKS, BLOCKS } from '@contentful/rich-text-types'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
+import * as dotenv from 'dotenv'
 
 // Rollup plugin that allows importing of Contentful entries.
 // To get a specific entry:
@@ -14,7 +15,6 @@ const ENTRIES_PREFIX = '@contentful-entries'
 export default function contentLoader() {
   // Load .env and .env.<NODE_ENV> in non-production
   if (process.env.NODE_ENV && process.env.NODE_ENV !== 'production') {
-    const dotenv = require('dotenv')
     dotenv.config()
     dotenv.config({ path: '.env.' + process.env.NODE_ENV })
   }
@@ -63,47 +63,48 @@ export default function contentLoader() {
       })
   }
 
+  // Caches store resolved data only
   const schemaCache = new Map()
   const entriesCache = new Map()
 
   async function getSchema(contentType) {
-    let promise = schemaCache.get(contentType)
-    if (!promise) {
-      promise = enqueueRequest(function () {
-        return client.getContentType(contentType)
-      })
-      schemaCache.set(contentType, promise)
+    if (schemaCache.has(contentType)) {
+      return schemaCache.get(contentType)
     }
-    return promise
+    const schema = await enqueueRequest(() =>
+      client.getContentType(contentType)
+    )
+    schemaCache.set(contentType, schema)
+    return schema
   }
 
   async function getAllEntries(contentType) {
     const key = contentType
-    let promise = entriesCache.get(key)
-    if (!promise) {
-      promise = enqueueRequest(function () {
-        return client.getEntries({ content_type: contentType, include: 10 })
-      })
-      entriesCache.set(key, promise)
+    if (entriesCache.has(key)) {
+      return entriesCache.get(key)
     }
-    return promise
+    const entries = await enqueueRequest(() =>
+      client.getEntries({ content_type: contentType, include: 10 })
+    )
+    entriesCache.set(key, entries)
+    return entries
   }
 
   async function getFilteredEntries(contentType, filterKey) {
     const key = contentType + '::' + filterKey
-    let promise = entriesCache.get(key)
-    if (!promise) {
-      promise = enqueueRequest(function () {
-        return client.getEntries({
-          content_type: contentType,
-          'fields.key': filterKey,
-          limit: 1,
-          include: 10,
-        })
-      })
-      entriesCache.set(key, promise)
+    if (entriesCache.has(key)) {
+      return entriesCache.get(key)
     }
-    return promise
+    const entries = await enqueueRequest(() =>
+      client.getEntries({
+        content_type: contentType,
+        'fields.key': filterKey,
+        limit: 1,
+        include: 10,
+      })
+    )
+    entriesCache.set(key, entries)
+    return entries
   }
 
   async function mapEntry(entry, schema) {
@@ -115,19 +116,21 @@ export default function contentLoader() {
       )
       return null
     }
-    const fields = entry.fields
+    const fields = entry.fields || {}
 
     await Promise.all(
       schema.fields
-        .filter(function (f) {
-          return fields[f.id] != null
-        })
-        .map(function (fieldDef) {
+        .filter(f => fields[f.id] != null)
+        .map(fieldDef => {
           const id = fieldDef.id
           const type = fieldDef.type
 
           switch (type) {
             case 'RichText':
+              if (!fields[id]) {
+                fields[id] = { html: '', inlineHtml: '' }
+                break
+              }
               fields[id] = {
                 html: toHtml(fields[id]),
                 inlineHtml: toInlineHtml(fields[id]),
@@ -135,16 +138,21 @@ export default function contentLoader() {
               break
 
             case 'Link':
-              return mapLink(fields[id], fieldDef.linkType).then(function (res) {
+              if (!fields[id]) {
+                return Promise.resolve()
+              }
+              return mapLink(fields[id], fieldDef.linkType).then(res => {
                 fields[id] = res
               })
 
             case 'Array':
+              if (!fields[id] || !Array.isArray(fields[id])) {
+                fields[id] = []
+                break
+              }
               return Promise.all(
-                fields[id].map(function (item) {
-                  return mapLink(item, fieldDef.items.linkType)
-                })
-              ).then(function (resArray) {
+                fields[id].map(item => mapLink(item, fieldDef.items.linkType))
+              ).then(resArray => {
                 fields[id] = resArray
               })
           }
@@ -161,6 +169,9 @@ export default function contentLoader() {
           linkType +
           '".'
       )
+      if (linkType === 'Asset') {
+        return { src: '', alt: 'Image not available' }
+      }
       return null
     }
     if (linkType === 'Asset') {
@@ -183,17 +194,12 @@ export default function contentLoader() {
     const renderNode = options.renderNode || {}
 
     const baseMark = {}
-    baseMark[MARKS.BOLD] = function (text) {
-      return '<strong>' + text + '</strong>'
-    }
-    baseMark[MARKS.ITALIC] = function (text) {
-      return '<em>' + text + '</em>'
-    }
+    baseMark[MARKS.BOLD] = text => `<strong>${text}</strong>`
+    baseMark[MARKS.ITALIC] = text => `<em>${text}</em>`
 
     const baseNode = {}
-    baseNode[BLOCKS.PARAGRAPH] = function (node, next) {
-      return '<p>' + next(node.content).replace(/\n/g, '<br/>') + '</p>'
-    }
+    baseNode[BLOCKS.PARAGRAPH] = (node, next) =>
+      `<p>${next(node.content).replace(/\n/g, '<br/>')}</p>`
 
     return {
       renderMark: Object.assign(baseMark, renderMark),
@@ -210,9 +216,8 @@ export default function contentLoader() {
       doc,
       getHtmlOptions({
         renderNode: {
-          [BLOCKS.PARAGRAPH]: function (node, next) {
-            return next(node.content).replace(/\n/g, '<br/>')
-          },
+          [BLOCKS.PARAGRAPH]: (node, next) =>
+            next(node.content).replace(/\n/g, '<br/>'),
         },
       })
     )
@@ -220,23 +225,21 @@ export default function contentLoader() {
 
   function toImg(link) {
     if (
-      link.fields &&
-      link.fields.file &&
-      link.fields.file.url &&
-      link.fields.title
+      !link ||
+      !link.fields ||
+      !link.fields.file ||
+      !link.fields.file.url ||
+      !link.fields.title
     ) {
-      return {
-        src: link.fields.file.url,
-        alt: link.fields.title,
-      }
+      return { src: '', alt: 'Image not available' }
     }
-    return null
+    return { src: link.fields.file.url, alt: link.fields.title }
   }
 
   return {
     name: 'content-loader',
 
-    resolveId: function (source) {
+    resolveId(source) {
       const parts = source.split('/')
       if (parts[0] === ENTRY_PREFIX || parts[0] === ENTRIES_PREFIX) {
         return source
@@ -259,14 +262,10 @@ export default function contentLoader() {
         const schema = await getSchema(contentType)
         const entries = await getAllEntries(contentType)
         let items = await Promise.all(
-          entries.items.map(function (entry) {
-            return mapEntry(entry, schema)
-          })
+          entries.items.map(entry => mapEntry(entry, schema))
         )
         if (items.length && typeof items[0].orderingIndex === 'number') {
-          items.sort(function (a, b) {
-            return a.orderingIndex - b.orderingIndex
-          })
+          items.sort((a, b) => a.orderingIndex - b.orderingIndex)
         }
         return 'export default ' + JSON.stringify(items)
       }
