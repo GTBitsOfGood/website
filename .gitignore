@@ -15,3 +15,8 @@ package-lock.json
 
 # contentful seed
 .contentful.json
+
+# sveltekit
+.svelte-kit
+build/
+*.cpuprofile

@@ -1,6 +1,6 @@
 <script>
   import content from '@contentful-entry/contactUsSubmitted'
-  import { removeWrapperPTag } from '../contentHelpers'
+  import { removeWrapperPTag } from '../../contentHelpers'
 </script>
 
 <style>

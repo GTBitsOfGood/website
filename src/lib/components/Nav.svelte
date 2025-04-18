@@ -1,5 +1,5 @@
 <script>
-  import { stores } from '@sapper/app'
+  import { page } from '$app/stores';
   import GetInvolvedBtn from './GetInvolvedBtn.svelte'
   import MenuIcon from './MenuIcon.svelte'
   import NavDropdown from './NavDropdown.svelte'
@@ -8,8 +8,6 @@
   export let scrolled = true
   let mobileNavToggled = false
   let currentPath
-
-  const { page } = stores()
 
   page.subscribe(({ path, params, query }) => {
     currentPath = path
@@ -47,7 +45,7 @@
         </span>
       </NavDropdown> -->
       <li>
-        <a class:selected={segment === 'projects'} href="projects">Projects</a>
+        <a class:selected={segment === 'projects'} href="/projects">Projects</a>
       </li>
       <li>
         <a
@@ -59,7 +57,7 @@
         </a>
       </li>
       <li>
-        <a class:selected={segment === 'contact'} href="contact">Contact Us</a>
+        <a class:selected={segment === 'contact'} href="/contact">Contact Us</a>
       </li>
       <li>
         <a

@@ -1,7 +1,7 @@
 <script>
     import timeline from '@contentful-entries/recruitmentTimeline'
-    import FlagIcon from '../about-us/MilestoneFlagIcon'
-    import ArrowIcon from '../ArrowIcon'
+    import FlagIcon from '$lib/components/about-us/MilestoneFlagIcon.svelte'
+    import ArrowIcon from '$lib/components/ArrowIcon.svelte'
 
     let currentIndex = 0
   

@@ -14,13 +14,13 @@
 </script>
 
 <script>
-  import Header from '../../components/projects/details/Header'
-  import NonprofitSection from '../../components/projects/NonprofitSection'
-  import AboutProject from '../../components/projects/AboutProject'
-  import VideoPlayer from '../../components/projects/VideoPlayer'
-  import KeyFeatures from '../../components/projects/KeyFeatures'
-  import Reflections from '../../components/projects/Reflections'
-  import ProductScope from '../../components/projects/ProductScope'
+  import Header from '$lib/components/projects/details/Header.svelte'
+  import NonprofitSection from '$lib/components/projects/NonprofitSection.svelte'
+  import AboutProject from '$lib/components/projects/AboutProject.svelte'
+  import VideoPlayer from '$lib/components/projects/VideoPlayer.svelte'
+  import KeyFeatures from '$lib/components/projects/KeyFeatures.svelte'
+  import Reflections from '$lib/components/projects/Reflections.svelte'
+  import ProductScope from '$lib/components/projects/ProductScope.svelte'
   import { onMount } from 'svelte'
   export let content
 

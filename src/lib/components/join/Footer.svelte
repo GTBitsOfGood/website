@@ -1,6 +1,5 @@
 <script>
   import content from '@contentful-entry/joinPage'
-  import { removeWrapperPTag } from '../../contentHelpers'
   
   $: if (!(content.headingImageLeft && content.headingImageLeft.src)) {
     console.log('Join Footer: Missing headingImageLeft or its src');
