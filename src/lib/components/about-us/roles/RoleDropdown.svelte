@@ -1,5 +1,5 @@
 <script>
-  import RightArrowIcon from 'svelte-icons/io/IoIosArrowForward'
+  import RightArrowIcon from 'svelte-icons/io/IoIosArrowForward.svelte'
   import { fly } from 'svelte/transition'
 
   export let name = ''

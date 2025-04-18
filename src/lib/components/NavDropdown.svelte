@@ -1,11 +1,9 @@
 <script>
-    import { stores } from '@sapper/app';
+    import { page } from '$app/stores';
 
     export let mobile
     export let href
     export let shadow
-
-    const { page } = stores();
 
     let currentPath
     page.subscribe(({ path, params, query }) => {

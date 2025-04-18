@@ -1,5 +1,5 @@
 <script>
-  import ArrowRight from 'svelte-icons/io/IoIosArrowRoundForward'
+  import ArrowRight from 'svelte-icons/io/IoIosArrowRoundForward.svelte'
 
   export let nonprofitLink = {}
   export let nonprofitDescription = {}

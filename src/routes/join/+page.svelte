@@ -1,9 +1,10 @@
 <script>
-  import Heading from '../components/join/Heading.svelte'
-  import Footer from '../components/join/Footer.svelte'
+  import Heading from '$lib/components/join/Heading.svelte'
+  import Footer from '$lib/components/join/Footer.svelte'
   import recruitmentCycles from '@contentful-entries/recruitmentCycle'
   import content from '@contentful-entry/joinPage'
-  import Role from '../components/join/Role.svelte'
+  import Role from '$lib/components/join/Role.svelte'
+  import Timeline from '$lib/components/join/Timeline.svelte'
 
   const activeCycle = recruitmentCycles.find(cycle => cycle.active)
 
@@ -152,6 +153,11 @@
 </style>
 
 <Heading currentTerm={activeCycle.term} />
+
+{#if activeCycle.timeline}
+  <Timeline timelineImage={activeCycle.timeline} />
+{/if}
+
 <div class="jump-to-section-links">
   <button class="students" on:click={() => scrollToSection('students')}>
     For Students

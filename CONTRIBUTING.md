@@ -11,9 +11,9 @@ A vast majority of project work relies on HTML and CSS, rather than super-fancy 
 
 **Basics on using CSS in Svelte:** [Read this CSS tricks article](https://css-tricks.com/what-i-like-about-writing-styles-with-svelte/)
 
-**Fundamentals tutorial:** [Just click through the "Basics" section](https://svelte.dev/tutorial/basics)
+**Understanding SvelteKit:** [Read "Introduction" and "Project Structure"](https://svelte.dev/docs/kit/introduction)
 
-**Understanding Sapper:** [Read "Introduction" and "Sapper app structure"](https://sapper.svelte.dev/docs)
+**UPDATE 2025**: This project was originally built with Sapper, which is now deprecated in favor of SvelteKit. This project has now been migrated. If you encounter any inconsistencies, please report them. Some SvelteKit features might not be fully taken advantage of. Understand that this is a result of the migration and any optimization and future development is welcome.
 
 ## CSS standards
 
