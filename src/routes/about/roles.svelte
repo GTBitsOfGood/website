@@ -20,8 +20,6 @@
       scrollToDepartment(location.hash.slice(1))
     }
   })
-
-  console.log(headerContent)
 </script>
 
 <style>
