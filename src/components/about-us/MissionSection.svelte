@@ -49,9 +49,11 @@
 
 <section {id}>
   <h2>Our Mission</h2>
-  {#each missionCards as { heading, description, aboutUsImage }}
+    {#each missionCards as { heading, description, aboutUsImage }}
     <div class="mission-card">
-      <img src={aboutUsImage.src} alt={aboutUsImage.alt} />
+      {#if aboutUsImage && aboutUsImage.src}
+        <img src={aboutUsImage.src} alt={aboutUsImage.alt} />
+      {/if}
       <h3>{heading}</h3>
       <p>
       {@html description.inlineHtml}

@@ -2,6 +2,10 @@
   import content from '@contentful-entry/homeHeader'
   import { GetInvolvedBtn, DottedAccent } from '../'
   import BigLogo from './BigLogo.svelte'
+  
+  $: if (!(content.logo && content.logo.src)) {
+    console.log('Landing Heading: Missing logo or logo.src');
+  }
 </script>
 
 <style>

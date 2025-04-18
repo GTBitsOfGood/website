@@ -86,3 +86,14 @@
   </svg>
   <img src="/images/slogan.svg" alt="Changing lives one bit at a time" />
 </div>
+
+<script>
+  import { onMount } from 'svelte';
+  
+  onMount(() => {
+    const img = document.querySelector('.container img');
+    if (!img || !img.src) {
+      console.log('Slogan: Missing slogan.svg image');
+    }
+  });
+</script>

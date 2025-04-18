@@ -117,7 +117,9 @@
 <section class:rightAlign id={hash}>
   <div class="inner">
     <div class="image-container">
-      <img src={image.src} alt={image.alt} />
+      {#if image && image.src}
+        <img src={image.src} alt={image.alt} />
+      {/if}
     </div>
     <div class="content-container">
       <div class="header-container">

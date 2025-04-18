@@ -76,7 +76,9 @@
         {content.newsletterCta}
       </a>
     </div>
-    <img src={content.artwork.src} alt={content.artwork.alt} />
+    {#if content.artwork && content.artwork.src}
+      <img src={content.artwork.src} alt={content.artwork.alt} />
+    {/if}
   </section>
 </div>
 

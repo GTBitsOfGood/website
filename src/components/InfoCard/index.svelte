@@ -27,6 +27,14 @@
     },
   ]
   $: validLabel = labels.find(l => l.label === label)
+
+  $: if (!(img && img.src)) {
+    console.log(`InfoCard '${heading}': Missing img or img.src`);
+  }
+
+  $: if (label && !labels.find(l => l.label === label)) {
+    console.log(`InfoCard '${heading}': Invalid label '${label}'`);
+  }
 </script>
 
 <style>

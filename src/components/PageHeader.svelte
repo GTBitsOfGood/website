@@ -5,6 +5,10 @@
   export let ctaScrollToId = ''
   export let image = {}
 
+  $: if (!(image && image.src)) {
+    console.log(`PageHeader '${heading}': Missing image or image.src`);
+  }
+
   const scrollTo = () => {
     const element = document.getElementById(ctaScrollToId)
     if (element) element.scrollIntoView({ behavior: 'smooth' })
@@ -116,6 +120,8 @@
         <button on:click={scrollTo}>{cta}</button>
       {/if}
     </div>
-    <img src={image.src} alt={image.alt} />
+    {#if image && image.src}
+      <img src={image.src} alt={image.alt} />
+    {/if}
   </div>
 </section>

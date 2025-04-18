@@ -30,7 +30,9 @@
     <p>
       {@html feature.body.inlineHtml}
     </p>
-    <img height="500" src={feature.image.src} alt={feature.image.alt} />
+    {#if feature.image && feature.image.src}
+      <img height="500" src={feature.image.src} alt={feature.image.alt} />
+    {/if}
   {/each}
   {#if userFlow != null}
     <h4>User Flow 🌊</h4>
@@ -38,7 +40,9 @@
       {@html userFlow.body.inlineHtml}
     </p>
     <div class="img-container">
-      <img src={userFlow.image.src} alt={userFlow.image.alt} />
+      {#if userFlow.image && userFlow.image.src}
+        <img src={userFlow.image.src} alt={userFlow.image.alt} />
+      {/if}
     </div>
   {/if}
 </section>

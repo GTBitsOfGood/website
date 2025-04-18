@@ -83,12 +83,14 @@
     <h3>Reflection 💬</h3>
     {#each quotes as quote}
       <div class="quote-container">
-        <div class="img-container">
-          <img
-            height="80"
-            width="80"
-            src={quote.image.src}
-            alt={quote.image.alt} />
+      <div class="img-container">
+          {#if quote.image && quote.image.src}
+            <img
+              height="80"
+              width="80"
+              src={quote.image.src}
+              alt={quote.image.alt} />
+          {/if}
           <p class="quote-author">{quote.header}</p>
         </div>
         <p class="quote">

@@ -64,7 +64,9 @@
       <p>{briefDescription}</p>
     </div>
     <div class="img-container">
-      <img src={headerScreenshot.src} alt={headerScreenshot.alt} />
+      {#if headerScreenshot && headerScreenshot.src}
+        <img src={headerScreenshot.src} alt={headerScreenshot.alt} />
+      {/if}
     </div>
   </div>
 </section>
