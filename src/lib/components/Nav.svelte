@@ -9,10 +9,12 @@
   let mobileNavToggled = false
   let currentPath
 
-  page.subscribe(({ path, params, query }) => {
-    currentPath = path
-    mobileNavToggled = false
-  })
+  $: currentPath = $page.url.pathname;
+
+  // Close mobile nav on route change
+  $: if ($page.url) {
+    mobileNavToggled = false;
+  }
 </script>
 
 <nav class:shadow={scrolled}>
@@ -20,7 +22,7 @@
     <div class="mobile-wrapper">
       <li>
         <a
-          class:selected={segment === undefined || currentPath === '/'}
+          class:selected={segment === undefined || segment === '/' || currentPath === '/'}
           href="/">Home</a
         >
       </li>
@@ -45,7 +47,7 @@
         </span>
       </NavDropdown> -->
       <li>
-        <a class:selected={segment === 'projects'} href="/projects">Projects</a>
+        <a class:selected={currentPath === '/projects'} href="/projects">Projects</a>
       </li>
       <li>
         <a
@@ -57,7 +59,7 @@
         </a>
       </li>
       <li>
-        <a class:selected={segment === 'contact'} href="/contact">Contact Us</a>
+        <a class:selected={currentPath === '/contact'} href="/contact">Contact Us</a>
       </li>
       <li>
         <a
@@ -70,7 +72,7 @@
       </li>
       <li class="get-involved-btn">
         <GetInvolvedBtn
-          hide={(!scrolled && segment === undefined) || segment === 'join'}
+          hide={(!scrolled && currentPath === '/') || currentPath === '/join'}
         />
       </li>
     </div>
