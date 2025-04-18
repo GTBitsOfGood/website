@@ -3580,7 +3580,7 @@
         "id": "recruitmentTimeline",
         "type": "ContentType",
         "createdAt": "2025-04-18T01:36:50.497Z",
-        "updatedAt": "2025-04-18T01:36:50.880Z",
+        "updatedAt": "2025-04-18T17:11:15.059Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -3588,8 +3588,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 1,
-        "publishedAt": "2025-04-18T01:36:50.880Z",
+        "publishedVersion": 3,
+        "publishedAt": "2025-04-18T17:11:15.059Z",
         "firstPublishedAt": "2025-04-18T01:36:50.880Z",
         "createdBy": {
           "sys": {
@@ -3605,8 +3605,8 @@
             "id": "6l5AKQeQA42fPtO5i9wLxU"
           }
         },
-        "publishedCounter": 1,
-        "version": 2,
+        "publishedCounter": 2,
+        "version": 4,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -3677,8 +3677,19 @@
           "omitted": false
         },
         {
+          "id": "dateNumeric",
+          "name": "dateNumeric",
+          "type": "Date",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
           "id": "time",
-          "name": "time",
+          "name": "timeText",
           "type": "Symbol",
           "localized": false,
           "required": true,
@@ -5494,7 +5505,7 @@
             "linkType": "Space"
           }
         },
-        "version": 2,
+        "version": 4,
         "createdAt": "2025-04-18T01:36:51.111Z",
         "createdBy": {
           "sys": {
@@ -5503,7 +5514,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2025-04-18T01:36:51.394Z",
+        "updatedAt": "2025-04-18T17:11:15.581Z",
         "updatedBy": {
           "sys": {
             "id": "6l5AKQeQA42fPtO5i9wLxU",
@@ -5540,6 +5551,15 @@
         {
           "fieldId": "description",
           "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "dateNumeric",
+          "settings": {
+            "ampm": "24",
+            "format": "dateonly"
+          },
+          "widgetId": "datePicker",
           "widgetNamespace": "builtin"
         },
         {

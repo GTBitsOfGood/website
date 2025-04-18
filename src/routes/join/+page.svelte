@@ -154,10 +154,6 @@
 
 <Heading currentTerm={activeCycle.term} />
 
-{#if activeCycle.timeline}
-  <Timeline timelineImage={activeCycle.timeline} />
-{/if}
-
 <div class="jump-to-section-links">
   <button class="students" on:click={() => scrollToSection('students')}>
     For Students
@@ -203,6 +199,9 @@
     </a>
   </section>
 </section>
+{#if activeCycle.timeline}
+  <Timeline timelineImage={activeCycle.timeline} />
+{/if}
 <Footer />
 
 <svelte:head>
