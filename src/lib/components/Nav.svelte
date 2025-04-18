@@ -21,14 +21,14 @@
       <li>
         <a
           class:selected={segment === undefined || currentPath === '/'}
-          href=".">Home</a
+          href="/">Home</a
         >
       </li>
       <li>
-        <a class:selected={currentPath === '/about'} href="about">About Us</a>
+        <a class:selected={currentPath === '/about'} href="/about">About Us</a>
       </li>
       <li>
-        <a class:selected={currentPath === '/about/roles'} href="about/roles"
+        <a class:selected={currentPath === '/about/roles'} href="/about/roles"
           >Roles</a
         >
       </li>
