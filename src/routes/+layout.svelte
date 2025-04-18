@@ -1,10 +1,10 @@
 <script>
-  import Nav from '../components/Nav.svelte'
-  import Footer from '../components/Footer.svelte'
-
-  export let segment
+  import Nav from '$lib/components/Nav.svelte'
+  import Footer from '$lib/components/Footer.svelte'
+  import { page } from '$app/stores';
 
   let scrolled = false
+  let segment = $page.url.pathname;
 
   const onScroll = ({ target: { documentElement, body } }) => {
     if (body.scrollTop > 0 || documentElement.scrollTop > 0) {
@@ -27,6 +27,6 @@
 <main>
   <slot />
 </main>
-<Footer noTopMargin={segment === 'join'} />
+<Footer noTopMargin={segment === '/join'} />
 
 <svelte:window on:scroll={onScroll} />

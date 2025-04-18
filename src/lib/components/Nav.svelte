@@ -1,5 +1,5 @@
 <script>
-  import { stores } from '@sapper/app'
+  import { page } from '$app/stores';
   import GetInvolvedBtn from './GetInvolvedBtn.svelte'
   import MenuIcon from './MenuIcon.svelte'
   import NavDropdown from './NavDropdown.svelte'
@@ -9,12 +9,12 @@
   let mobileNavToggled = false
   let currentPath
 
-  const { page } = stores()
+  $: currentPath = $page.url.pathname;
 
-  page.subscribe(({ path, params, query }) => {
-    currentPath = path
-    mobileNavToggled = false
-  })
+  // Close mobile nav on route change
+  $: if ($page.url) {
+    mobileNavToggled = false;
+  }
 </script>
 
 <nav class:shadow={scrolled}>
@@ -22,15 +22,15 @@
     <div class="mobile-wrapper">
       <li>
         <a
-          class:selected={segment === undefined || currentPath === '/'}
-          href=".">Home</a
+          class:selected={segment === undefined || segment === '/' || currentPath === '/'}
+          href="/">Home</a
         >
       </li>
       <li>
-        <a class:selected={currentPath === '/about'} href="about">About Us</a>
+        <a class:selected={currentPath === '/about'} href="/about">About Us</a>
       </li>
       <li>
-        <a class:selected={currentPath === '/about/roles'} href="about/roles"
+        <a class:selected={currentPath === '/about/roles'} href="/about/roles"
           >Roles</a
         >
       </li>
@@ -47,7 +47,7 @@
         </span>
       </NavDropdown> -->
       <li>
-        <a class:selected={segment === 'projects'} href="projects">Projects</a>
+        <a class:selected={currentPath === '/projects'} href="/projects">Projects</a>
       </li>
       <li>
         <a
@@ -59,7 +59,7 @@
         </a>
       </li>
       <li>
-        <a class:selected={segment === 'contact'} href="contact">Contact Us</a>
+        <a class:selected={currentPath === '/contact'} href="/contact">Contact Us</a>
       </li>
       <li>
         <a
@@ -72,7 +72,7 @@
       </li>
       <li class="get-involved-btn">
         <GetInvolvedBtn
-          hide={(!scrolled && segment === undefined) || segment === 'join'}
+          hide={(!scrolled && currentPath === '/') || currentPath === '/join'}
         />
       </li>
     </div>

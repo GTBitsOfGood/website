@@ -4,7 +4,7 @@
     ConnectingSection,
     BuildingSection,
     QuotesSection
-  } from '../components/landing'
+  } from '$lib/components/landing'
 
   let scrollY = 0
 </script>

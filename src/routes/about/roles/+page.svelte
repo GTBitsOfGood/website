@@ -1,12 +1,11 @@
 <script>
   import departments from '@contentful-entries/roleDepartment'
   import headerContent from '@contentful-entry/rolesHeader'
-  import Department from '../../components/about-us/roles/Department'
-  import { stores } from '@sapper/app'
+  import Department from '$lib/components/about-us/roles/Department.svelte'
+  import { page } from '$app/stores';
   import { onMount } from 'svelte'
 
-  const { page } = stores()
-  $: selectedRole = $page.query.role
+  $: selectedRole = $page.url.searchParams.get('role');
 
   const scrollToDepartment = id => {
     const section = document.getElementById(id)

@@ -1,6 +1,6 @@
 <script>
-  import PageHeader from '../../components/PageHeader'
-  import Project from '../../components/projects/index/Project'
+  import PageHeader from '$lib/components/PageHeader.svelte'
+  import Project from '$lib/components/projects/index/Project.svelte'
 
   import content from '@contentful-entry/projectLanding'
 

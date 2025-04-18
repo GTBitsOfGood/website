@@ -16,6 +16,8 @@ The bits of good landing page is built on some modern tooling to keep everything
 
 Everything you see is built on [SvelteJS](https://svelte.dev), a component-based framework that magically disappears ✨ There are countless reasons we chose this framework, as it brings a host of benefits for decreasing bundle size and load times. However, we mainly chose it because of how easy the syntax is to understand! You can read more [here](https://dev.to/bholmesdev/why-sveltejs-may-be-the-best-framework-for-new-web-devs-205i) to learn why it's so awesome, or just [dive into the docs](https://svelte.dev/docs) to start experimenting yourself.
 
+**UPDATE 2025**: This project was originally built with Sapper, which is now deprecated in favor of SvelteKit. This project has now been migrated. If you encounter any inconsistencies, please report them. Some SvelteKit features might not be fully taken advantage of. Understand that this is a result of the migration and any optimization and future development is welcome.
+
 #### Sapper
 
 Along with Svelte, we are using [Sapper](https://sapper.svelte.dev) to make wiring everything up a bit easier. Mainly, Sapper provides:
@@ -55,10 +57,8 @@ yarn dev
 For production builds, run the following to build and start the site:
 
 ```sh
-yarn build && yarn start
+yarn build && yarn preview
 ```
-
-In either case, you should be able to visit `localhost:3000` to see the website in action!
 
 ## Run the tests
 

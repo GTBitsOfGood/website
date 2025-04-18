@@ -1,7 +1,7 @@
 <script>
   import milestones from '@contentful-entries/milestone'
-  import FlagIcon from './MilestoneFlagIcon'
-  import ArrowIcon from '../ArrowIcon'
+  import FlagIcon from './MilestoneFlagIcon.svelte'
+  import ArrowIcon from '../ArrowIcon.svelte'
 
   let currentIndex = 0
 
