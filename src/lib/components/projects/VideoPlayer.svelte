@@ -46,7 +46,7 @@
         frameborder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope;
         picture-in-picture"
-        allowfullscreen />
+        allowfullscreen></iframe>
       <img class="right" src="/images/geometric-pattern.svg" alt="" />
     </section>
   </div>

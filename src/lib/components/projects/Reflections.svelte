@@ -1,5 +1,5 @@
 <script>
-  export let reflection = ''
+  export const reflection = ''
   export let quotes = []
   export let groupPhoto = {}
 </script>

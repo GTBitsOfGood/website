@@ -1,18 +1,3 @@
-<script context="module">
-  export async function preload({ params }) {
-    const { key } = params
-
-    const res = await this.fetch(`projects/${key}.json`)
-    if (!res.ok) {
-      this.error(res.status, res.statusText)
-      return
-    }
-
-    const content = await res.json()
-    return { content }
-  }
-</script>
-
 <script>
   import Header from '$lib/components/projects/details/Header.svelte'
   import NonprofitSection from '$lib/components/projects/NonprofitSection.svelte'
@@ -22,13 +7,69 @@
   import Reflections from '$lib/components/projects/Reflections.svelte'
   import ProductScope from '$lib/components/projects/ProductScope.svelte'
   import { onMount } from 'svelte'
-  export let content
+
+  export let data
+  $: content = data.content
 
   let mounted = false
-  onMount(() => (mounted = true))
-
+  let scrollProgress = 0
   let scrollY = 0
+
+  onMount(() => {
+    mounted = true
+
+    // Cache document dimensions
+    let maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight)
+
+    // Ultra-optimized scroll handler
+    let rafId = null
+    let isScheduled = false
+
+    const updateProgress = () => {
+      // Use cached maxScroll and current scrollY for smooth calculation
+      scrollProgress = maxScroll > 0 ? Math.min(100, (scrollY / maxScroll) * 100) : 0
+      isScheduled = false
+    }
+
+    const handleScroll = () => {
+      if (!isScheduled) {
+        isScheduled = true
+        // Use requestIdleCallback when available for better performance
+        if (window.requestIdleCallback) {
+          rafId = requestIdleCallback(updateProgress, { timeout: 16 })
+        } else {
+          rafId = requestAnimationFrame(updateProgress)
+        }
+      }
+    }
+
+    // Recalculate maxScroll on resize
+    const handleResize = () => {
+      maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight)
+      handleScroll() // Update progress immediately
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('resize', handleResize, { passive: true })
+
+    // Initial calculation
+    handleScroll()
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleResize)
+      if (rafId) {
+        if (window.requestIdleCallback) {
+          cancelIdleCallback(rafId)
+        } else {
+          cancelAnimationFrame(rafId)
+        }
+      }
+    }
+  })
 </script>
+
+<svelte:window bind:scrollY />
 
 <style>
   .progress-bar-container {
@@ -92,7 +133,6 @@
   }
 </style>
 
-<svelte:window bind:scrollY />
 
 <Header {...content} />
 <div class="projects-container">
@@ -100,7 +140,7 @@
     {#if mounted}
       <div
         class="progress-bar"
-        style="width: {(scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100}%" />
+        style="width: {scrollProgress}%"></div>
     {/if}
   </div>
   <AboutProject {...content} />
@@ -112,5 +152,5 @@
 </div>
 
 <svelte:head>
-  <title>{content.name}</title>
+  <title>{content?.name || 'Project'}</title>
 </svelte:head>

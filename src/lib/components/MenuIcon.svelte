@@ -35,7 +35,7 @@
 </style>
 
 <div class="container" class:menuToggled>
-  <div class="stripe-top" />
-  <div class="stripe-middle" />
-  <div class="stripe-bottom" />
+  <div class="stripe-top"></div>
+  <div class="stripe-middle"></div>
+  <div class="stripe-bottom"></div>
 </div>
