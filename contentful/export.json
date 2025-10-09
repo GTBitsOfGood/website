@@ -8316,7 +8316,7 @@
                   },
                   {
                     "data": {
-                      "uri": "mailto:gt@hack4impact.org"
+                      "uri": "mailto:contact@gt.hack4impact.org"
                     },
                     "content": [
                       {
@@ -8340,7 +8340,7 @@
                   },
                   {
                     "data": {
-                      "uri": "mailto:gt@hack4impact.org"
+                      "uri": "mailto:contact@gt.hack4impact.org"
                     },
                     "content": [
                       {
@@ -8348,7 +8348,7 @@
                         },
                         "marks": [
                         ],
-                        "value": "gt@hack4impact.org",
+                        "value": "contact@gt.hack4impact.org",
                         "nodeType": "text"
                       }
                     ],
