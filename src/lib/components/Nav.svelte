@@ -3,11 +3,32 @@
   import GetInvolvedBtn from './GetInvolvedBtn.svelte'
   import MenuIcon from './MenuIcon.svelte'
   import NavDropdown from './NavDropdown.svelte'
+  import footerContent from '@contentful-entry/footer'
 
   export let segment
   export let scrolled = true
   let mobileNavToggled = false
   let currentPath
+
+  const footerLinkColumns = Object.keys(footerContent ?? {})
+    .filter(key => key.startsWith('linksColumn'))
+    .flatMap(key => footerContent[key] ?? [])
+    .filter(Boolean)
+
+  const donateLink =
+    footerLinkColumns.find(
+      link => typeof link.text === 'string' && link.text.toLowerCase().includes('donate')
+    ) ||
+    footerLinkColumns.find(link => typeof link.url === 'string' && link.url.includes('donorbox')) ||
+    null
+
+  const fallbackDonateLink = {
+    url: 'https://donorbox.org/bits-of-good',
+    text: 'Donate',
+  }
+
+  const donateLinkUrl = (donateLink && donateLink.url) || fallbackDonateLink.url
+  const donateLinkText = (donateLink && donateLink.text) || fallbackDonateLink.text
 
   $: currentPath = $page.url.pathname;
 
@@ -65,9 +86,9 @@
         <a
           target="_blank"
           rel="noreferrer noopener"
-          href="https://donorbox.org/bits-of-good"
+          href={donateLinkUrl}
         >
-          Donate
+          {donateLinkText}
         </a>
       </li>
       <li class="get-involved-btn">

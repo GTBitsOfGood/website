@@ -48,7 +48,24 @@
       title: content[`titleColumn${columnNum}`],
       links: content[`linksColumn${columnNum}`],
     }))
+
+  const candidProfile = {
+    profileUrl: 'https://app.candid.org/profile/9565390/hack4impact-81-0790890',
+    badgeUrl: 'https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/9565390/svg',
+    badgeAlt: 'Candid Transparency Seal',
+    ein: '81-0790890',
+    parentOrgUrl: 'https://www.hack4impact.org',
+  }
 </script>
+
+<svelte:head>
+  <link
+    rel="preload"
+    as="image"
+    href={candidProfile.badgeUrl}
+    importance="low"
+  />
+</svelte:head>
 
 <style>
   footer {
@@ -129,6 +146,51 @@
     max-width: 100%;
   }
 
+  .transparency-row {
+    display: flex;
+    align-items: stretch;
+    gap: 16px;
+    margin: 8px auto 0;
+    max-width: var(--content-max-width);
+  }
+
+  .transparency-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+    min-height: 40px;
+  }
+
+  .transparency-badge img {
+    height: 100%;
+    width: auto;
+    display: block;
+    max-height: 140px;
+    filter: brightness(1.1) saturate(0.85) contrast(0.95);
+  }
+
+  .transparency-note {
+    font-size: 15px;
+    color: #4a4d57;
+    max-width: 640px;
+    line-height: 1.4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4px 0;
+  }
+
+  .transparency-note p {
+    font-size: 15px;
+    margin: 0 0 6px 0;
+  }
+
+  .transparency-note a {
+    color: inherit;
+    text-decoration: underline;
+  }
+
   .cta-container {
     max-width: 400px;
     margin-bottom: 35px;
@@ -147,10 +209,10 @@
     color: var(--primary-red);
   }
 
-  @media (max-width: 600px) {
-    footer {
-      padding: 30px 30px;
-    }
+@media (max-width: 600px) {
+  footer {
+    padding: 30px 30px;
+  }
 
     h3 {
       font-size: 32px;
@@ -164,7 +226,11 @@
       flex-direction: column;
       align-items: flex-start;
     }
+
+  .transparency-row {
+    display: none;
   }
+}
 </style>
 
 <footer id="footer" class:noTopMargin>
@@ -203,7 +269,7 @@
 
   <div class="footer-bottom">
     {#if content.hack4impactLink && content.hack4impactLink.url && content.hack4impactLink.image && content.hack4impactLink.image.src && content.hack4impactLink.image.alt}
-      <a href={content.hack4impactLink.url}>
+      <a href={content.hack4impactLink.url} target="_blank" rel="noopener noreferrer">
         <img
           src={content.hack4impactLink.image.src}
           alt={content.hack4impactLink.image.alt} />
@@ -222,6 +288,24 @@
             alt={content.bitsOfGoodHomeLink.image.alt} />
         </a>
       {/if}
+    </div>
+  </div>
+  <div class="transparency-row">
+    <a
+      class="transparency-badge"
+      href={candidProfile.profileUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="View Hack for Impact's Candid profile"
+    >
+      <img src={candidProfile.badgeUrl} alt={candidProfile.badgeAlt} />
+    </a>
+    <div class="transparency-note">
+      <p><strong>EIN:</strong> {candidProfile.ein}</p>
+      <p>
+        Bits of Good (Hack for Impact @ Georgia Tech) is a chapter of
+        <a href={candidProfile.parentOrgUrl} target="_blank" rel="noopener noreferrer">Hack for Impact</a>, a 501(c)(3) nonprofit committed to transparency.
+      </p>
     </div>
   </div>
 </footer>
